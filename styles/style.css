@@ -1,0 +1,96 @@
+.container{
+    width: 100%;
+    height: 100vh;
+}
+/* 1. sign in form */
+.middle-centered{
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+.middle-centered .middle-centered-div {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.login-form{
+    width: 300px;
+    height: 400px;
+    background-color: rgb(141, 141, 141);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center
+}
+.login-form > img{
+    width: 175px;
+}
+.login-form > .username-div, .login-form > .password-div{
+    background-color:white;
+    padding: 5px;
+    border-radius: 20px;
+}
+/* 2. Index page */
+/* Hero */
+.hero{
+    width: 100%;
+    background-color: grey;
+    height: 225px;
+}
+.hero-items{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.hero-logo{
+    width: 100px;   
+}
+/* profile and cart */
+.click-menu {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.hero-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background-color: #f1f1f1;
+    z-index: 1;
+}
+
+.click-menu.active .hero-menu {
+    display: block;
+}
+.hero-menu > ul{
+    width: 100px;
+    list-style: none;
+    margin: 0;
+    padding-inline-start: 0;
+    padding: 20px 50px;
+}
+/* Menu (Product Display)*/
+.menu-display{
+    display: grid;
+    grid-template-columns: 17% 17% 17% 17% 17%;
+    justify-content: center;
+}
+.product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: auto;
+  }
+.product-image{
+    max-width: 100%;
+    height: auto;
+}
