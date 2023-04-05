@@ -1,96 +1,176 @@
-.container{
-    width: 100%;
-    height: 100vh;
+/* navbar */
+
+nav {
+  margin: 1px 0px 1px 0px;
+  background-color: black;
+  height: 30px;
+}
+
+.link_container {
+  float: left;
+  display: flex;
+  border-bottom: 30px solid green;
+  border-left: 0px solid transparent;
+  border-right: 30px solid transparent;
+  height: 0;
+  justify-content: center;
+}
+
+nav a {
+  text-decoration: none;
+  padding-top: 3px;
+  color: white;
+  font-weight: 500;
+  font-size: 18px;
+  padding: 3px 20px 3px;
+}
+a:hover {
+  background-color: green;
+  height: 24px;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
 }
 /* 1. sign in form */
-.middle-centered{
-    height: 100%;
-    width: 100%;
-    position: relative;
+.middle-centered {
+  height: 100%;
+  width: 100%;
+  position: relative;
 }
 .middle-centered .middle-centered-div {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-.login-form{
-    width: 300px;
-    height: 400px;
-    background-color: rgb(141, 141, 141);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center
+.login-form {
+  width: 300px;
+  height: 400px;
+  background-color: rgb(141, 141, 141);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-.login-form > img{
-    width: 175px;
+.login-form > img {
+  width: 175px;
 }
-.login-form > .username-div, .login-form > .password-div{
-    background-color:white;
-    padding: 5px;
-    border-radius: 20px;
+.login-form > .username-div,
+.login-form > .password-div {
+  background-color: white;
+  padding: 5px;
+  border-radius: 20px;
 }
 /* 2. Index page */
 /* Hero */
-.hero{
-    width: 100%;
-    background-color: grey;
+
+.hero {
+    width: 100%; 
     height: 225px;
+     background: linear-gradient(
+        rgba(0, 0, 0, 0.52),
+        rgba(221, 221, 221, 0.5)
+      ),
+      url("../assets/momo.jpg");
+      background-size:100% 300px;
 }
-.hero-items{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+.hero image {
+    
 }
-.hero-logo{
-    width: 100px;   
+.hero-items {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.hero-logo {
+ padding:10px 0px 0px 3px;
+  width: 90px;
+
 }
 /* profile and cart */
+
+
+.hero-cart{
+
+    font-weight: 1000;
+    font-size: 28px;
+    color: white;
+    padding:20px 10px 0px 10px;
+
+}
+.hero-profile{
+    font-weight: 1000;
+    font-size: 28px;
+    color: white;
+    padding:20px 10px 0px 0px;
+}
 .click-menu {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
 }
 
 .hero-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    background-color: #f1f1f1;
-    z-index: 1;
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  background-color: #f1f1f1;
+  z-index: 1;
 }
 
 .click-menu.active .hero-menu {
-    display: block;
+  display: block;
 }
-.hero-menu > ul{
-    width: 100px;
-    list-style: none;
+.hero-menu > ul {
+  width: 100px;
+  list-style: none;
+  margin: 0;
+  padding-inline-start: 0;
+  padding: 20px 50px;
+}
+
+/* hamro canteen Heading */
+
+.hero-heading{
+
+    color:rgb(255, 255, 255);
+    margin-left:50%;
+    font-size: 50px;      
+}
+.marquee{
+
+    width: 350px;
     margin: 0;
-    padding-inline-start: 0;
-    padding: 20px 50px;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color:yellow;
+
 }
+
 /* Menu (Product Display)*/
-.menu-display{
-    display: grid;
-    grid-template-columns: 17% 17% 17% 17% 17%;
-    justify-content: center;
+.menu-display {
+  display: grid;
+  grid-template-columns: 17% 17% 17% 17% 17%;
+  justify-content: center;
 }
 .product {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid #ddd;
-    padding: 20px;
-    width: auto;
-  }
-.product-image{
-    max-width: 100%;
-    height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ddd;
+  padding: 20px;
+  width: auto;
+}
+.product-image {
+  max-width: 100%;
+  height: auto;
 }
