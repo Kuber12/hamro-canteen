@@ -37,9 +37,10 @@ include './layout/head.php';
         </marquee>
     </div>
 </div>
-<h1>Sunday's Treats</h1>
+<h3>Today's Menu</h3>
 <div class="menu-display">
     <div class="product">
+       <i class="fa fa-thumb-tack" aria-hidden="true"></i>
         <img src="./assets/item.png" alt="Product Image" class="product-image">
         <h2 class="item-name">Momo</h2>
         <p class="price">120</p>

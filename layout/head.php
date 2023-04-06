@@ -19,10 +19,17 @@
     <nav>
 
         <div class="link_container">
-            <a href="#">Home</a>
+            <a href="index.php">Home</a>
             <a href="#">About</a>
             <a href="#">Contact</a>
             <a href="#">Blog</a>
+        </div>
+        
+        <div class="search_bar">
+        <form action="#" >
+            <input type="text" placeholder="Search.." name="search" />
+            <button type="submit"> <i class="fa fa-search"></i></button>
+        </form>
         </div>
 
 
