@@ -48,34 +48,148 @@
     width: 100px;   
 }
 /* profile and cart */
-.click-menu {
+#hero-cart-button ,#hero-profile-button{
     position: relative;
     display: inline-block;
     cursor: pointer;
 }
-
-.hero-menu {
-    display: none;
+#profile-menu {
     position: absolute;
-    top: 100%;
-    right: 0;
-    padding: 0;
+    right: 20px;
     margin: 0;
     list-style: none;
     background-color: #f1f1f1;
     z-index: 1;
+    width: 250px;
+    border-radius: 25px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
 }
-
-.click-menu.active .hero-menu {
-    display: block;
+/* for profile menu is id which cant be changed by script again*/
+.dropdown-content {
+    display: none;
+    z-index: 1;
 }
-.hero-menu > ul{
+#profile-menu > ul{
     width: 100px;
     list-style: none;
     margin: 0;
     padding-inline-start: 0;
     padding: 20px 50px;
 }
+#profile-menu > div{
+    background-color:orange;
+    width: 100%;
+    text-align: center;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 25px;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+
+.dropdown-content a {
+    background-color: #FFA500;
+    border-radius: 25px;
+    color: black;
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+    width: 80%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.show {
+    display: block;
+}
+  
+#hero-profile-button {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+  
+.hero-menu {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+  
+.hero-menu a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.hero-menu a:hover {
+    background-color: #ddd;
+}
+
+.show {
+    display: flex;
+}
+  
+#sign-out{
+    width: 40%;
+}
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.popup-content {
+    background-color: #fefefe;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    min-height: 40%;
+    text-align: center;
+}
+.product-cart{
+    width: 100%;
+    display: flex;
+}
+
+/* Close button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 /* Menu (Product Display)*/
 .menu-display{
     display: grid;
@@ -93,4 +207,20 @@
 .product-image{
     max-width: 100%;
     height: auto;
+}
+/* cart menu */
+.cart-menu-items{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.item-image{
+    width: 70px;
+    height: 70px;
+}
+.item-delete{
+    background-color: black;
+    color: white;
+    width: 30px;
+    display: block;
 }
