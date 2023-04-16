@@ -90,13 +90,13 @@ nav a.active {
 
 .hero {
   width: 100%;
-  height: 225px;
-  /* background: linear-gradient(rgba(0, 0, 0, 0.52), rgba(221, 221, 221, 0.5)),
-    url("../assets/pizza.jpg"); */
-    background:url("../assets/pizza.jpg"); 
-    background-color: rgba(0, 0, 0, 0.52);
-    opacity: 0.90;
-  background-size: 100% 300px;
+  height: 300px;
+  
+  background: linear-gradient(rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.5)),
+    url("../assets/pizza.jpeg"); 
+  
+
+    background-size: 100% 400px;
 }
 .hero image {
 }
@@ -197,6 +197,39 @@ h3 {
   max-width: 50%;
   height: auto;
 }
+.product i {
+  left:0;         
+}
+
+.product span{
+
+  font-size: 18px;
+  font-weight: 900;
+  font-style:oblique;
+  margin-bottom: 10px;
+  
+}
+.product input::-webkit-outer-spin-button,
+.product input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.product input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.product input{
+  width:25px;
+  height:20px;
+  text-align: center;
+}
+.order-btn{
+  max-width:70%;
+
+}
+
 .menu-display :hover {
   background-color: orange;
   cursor: pointer;

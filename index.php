@@ -43,8 +43,18 @@ include './layout/head.php';
        <i class="fa fa-thumb-tack" aria-hidden="true"></i>
         <img src="./assets/item.png" alt="Product Image" class="product-image">
         <h2 class="item-name">Momo</h2>
-        <p class="price">120</p>
-        <button class="order-btn">Add to Cart</button>
+        <span class="price">RS. 120</span>
+        <div>             
+            <span>Quantity: <button >-</button> 
+            <input type="number" value="1">
+            <button>+</button> 
+        </span>
+             
+               
+        </div>
+
+        <img class="order-btn" src="./assets/Ordernow.png" alt="ordernow">
+       
     </div>
     <div class="product">
         <img src="./assets/item.png" alt="Product Image" class="product-image">
