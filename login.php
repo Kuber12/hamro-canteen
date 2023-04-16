@@ -3,7 +3,7 @@
 ?>
 <div class="login-container middle-centered">
         <form class="login-form middle-centered-div" action="post">
-            <img src="./assets/logo.png">
+            <img src="./assets/logo-yellow.png">
             <div class="username-div">
                 <i class="fa-solid fa-user"></i>
                 <input type="text" name="username" id="username">
