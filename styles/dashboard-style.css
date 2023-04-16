@@ -1,0 +1,133 @@
+.dashboard-container{
+  margin-left: 80px;
+  height: 100%;
+  display: flex;
+  background-color: orange;
+}
+/* sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #333;
+  color: #fff;
+  width: 80px;
+  transition: width 0.3s ease;
+}
+.sidebar:hover{
+    display: block;
+    width: 160px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  padding: 5px 15px;
+}
+
+.sidebar a {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    padding: 10px;
+    border-radius: 25px;
+}
+
+.sidebar a:hover {
+  background-color: #555;
+}
+
+.sidebar a:hover .menu-name {
+  display: inline;
+  transition: display 0.3s ease;
+}
+
+.sidebar i {
+  font-size: 20px;
+}
+
+.menu-name {
+  display: none;
+  font-size: 16px;
+  margin-left: 10px;
+  white-space: nowrap;
+}
+
+.sign-out {
+    width: 130px;
+}
+
+/* grid container */
+.dashboard-grid-container {
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto auto auto;
+    background-color: transparent;
+}
+.dashboard-grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    margin: 0px 0px 20px 20px;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+/* dashboard sidebar left side */
+.dashboard-sidebar-right{
+  flex: 1;
+  background-color: transparent;
+}
+/* dashboard-middle-container contains hello message and canteen status*/
+.dashboard-middle-container{
+  flex: 3;
+  padding-right: 20px;
+}
+.dashboard-middle-container-top{
+  display: flex;
+}
+.hello-admin,.canteen-status{
+  margin:20px 0px 0px 20px;
+  padding: 0px 20px;
+}
+.hello-admin{
+  flex: 3;
+  background-color: green;
+}
+.canteen-status{
+  background-color: red;
+  flex: 2;
+}
+.canteen-status > p, .hello-admin > p{
+  font-size: 18px;
+}
+.status-circle{
+  color: yellow;
+  margin-right: 5px;
+}
+.today-menu-heading{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px 0px 0px 20px;
+}
+.dashboard-item-image{
+  width: 100%;
+}
+.item-name-n-price{
+display: flex;
+  justify-content: space-between;
+}
+.item-name-n-price > h5{
+  display: ;
+}
+#popular-piechart{
+  margin: 30px 0px;
+  transform: scale(1.5);
+}
