@@ -222,8 +222,5 @@ body{
     height: 70px;
 }
 .item-delete{
-    background-color: black;
-    color: white;
-    width: 30px;
-    display: block;
+    font-size: 30px;
 }

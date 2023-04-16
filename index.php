@@ -18,7 +18,7 @@
                             <input type="number" name="quantity" class="quantity">
                             <h3 class="item-equalto">=</h3>
                             <h3 class="item-total">240</h3>
-                            <h3 class="item-delete">x</h3>
+                            <i class="fa-solid fa-circle-xmark item-delete"></i>
                         </div>
                         <div class="cart-menu-items">
                             <img class="item-image" src="assets/item.png" alt="item">
@@ -27,7 +27,7 @@
                             <input type="number" name="quantity" class="quantity">
                             <h3 class="item-equalto">=</h3>
                             <h3 class="item-total">240</h3>
-                            <h3 class="item-delete">x</h3>
+                            <i class="fa-solid fa-circle-xmark item-delete"></i>
                         </div>
                         <div class="cart-menu-items">
                             <img class="item-image" src="assets/item.png" alt="item">
@@ -36,7 +36,7 @@
                             <input type="number" name="quantity" class="quantity">
                             <h3 class="item-equalto">=</h3>
                             <h3 class="item-total">240</h3>
-                            <h3 class="item-delete">x</h3>
+                            <i class="fa-solid fa-circle-xmark item-delete"></i>
                         </div>
                         <h2 style="text-align:right">Total = <span class="items-total">240
                         </span></h2>
