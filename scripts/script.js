@@ -6,6 +6,7 @@ let profileMenu = document.querySelector("#profile-menu");
 cartButton.addEventListener("click",function(){
     openPopup();
 })
+
 // Function to open the popup
 function openPopup() {
     popup.style.display = "block";
@@ -35,5 +36,9 @@ document.addEventListener("click", function(event) {
 document.querySelector(".dropbtn").addEventListener("click", function() {
     profileMenu.classList.toggle("show");
 });
+
+// to increase or decrease the quantity of product
+
+let buttons = getElementByClass
 
 
