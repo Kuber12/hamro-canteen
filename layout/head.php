@@ -20,6 +20,7 @@
 </head>
 
 <body>
+    <div class="blocker"></div>
     <nav>
 
         <div class="link_container">
