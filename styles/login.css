@@ -1,0 +1,24 @@
+
+/*   
+   .middle-centered .middle-centered-div
+  .middle-centered  --> these are inherted from index.php */
+  
+.login-form {
+    width: 300px;
+    height: 400px;
+    background-color: rgb(141, 141, 141);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .login-form > img {
+    width: 175px;
+  }
+  .login-form > .username-div,
+  .login-form > .password-div {
+    background-color: white;
+    padding: 5px;
+    border-radius: 20px;
+  }
+

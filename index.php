@@ -11,11 +11,10 @@ include './layout/head.php';
 
         <!-- cart and user icon container -->
         <span>
-            <i class="fa-solid fa-cart-shopping fa-beat hero-cart"></i>
-            <i class="fa-solid fa-user hero-profile"></i>
-
+            <i class="fa-solid fa-cart-shopping fa-beat hero-cart" id= "hero-cart-button" ></i>
+            <i class="fa-solid fa-user hero-profile" id="hero-profile-button"></i>
             <!-- cart menu starts here -->
-            <div class="cart-menu">
+            <div class="cart-menu" id ="cart-menu">
 
                 <!-- left part of cart menu -->
                 <div class="cart-menu-left">
@@ -25,97 +24,108 @@ include './layout/head.php';
                     </div>
 
                     <div class="items">
-                    <div class="item-row">
-                        <input type="checkbox" checked/>
-                        <img src="./assets/burger.jpg" alt="burger">
-                        <p>MOMO</p>
-                        <p>Rs. 120</p>
-                        <p>X</p>
-                        <span class="qty">
-                            <i class="fa-solid fa-square-minus fa-lg" style="color: #000000; margin-left:3px;"></i>
-                            <input type="number" value="1">
-                            <i class="fa-solid fa-square-plus fa-lg"></i>
-                        </span>
-                        <i class="fa-solid fa-circle-xmark fa-xl" style="color: #000000;"></i>
-                    </div>
+                        <div class="item-row">
+                            <input type="checkbox" checked />
+                            <img src="./assets/burger.jpg" alt="burger">
+                            <p>MOMO</p>
+                            <p>Rs. 120</p>
+                            <p>X</p>
+                            <span class="qty">
+                                <i class="fa-solid fa-square-minus fa-lg" style="color: #000000; margin-left:3px;"></i>
+                                <input type="number" value="1">
+                                <i class="fa-solid fa-square-plus fa-lg"></i>
+                            </span>
+                            <i class="fa-solid fa-circle-xmark fa-xl" style="color: #000000;"></i>
+                        </div>
 
-                  <div class="item-row">
-                  <input type="checkbox" checked/>
-                        <img src="./assets/burger.jpg" alt="burger">
-                        <p>MOMO</p>
-                        <p>Rs. 120</p>
-                        <p>X</p>
-                        <span class="qty">
-                            <i class="fa-solid fa-square-minus fa-lg" style="color: #000000; margin-left:3px;"></i>
-                            <input type="number" value="1">
-                            <i class="fa-solid fa-square-plus fa-lg"></i>
-                        </span>
-                        <i class="fa-solid fa-circle-xmark fa-xl" style="color: #000000;"></i>
-                    </div>
+                        <div class="item-row">
+                            <input type="checkbox" checked />
+                            <img src="./assets/burger.jpg" alt="burger">
+                            <p>Chana Anda</p>
+                            <p>Rs. 120</p>
+                            <p>X</p>
+                            <span class="qty">
+                                <i class="fa-solid fa-square-minus fa-lg" style="color: #000000; margin-left:3px;"></i>
+                                <input type="number" value="1">
+                                <i class="fa-solid fa-square-plus fa-lg"></i>
+                            </span>
+                            <i class="fa-solid fa-circle-xmark fa-xl" style="color: #000000;"></i>
+                        </div>
 
-                  <div class="item-row">
-                  <input type="checkbox" checked/>
-                        <img src="./assets/burger.jpg" alt="burger">
-                        <p>MOMO</p>
-                        <p>Rs. 120</p>
-                        <p>X</p>
-                        <span class="qty">
-                            <i class="fa-solid fa-square-minus fa-lg" style="color: #000000; margin-left:3px;"></i>
-                            <input type="number" value="1">
-                            <i class="fa-solid fa-square-plus fa-lg"></i>
-                        </span>
-                        <i class="fa-solid fa-circle-xmark fa-xl" style="color: #000000;"></i>
-                    </div>
-                    <div class="item-row">
-                  <input type="checkbox" checked/>
-                        <img src="./assets/burger.jpg" alt="burger">
-                        <p>MOMO</p>
-                        <p>Rs. 120</p>
-                        <p>X</p>
-                        <span class="qty">
-                            <i class="fa-solid fa-square-minus fa-lg" style="color: #000000; margin-left:3px;"></i>
-                            <input type="number" value="1">
-                            <i class="fa-solid fa-square-plus fa-lg"></i>
-                        </span>
-                        <i class="fa-solid fa-circle-xmark fa-xl" style="color: #000000;"></i>
-                    </div>
-                    <div class="item-row">
-                  <input type="checkbox" checked/>
-                        <img src="./assets/burger.jpg" alt="burger">
-                        <p>MOMO</p>
-                        <p>Rs. 120</p>
-                        <p>X</p>
-                        <span class="qty">
-                            <i class="fa-solid fa-square-minus fa-lg" style="color: #000000; margin-left:3px;"></i>
-                            <input type="number" value="1">
-                            <i class="fa-solid fa-square-plus fa-lg"></i>
-                        </span>
-                        <i class="fa-solid fa-circle-xmark fa-xl" style="color: #000000;"></i>
-                    </div>
-
-
-                    
-                    </div>
+                        <div class="item-row">
+                            <input type="checkbox" checked />
+                            <img src="./assets/burger.jpg" alt="burger">
+                            <p>MOMO</p>
+                            <p>Rs. 120</p>
+                            <p>X</p>
+                            <span class="qty">
+                                <i class="fa-solid fa-square-minus fa-lg" style="color: #000000; margin-left:3px;"></i>
+                                <input type="number" value="1">
+                                <i class="fa-solid fa-square-plus fa-lg"></i>
+                            </span>
+                            <i class="fa-solid fa-circle-xmark fa-xl" style="color: #000000;"></i>
+                        </div>
+                        <div class="item-row">
+                            <input type="checkbox" checked />
+                            <img src="./assets/burger.jpg" alt="burger">
+                            <p>MOMO</p>
+                            <p>Rs. 120</p>
+                            <p>X</p>
+                            <span class="qty">
+                                <i class="fa-solid fa-square-minus fa-lg" style="color: #000000; margin-left:3px;"></i>
+                                <input type="number" value="1">
+                                <i class="fa-solid fa-square-plus fa-lg"></i>
+                            </span>
+                            <i class="fa-solid fa-circle-xmark fa-xl" style="color: #000000;"></i>
+                        </div>
+                        <div class="item-row">
+                            <input type="checkbox" checked />
+                            <img src="./assets/burger.jpg" alt="burger">
+                            <p>MOMO</p>
+                            <p>Rs. 120</p>
+                            <p>X</p>
+                            <span class="qty">
+                                <i class="fa-solid fa-square-minus fa-lg" style="color: #000000; margin-left:3px;"></i>
+                                <input type="number" value="1">
+                                <i class="fa-solid fa-square-plus fa-lg"></i>
+                            </span>
+                            <i class="fa-solid fa-circle-xmark fa-xl" style="color: #000000;"></i>
+                        </div>
 
 
-                    
-                    <button><i class="fa-solid fa-arrow-left " style="margin-right:5px;"></i> back to shopping</button>
+
+                    </div>
+
+
+
+                    <button id="back-to-shopping"><i class="fa-solid fa-arrow-left " style="margin-right:5px;"></i> back to shopping</button>
 
                 </div>
 
                 <!-- cart menu right side -->
                 <div class="cart-menu-right">
-                    <span><i class="fa-solid fa-circle-xmark fa-2xl" style="color: #000000;"></i></span>
+                    <span><i class="fa-solid fa-circle-xmark fa-2xl" style="color: #000000;" id ="close"></i></span>
                     <h2>Summary</h2>
-                    <p>1. MOMO X 2 = 240</p>
-                    <p>2. MOMO X 2 = 240</p>
-                    <p>3. MOMO X 2 = 240</p>
-                    <p>Total = 720</p>
-                    <button class="checkout">CHECKOUT</button>
+                    <div class="summary">
+                        <p> <span> 1. </span> <span> MOMO </span> <span> X 2 </span> <span> = 240 </span></p>
+                        <p> <span> 1. </span> <span> MOMO </span> <span> X 2 </span> <span> = 240 </span></p>
+                        <p> <span> 1. </span> <span> MOMO </span> <span> X 2 </span> <span> = 240 </span></p>
+                        <p> <span> 1. </span> <span> MOMO </span> <span> X 2 </span> <span> = 240 </span></p>
+                        <p> <span> 1. </span> <span> MOMO </span> <span> X 2 </span> <span> = 240 </span></p>
+                        <p> <span> 1. </span> <span> Chana Anda </span> <span> X 2 </span> <span> = 240 </span></p>
+                        <p> <span> 1. </span> <span> MOMO </span> <span> X 2 </span> <span> = 240 </span></p>
+                        <p> <span> 1. </span> <span> MOMO </span> <span> X 2 </span> <span> = 240 </span></p>
+                        <p><span style="margin-left:20px;">TOTAL </span> <span> = 720 </span></p>
+                    </div>
+
+
+
+
+                    <button class="checkout" id="">CHECKOUT</button>
                 </div>
             </div>
 
-            <div class="profile-menu">
+            <div class="profile-menu" id="profile-menu">
                 <div class="profile-info-container">
                     <img src="./assets/avatar.jpg" alt="Profile Picture">
                     <p>Ram Prasad Subedi
