@@ -23,7 +23,7 @@
             <!-- submit button  -->
             <input type="submit" value="LOG IN" class="login-btn">
                
-            <a href="#" id="forget-password">Forget Password</a>
+            <a href="#" id="forget-password">Forget Password</a>.
         </form>
 </div>
 <?php
