@@ -7,6 +7,8 @@ nav {
   background-color: black;
   height: 30px;
 }
+/* navbar link  container */
+
 .link_container {
   float: left;
   display: flex;
@@ -15,25 +17,6 @@ nav {
   border-right: 30px solid transparent;
   height: 0;
   justify-content: center;
-}
-.search_bar {
-  display: flex;
-  align-items: center;
-  float: right;
-  font-size: 18px;
-  height: 30px;
-}
-
-.search_bar input:focus {
-  outline: none;
-}
-
-.search_bar button {
-  float: none;
-  text-align: center;
-}
-form {
-  display: inline;
 }
 nav a {
   text-decoration: none;
@@ -47,14 +30,37 @@ a:hover {
   background-color: gray;
   height: 24px;
 }
-nav a.active {
-  background-color: red;
+/* navbar search box */
+
+.search_bar {
+  display: flex;
+  align-items: center;
+  float: right;
+  font-size: 18px;
+  height: 30px;
 }
+
+/* form for search bar */
+form {
+  display: inline;
+}
+/* to remove the outlin of input button */
+
+.search_bar input:focus {
+  outline: none;
+}
+
+.search_bar button {
+  float: none;
+  text-align: center;
+}
+
+/* container for body */
 .container {
   width: 100%;
   height: 100vh;
 }
-/* 1. sign in form */
+/* to center and adjust the elements in div */
 .middle-centered {
   height: 100%;
   width: 100%;
@@ -67,36 +73,17 @@ nav a.active {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.login-form {
-  width: 300px;
-  height: 400px;
-  background-color: rgb(141, 141, 141);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.login-form > img {
-  width: 175px;
-}
-.login-form > .username-div,
-.login-form > .password-div {
-  background-color: white;
-  padding: 5px;
-  border-radius: 20px;
-}
-/* 2. Index page */
+
+ 
 /* Hero */
 
 .hero {
-  /* background-size: 100% 300px; */
   height: 300px;
   background: linear-gradient(rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.5)),
     url("../assets/pizza.jpeg");
   background-size: 100% 400px;
 }
-.hero image {
-}
+
 .hero-items {
   display: flex;
   justify-content: space-between;
@@ -106,12 +93,14 @@ nav a.active {
   padding: 10px 0px 0px 3px;
   width: 90px;
 }
+
 /* profile and cart */
 .hero-cart {
   font-weight: 1000;
   font-size: 28px;
   color: white;
   padding: 20px 10px 0px 10px;
+
 }
 .hero-profile {
   font-weight: 1000;
@@ -201,18 +190,22 @@ h3 {
   margin: 15px 0px 3px 65px;
 }
 
+/* to remove the up down button in input box */
+
 .product input::-webkit-outer-spin-button,
-.product input::-webkit-inner-spin-button {
+.product input::-webkit-inner-spin-button,
+.qty input::-webkit-inner-spin-button,
+.qty input::-webkit-inner-spin-button{
   -webkit-appearance: none;
   margin: 0;
 }
 
 /* Firefox */
-.product input[type="number"] {
+.product input[type="number"], .qty input[type="number"] {
   -moz-appearance: textfield;
 }
 
-.product input {
+.quantity > span >input ,  .qty >input {
   width: 25px;
   height: 30px;
   font-size: 20px;
@@ -221,10 +214,13 @@ h3 {
   border: none;
   background: none;
   outline: none;
+  cursor:default;
 }
 .product i {
   cursor: pointer;
 }
+
+/* to adjust price and quantity */
 
 .price,
 .quantity {
@@ -234,6 +230,7 @@ h3 {
   font-weight: 900;
   text-align: center;
 }
+/* adjusting product name */
 
 .product .item-name {
   display: block;
@@ -245,6 +242,7 @@ h3 {
 .product:hover {
   background-color: lightgreen;
 }
+/* adjust order button */
 
 .order-btn {
   float: left;
@@ -253,6 +251,8 @@ h3 {
   border-radius: 10px;
   cursor: pointer;
 }
+
+/* user profile starts here */
 
 .profile-menu {
   display:none;
@@ -266,9 +266,10 @@ h3 {
   border-radius: 10px;
   padding: 20px;
 }
+/* name and image container */
 .profile-info-container {
   display: flex;
-  justify-content: left;
+  justify-content: space-between;
   align-items: center;
   width: 295px;
   text-align: left;
@@ -285,7 +286,6 @@ h3 {
 .profile-menu > .profile-info-container > img {
   width: 50px;
   border-radius: 50px;
-  margin-right: 30px;
   margin-left:5px;
   border: 1px solid gold;
 }
@@ -303,42 +303,109 @@ h3 {
   margin-left:10px;
   background-color: lightgrey;
 }
-.pop{
-  display: block;
-}
+
 .profile-menu i{
   margin-right:20px;
 }
-
+/* profile menu ends here and cart-menu starts   */
 /* cart menu */
 
 .cart-menu{
+  display: none;
+  justify-content: space-between;
   background-color: #ffffff;
   height:350px;
-  width:700px;
+  width:750px;
   position:fixed; 
   z-index:1;
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
-  padding: 2px;
-  border:1px solid gold;;
 
 }
+/* header of cart-menu left side  (my cart) */
 .cart-header{
   display: flex;
-  border:1px solid black;
   justify-content: center;
   align-items: center;  
-  height:40px;
+  height:38px;
   width:auto; 
-}.cart-menu > span  {
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; 
+
+}
+
+/* for cart menu left  */
+.cart-menu-left{
+  width:500px; 
+  margin: 20px 5px 0px 20px;
+}
+/* added item in cart container */
+.items{
+  overflow:auto;
+  height:250px;
+}
+/* item row */
+.item-row{
+  margin:10px 20px 10px 20px;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 900;
+  padding:5px;
+  height: 60px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+/* item image  */
+.item-row>img{
+  
+  width:50px;
+  height:50px;
+  border-radius: 50px;
+}
+/* right side of cart menu/ summary box */
+.cart-menu-right{
+  width:240px;
+  background-color:red;
+  color:white; 
+  padding:10px 0px 0px 15px; 
+
+}
+
+/* to adjust the close button on top right corner */
+.cart-menu-right > span  {
   float:right;
   transform: translate(50%,-50%);
   background-color:white;
   z-index:3;
   border-radius: 50px;
 }
+/* summary container */
+.summary {
+  overflow:auto;
+  height:240px;
+}
+.summary >  p{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 900;
+  padding-right:9px;
+ }
+
+/* to adjust back to shopping button and checkout button */
+.cart-menu-left >  button, .checkout{
+  border:none;
+  border-radius: 5px;
+  position:absolute;
+  bottom:10px;
+  left:5px;
+  font-size: 18px;
+}
+.checkout{
+ left:580px;
+}
+/* to create a blocker */
 .blocker{
   display: none;
   position:fixed;
@@ -349,3 +416,4 @@ h3 {
   z-index: 1;
   opacity: 0.5;
 }
+
