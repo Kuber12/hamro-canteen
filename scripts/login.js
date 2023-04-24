@@ -8,10 +8,7 @@ showPassword.addEventListener("click", show);
 hidePassword.addEventListener("click", hide);
 
 
-// function show() {
-//     // showPassword.style.display="none";
-//     password.type = "text";
-// }
+
 function show() {
     
   password.type = "text";

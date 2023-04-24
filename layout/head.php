@@ -13,7 +13,7 @@
     <!-- nomalize css -->
     <link rel="stylesheet" href="./styles/normalize.css">
     <link rel="stylesheet" href="./styles/index.css">
-    <link rel="stylesheet" href="./login.css">
+    <link rel="stylesheet" href="./styles/login.css">
 
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,24 +23,4 @@
 
 <body>
     <div class="blocker" id="blocker"></div>
-    <!-- <nav>
-
-        <div class="link_container">
-            <a href="index.php">Home</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-            <a href="#">Blog</a>
-        </div>
-        
-        <div class="search_bar">
-        <form action="#" >
-            <input type="text" placeholder="Search.." name="search" />
-            <button type="submit" i><i class="fa fa-search"></i></button>
-        </form>
-        </div>
-
-
-
-    </nav> -->
-
     <div class="container">
