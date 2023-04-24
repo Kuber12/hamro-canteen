@@ -152,8 +152,7 @@ include './layout/head.php';
             <div class="profile-menu" id="profile-menu">
                 <div class="profile-info-container">
                     <img src="./assets/avatar.jpg" alt="Profile Picture">
-                    <p>Ram Prasad Subedi
-                    <p>
+                    <p>Ram Prasad Subedi <p>
 
                 </div>
                 <a href="#"><i class="fa-solid fa-circle-user"></i> My Profile </a>
