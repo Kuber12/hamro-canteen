@@ -152,8 +152,7 @@ include './layout/head.php';
             <div class="profile-menu" id="profile-menu">
                 <div class="profile-info-container">
                     <img src="./assets/avatar.jpg" alt="Profile Picture">
-                    <p>Ram Prasad Subedi
-                    <p>
+                    <p>Ram Prasad Subedi <p>
 
                 </div>
                 <a href="#"><i class="fa-solid fa-circle-user"></i> My Profile </a>
@@ -179,36 +178,20 @@ include './layout/head.php';
 
 <div id="menu">
     <h3>Today's Menu</h3>
+   
 </div>
 
 <!-- available item /product -->
 
-<div class="menu-display" id="menu-display">
+<div class="menu-display" id="menu-display" onload="displayProduct()">
 
     <!-- menu menu-display continue ends in foot.php -->
 
-    <script>
-        let menuDisplay = document.getElementById("menu-display");
-        let id = ["C01","C02","C03","C04"]
-        for(let i in id){
-            menuDisplay.innerHTML += `
-            <div class="product">
-                    <img src="./assets/item.png" alt="Product Image" class="product-image">
-                    <span class="item-name">Momo</span>
-                    <span class="price">RS. 120</span>
-                    <div class="quantity">
-                        <span>Quantity: <i class="fa-solid fa-square-minus fa-lg" style="color: #000000; margin-left:3px;"></i>
-                            <input type="number" value="1">
-                            <i class="fa-solid fa-square-plus fa-lg" ></i>
-                        </span>
+
+    <!-- product details appears here -->
 
 
-                    </div>
 
-                    <img class="order-btn btn${i}" src="./assets/addtocart.png" alt="Add To Cart">
-                    </div>`
-        }
-    </script>
     <?php
     include './layout/foot.php';
     ?>
