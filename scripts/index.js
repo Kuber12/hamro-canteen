@@ -64,59 +64,48 @@ function openProfile() {
        <span class="item-name">${food[i]}</span>
        <span class="price">RS. ${price[i]}</span>
        <div class="quantity">
-           <span>Quantity: <button class ="qty-change-btn"><i class="fa-solid fa-square-minus fa-lg minus"></i></button>
-               <input type="number" value="1" id="productQty" class="productQty${i}" >
-               <button class ="qty-change-btn"><i class="fa-solid fa-square-plus fa-lg " ></i></button>
+           <span>Quantity: <button class ="qty-change-btn minus-btn"  onclick="change(${i}, 0)"><i class="fa-solid fa-square-minus fa-lg minus"></i></button>
+               <input type="number" value="1" class="productQty${i}" >
+               <button class ="qty-change-btn plus-btn"  onclick="change(${i},1)"><i class="fa-solid fa-square-plus fa-lg " ></i></button>
            </span>
       
       
        </div>
       
        <img class="order-btn btn ${i}" src="./assets/addtocart.png" alt="Add To Cart">
-         <button class="button">disabled</button>
+        
        </div>`
           
     
     }
 }
 
-let quantity = 0;
 
-    function changeQty(btnId, button, quantity){
 
- 
-        if(button == `plus${btnId}` ){
 
-            increase(quantity,btnId);
-    
-            
-        }
-        else{
-            console.log("value aayana")
-        }
 
+function change(i,l) {
+
+    let quantity =  document.querySelector(`.productQty${i}`).value;
+
+    if(l==1) {
+
+    quantity++;
+    document.querySelector(`.productQty${i}`).value = quantity;
+    if(quantity>5){
+        document.querySelector(".plus-btn").disabled = true;
+        document.querySelector(".minus-btn").disabled = false;
     }
+        
+    }
+    if(l==0){
+    quantity--;
+    document.querySelector(`.productQty${i}`).value = quantity;
+    if(quantity<0){
+        document.querySelector(".minus-btn").disabled = true;
+        document.querySelector(".plus-btn").disabled = false;
+    }
+   }
 
-
-
-
-function increase(quantity,btnId){
-    quantity++
-    document.querySelector(`.productQty${btnId}`).value = quantity;
-
+    
 }
-    
-   
-    
-
-// }
-// function decrease(btnId,quantity){
-//     quantity--;
-//     document.querySelector(`.productQty${btnId}`).value = quantity;
-    
-// }
-
-
-
- 
-
