@@ -1,21 +1,46 @@
 <?php
 include './layout/head.php';
 ?>
-
-<div class="hero middle-centered">
-    <div class="hero-items">
-        <span>
-            <img src="./assets/logo-yellow.png " class="hero-logo">
-        </span>
-        <span>
-            <div class="click-menu">
-                <i class="fa-solid fa-cart-shopping fa-beat hero-cart"></i>
-                <div class="cart-menu hero-menu">
-                    <ul>
-                        <li><img src="./assets/logo.png" alt="user-profile"></li>
-                        <li><a href="#">Menu item 2</a></li>
-                        <li><a href="#">Menu item 3</a></li>
-                    </ul>
+    <div class="hero middle-centered">
+        <nav class="hero-items">
+            <span>
+                <img src="./assets/logo-yellow.png "class= "hero-logo">
+            </span>
+            <span>
+                <i class="fa-solid fa-cart-shopping" id="hero-cart-button"></i>
+                <div id="myPopup" class="popup">
+                    <div class="cart-menu-pop popup-content" >
+                        <h1>My Orders</h1>
+                        <div class="cart-menu-items">
+                            <img class="item-image" src="assets/item.png" alt="item">
+                            <h3 class="item-name">Momo</h3>
+                            <h3 class="item-price">Rs 120</h3>
+                            <input type="number" name="quantity" class="quantity">
+                            <h3 class="item-equalto">=</h3>
+                            <h3 class="item-total">240</h3>
+                            <i class="fa-solid fa-circle-xmark item-delete"></i>
+                        </div>
+                        <div class="cart-menu-items">
+                            <img class="item-image" src="assets/item.png" alt="item">
+                            <h3 class="item-name">Momo</h3>
+                            <h3 class="item-price">Rs 120</h3>
+                            <input type="number" name="quantity" class="quantity">
+                            <h3 class="item-equalto">=</h3>
+                            <h3 class="item-total">240</h3>
+                            <i class="fa-solid fa-circle-xmark item-delete"></i>
+                        </div>
+                        <div class="cart-menu-items">
+                            <img class="item-image" src="assets/item.png" alt="item">
+                            <h3 class="item-name">Momo</h3>
+                            <h3 class="item-price">Rs 120</h3>
+                            <input type="number" name="quantity" class="quantity">
+                            <h3 class="item-equalto">=</h3>
+                            <h3 class="item-total">240</h3>
+                            <i class="fa-solid fa-circle-xmark item-delete"></i>
+                        </div>
+                        <h2 style="text-align:right">Total = <span class="items-total">240
+                        </span></h2>
+                    </div>
                 </div>
             </div>
             <div class="click-menu">

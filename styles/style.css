@@ -166,3 +166,19 @@ h3 {
   max-width: 50%;
   height: auto;
 }
+/* cart menu */
+.cart-menu-items{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.item-image{
+    width: 70px;
+    height: 70px;
+}
+.item-delete{
+    background-color: black;
+    color: white;
+    width: 30px;
+    display: block;
+}
