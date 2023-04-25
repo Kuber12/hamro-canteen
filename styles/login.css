@@ -1,0 +1,72 @@
+/*   
+   .middle-centered .middle-centered-div
+  .middle-centered  --> these are inherted from index.php */
+
+.login-form {
+  width: 320px;
+  height: 410px;
+  border-radius: 12px;
+  background-color: rgb(241 239 236 / 36%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login-form > img {
+  width: 175px;
+  margin: 20px 10px 25px 0px;
+}
+.login-form > .username-div,
+.login-form > .password-div {
+  background-color: white;
+  padding: 5px;
+  padding-left:10px;
+  border-radius: 20px;
+  margin:5px;
+  width:250px;
+}
+/* to remove the  outline of input box */
+.username-div > input:focus, .password-div > input:focus {
+  outline: none;
+}
+.username-div > input,
+ .password-div > input {
+    border:none;
+    margin-left:10px;
+
+
+ }
+ .login-btn{
+  
+    margin-top:10px;
+    width:150px;
+    font-size: 18px;
+    font-weight: 900;
+    border-radius: 10px;
+    border:none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:5px;
+    background-color: rgb(150, 5, 5);
+    color:white;
+   
+ }
+ #forget-password{
+
+    text-decoration: none;
+    color:black;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top:10px;
+ }
+ /* backgorund image container */
+ .login-container{
+    background: linear-gradient(rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.5)),
+    url("../assets/login-background.png");
+    background-repeat:no-repeat;
+    background-size:cover;
+
+ }
+ /* hide and show password */
+ 
+ 
