@@ -64,9 +64,9 @@ function openProfile() {
        <span class="item-name">${food[i]}</span>
        <span class="price">RS. ${price[i]}</span>
        <div class="quantity">
-           <span>Quantity: <button class ="qty-change-btn minus-btn"  onclick="change(${i}, 0)"><i class="fa-solid fa-square-minus fa-lg minus"></i></button>
+           <span>Quantity: <button class ="qty-change-btn minus-btn${i}"  onclick="change(${i}, 0)"><i class="fa-solid fa-square-minus fa-lg minus"></i></button>
                <input type="number" value="1" class="productQty${i}" >
-               <button class ="qty-change-btn plus-btn"  onclick="change(${i},1)"><i class="fa-solid fa-square-plus fa-lg " ></i></button>
+               <button class ="qty-change-btn plus-btn${i}"  onclick="change(${i},1)"><i class="fa-solid fa-square-plus fa-lg " ></i></button>
            </span>
       
       
@@ -86,26 +86,36 @@ function openProfile() {
 
 function change(i,l) {
 
+    let minusBtn = document.querySelector(`.minus-btn${i}`);
+    let plusBtn = document.querySelector(`.plus-btn${i}`);
+
+
+
     let quantity =  document.querySelector(`.productQty${i}`).value;
 
     if(l==1) {
 
     quantity++;
     document.querySelector(`.productQty${i}`).value = quantity;
-    if(quantity>5){
-        document.querySelector(".plus-btn").disabled = true;
-        document.querySelector(".minus-btn").disabled = false;
-    }
+   
         
     }
     if(l==0){
     quantity--;
     document.querySelector(`.productQty${i}`).value = quantity;
-    if(quantity<0){
-        document.querySelector(".minus-btn").disabled = true;
-        document.querySelector(".plus-btn").disabled = false;
-    }
-   }
 
+   }
+if(quantity <= 0) {
+    minusBtn.disabled = true;
+
+}
+else if(quantity>=5){
+    plusBtn.disabled = true;
+}
+else{
+    minusBtn.disabled = false;
+    plusBtn.disabled = false;
+
+}
     
 }
