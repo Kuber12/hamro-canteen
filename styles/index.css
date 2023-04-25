@@ -216,8 +216,17 @@ body {
     outline: none;
     cursor:default;
   }
-  .product i {
+  .qty-change-btn{
+
+    background: none;
+    border: none;
+    width:25px;
+    height:25px;
+    padding-inline: 0;
     cursor: pointer;
+
+
+
   }
   
   /* to adjust price and quantity */

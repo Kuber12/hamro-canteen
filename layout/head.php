@@ -21,6 +21,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body onload="displayProduct()">
     <div class="blocker" id="blocker"></div>
     <div class="container">
