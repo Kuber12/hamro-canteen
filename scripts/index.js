@@ -73,7 +73,7 @@ function openProfile() {
       
        </div>
       
-       <img class="order-btn btn ${i}" src="./assets/addtocart.png" alt="Add To Cart">
+       <img class="order-btn btn${i}" src="./assets/addtocart.png" alt="Add To Cart" onclick="addToCart(${i})">
         
        </div>`
           
