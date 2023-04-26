@@ -228,6 +228,10 @@ body {
 
 
   }
+  #minus-btn{
+    cursor: not-allowed;
+
+  }
   
   /* to adjust price and quantity */
   
