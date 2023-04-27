@@ -44,77 +44,10 @@ include './layout/head.php';
 
                     <!-- cart item container -->
 
-                    <div class="items">
+                    <div class="items" >
                         <!-- item -row -->
-                        <div class="item-row">
-                            <input type="checkbox" checked />
-                            <img src="./assets/burger.jpg" alt="burger">
-                            <p>MOMO</p>
-                            <p>Rs. 120</p>
-                            <p>X</p>
-                            <!-- quantity specifier -->
-                            <span class="qty">
-                                <i class="fa-solid fa-square-minus fa-lg" style="color: #000000; margin-left:3px;"></i>
-                                <input type="number" value="1">
-                                <i class="fa-solid fa-square-plus fa-lg"></i>
-                            </span>
-                            <!-- delete item from the cart -->
-                            <i class="fa-solid fa-circle-xmark fa-xl" style="color: #000000;"></i>
-                        </div>
-
-                        <div class="item-row">
-                            <input type="checkbox" checked />
-                            <img src="./assets/burger.jpg" alt="burger">
-                            <p>Chana Anda</p>
-                            <p>Rs. 120</p>
-                            <p>X</p>
-                            <span class="qty">
-                                <i class="fa-solid fa-square-minus fa-lg" style="color: #000000; margin-left:3px;"></i>
-                                <input type="number" value="1">
-                                <i class="fa-solid fa-square-plus fa-lg"></i>
-                            </span>
-                            <i class="fa-solid fa-circle-xmark fa-xl" style="color: #000000;"></i>
-                        </div>
-
-                        <div class="item-row">
-                            <input type="checkbox" checked />
-                            <img src="./assets/burger.jpg" alt="burger">
-                            <p>MOMO</p>
-                            <p>Rs. 120</p>
-                            <p>X</p>
-                            <span class="qty">
-                                <i class="fa-solid fa-square-minus fa-lg" style="color: #000000; margin-left:3px;"></i>
-                                <input type="number" value="1">
-                                <i class="fa-solid fa-square-plus fa-lg"></i>
-                            </span>
-                            <i class="fa-solid fa-circle-xmark fa-xl" style="color: #000000;"></i>
-                        </div>
-                        <div class="item-row">
-                            <input type="checkbox" checked />
-                            <img src="./assets/burger.jpg" alt="burger">
-                            <p>MOMO</p>
-                            <p>Rs. 120</p>
-                            <p>X</p>
-                            <span class="qty">
-                                <i class="fa-solid fa-square-minus fa-lg" style="color: #000000; margin-left:3px;"></i>
-                                <input type="number" value="1">
-                                <i class="fa-solid fa-square-plus fa-lg"></i>
-                            </span>
-                            <i class="fa-solid fa-circle-xmark fa-xl" style="color: #000000;"></i>
-                        </div>
-                        <div class="item-row">
-                            <input type="checkbox" checked />
-                            <img src="./assets/burger.jpg" alt="burger">
-                            <p>MOMO</p>
-                            <p>Rs. 120</p>
-                            <p>X</p>
-                            <span class="qty">
-                                <i class="fa-solid fa-square-minus fa-lg" style="color: #000000; margin-left:3px;"></i>
-                                <input type="number" value="1">
-                                <i class="fa-solid fa-square-plus fa-lg"></i>
-                            </span>
-                            <i class="fa-solid fa-circle-xmark fa-xl" style="color: #000000;"></i>
-                        </div>
+                            <!-- #region -->        
+                                        
 
                     </div>
                     <!-- end of  items div-->
@@ -130,13 +63,6 @@ include './layout/head.php';
                     <span><i class="fa-solid fa-circle-xmark fa-2xl" style="color: #000000;" id="close"></i></span>
                     <h2>Summary</h2>
                     <div class="summary">
-                        <p> <span> 1. </span> <span> MOMO </span> <span> X 2 </span> <span> = 240 </span></p>
-                        <p> <span> 1. </span> <span> MOMO </span> <span> X 2 </span> <span> = 240 </span></p>
-                        <p> <span> 1. </span> <span> MOMO </span> <span> X 2 </span> <span> = 240 </span></p>
-                        <p> <span> 1. </span> <span> MOMO </span> <span> X 2 </span> <span> = 240 </span></p>
-                        <p> <span> 1. </span> <span> MOMO </span> <span> X 2 </span> <span> = 240 </span></p>
-                        <p> <span> 1. </span> <span> Chana Anda </span> <span> X 2 </span> <span> = 240 </span></p>
-                        <p> <span> 1. </span> <span> MOMO </span> <span> X 2 </span> <span> = 240 </span></p>
                         <p> <span> 1. </span> <span> MOMO </span> <span> X 2 </span> <span> = 240 </span></p>
                         <p><span style="margin-left:20px;">TOTAL </span> <span> = 720 </span></p>
                     </div>
@@ -173,17 +99,17 @@ include './layout/head.php';
             <h2>Sunday's Treats</h2>
         </marquee>
     </div>
-</div>
-<!-- end of hero middle-centered -->
+ </div>
+  <!-- end of hero middle-centered -->
 
-<div id="menu">
+  <div id="menu">
     <h3>Today's Menu</h3>
    
-</div>
+  </div>
 
-<!-- available item /product -->
+ <!-- available item /product -->
 
-<div class="menu-display" id="menu-display" onload="displayProduct()">
+  <div class="menu-display" id="menu-display" onload="displayProduct()">
 
     <!-- menu menu-display continue ends in foot.php -->
 
@@ -191,6 +117,10 @@ include './layout/head.php';
     <!-- product details appears here -->
 
 
+
+  </div>
+
+    <script src="./scripts/cart.js"></script>
 
     <?php
     include './layout/foot.php';

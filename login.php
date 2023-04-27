@@ -26,6 +26,7 @@
             <a href="#" id="forget-password">Forget Password</a>.
         </form>
 </div>
+<script src="./scripts/login.js"></script>
 <?php
     include './layout/foot.php';
 ?>
