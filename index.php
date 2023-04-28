@@ -30,8 +30,8 @@ include './layout/head.php';
 
         <!-- cart and user icon container -->
         <span>
-            <i class="fa-solid fa-cart-shopping fa-beat hero-cart" id="hero-cart-button"></i>
-            <i class="fa-solid fa-user hero-profile" id="hero-profile-button"></i>
+            <i class="fa-solid fa-cart-shopping fa-beat hero-cart" onclick="openCart()" ></i>
+            <i class="fa-solid fa-user hero-profile" id="hero-profile-button" onclick="openProfile()"></i>
             <!-- cart menu starts here -->
             <div class="cart-menu" id="cart-menu">
 
@@ -52,7 +52,7 @@ include './layout/head.php';
                     </div>
                     <!-- end of  items div-->
 
-                    <button id="back-to-shopping"><i class="fa-solid fa-arrow-left " style="margin-right:5px;"></i> back
+                    <button id="back-to-shopping" onclick="closePopup()"><i class="fa-solid fa-arrow-left " style="margin-right:5px;"></i> back
                         to shopping</button>
 
                 </div>
@@ -60,14 +60,14 @@ include './layout/head.php';
 
                 <!-- cart menu right side -->
                 <div class="cart-menu-right">
-                    <span><i class="fa-solid fa-circle-xmark fa-2xl" style="color: #000000;" id="close"></i></span>
+                    <span><i class="fa-solid fa-circle-xmark fa-2xl" style="color: #000000;" onclick="closePopup()"></i></span>
                     <h2>Summary</h2>
                     <div class="summary">
                         <p> <span> 1. </span> <span> MOMO </span> <span> X 2 </span> <span> = 240 </span></p>
                         <p><span style="margin-left:20px;">TOTAL </span> <span> = 720 </span></p>
                     </div>
                     <!-- end of summary -->
-                    <button class="checkout" id="checkout">CHECKOUT</button>
+                    <button class="checkout" onclick="closePopup()">CHECKOUT</button>
                 </div>
                 <!-- end of cart-menu-right -->
             </div>
@@ -81,10 +81,10 @@ include './layout/head.php';
                     <p>Ram Prasad Subedi <p>
 
                 </div>
-                <a href="#"><i class="fa-solid fa-circle-user"></i> My Profile </a>
-                <a href="#"><i class="fa-solid fa-cart-shopping"></i> My cart </a>
-                <a href="#"><i class="fa-solid fa-circle-question"></i> Help </a>
-                <a href="#"> <i class="fa-solid fa-arrow-right-from-bracket"></i>Sign Out </a>
+                <a href="#"><i class="fa-solid fa-circle-user"></i> My Profile <div class="arrow-right"></div></a>
+                <a href="#"><i class="fa-solid fa-cart-shopping"></i> My cart <div class="arrow-right"></div></a>
+                <a href="#"><i class="fa-solid fa-circle-question"></i> Help <div class="arrow-right"></div> </a>
+                <a href="#"> <i class="fa-solid fa-arrow-right-from-bracket"></i>Sign Out <div class="arrow-right"></div></a>
 
             </div>
             <!-- end of profile menu -->
@@ -120,7 +120,7 @@ include './layout/head.php';
 
   </div>
 
-    <script src="./scripts/cart.js"></script>
+
 
     <?php
     include './layout/foot.php';
