@@ -1,6 +1,8 @@
 <?php
     include './layout/head.php';
 ?>
+<!--css -->
+<link rel="stylesheet" href="./styles/login.css">
 <!-- login page container -->
 <div class="login-container middle-centered">
     <!-- login form  -->
@@ -26,6 +28,7 @@
             <a href="#" id="forget-password">Forget Password</a>.
         </form>
 </div>
+
 <script src="./scripts/login.js"></script>
 <?php
     include './layout/foot.php';

@@ -1,6 +1,11 @@
 /*   
    .middle-centered .middle-centered-div
   .middle-centered  --> these are inherted from index.php */
+  .middle-centered {
+   
+    position:absolute;
+  }
+  
 
 .login-form {
   width: 320px;

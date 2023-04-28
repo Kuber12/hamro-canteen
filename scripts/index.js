@@ -4,8 +4,8 @@
  // display product
 
  function displayProduct(){
-    let food =  [ "momo", "chowmein", "Pizza" , "Burger", "chana Anda"];
-    let price = [120,70,50,60,25];
+    let food =  [ "momo", "chowmein", "Pizza" , "Burger", "chana Anda", "Samosa"];
+    let price = [120,70,50,60,25,60];
    
     for(let i = 0; i < food.length; i++){
    
@@ -20,12 +20,15 @@
            <i class="fa-solid fa-square-minus fa-lg minus"></i></button>
                <input type="number" value="1" class="productQty${i}" disabled>
                <button class ="qty-change-btn plus-btn${i}"  onclick="change(${i},1)"><i class="fa-solid fa-square-plus fa-lg " ></i></button>
+              
            </span>
       
       
        </div>
-      
-       <img class="order-btn btn${i}" src="./assets/addtocart.png" alt="Add To Cart" onclick="addToCart(${i})">
+      <div class="btn-holder">
+       <button  class="add-to-cart-btn btn${i} onclick="addToCart(${i})"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+       <button class="order-btn btn${i}"><i class="fa-solid fa-bolt-lightning"></i> Order Now</button>
+       </div>
         
        </div>`
           
@@ -66,7 +69,7 @@ if(quantity <= 1) {
 
 }
 // disables the plus button while quantity >=5
-else if(quantity>=5){
+else if(quantity>=15){
     plusBtn.disabled = true;
     plusBtn.style.cursor = "not-allowed"; 
 }

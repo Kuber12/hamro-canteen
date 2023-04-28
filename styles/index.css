@@ -66,7 +66,7 @@ form {
 .middle-centered {
   height: 100%;
   width: 100%;
-  position: relative;
+  position:relative;
 }
 .middle-centered .middle-centered-div {
   margin: 0;
@@ -163,7 +163,7 @@ h3 {
   margin: auto;
   width: 1000px;
   display: grid;
-  grid-gap:20px;
+  grid-gap:25px;
   grid-template-columns: auto auto auto;
   justify-content: center;
   padding-bottom: 20px;
@@ -266,24 +266,28 @@ h3 {
   background-color: lightgreen;
 }
 /* adjust order button */
-
+.btn-holder {
+  width:250px;
+  /* background-color: red; */
+}
+.add-to-cart-btn,
 .order-btn {
-  float: left;
-  width: 250px;
-  height: 50px;
-  border-radius: 10px;
+
+  border-radius: 5px;
   cursor: pointer;
+ 
+  transform: translateY(2px);
 }
 
 /* user profile starts here */
 
 .profile-menu {
-  display:none;
+  display:block;
   position: absolute;
-  z-index: 1;
+  z-index: 3;
   right: 10px;
   top: 55px;
-  width: 280px;
+  width: 250px;
   height: 300px;
   background-color: rgb(255, 255, 255);
   border-radius: 10px;
@@ -313,7 +317,9 @@ h3 {
   border: 1px solid gold;
 }
 .profile-menu a {
-  display: block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   text-decoration: none;
   margin-bottom: 10px;
   border-radius: 10px;
@@ -321,14 +327,22 @@ h3 {
   font-size: 18px;
   font-weight: 600;
   height: 30px;
-  padding-top: 10px;
-  padding-left:5px;
-  margin-left:10px;
+
+  padding:5px;
+
   background-color: lightgrey;
 }
 
 .profile-menu i{
   margin-right:20px;
+}
+.arrow-right {  
+  width: 12px;
+  height: 12px;
+  border: 3px solid #333;
+  border-left: 0;
+  border-top: 0;
+  transform: rotate(315deg);
 }
 /* profile menu ends here and cart-menu starts   */
 /* cart menu */

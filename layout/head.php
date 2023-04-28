@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="./styles/normalize.css">
     <link rel="stylesheet" href="./styles/index.css">
     <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="./styles/login.css">
+    
 
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,5 +23,5 @@
 </head>
 
 <body onload="displayProduct()">
-    <div class="blocker" id="blocker"></div>
+    <div class="blocker" id="blocker" onclick="closePopup()" ></div>
     <div class="container">
