@@ -182,7 +182,7 @@ h3 {
   padding: 5px;
 }
 .product {
-  padding: 20px 0px 3px 0px;
+  padding: 20px 0px 10px 0px;
   border-radius: 10px;
   background-color: white;
   text-align: center;
@@ -263,26 +263,33 @@ h3 {
   text-align: center;
 }
 .product:hover {
-  background-color: lightgreen;
+  background-color: #d7e9d7;
 }
 /* adjust order button */
 .btn-holder {
   width:250px;
   /* background-color: red; */
 }
-.add-to-cart-btn,
-.order-btn {
-
+.add-to-cart-btn {
+  border: 1px solid red;
+  margin-top: 5px;
   border-radius: 5px;
-  cursor: pointer;
- 
-  transform: translateY(2px);
+  height: 30px;
+  color: white;
+  width: 150px;
+  font-weight: 550;
+  background: red;
+  cursor: pointer
+
+}
+.add-to-cart-btn:hover{
+  background-color : green;
 }
 
 /* user profile starts here */
 
 .profile-menu {
-  display:block;
+  display:none;
   position: absolute;
   z-index: 3;
   right: 10px;
@@ -464,6 +471,15 @@ h3 {
 .menu-display {
   font-size: 2em;
   grid-template-columns: auto auto;
+  
+}
+.cart-menu{
+  flex-direction: column;
+  width: 90%;
+  height: 90%;
+}
+.cart-menu-left,.cart-menu-right{
+  width: 100%;
 }
 }
 @media screen and (max-width: 670px) {

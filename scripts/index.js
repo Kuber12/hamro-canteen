@@ -27,7 +27,7 @@
        </div>
       <div class="btn-holder">
        <button  class="add-to-cart-btn btn${i} onclick="addToCart(${i})"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
-       <button class="order-btn btn${i}"><i class="fa-solid fa-bolt-lightning"></i> Order Now</button>
+       
        </div>
         
        </div>`

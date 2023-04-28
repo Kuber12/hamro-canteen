@@ -35,7 +35,6 @@ function displayItems() {
   document.querySelector(".items").innerHTML += `
 
     <div class="item-row">
-        <input type="checkbox" checked />
         <img src="./assets/burger.jpg" alt="burger">
         <p>MOMO</p>
         <p>Rs. 120</p>
