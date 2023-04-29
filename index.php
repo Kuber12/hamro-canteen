@@ -1,4 +1,5 @@
 <?php
+session_start();
 include './layout/head.php';
 ?>
  <nav>
@@ -25,7 +26,7 @@ include './layout/head.php';
     <div class="hero-items">
         <!-- logo container -->
         <span>
-            <img src="./assets/logo-white.png " class="hero-logo">
+            <img src="./assets/logo-yellow.png " class="hero-logo">
         </span>
 
         <!-- cart and user icon container -->
@@ -44,7 +45,7 @@ include './layout/head.php';
 
                     <!-- cart item container -->
 
-                    <div class="items" >
+                    <div class="items" id="items" >
                         <!-- item -row -->
                             <!-- #region -->        
                                         
@@ -62,10 +63,7 @@ include './layout/head.php';
                 <div class="cart-menu-right">
                     <span><i class="fa-solid fa-circle-xmark fa-2xl" style="color: #000000;" onclick="closePopup()"></i></span>
                     <h2>Summary</h2>
-                    <div class="summary">
-                        <p> <span> 1. </span> <span> MOMO </span> <span> X 2 </span> <span> = 240 </span></p>
-                        <p><span style="margin-left:20px;">TOTAL </span> <span> = 720 </span></p>
-                    </div>
+                 
                     <!-- end of summary -->
                     <button class="checkout" onclick="closePopup()">CHECKOUT</button>
                 </div>
@@ -77,14 +75,13 @@ include './layout/head.php';
 
             <div class="profile-menu" id="profile-menu">
                 <div class="profile-info-container">
-                    <img src="./assets/avatar.jpg" alt="Profile Picture">
-                    <p>Ram Prasad Subedi <p>
+                    <img src="./assets/avatar.jpg" alt="Profile Picture">                 
 
                 </div>
                 <a href="#"><i class="fa-solid fa-circle-user"></i> My Profile <div class="arrow-right"></div></a>
                 <a href="#"><i class="fa-solid fa-cart-shopping"></i> My cart <div class="arrow-right"></div></a>
                 <a href="#"><i class="fa-solid fa-circle-question"></i> Help <div class="arrow-right"></div> </a>
-                <a href="#"> <i class="fa-solid fa-arrow-right-from-bracket"></i>Sign Out <div class="arrow-right"></div></a>
+                <a href="#"> <i class="fa-solid fa-arrow-right-from-bracket"></i>Sign Out <div></div></a>
 
             </div>
             <!-- end of profile menu -->

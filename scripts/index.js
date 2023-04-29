@@ -9,7 +9,7 @@
    
     for(let i = 0; i < food.length; i++){
    
-       document.getElementById("menu-display").innerHTML +=
+       document.getElementById("menu-display").innerHTML += 
    
        ` <div class="product">
        <img src="./assets/item.png" alt="Product Image" class="product-image">
@@ -26,8 +26,7 @@
       
        </div>
       <div class="btn-holder">
-       <button  class="add-to-cart-btn btn${i} onclick="addToCart(${i})"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
-       
+       <button  class="add-to-cart-btn btn${i}" onclick="addToCart(${i},'${food[i]}',${price[i]})"><i class="fa-solid fa-cart-plus"></i>  Add to Cart</button>
        </div>
         
        </div>`
@@ -35,6 +34,68 @@
     
     }
 }
+function addToCart (id, food, price) {
+
+    var name = "ram";
+    var user = {'name': name, 'foodName':food, 'price':price };
+    sessionStorage.setItem('user', JSON.stringify(user));
+    var details = JSON.parse(sessionStorage.getItem('user')); // An object
+
+    const myTimeout = setTimeout(sessionTimOut, 30000);
+    
+
+
+
+    document.getElementById("items").innerHTML += `
+
+    <div class="item-row" id="${id}">
+        <img src="./assets/burger.jpg" alt="burger">
+        <p>${details.foodName}</p>
+        <p>${details.price}</p>
+        <p>X</p>    
+        <!-- quantity specifier -->
+        <span class="qty">
+            <i class="fa-solid fa-square-minus fa-lg" style="color: #000000; margin-left:3px;"></i>
+            <input type="number" value="1">
+            <i class="fa-solid fa-square-plus fa-lg"></i>
+        </span>
+        <!-- delete item from the cart -->
+        <i class="fa-solid fa-circle-xmark fa-xl" style="color: #000000;" onclick="clearItem(${id})"></i>
+    </div> 
+    
+    ` ;
+
+    document.getElementById("summary").innerHTM += `    
+    <p> <span> ${food} </span> <span> X 2 </span> <span> = 240 </span></p>
+    <p><span style="margin-left:20px;">TOTAL </span> <span> = 720 </span></p>
+`
+     
+    
+}
+
+
+function sessionTimOut() {
+    
+   
+    for(i=1; i<=5;i++){
+    document.getElementById(`${i}`).remove();
+    }
+}
+function clearItem (itemId) {
+    document.getElementById(`${itemId}`).remove();
+    
+
+}
+function checkout() {
+    alert("checkout");
+}
+
+
+
+
+    
+   
+
 
 
 
@@ -82,4 +143,6 @@ else{
 
 }
     
+
 }
+

@@ -1,4 +1,5 @@
 <?php
+
     include './layout/head.php';
 ?>
 <!--css -->
@@ -6,7 +7,7 @@
 <!-- login page container -->
 <div class="login-container middle-centered">
     <!-- login form  -->
-        <form class="login-form middle-centered-div" action="post">
+        <form class="login-form middle-centered-div" action="connection.php" method = "POST">
             <img src="./assets/logo-yellow.png">
             <!-- username div -->
             <div class="username-div">
