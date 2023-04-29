@@ -24,10 +24,10 @@ if ($result->num_rows > 0) {
 
     // storing the session name 
 
-    $_SESSION['username'] =   $result->fetch_assoc()['Full_Name'];
+    $_SESSION['fullName'] =   $result->fetch_assoc()['Full_Name'];
   
-    //  redirecting into the index page
     header("location:index.php");
+  
    
 
 } else {

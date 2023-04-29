@@ -1,7 +1,18 @@
 <?php
 session_start();
-include './layout/head.php';
+
+
+  // Check if the session variable is set
+  if (!isset($_SESSION['fullName'])) {
+    
+    header("location:login.php");
+    exit();
+  } 
+  
+  include './layout/head.php';
+  
 ?>
+
  <nav>
 
 <div class="link_container">
@@ -75,13 +86,14 @@ include './layout/head.php';
 
             <div class="profile-menu" id="profile-menu">
                 <div class="profile-info-container">
-                    <img src="./assets/avatar.jpg" alt="Profile Picture">                 
+                    <img src="./assets/avatar.jpg" alt="Profile Picture"> 
+                    <p>  <?php echo $_SESSION['fullName'] ?> <p>             
 
                 </div>
                 <a href="#"><i class="fa-solid fa-circle-user"></i> My Profile <div class="arrow-right"></div></a>
                 <a href="#"><i class="fa-solid fa-cart-shopping"></i> My cart <div class="arrow-right"></div></a>
                 <a href="#"><i class="fa-solid fa-circle-question"></i> Help <div class="arrow-right"></div> </a>
-                <a href="#"> <i class="fa-solid fa-arrow-right-from-bracket"></i>Sign Out <div></div></a>
+                <a href="logout.php"> <i class="fa-solid fa-arrow-right-from-bracket"></i>Sign Out <div></div></a>
 
             </div>
             <!-- end of profile menu -->
