@@ -24,6 +24,9 @@ function show() {
   }
 
   // validation 
+  function showMsg(x) {
+    console.log("value " + x);
+  }
 
  
 

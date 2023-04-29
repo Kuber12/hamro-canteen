@@ -4,14 +4,14 @@
  // display product
 
  function displayProduct(){
+
     let food =  [ "momo", "chowmein", "Pizza" , "Burger", "chana Anda", "Samosa"];
     let price = [120,70,50,60,25,60];
+    
    
     for(let i = 0; i < food.length; i++){
    
-       document.getElementById("menu-display").innerHTML += 
-   
-       ` <div class="product">
+       document.getElementById("menu-display").innerHTML += ` <div class="product">
        <img src="./assets/item.png" alt="Product Image" class="product-image">
        <span class="item-name">${food[i]}</span>
        <span class="price">RS. ${price[i]}</span>
@@ -39,11 +39,8 @@ function addToCart (id, food, price) {
     var name = "ram";
     var user = {'name': name, 'foodName':food, 'price':price };
     sessionStorage.setItem('user', JSON.stringify(user));
-    var details = JSON.parse(sessionStorage.getItem('user')); // An object
-
-    const myTimeout = setTimeout(sessionTimOut, 30000);
-    
-
+    var details = JSON.parse(sessionStorage.getItem('user')); // An object   
+  
 
 
     document.getElementById("items").innerHTML += `
@@ -72,15 +69,17 @@ function addToCart (id, food, price) {
      
     
 }
+let timeoutId
+  function startSession() {
+    // Clear previous timeout (if any)
+    clearTimeout(timeoutId);
+
+    // Start new session timeout after clicking div
+    timeoutId = setTimeout(sessionTimeout, 10000);
+  }
 
 
-function sessionTimOut() {
-    
-   
-    for(i=1; i<=5;i++){
-    document.getElementById(`${i}`).remove();
-    }
-}
+
 function clearItem (itemId) {
     document.getElementById(`${itemId}`).remove();
     
@@ -88,6 +87,25 @@ function clearItem (itemId) {
 }
 function checkout() {
     alert("checkout");
+}
+
+
+
+
+
+
+
+// Function to handle session timeout
+function sessionTimeout() {
+  // Loop through div elements with IDs "1" through "10" and remove them
+  for (var i = 1; i <= 10; i++) {
+    var element = document.getElementById(i.toString());
+    if (element) {
+      element.parentNode.removeChild(element);
+    }
+  }
+  // Display an alert message to notify the user of the session timeout
+  alert("Your haha");
 }
 
 

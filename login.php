@@ -22,6 +22,7 @@
                 <div id = "show-password" style="display:inline"><i class="fa-solid fa-eye-slash"></i></div> 
                 <div id = "hide-password" style="display:none"><i class="fa-solid fa-eye"></i></div> 
             
+            
             </div>
             <!-- submit button  -->
             <input type="submit" value="LOG IN" class="login-btn">
@@ -31,6 +32,7 @@
 </div>
 
 <script src="./scripts/login.js"></script>
+
 <?php
     include './layout/foot.php';
 ?>
