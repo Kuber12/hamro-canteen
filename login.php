@@ -1,5 +1,4 @@
 <?php
-
     include './layout/head.php';
 ?>
 <!--css -->
@@ -25,13 +24,25 @@
             
             </div>
             <!-- submit button  -->
-            <input type="submit" value="LOG IN" class="login-btn">
+            <input type="submit"  value="LOG IN" class="login-btn">
                
             <a href="#" id="forget-password">Forget Password</a>.
         </form>
+        <div id="alert-incorrect">
+            <h2>Incorect Password</h2>
+            Please try again
+        </div>
 </div>
 
 <script src="./scripts/login.js"></script>
+<script>
+    const url = new URL(window.location.href);
+    const id = url.searchParams.get("incorrect");
+    if(id){
+        // $("#alert-incorrect").show();
+        document.getElementById("alert_incorrect").style.display = "block";
+    }
+</script>
 
 <?php
     include './layout/foot.php';

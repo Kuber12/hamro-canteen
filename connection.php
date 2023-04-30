@@ -39,13 +39,10 @@ if ($result->num_rows > 0) {
   
     header("Location:index.php");
     exit();
-  
-   
-
 } else {
   
+  header("Location:login.php?incorrect=1");
   
-  header("Location:login.php");
   exit();
   
 }

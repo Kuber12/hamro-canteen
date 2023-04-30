@@ -74,4 +74,16 @@
  }
  /* hide and show password */
  
- 
+ .alert-incorrect{
+  display: none;
+  position: fixed;
+  transform: translate(-50%,-50px);
+  background-color: rgb(211, 211, 172);
+  top: 75px;
+  left: 50%;
+  width: 400px;
+  height: 200px;
+  text-align: center;
+  border-radius: 5px;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+ }

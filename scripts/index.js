@@ -37,7 +37,7 @@ var food;
 function addToCart (id, food, price) {
   
     sessionStart();
-    alert("session started");
+    // alert("session started");
     var name = "ram";
     var user = {'name': name, 'foodName':food, 'price':price };
     sessionStorage.setItem('user', JSON.stringify(user));
@@ -75,7 +75,7 @@ function addToCart (id, food, price) {
 var sessionId;
  function sessionStart() {    
     clearTimeout(sessionId);
-    setTimeout(sessionTimeout, 5000);
+    setTimeout(sessionTimeout, 30000);
  }
 
   function sessionTimeout() {
