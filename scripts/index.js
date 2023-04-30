@@ -1,11 +1,11 @@
 
 
-
- // display product
+var food;
 
  function displayProduct(){
+   
 
-    let food =  [ "momo", "chowmein", "Pizza" , "Burger", "chana Anda", "Samosa"];
+    food =  [ "momo", "chowmein", "Pizza" , "Burger", "chana Anda", "Samosa"];
     let price = [120,70,50,60,25,60];
     
    
@@ -35,13 +35,13 @@
     }
 }
 function addToCart (id, food, price) {
-
+  
+    sessionStart();
+    alert("session started");
     var name = "ram";
     var user = {'name': name, 'foodName':food, 'price':price };
     sessionStorage.setItem('user', JSON.stringify(user));
-    var details = JSON.parse(sessionStorage.getItem('user')); // An object   
-  
-
+    var details = JSON.parse(sessionStorage.getItem('user')); // An object  
 
     document.getElementById("items").innerHTML += `
 
@@ -66,17 +66,30 @@ function addToCart (id, food, price) {
     <p> <span> ${food} </span> <span> X 2 </span> <span> = 240 </span></p>
     <p><span style="margin-left:20px;">TOTAL </span> <span> = 720 </span></p>
 `
-     
+
+;
+
+      
     
 }
-let timeoutId
-  function startSession() {
-    // Clear previous timeout (if any)
-    clearTimeout(timeoutId);
+var sessionId;
+ function sessionStart() {    
+    clearTimeout(sessionId);
+    setTimeout(sessionTimeout, 5000);
+ }
 
-    // Start new session timeout after clicking div
-    timeoutId = setTimeout(sessionTimeout, 10000);
+  function sessionTimeout() {
+    // Loop through div elements with IDs "1" through "10" and remove them
+    for (let j = 0; j <=food.length; j++) {
+      let element = document.getElementById(j.toString());
+      if (element) {
+        element.remove();
+      }
+    }
+    // Display an alert message to notify the user of the session timeout
+    alert("session timeout");
   }
+  
 
 
 
@@ -88,32 +101,6 @@ function clearItem (itemId) {
 function checkout() {
     alert("checkout");
 }
-
-
-
-
-
-
-
-// Function to handle session timeout
-function sessionTimeout() {
-  // Loop through div elements with IDs "1" through "10" and remove them
-  for (var i = 1; i <= 10; i++) {
-    var element = document.getElementById(i.toString());
-    if (element) {
-      element.parentNode.removeChild(element);
-    }
-  }
-  // Display an alert message to notify the user of the session timeout
-  alert("Your haha");
-}
-
-
-
-
-    
-   
-
 
 
 

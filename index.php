@@ -76,7 +76,7 @@ session_start();
                     <h2>Summary</h2>
                  
                     <!-- end of summary -->
-                    <button class="checkout" onclick="closePopup()">CHECKOUT</button>
+                    <button class="checkout" onclick="checkout()">CHECKOUT</button>
                 </div>
                 <!-- end of cart-menu-right -->
             </div>
