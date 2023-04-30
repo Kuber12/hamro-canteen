@@ -18,7 +18,7 @@ var food;
        <div class="quantity">
            <span>Quantity: <button class ="qty-change-btn minus-btn${i}" id="minus-btn" onclick="change(${i}, 0)" disabled >
            <i class="fa-solid fa-square-minus fa-lg minus"></i></button>
-               <input type="number" value="1" class="productQty${i}" disabled>
+               <input type="number" value="1" class="productQty${i}" readonly>
                <button class ="qty-change-btn plus-btn${i}"  onclick="change(${i},1)"><i class="fa-solid fa-square-plus fa-lg " ></i></button>
               
            </span>

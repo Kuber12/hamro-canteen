@@ -11,12 +11,12 @@
             <!-- username div -->
             <div class="username-div">
                 <i class="fa-solid fa-user"></i>
-                <input type="text" name="username" id="username" placeholder="username">
+                <input type="text" name="username" id="username" placeholder="username" required>
             </div>
             <!-- password div -->
             <div class="password-div">
                 <i class="fa-solid fa-lock"></i>
-                <input type="password" name="password" id="myPassword" placeholder="password" maxlength ="12" >
+                <input type="password" name="password" id="myPassword" placeholder="password" maxlength ="12" required>
                 <!-- value="FakePSW" this can be used to show  fake password -->
                 <div id = "show-password" style="display:inline"><i class="fa-solid fa-eye-slash"></i></div> 
                 <div id = "hide-password" style="display:none"><i class="fa-solid fa-eye"></i></div> 
@@ -28,22 +28,26 @@
                
             <a href="#" id="forget-password">Forget Password</a>.
         </form>
-        <div id="alert-incorrect">
-            <h2>Incorect Password</h2>
-            Please try again
+        <div class="alert-incorrect" id="alert-incorrect">
+            <p style="color:red;"><i class="fa-solid fa-triangle-exclamation"></i>Error</p>
+            <p style="margin-left:30px;">incorrect username or password </p>
+                     
         </div>
 </div>
 
 <script src="./scripts/login.js"></script>
 <script>
-    const url = new URL(window.location.href);
-    const id = url.searchParams.get("incorrect");
-    if(id){
-        // $("#alert-incorrect").show();
-        document.getElementById("alert_incorrect").style.display = "block";
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const msg = urlParams.get('msg');
+    if (msg=="incorrect") {
+       var div  = document.getElementById("alert-incorrect");
+       div.style.display = "block";
+       setTimeout(function(){
+       div.style.display = "none";
+       }, 2000);
     }
 </script>
-
 <?php
     include './layout/foot.php';
 ?>
