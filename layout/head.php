@@ -13,6 +13,7 @@
     <!-- nomalize css -->
     <link rel="stylesheet" href="./styles/normalize.css">
     <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/login.css">
 
     <!-- google fonts -->

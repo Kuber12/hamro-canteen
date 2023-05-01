@@ -1,39 +1,58 @@
 window.onload = function() {
-    var canvas = document.getElementById("popular-piechart");
-    var context = canvas.getContext("2d");
-
-    // Data for the pie chart
-    var data = [40, 25, 15, 20];
-    var names = ["Item 1", "Item 2", "Item 3", "Item 4"];
-
-    // Colors for the pie chart
-    var colors = ["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0"];
-
-    // Calculate the total value of the data
-    var total = 0;
-    for (var i = 0; i < data.length; i++) {
-        total += data[i];
+    // for pie chart 
+    var piedata = {
+        labels: ["Label 1", "Label 2", "Label 3"],
+        datasets: [{
+            data: [30, 20, 50],
+            backgroundColor: ["#ff6384", "#36a2eb", "#ffce56"]
+        }]
+    }; 
+    var ctx = document.getElementById("myPieChart").getContext("2d");
+    var myPieChart = new Chart(ctx, {
+    type: 'pie',
+    data: piedata,
+    options: {
+        
     }
+    });
 
-    // Draw the pie chart
-    var startAngle = 0;
-    for (var i = 0; i < data.length; i++) {
-        var sliceAngle = 2 * Math.PI * data[i] / total;
-        context.fillStyle = colors[i];
-        context.beginPath();
-        context.moveTo(canvas.width / 2, canvas.height / 2);
-        context.arc(canvas.width / 2, canvas.height / 2, canvas.height / 2, startAngle, startAngle + sliceAngle);
-        context.closePath();
-        context.fill();
+    // for line chart
+    const DATA_COUNT = 7;
+    const NUMBER_CFG = {count: DATA_COUNT, min: -100, max: 100};
 
-        // Add names to the pie chart
-        context.fillStyle = "#ffffff";
-        context.font = "10px Arial";
-        var midAngle = startAngle + sliceAngle / 2;
-        var textX = canvas.width / 2 + Math.cos(midAngle) * canvas.height / 2 / 2;
-        var textY = canvas.height / 2 + Math.sin(midAngle) * canvas.height / 2 / 2;
-        context.fillText(names[i], textX, textY);
-
-        startAngle += sliceAngle;
-    }
+    const labels = Utils.months({count: 7});
+    const linechartdata = {
+    labels: labels,
+    datasets: [
+        {
+        label: 'Dataset 1',
+        data: Utils.numbers(NUMBER_CFG),
+        borderColor: Utils.CHART_COLORS.red,
+        backgroundColor: Utils.transparentize(Utils.CHART_COLORS.red, 0.5),
+        },
+        {
+        label: 'Dataset 2',
+        data: Utils.numbers(NUMBER_CFG),
+        borderColor: Utils.CHART_COLORS.blue,
+        backgroundColor: Utils.transparentize(Utils.CHART_COLORS.blue, 0.5),
+        }
+    ]
+    };
+    var ctx = document.getElementById("myLineChart").getContext("2d");
+    var myLineChart = new Chart(ctx,{
+        type: 'line',
+        data: linechartdata,
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: 'top',
+            },
+            title: {
+              display: true,
+              text: 'Chart.js Line Chart'
+            }
+          }
+        },
+      });
 }
