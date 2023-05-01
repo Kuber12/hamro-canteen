@@ -365,38 +365,50 @@ h3 {
 
 .cart-menu{
   display: none;
+  flex-direction: column;
   justify-content: space-between;
   background-color: #ffffff;
-  height:350px;
+  height:400px;
   width:750px;
   position:fixed; 
   z-index:1;
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
+  padding: 5px;
 
 }
 /* header of cart-menu left side  (my cart) */
 .cart-header{
   display: flex;
   justify-content: center;
-  align-items: center;  
-  height:38px;
-  width:auto; 
+  align-items: center;
+  height:45px; 
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; 
 
 }
+.cart-header > span {
+  position: absolute;
+  top: 0%;
+  left:97%;
+  /* transform: translate(-50%,-50%); */
+} 
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 900;
+  margin:25px 0px 0px 0px;
 
-/* for cart menu left  */
-.cart-menu-left{
-  width:500px; 
-  margin: 20px 5px 0px 20px;
 }
+
 /* added item in cart container */
 .items{
   overflow:auto;
   height:250px;
 }
+
 /* item row */
 .item-row{
   margin:10px 20px 10px 20px;
@@ -415,48 +427,20 @@ h3 {
   height:50px;
   border-radius: 50px;
 }
-/* right side of cart menu/ summary box */
-.cart-menu-right{
-  width:240px;
-  background-color:red;
-  color:white; 
-  padding:10px 0px 0px 15px; 
+.btn{
 
-}
-
-/* to adjust the close button on top right corner */
-.cart-menu-right > span  {
-  float:right;
-  transform: translate(50%,-50%);
-  background-color:white;
-  z-index:3;
-  border-radius: 50px;
-}
-/* summary container */
-.summary {
-  overflow:auto;
-  height:240px;
-}
-.summary >  p{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 12px;
-  font-weight: 900;
-  padding-right:9px;
- }
-
-/* to adjust back to shopping button and checkout button */
-.cart-menu-left >  button, .checkout{
-  border:none;
-  border-radius: 5px;
-  position:absolute;
-  bottom:10px;
-  left:5px;
-  font-size: 18px;
+  height: 100px;
+  box-shadow:rgba(50, 50, 93, 0.25) 0px 5px 5px -3px, rgba(0, 0, 0, 0.5) 0px -11px 3px -12px
+ 
 }
-.checkout{
- left:580px;
+.btn > button {
+  margin-left:10px;
+  margin-right: 10px;
+  border-radius: 5px;
+  border:none;
 }
 /* to create a blocker */
 .blocker{

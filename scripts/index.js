@@ -18,9 +18,8 @@ var food;
        <div class="quantity">
            <span>Quantity: <button class ="qty-change-btn minus-btn${i}" id="minus-btn" onclick="change(${i}, 0)" disabled >
            <i class="fa-solid fa-square-minus fa-lg minus"></i></button>
-               <input type="number" value="1" class="productQty${i}" readonly>
-               <button class ="qty-change-btn plus-btn${i}"  onclick="change(${i},1)"><i class="fa-solid fa-square-plus fa-lg " ></i></button>
-              
+               <input type="number" value="1" class="productQty${i}" id="productQty${i}" readonly>
+               <button class ="qty-change-btn plus-btn${i}"  onclick="change(${i},1)"><i class="fa-solid fa-square-plus fa-lg " ></i></button>              
            </span>
       
       
@@ -35,43 +34,45 @@ var food;
     }
 }
 function addToCart (id, food, price) {
+    
+
+
+    let quantity = document.getElementById(`productQty${id}`).value;    
+
+
   
     sessionStart();
     // alert("session started");
+    var total = 0; 
     var name = "ram";
-    var user = {'name': name, 'foodName':food, 'price':price };
+    var user = {'name': name, 'foodName':food, 'price':price , 'quantity' : quantity };
     sessionStorage.setItem('user', JSON.stringify(user));
-    var details = JSON.parse(sessionStorage.getItem('user')); // An object  
+    var details = JSON.parse(sessionStorage.getItem('user')); // An object
+    total = details.quantity*details.price;
 
-    document.getElementById("items").innerHTML += `
-
-    <div class="item-row" id="${id}">
+    document.getElementById("items").innerHTML += `<div class="item-row" id="${id}">
         <img src="./assets/burger.jpg" alt="burger">
         <p>${details.foodName}</p>
         <p>${details.price}</p>
-        <p>X</p>    
+        <p>X</p> 
+       
         <!-- quantity specifier -->
         <span class="qty">
-            <i class="fa-solid fa-square-minus fa-lg" style="color: #000000; margin-left:3px;"></i>
-            <input type="number" value="1">
-            <i class="fa-solid fa-square-plus fa-lg"></i>
+            
+            <input type="number" value="${details.quantity}">
+           
         </span>
+        <p> = </p>
+        <p> ${total} </p>
         <!-- delete item from the cart -->
         <i class="fa-solid fa-circle-xmark fa-xl" style="color: #000000;" onclick="clearItem(${id})"></i>
     </div> 
     
     ` ;
-
-    document.getElementById("summary").innerHTM += `    
-    <p> <span> ${food} </span> <span> X 2 </span> <span> = 240 </span></p>
-    <p><span style="margin-left:20px;">TOTAL </span> <span> = 720 </span></p>
-`
-
-;
-
       
     
 }
+
 var sessionId;
  function sessionStart() {    
     clearTimeout(sessionId);

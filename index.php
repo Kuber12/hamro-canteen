@@ -2,32 +2,32 @@
 session_start();
 
 
-  // Check if the session variable is set
-  if (!isset($_SESSION['fullName'])) {
-    
+// Check if the session variable is set
+if (!isset($_SESSION['fullName'])) {
+
     header("location:login.php");
     exit();
-  } 
-  
-  include './layout/head.php';
-  
+}
+
+include './layout/head.php';
+
 ?>
 
- <nav>
+<nav>
 
-<div class="link_container">
-    <a href="index.php">Home</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
-    <a href="#">Blog</a>
-</div>
+    <div class="link_container">
+        <a href="index.php">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Blog</a>
+    </div>
 
-<div class="search_bar">
-<form action="#" >
-    <input type="text" placeholder="Search.." name="search" />
-    <button type="submit" i><i class="fa fa-search"></i></button>
-</form>
-</div>
+    <div class="search_bar">
+        <form action="#">
+            <input type="text" placeholder="Search.." name="search" />
+            <button type="submit" i><i class="fa fa-search"></i></button>
+        </form>
+    </div>
 
 
 
@@ -42,43 +42,51 @@ session_start();
 
         <!-- cart and user icon container -->
         <span>
-            <i class="fa-solid fa-cart-shopping fa-beat hero-cart" onclick="openCart()" ></i>
+            <i class="fa-solid fa-cart-shopping fa-beat hero-cart" onclick="openCart()"></i>
             <i class="fa-solid fa-user hero-profile" id="hero-profile-button" onclick="openProfile()"></i>
             <!-- cart menu starts here -->
             <div class="cart-menu" id="cart-menu">
-
-                <!-- left part of cart menu -->
-                <div class="cart-menu-left">
-                    <!-- cart header -->
+                <!-- cart header -->
+                <div>
                     <div class="cart-header">
                         <h2><i class="fa-sharp fa-solid fa-cart-shopping" style="margin-right:10px;"></i>My Cart</h2>
+                        <span><i class="fa-solid fa-circle-xmark fa-2xl" style="color: #000000;"
+                                onclick="closePopup()"></i></span>
                     </div>
-
-                    <!-- cart item container -->
-
-                    <div class="items" id="items" >
-                        <!-- item -row -->
-                            <!-- #region -->        
-                                        
-
+                    <div class="item-header">
+                        <div></div>
+                        <span>Discription</span>
+                        <span>Price</span>
+                        <span>Quantity</span>
+                        <span>total</span>
+                        <span></span>
                     </div>
-                    <!-- end of  items div-->
+                </div>               <!-- cart item container -->
 
-                    <button id="back-to-shopping" onclick="closePopup()"><i class="fa-solid fa-arrow-left " style="margin-right:5px;"></i> back
-                        to shopping</button>
+                <div class="items" id="items">
+
+
+                    <!-- item -row -->
+
 
                 </div>
+                <!-- end of  items div-->
+
+                <div class="btn">
+                    <button id="back-to-shopping" onclick="closePopup()"><i class="fa-solid fa-arrow-left "
+                            style="margin-right:5px;"></i> back
+                        to shopping</button>
+                        <p>Grand Total</p>
+                        <p>=</p>
+                        <p>500</p>
+                    <button class="checkout" onclick="checkout()">CHECKOUT</button>
+                </div>
+
+
                 <!-- emd of cart-menu-left -->
 
                 <!-- cart menu right side -->
-                <div class="cart-menu-right">
-                    <span><i class="fa-solid fa-circle-xmark fa-2xl" style="color: #000000;" onclick="closePopup()"></i></span>
-                    <h2>Summary</h2>
-                 
-                    <!-- end of summary -->
-                    <button class="checkout" onclick="checkout()">CHECKOUT</button>
-                </div>
-                <!-- end of cart-menu-right -->
+
             </div>
             <!-- end of cart menu -->
 
@@ -86,8 +94,10 @@ session_start();
 
             <div class="profile-menu" id="profile-menu">
                 <div class="profile-info-container">
-                    <img src="./assets/avatar.jpg" alt="Profile Picture"> 
-                    <p>  <?php echo $_SESSION['fullName'] ?> <p>             
+                    <img src="<?php echo $_SESSION['imageUrl'] ?>" alt="Profile Picture">
+                    <p>
+                        <?php echo $_SESSION['fullName'] ?>
+                    <p>
 
                 </div>
                 <a href="#"><i class="fa-solid fa-circle-user"></i> My Profile <div class="arrow-right"></div></a>
@@ -108,17 +118,17 @@ session_start();
             <h2>Sunday's Treats</h2>
         </marquee>
     </div>
- </div>
-  <!-- end of hero middle-centered -->
+</div>
+<!-- end of hero middle-centered -->
 
-  <div id="menu">
+<div id="menu">
     <h3>Today's Menu</h3>
-   
-  </div>
 
- <!-- available item /product -->
+</div>
 
-  <div class="menu-display" id="menu-display" onload="displayProduct()">
+<!-- available item /product -->
+
+<div class="menu-display" id="menu-display" onload="displayProduct()">
 
     <!-- menu menu-display continue ends in foot.php -->
 
@@ -127,10 +137,10 @@ session_start();
 
 
 
-  </div>
+</div>
 
 
 
-    <?php
-    include './layout/foot.php';
-    ?>
+<?php
+include './layout/foot.php';
+?>
