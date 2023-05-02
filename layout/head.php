@@ -15,13 +15,14 @@
     <link rel="stylesheet" href="./styles/index.css">
     <link rel="stylesheet" href="./styles/style.css">
     
-
+    <!-- jquery link -->
+    <script src="./scripts/jquery.js"></script>
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
 
-<body onload="displayProduct()">
+<body>
     <div class="blocker" id="blocker" onclick="closePopup()" ></div>
     <div class="container">

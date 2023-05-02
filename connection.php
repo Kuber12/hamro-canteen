@@ -5,7 +5,7 @@ session_start();
 $servername = "localhost";
 $dbusername = "root";
 $password ="";
-$dbname = "hamro-canteen";
+$dbname = "hamro_canteen";
 
 $userName = $_POST['username'];
 $loginPassword = $_POST['password'];
@@ -32,12 +32,10 @@ $sql = "SELECT fullName, imageUrl FROM users WHERE username = '$userName' and pa
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-
     // storing the session name 
-
-    $_SESSION['fullName'] =   $result->fetch_assoc()['fullName'];
-    $_SESSION['imageUrl'] =   $result->fetch_assoc()['imageUrl'];
-  
+    $row = $result->fetch_assoc();
+    $_SESSION['fullName'] = $row["fullName"];
+    $_SESSION['imageUrl'] = $row["imageUrl"];
     header("Location:index.php");
     exit();
 } else {

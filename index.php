@@ -95,9 +95,10 @@ include './layout/head.php';
 
             <div class="profile-menu" id="profile-menu">
                 <div class="profile-info-container">
-                    <img src="<?php echo $_SESSION['imageUrl'] ?>" alt="Profile Picture">
+                    <img src="./assets/user image/<?php echo $_SESSION['imageUrl']?>" alt="Profile Picture">
                     <p>
                         <?php echo $_SESSION['fullName'] ?>
+                        <?php echo $_SESSION['imageUrl'] ?>
                     <p>
 
                 </div>
@@ -141,7 +142,8 @@ include './layout/head.php';
 </div>
 
 
-
+<script src="./scripts/index.js"></script>
+<script src="./scripts/cart.js"></script>
 <?php
 include './layout/foot.php';
 ?>
