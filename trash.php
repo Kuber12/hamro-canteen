@@ -1,29 +1,16 @@
 <?php
+$username = $_POST['username'];
+$password = $_POST['password'];
 
-$id = $_POST['id'];
-$name = $_POST['name'];
-$age = $_POST['age'];
-$email = $_POST['email'];
-$phone = $_POST['phone'];
-
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$databaseName = "schoolDb";
-$tableName = "students";
-$sql = "INSERT INTO $tableName (id, name, age, eamil,  phone) values ($id, $name, $age, $email, $phone);  
-
-
-$conn = new mysqli($servername,$username, $password);
-
-if($conn->connect_error){
-
-    die("error");
-
-
+// check the username and password in the database
+// replace this with your own code
+if ($username == 'admin' && $password == 'password') {
+   echo "correct";
+    // $mg = "correct";
+    // echo json_encode($mg);
+} else {
+    echo "incorrect";
+//     $msg = "incorrect";
+//   echo json_encode($msg);
 }
-else{
-    echo "connected successfully";
-}
-
+?>

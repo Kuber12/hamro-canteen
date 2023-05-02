@@ -5,7 +5,7 @@ session_start();
 $servername = "localhost";
 $dbusername = "root";
 $password ="";
-$dbname = "hamro_canteen";
+$dbname = "hamro-canteen";
 
 $userName = $_POST['username'];
 $loginPassword = $_POST['password'];
@@ -39,9 +39,10 @@ if ($result->num_rows > 0) {
     header("Location:index.php");
     exit();
 } else {
-  header("Location: login.php?msg=incorrect"); 
-  
+
+  header("Location: login.php?msg=incorrect");  
   exit();
+
   
 }
 }

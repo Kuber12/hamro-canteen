@@ -95,10 +95,10 @@ include './layout/head.php';
 
             <div class="profile-menu" id="profile-menu">
                 <div class="profile-info-container">
-                    <img src="./assets/user image/<?php echo $_SESSION['imageUrl']?>" alt="Profile Picture">
+                    <img src="./assets/userImage/<?php echo $_SESSION['imageUrl']?>" alt="Profile Picture">
                     <p>
                         <?php echo $_SESSION['fullName'] ?>
-                        <?php echo $_SESSION['imageUrl'] ?>
+                   
                     <p>
 
                 </div>

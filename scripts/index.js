@@ -1,17 +1,23 @@
 
+const now = new Date();
+const hour = now.getHours();
 
-var food;
-$(document).on("load",displayProduct());
- function displayProduct(){
-   
+if(hour >=6 && hour<12) {
+    var food;
+$(document).on("load", displayProduct());
+function displayProduct() {
+  food = [
+    "momo",
+    "chowmein",
+    "Pizza",
+    "Sadeko Wai Wai",
+    "chana Anda",
+    "Samosa",
+  ];
+  let price = [120, 70, 50, 60, 25, 60];
 
-    food =  [ "momo", "chowmein", "Pizza" , "Burger", "chana Anda", "Samosa"];
-    let price = [120,70,50,60,25,60];
-    
-   
-    for(let i = 0; i < food.length; i++){
-   
-       document.getElementById("menu-display").innerHTML += ` <div class="product">
+  for (let i = 0; i < food.length; i++) {
+    document.getElementById("menu-display").innerHTML += ` <div class="product">
        <img src="./assets/item.png" alt="Product Image" class="product-image">
        <span class="item-name">${food[i]}</span>
        <span class="price">RS. ${price[i]}</span>
@@ -28,38 +34,39 @@ $(document).on("load",displayProduct());
        <button  class="add-to-cart-btn btn${i}" onclick="addToCart(${i},'${food[i]}',${price[i]})"><i class="fa-solid fa-cart-plus"></i>  Add to Cart</button>
        </div>
         
-       </div>`
-          
-    
-    }
+       </div>`;
+  }
 }
+
   
-var Grandtotal = 0; 
 
-function addToCart (id, food, price) {
-    
+}else{
+    document.getElementById("menu-display").innerHTML = `<div class = "closed"> <img src ="./assets/closed.png" alt="Canteen Closed"/>
+    <div>`;
 
+}
 
-    let quantity = document.getElementById(`productQty${id}`).value;    
+var Grandtotal = 0;
+function addToCart(id, food, price) {
+  let quantity = document.getElementById(`productQty${id}`).value;
 
-    
-    var total = 0; 
-    sessionStart();
-    // alert("session started");
-  
-    var name = "ram";
-    var user = {'name': name, 'foodName':food, 'price':price , 'quantity' : quantity };
-    sessionStorage.setItem('user', JSON.stringify(user));
-    var details = JSON.parse(sessionStorage.getItem('user')); // An object
-    total = details.quantity*details.price;
-    Grandtotal = Grandtotal+total;
+  var total = 0;
 
-    document.getElementById("gTotal").innerHTML = Grandtotal;
+  var name = "ram";
+  var user = { name: name, foodName: food, price: price, quantity: quantity };
+  sessionStorage.setItem("user", JSON.stringify(user));
+  var details = JSON.parse(sessionStorage.getItem("user")); // An object
+  total = details.quantity * details.price;
+  Grandtotal = Grandtotal + total;
 
-    document.getElementById("items").innerHTML += `<div class="item-row" id="${id}">
+  document.getElementById("gTotal").innerHTML = Grandtotal;
+
+  document.getElementById(
+    "items"
+  ).innerHTML += `<div class="item-row" id="${id}">
        
         <p><img src="./assets/burger.jpg" alt="burger"></p>
-        <p>${details.foodName}</p>
+        <p id="product-name">${details.foodName}</p>
         <p>${details.price}</p>
         <p>X</p> 
        
@@ -71,91 +78,48 @@ function addToCart (id, food, price) {
         
     </div> 
     
-    ` ;
-      
-    
+    `;
 }
-
-var sessionId;
- function sessionStart() {    
-    clearTimeout(sessionId);
-    setTimeout(sessionTimeout, 30000);
- }
-
-  function sessionTimeout() {
-    // Loop through div elements with IDs "1" through "10" and remove them
-    for (let j = 0; j <=food.length; j++) {
-      let element = document.getElementById(j.toString());
-      if (element) {
-        element.remove();
-      }
-    }
-    // Display an alert message to notify the user of the session timeout
-    alert("session timeout");
-    document.getElementById("gTotal").innerHTML = "000";
-  }
-  
-
-
-
-function clearItem (itemId, Total) {
-    document.getElementById(`${itemId}`).remove();
-    Grandtotal = Grandtotal - Total;
-    document.getElementById("gTotal").innerHTML = "Grandtotal";
-
-    
-
+function clearItem(itemId, Total) {
+  document.getElementById(`${itemId}`).remove();
+  Grandtotal = Grandtotal - Total;
+  document.getElementById("gTotal").innerHTML = Grandtotal;
 }
 function checkout() {
-    alert("checkout");
+  alert("checkout");
 }
-
-
 
 // increase and decrease the quantity of the item
 
-function change(productId,buttonId) {
+function change(productId, buttonId) {
+  let minusBtn = document.querySelector(`.minus-btn${productId}`);
+  let plusBtn = document.querySelector(`.plus-btn${productId}`);
 
-    let minusBtn = document.querySelector(`.minus-btn${productId}`);
-    let plusBtn = document.querySelector(`.plus-btn${productId}`);
+  let quantity = document.querySelector(`.productQty${productId}`).value;
 
-
-
-    let quantity =  document.querySelector(`.productQty${productId}`).value;
-    
-
-    if(buttonId==1) {
-
+  if (buttonId == 1) {
     quantity++;
     document.querySelector(`.productQty${productId}`).value = quantity;
-   
-         
-    }
-    if(buttonId==0){
+  }
+  if (buttonId == 0) {
     quantity--;
     document.querySelector(`.productQty${productId}`).value = quantity;
-
-   }
-//    disables minus when quantity <=1
-if(quantity <= 1) {
+  }
+  //    disables minus when quantity <=1
+  if (quantity <= 1) {
     minusBtn.disabled = true;
-    minusBtn.style.cursor = "not-allowed"; 
-
-}
-// disables the plus button while quantity >=5
-else if(quantity>=15){
+    minusBtn.style.cursor = "not-allowed";
+  }
+  // disables the plus button while quantity >=5
+  else if (quantity >= 15) {
     plusBtn.disabled = true;
-    plusBtn.style.cursor = "not-allowed"; 
-}
-// runs when quantity is between 1-4
-else{
+    plusBtn.style.cursor = "not-allowed";
+  }
+  // runs when quantity is between 1-4
+  else {
     minusBtn.disabled = false;
     plusBtn.disabled = false;
     plusBtn.style.cursor = "pointer";
     minusBtn.style.cursor = "pointer";
-
+  }
 }
-    
-
-}
-
