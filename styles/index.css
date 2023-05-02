@@ -399,7 +399,7 @@ h3 {
   align-items: center;
   font-size: 18px;
   font-weight: 900;
-  margin:25px 0px 0px 0px;
+  margin:25px 50px 0px 0px;
 
 }
 
@@ -421,12 +421,17 @@ h3 {
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 /* item image  */
-.item-row>img{
+.item-row > p {
+  width:100px;
+}
+.item-row>p>img{
   
   width:50px;
   height:50px;
   border-radius: 50px;
 }
+
+
 .btn{
 
   display: flex;

@@ -53,14 +53,15 @@ include './layout/head.php';
                         <span><i class="fa-solid fa-circle-xmark fa-2xl" style="color: #000000;"
                                 onclick="closePopup()"></i></span>
                     </div>
-                    <div class="item-header">
-                        <div></div>
-                        <span>Discription</span>
-                        <span>Price</span>
-                        <span>Quantity</span>
-                        <span>total</span>
-                        <span></span>
-                    </div>
+                    <!-- <div class="item-header">                 
+                        <span class="column1">Discription</span>
+                        <span class = "column">Price</span>
+                        <span class ="column"></span>
+                        <span class = "column">Quantity</span>
+                        <span class = "column"></span>
+                        <span class = "column">total</span>
+                        <span class = "column">Remove</span>
+                    </div> -->
                 </div>               <!-- cart item container -->
 
                 <div class="items" id="items">
@@ -78,7 +79,7 @@ include './layout/head.php';
                         to shopping</button>
                         <p>Grand Total</p>
                         <p>=</p>
-                        <p>500</p>
+                        <p id = "gTotal">000</p>
                     <button class="checkout" onclick="checkout()">CHECKOUT</button>
                 </div>
 
