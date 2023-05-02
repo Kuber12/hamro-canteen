@@ -98,7 +98,6 @@ include './layout/head.php';
                     <img src="./assets/user image/<?php echo $_SESSION['imageUrl']?>" alt="Profile Picture">
                     <p>
                         <?php echo $_SESSION['fullName'] ?>
-                        <?php echo $_SESSION['imageUrl'] ?>
                     <p>
 
                 </div>

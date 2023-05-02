@@ -20,43 +20,46 @@
       <h2 class="todays-menu-text">Today's Menu</h2>
       <a href="http:/">Update Menu</a>
     </div>
-    <div class="dashboard-grid-container">
-      <div class="dashboard-grid-item hello">
-        <img class="dashboard-item-image" src="assets/item.png" alt="item">
-        <div class="item-name-n-price">
-          <span>Momo</span>
-          <span>$10.00</span>
-        </div>
-      </div>
-      <div class="dashboard-grid-item">
-        <img class="dashboard-item-image" src="assets/item.png" alt="item">
-        <div class="item-name-n-price">
-          <span>Momo</span>
-          <span>$10.00</span>
-        </div>
-      </div>
-      <div class="dashboard-grid-item">
-      <img class="dashboard-item-image" src="assets/item.png" alt="item">
-        <div class="item-name-n-price">
-          <span>Momo</span>
-          <span>$10.00</span>
-        </div>
-      </div>
-      <div class="dashboard-grid-item">4</div>
-      <div class="dashboard-grid-item">5</div>
-      <div class="dashboard-grid-item">6</div>
-      <div class="dashboard-grid-item">7</div>
-      <div class="dashboard-grid-item">8</div>
-      <div class="dashboard-grid-item">9</div>
+    <div class="dashboard-grid-container"> 
+      <!-- dynamically added here -->
     </div> 
   </div>
   <div class="dashboard-sidebar-right">
     <h2>Popular Right now</h2>
-    <canvas id="popular-piechart"></canvas>
+    <canvas id="myChart"></canvas>
     <h2>Popular Right now</h2>
+    <canvas id="otherChart"></canvas>
   </div>
 </div>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
 <script src="./scripts/dashboard-script.js"></script>
+<script>
+  $(document).ready(function() {
+    // Make AJAX request
+    $.ajax({
+      url: './phpactions/menuItemsFetch.php', // URL of your PHP script
+      method: 'GET', // or 'POST' depending on your PHP script
+      dataType: 'json', // Expect JSON data in response
+      success: function(response) {
+        for (let i = 0; i < response.length; i++) {
+          let elem = `<div class="dashboard-grid-item">
+            <img class="dashboard-item-image" src="assets/item image/${response[i]["itemImg"]}" alt="item">
+            <div class="item-name-n-price">
+              <span>${response[i]["itemName"]}</span>
+              <span>${response[i]["itemPrice"]}</span>
+            </div>
+          </div>`;
+          $(".dashboard-grid-container").append(elem);
+        }
+      },
+      error: function(xhr, status, error) {
+        // Handle error response
+        console.error(error);
+      }
+    });
+  });
+</script>
 <?php
     include './layout/foot.php';
 ?>

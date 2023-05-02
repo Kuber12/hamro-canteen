@@ -1,32 +1,10 @@
-
 <?php
-session_start();
-
-$servername = "localhost";
-$dbusername = "root";
-$password ="";
-$dbname = "hamro_canteen";
+include("connection.php");
 
 $userName = $_POST['username'];
 $loginPassword = $_POST['password'];
 
-try{
-// create connection
-$conn = new mysqli($servername, $dbusername, $password, $dbname);
-
-}
-catch(Exception){
-
-  echo "database connection error" ;
-  
-  exit();
-}
-
-// authentication part
-
 try {
-
-
 
 $sql = "SELECT fullName, imageUrl FROM users WHERE username = '$userName' and password = '$loginPassword'";
 $result = $conn->query($sql);
@@ -36,13 +14,11 @@ if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     $_SESSION['fullName'] = $row["fullName"];
     $_SESSION['imageUrl'] = $row["imageUrl"];
-    header("Location:index.php");
+    header("Location:../index.php");
     exit();
 } else {
-  header("Location: login.php?msg=incorrect"); 
-  
+  header("Location: ../login.php?msg=incorrect"); 
   exit();
-  
 }
 }
 catch(Exception) {

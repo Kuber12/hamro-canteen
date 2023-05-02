@@ -6,7 +6,7 @@
 <!-- login page container -->
 <div class="login-container middle-centered">
     <!-- login form  -->
-        <form class="login-form middle-centered-div" action="connection.php" method = "POST">
+        <form class="login-form middle-centered-div" action="./phpactions/authentication.php" method = "POST">
             <img src="./assets/logo-yellow.png">
             <!-- username div -->
             <div class="username-div">

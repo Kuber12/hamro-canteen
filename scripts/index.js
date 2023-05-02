@@ -1,5 +1,4 @@
 
-
 var food;
 $(document).on("load",displayProduct());
  function displayProduct(){
