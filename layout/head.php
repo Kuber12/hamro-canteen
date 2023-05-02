@@ -13,8 +13,10 @@
     <!-- nomalize css -->
     <link rel="stylesheet" href="./styles/normalize.css">
     <link rel="stylesheet" href="./styles/index.css">
-    <link rel="stylesheet" href="./login.css">
-
+    <link rel="stylesheet" href="./styles/style.css">
+    
+    <!-- jquery link -->
+    <script src="./scripts/jquery.js"></script>
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,25 +24,5 @@
 </head>
 
 <body>
-    <div class="blocker" id="blocker"></div>
-    <!-- <nav>
-
-        <div class="link_container">
-            <a href="index.php">Home</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-            <a href="#">Blog</a>
-        </div>
-        
-        <div class="search_bar">
-        <form action="#" >
-            <input type="text" placeholder="Search.." name="search" />
-            <button type="submit" i><i class="fa fa-search"></i></button>
-        </form>
-        </div>
-
-
-
-    </nav> -->
-
+    <div class="blocker" id="blocker" onclick="closePopup()" ></div>
     <div class="container">

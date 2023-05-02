@@ -1,6 +1,11 @@
 /*   
    .middle-centered .middle-centered-div
   .middle-centered  --> these are inherted from index.php */
+  .middle-centered {
+   
+    position:absolute;
+  }
+  
 
 .login-form {
   width: 320px;
@@ -69,4 +74,23 @@
  }
  /* hide and show password */
  
- 
+ .alert-incorrect{
+  display: none;
+  position: relative;
+  transform: translate(-50%,-80%);
+  background-color: rgb(211, 211, 172);
+  top: 50%;
+  left: 50%;
+  width: 260px;
+  height: 65px;
+  text-align: center;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+  z-index: 5;
+  border:1px solid red;
+ }
+ .alert-incorrect >p {
+  line-height:  0.3em;
+  text-align: left;
+  margin-left: 10px;
+  font-size: 14px;
+ }
