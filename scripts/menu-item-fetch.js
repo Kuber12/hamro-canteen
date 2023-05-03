@@ -12,7 +12,7 @@ $(document).ready(function() {
             let markup = `
             <tr>
                 <td>${item['itemID']}</td>
-                <td class="dashboard-items-td"><img class="dashboard-items-img" src= "assets/fooditems/${item['itemImg']}"</td>
+                <td class="dashboard-items-td"><img class="dashboard-items-img" src= "assets/itemimage/${item['itemImg']}"</td>
                 <td>${item['itemName']}</td>
                 <td>${item['itemPrice']}</td>`;
             for (const i of daysAvailable) {

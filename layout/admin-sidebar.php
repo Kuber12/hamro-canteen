@@ -2,27 +2,27 @@
 <div class="sidebar">
   <ul>
     <li>
-      <a href="#">
+      <a href="dashboard.php">
         <i class="fa fa-home"></i>
-        <span class="menu-name">Home</span>
+        <span class="menu-name">Dashboard</span>
       </a>
     </li>
     <li>
-      <a href="#">
+      <a href="menuitem.php">
+        <i class="fa fa-book"></i>
+        <span class="menu-name">Menu</span>
+      </a>
+    </li>
+    <li>
+      <a href="users.php">
         <i class="fa fa-user"></i>
-        <span class="menu-name">Profile</span>
+        <span class="menu-name">Users</span>
       </a>
     </li>
     <li>
-      <a href="#">
-        <i class="fa fa-envelope"></i>
-        <span class="menu-name">Messages</span>
-      </a>
-    </li>
-    <li>
-      <a href="#">
+      <a href="transactions.php">
         <i class="fa fa-cog"></i>
-        <span class="menu-name">Settings</span>
+        <span class="menu-name">Transactions</span>
       </a>
     </li>
     <li class="sign-out">

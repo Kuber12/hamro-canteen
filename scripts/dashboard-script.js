@@ -1,3 +1,4 @@
+//to load items to dashboard page
 $(document).ready(function() {
     // Make AJAX request
     $.ajax({

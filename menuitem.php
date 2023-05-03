@@ -3,13 +3,13 @@
     include './layout/admin-sidebar.php';
 ?>
 <link rel="stylesheet" href="./styles/dashboard-tables.css">
-<div class="dashboard-container">
+<div class="dashboard-container leftpad20">
   <div class="dashboard-middle-container">
         <div class="menu-heading">
             <h2 class="menu-text">Item's availabe</h2>
         </div>
         <div class="menu-content">
-            <table border="1" cellspacing="0">
+            <table class="styled-table" border="1" cellspacing="0">
                 <tr>
                     <th>Food ID</th>
                     <th>Image</th>
@@ -33,8 +33,8 @@
         </div>
     </div>
 </div>
-<script src="./scripts/menu-items.js"></script>
-<script src="./scripts/menu-items-fetch.js"></script>
+<!-- <script src="./scripts/menu-items.js"></script> -->
+<script src="./scripts/menu-item-fetch.js"></script>
 <?php
     include './layout/foot.php';
 ?>

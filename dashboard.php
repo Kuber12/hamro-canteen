@@ -32,7 +32,7 @@
   </div>
 </div>
 
-<!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+<script src="https://cdnjs.com/libraries/Chart.js"></script>
 <script src="./scripts/dashboard-script.js"></script>
 <script>
   $(document).ready(function() {
@@ -44,7 +44,7 @@
       success: function(response) {
         for (let i = 0; i < response.length; i++) {
           let elem = `<div class="dashboard-grid-item">
-            <img class="dashboard-item-image" src="assets/item image/${response[i]["itemImg"]}" alt="item">
+            <img class="dashboard-item-image" src="assets/itemimage/${response[i]["itemImg"]}" alt="item">
             <div class="item-name-n-price">
               <span>${response[i]["itemName"]}</span>
               <span>${response[i]["itemPrice"]}</span>
