@@ -103,12 +103,13 @@ form {
   padding: 20px 10px 0px 10px;
 }
 .hero-profile {
-  font-weight: 1000;
-  font-size: 28px;
-  color: white;
-  padding: 20px 10px 0px 0px;
+  width:50px;
+  border-radius:50px;
+  border:1px solid gold;
+  margin: 20px 5px 0px 0px;
   position: relative;
 }
+
 .click-menu {
   position: relative;
   display: inline-block;

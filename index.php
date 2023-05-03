@@ -42,8 +42,13 @@ include './layout/head.php';
 
         <!-- cart and user icon container -->
         <span>
+        <span>
             <i class="fa-solid fa-cart-shopping fa-beat hero-cart" onclick="openCart()"></i>
-            <i class="fa-solid fa-user hero-profile" id="hero-profile-button" onclick="openProfile()"></i>
+          
+            <img src="./assets/userImage/<?php echo $_SESSION['imageUrl']?>" alt="Profile Picture"
+            class="hero-profile" id="hero-profile-button" onclick="openProfile()">
+            </span>
+         
             <!-- cart menu starts here -->
             <div class="cart-menu" id="cart-menu">
                 <!-- cart header -->
@@ -53,15 +58,7 @@ include './layout/head.php';
                         <span><i class="fa-solid fa-circle-xmark fa-2xl" style="color: #000000;"
                                 onclick="closePopup()"></i></span>
                     </div>
-                    <!-- <div class="item-header">                 
-                        <span class="column1">Discription</span>
-                        <span class = "column">Price</span>
-                        <span class ="column"></span>
-                        <span class = "column">Quantity</span>
-                        <span class = "column"></span>
-                        <span class = "column">total</span>
-                        <span class = "column">Remove</span>
-                    </div> -->
+                
                 </div>               <!-- cart item container -->
 
                 <div class="items" id="items">
@@ -103,8 +100,8 @@ include './layout/head.php';
 
                 </div>
                 <a href="#"><i class="fa-solid fa-circle-user"></i> My Profile <div class="arrow-right"></div></a>
-                <a href="#"><i class="fa-solid fa-cart-shopping"></i> My cart <div class="arrow-right"></div></a>
-                <a href="#"><i class="fa-solid fa-circle-question"></i> Help <div class="arrow-right"></div> </a>
+                <a onclick ="openCart()"><i class="fa-solid fa-cart-shopping"></i> My cart <div class="arrow-right"></div></a>
+                <a href="help.php"><i class="fa-solid fa-circle-question"></i> Help <div class="arrow-right"></div> </a>
                 <a href="logout.php"> <i class="fa-solid fa-arrow-right-from-bracket"></i>Sign Out <div></div></a>
 
             </div>

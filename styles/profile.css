@@ -1,0 +1,63 @@
+body{
+    background-color: #fbcecd;
+}
+
+
+#user-profile {
+    height :500px;
+    width: 550px;
+    background-color: white;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    padding: 0px 10px 10px 10px;
+}
+h2{
+   display: flex;
+   justify-content: center;
+}
+img {
+    height: 150px;
+    width:150px;
+    border-radius: 150px;
+    position: relative;
+    float: right;
+    right:10px;
+}
+#traingle{   
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100px;
+    height: 32px;
+    border-bottom: 40px solid red;
+    border-left: 75px solid transparent;
+    transform: rotate(-180deg);
+    margin-right: 20px;
+  }
+  #close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 30px;
+  }
+
+    #triangle2 {
+        position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 130px;
+    height: 80px;
+    border-bottom: 230px solid red;
+    border-right: 180px solid transparent;
+    transform: rotate(-90deg);
+      }
+
+      #info {
+        width: 300px;
+        height: 300px;
+        border: 1px solid black;
+      }

@@ -28,7 +28,7 @@ try {
 
 
 
-$sql = "SELECT fullName, imageUrl FROM users WHERE username = '$userName' and password = '$loginPassword'";
+$sql = "SELECT * FROM users WHERE username = '$userName' and password = '$loginPassword'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -36,6 +36,10 @@ if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     $_SESSION['fullName'] = $row["fullName"];
     $_SESSION['imageUrl'] = $row["imageUrl"];
+    $_SESSION['email'] = $row["email"];
+    $_SESSION['phone'] = $row["phone"];
+    $_SESSION['address'] = $row["address"];
+
     header("Location:index.php");
     exit();
 } else {
