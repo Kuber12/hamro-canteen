@@ -42,7 +42,7 @@ include './layout/head.php';
 
         <!-- cart and user icon container -->
         <span>
-        <span>
+        <span id="user-cart-holder">
             <i class="fa-solid fa-cart-shopping fa-beat hero-cart" onclick="openCart()"></i>
           
             <img src="./assets/userImage/<?php echo $_SESSION['imageUrl']?>" alt="Profile Picture"
@@ -56,7 +56,7 @@ include './layout/head.php';
                     <div class="cart-header">
                         <h2><i class="fa-sharp fa-solid fa-cart-shopping" style="margin-right:10px;"></i>My Cart</h2>
                         <span><i class="fa-solid fa-circle-xmark fa-2xl" style="color: #000000;"
-                                onclick="closePopup()"></i></span>
+                                onclick="closeCart()"></i></span>
                     </div>
                 
                 </div>               <!-- cart item container -->
@@ -99,8 +99,8 @@ include './layout/head.php';
                     <p>
 
                 </div>
-                <a href="#"><i class="fa-solid fa-circle-user"></i> My Profile <div class="arrow-right"></div></a>
-                <a onclick ="openCart()"><i class="fa-solid fa-cart-shopping"></i> My cart <div class="arrow-right"></div></a>
+                <a href="profile.php"><i class="fa-solid fa-circle-user"></i> My Profile <div class="arrow-right"></div></a>
+                <a onclick ="closeProfile();;openCart();"><i class="fa-solid fa-cart-shopping"></i> My cart <div class="arrow-right"></div></a>
                 <a href="help.php"><i class="fa-solid fa-circle-question"></i> Help <div class="arrow-right"></div> </a>
                 <a href="logout.php"> <i class="fa-solid fa-arrow-right-from-bracket"></i>Sign Out <div></div></a>
 

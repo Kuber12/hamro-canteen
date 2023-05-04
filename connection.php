@@ -10,6 +10,9 @@ $dbname = "hamro-canteen";
 $userName = $_POST['username'];
 $loginPassword = $_POST['password'];
 
+// how to connect php with database?
+
+
 try{
 // create connection
 $conn = new mysqli($servername, $dbusername, $password, $dbname);
@@ -19,10 +22,12 @@ catch(Exception){
 
   echo "database connection error" ;
   
+  
   exit();
 }
 
 // authentication part
+
 
 try {
 

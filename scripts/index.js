@@ -2,7 +2,7 @@
 const now = new Date();
 const hour = now.getHours();
 
-if(hour >=6 && hour<12) {
+if(hour > 12) {  //hour >=6 && hour<12
     var food;
 $(document).on("load", displayProduct());
 function displayProduct() {
