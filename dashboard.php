@@ -32,7 +32,7 @@
   </div>
 </div>
 
-<script src="https://cdnjs.com/libraries/Chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.3.0/chart.js"></script>
 <script src="./scripts/dashboard-script.js"></script>
 <script>
   $(document).ready(function() {

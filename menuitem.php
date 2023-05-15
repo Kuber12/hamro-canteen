@@ -24,16 +24,46 @@
                     <th>Edit</th>
                 </tr>
             </table>
-            <button class="action-button" id="add-item">Add Item</button>
-        </div>
-        <div id="popupContainer">
-            <div id="popupContent">
-
-            </div>
+            <button class="action-button">Add Item</button>
         </div>
     </div>
 </div>
-<!-- <script src="./scripts/menu-items.js"></script> -->
+<div id="popup-container">
+  <form action="edititem.php" method="post">
+    <div id="edit-form-contents">
+        <div class="left">
+            <label for="itemID">Item ID</label>
+            <input type="text" name="itemID">
+            <label for="itemName">Item Name</label>
+            <input type="text" name="itemName">
+            <label for="itemPrce">Item Price</label>
+            <input type="number" name="itemPrice">
+            <div id="form-days">
+                <label for="availability">Availability</label><br>
+                <div class="day"><input type="checkbox" id="sunday" class="day-input" name="avlbl-sun">Sunday</div>
+                <div class="day"><input type="checkbox" id="monday" class="day-input" name="avlbl-mon">Monday</div>
+                <div class="day"><input type="checkbox" id="tuesday" class="day-input" name="avlbl-tue">Tuesday</div>
+                <div class="day"><input type="checkbox" id="wednesday" class="day-input" name="avlbl-wed">Wednesday</div>
+                <div class="day"><input type="checkbox" id="thursday" class="day-input" name="avlbl-thurs">Thursday</div>
+                <div class="day"><input type="checkbox" id="friday" class="day-input" name="avlbl-fri">Friday</div>
+            </div>
+        </div>
+        <div class="right">
+            <label for="itemImg">Item Image</label>
+            <div id="image-upload-container">
+                <p id="drag-drop-text" style="padding:0px 20px;margin:40% 0px">
+                    Click or Drag and <br>Drop your image here
+                </p>
+                <div id="preview"></div>
+            </div>
+            <input id="image-input" style="display:none" type="file" accept="image/*" name="itemImage">
+
+        </div>
+    </div>
+    <input id="add-edit" type="submit" value="Add/Edit">
+  </form>
+</div>
+<script src="./scripts/menu-item.js"></script>
 <script src="./scripts/menu-item-fetch.js"></script>
 <?php
     include './layout/foot.php';

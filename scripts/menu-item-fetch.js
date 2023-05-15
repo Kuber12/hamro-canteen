@@ -23,7 +23,7 @@ $(document).ready(function() {
                 }
             }
             markup+=
-                `<td><button value=${item['itemID']}>Edit</button></td>
+                `<td><button value=${item['itemID']} class="item-edit-btn">Edit</button></td>
             </tr>`;
             
             $('table tbody').append(markup);
