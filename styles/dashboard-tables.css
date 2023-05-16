@@ -145,7 +145,6 @@ label,input{
 #form-days > div > input{
     margin-right: 10px;
     border-radius: 20px;
-    display: none;
 }
 #form-days{
     margin:5px 0px;
