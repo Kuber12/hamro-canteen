@@ -14,7 +14,7 @@
       </a>
     </li>
     <li>
-      <a href="users.php">
+      <a href="userslist.php">
         <i class="fa fa-user"></i>
         <span class="menu-name">Users</span>
       </a>

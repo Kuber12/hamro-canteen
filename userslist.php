@@ -11,25 +11,20 @@
         <div class="menu-content">
             <table class="styled-table" border="1" cellspacing="0">
                 <tr>
-                    <th>Food ID</th>
-                    <th>Image</th>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Sunday</th>
-                    <th>Monday</th>
-                    <th>Tuesday</th>
-                    <th>Wednesday</th>
-                    <th>Thursday</th>
-                    <th>Friday</th>
-                    <th>Edit</th>
+                    <th>S.no</th>
+                    <th>Username</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>User Image</th>
                 </tr>
             </table>
-            <button class="action-button">Add Item</button>
+            <button class="action-button">Add User</button>
         </div>
     </div>
 </div>
-<div id="popup-container">
-  <form id="menu-form" action="edititem.php" method="post">
+<!-- <div id="popup-container">
+  <form action="edititem.php" method="post">
     <div id="edit-form-contents">
         <div class="left">
             <label for="itemID">Item ID</label>
@@ -62,9 +57,9 @@
     </div>
     <input id="add-edit" type="submit" value="Add/Edit">
   </form>
-</div>
-<script src="./scripts/menu-item-fetch.js"></script>
-<script src="./scripts/menu-item.js"></script>
+</div> -->
+<!-- <script src="./scripts/menu-item.js"></script> -->
+<script src="./scripts/users-fetch.js"></script>
 <?php
     include './layout/foot.php';
 ?>

@@ -1,19 +1,22 @@
+function displayPopUp(){
+  // create blocker element
+  const blocker = $("<div id='popup-blocker'></div>");
+
+  // append blocker to body
+  $("body").append(blocker);
+
+  $("#popup-container").show();
+  $("#popup-blocker").click(function(){
+    $("#popup-container").hide();
+    $("#popup-blocker").remove();
+  })
+
+}
 
 $(document).ready(function() {
   //For Popup
   $(".action-button").click(function(a) {
-    // create blocker element
-    const blocker = $("<div id='popup-blocker'></div>");
-
-    // append blocker to body
-    $("body").append(blocker);
-
-    $("#popup-container").show();
-
-    $("#popup-blocker").click(function(){
-      $("#popup-container").hide();
-      $("#popup-blocker").remove();
-    })
+    displayPopUp();
   });
 
   // Image upload
@@ -87,4 +90,25 @@ $(document).ready(function() {
       $(this).find('input').prop('checked', true);
     }
   })
+  $(document).on('change', function() {
+    alert();
+    // Code to execute when a button is clicked
+    $('.item-edit-btn').on('click',function(){
+      alert();
+      fetchedResponse.forEach(ele => {
+        if(ele["itemID"] == this.value){
+          $("#menu-form.itemID").val('123');
+          form.itemID = ele["itemID"];
+          form.itemName = ele["itemName"];
+          form.itemPrice = ele["itemPrice"];
+          form.avlblsun = ele["avlblSun"];
+          form.avlblmon = ele["avlblMon"];
+          form.avlbltue = ele["avlblTue"];
+          form.avlblwed = ele["avlblWed"];
+          form.avlblthurs = ele["avlblThurs"];
+          form.avlblfri = ele["avlblFri"];
+        }
+      });
+    })
+  });
 });
