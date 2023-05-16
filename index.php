@@ -145,7 +145,7 @@ include './layout/head.php';
 <script>
 // jquery 
 $(document).ready(function() {
-  $('#productfrm').submit(function(event) {
+  $('.productfrm').submit(function(event) {
     // Prevent the form from submitting normally
     event.preventDefault();
 
@@ -157,10 +157,38 @@ $(document).ready(function() {
       type: 'POST',
       url: 'cartManager.php',
       data: formData,
-      success: function(response) {
-        // Handle the server response
-        alert(response);
-      }
+
+    //   success: function(response) {
+   
+    //         console.log(response['foodName']);
+    //   }
+    success: function(data) {
+    var obj = JSON.parse(data);
+    // Access the elements of the object
+    var length = Object.keys(obj).length;
+    for(i = 0 ; i < length ; i++){
+        $("#items").append( `<div class="item-row" >
+     
+     <p><img src="./assets/burger.jpg" alt="burger"></p>
+     <p id="product-name">${obj[i].foodName}</p>
+     <p>${obj[i].price}</p>
+     <p>X</p> 
+    
+     <p>${obj[i].quantity}</p>
+     <p> = </p>
+     <p> 200</p>
+     <!-- delete item from the cart -->
+     <form action = "cartManager.php" method="POST">
+     <button name = "remove-item"><i class="fa-solid fa-circle-xmark fa-xl" style="color: #000000;" onclick="clearItem(${i})"></i></button>
+     <input type="hidden" name = "foodName" value ="${obj[i].foodName}"/>
+     <form>
+     
+   </div> 
+   
+   `);
+    }
+
+  }
     });
   });
 });
@@ -168,3 +196,4 @@ $(document).ready(function() {
 <?php
 include './layout/foot.php';
 ?>
+ 
