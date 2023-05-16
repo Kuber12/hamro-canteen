@@ -207,11 +207,14 @@ h3 {
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 .product-image {
-  display: block;
+  display: inline;
   width: 150px;
   height: 150px;
-  border-radius: 10px;
+  border-radius: 150px;
   position: relative;
+  border-width: 10px;
+  background: linear-gradient(to right, #df2828, #dfd914,#ff1313);
+  border: 2px solid transparent;
 }
 
 /* to remove the up down button in input box */

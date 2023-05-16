@@ -100,7 +100,7 @@ include './layout/head.php';
 
                 </div>
                 <a href="profile.php"><i class="fa-solid fa-circle-user"></i> My Profile <div class="arrow-right"></div></a>
-                <a onclick ="closeProfile();;openCart();"><i class="fa-solid fa-cart-shopping"></i> My cart <div class="arrow-right"></div></a>
+                <a onclick ="closeProfile();openCart();"><i class="fa-solid fa-cart-shopping"></i> My cart <div class="arrow-right"></div></a>
                 <a href="help.php"><i class="fa-solid fa-circle-question"></i> Help <div class="arrow-right"></div> </a>
                 <a href="logout.php"> <i class="fa-solid fa-arrow-right-from-bracket"></i>Sign Out <div></div></a>
 
@@ -141,6 +141,30 @@ include './layout/head.php';
 
 <script src="./scripts/index.js"></script>
 <script src="./scripts/cart.js"></script>
+<script src="./scripts/jquery.js"> </script>
+<script>
+// jquery 
+$(document).ready(function() {
+  $('#productfrm').submit(function(event) {
+    // Prevent the form from submitting normally
+    event.preventDefault();
+
+    // Get the form data
+    var formData = $(this).serialize();
+
+    // Send the data via AJAX
+    $.ajax({
+      type: 'POST',
+      url: 'cartManager.php',
+      data: formData,
+      success: function(response) {
+        // Handle the server response
+        alert(response);
+      }
+    });
+  });
+});
+</script>
 <?php
 include './layout/foot.php';
 ?>
