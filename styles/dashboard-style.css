@@ -1,5 +1,7 @@
+*{
+  box-sizing: border-box;
+}
 body{
-  
   background-color: orange;
 }
 .dashboard-container{
@@ -13,14 +15,14 @@ body{
   top: 0;
   left: 0;
   bottom: 0;
-  background-color: #333;
-  color: #fff;
+  background-color: white;
+  color: black;
   width: 80px;
   transition: width 0.3s ease;
 }
 .sidebar:hover{
     display: block;
-    width: 160px;
+    width: 180px;
 }
 
 .sidebar ul {
@@ -36,15 +38,17 @@ body{
 .sidebar a {
     display: flex;
     align-items: center;
-    color: #fff;
+    color: black;
     text-decoration: none;
     position: relative;
     padding: 10px;
+    box-sizing: initial;
     border-radius: 25px;
 }
 
 .sidebar a:hover {
-  background-color: #555;
+  background-color: red;
+  color: white;
 }
 
 .sidebar a:hover .menu-name {
@@ -54,6 +58,8 @@ body{
 
 .sidebar i {
   font-size: 24px;
+  font-size: 24px;
+  font-size: 20px;
 }
 
 .menu-name {
@@ -64,9 +70,7 @@ body{
 }
 
 .sign-out {
-  position: absolute;
-  bottom: 20px;
-  width: 130px;
+    width: 130px;
 }
 
 /* grid container */
@@ -130,7 +134,7 @@ display: flex;
   justify-content: space-between;
 }
 .item-name-n-price > h5{
-  display: ;
+
 }
 #popular-piechart{
   margin: 30px 0px;
