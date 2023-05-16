@@ -15,13 +15,13 @@ function displayProduct() {
     "Samosa",
   ];
   let cart = [];
-  let price = [120, 70, 50, 60, 25, 60];
-  let url = [ "momo.jpg", "item.png",  "pizza.jpeg", "waiwai.jpg","burger.jpg", "samosa.jpg"];
+  let price = [120, 70, 50, 60, 25, 60]; 
+  let url = [ "momo.jpg", "chowmein.jpg",  "pizza.jpeg", "waiwai.jpg","burger.jpg", "samosa.jpg"];
 
   for (let i = 0; i < food.length; i++) {
     document.getElementById("menu-display").innerHTML += `<div class="product">
-    <form  id = "productfrm" >
-       <img src="./assets/${url[i]}" alt="Product Image" class="product-image">
+    <form class = "productfrm">
+       <img src="./assets/itemimage/${url[i]}" alt="Product Image" class="product-image">
        <span class="item-name">${food[i]}</span>
        <span class="price">RS. ${price[i]}</span>
        <div class="quantity">
@@ -37,9 +37,11 @@ function displayProduct() {
       <input type = "hidden" name = "imageUrl" value ="${url[i]}"/>
       <input type = "hidden" name = "foodName" value ="${food[i]}"/>
       <input type = "hidden" name = "price" value ="${price[i]}"/> 
-      <input type = "hidden" name = "productId" value ="${i}">    
+      <input type = "hidden" name = "productId" value ="${i}"> 
+      <input type = "hidden" name = "productId" value ="${i}" name ="add-to-cart"> 
+    
       
-       <button class="add-to-cart-btn" name ="add-to-cart${i}"><i class="fa-solid fa-cart-plus"></i>  Add to Cart</button>
+       <button class="add-to-cart-btn" ><i class="fa-solid fa-cart-plus"></i>  Add to Cart</button>
 
        </div>
        </form>
