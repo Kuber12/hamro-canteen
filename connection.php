@@ -5,7 +5,7 @@ session_start();
 $servername = "localhost";
 $dbusername = "root";
 $password ="";
-$dbname = "hamro-canteen";
+$dbname = "hamro_canteen";
 
 $userName = $_POST['username'];
 $loginPassword = $_POST['password'];
