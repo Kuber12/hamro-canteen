@@ -1,7 +1,11 @@
 <?php
     include './layout/head.php';
     include './layout/admin-sidebar.php';
+    include './layout/admin-sidebar.php';
 ?>
+<!-- chart js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <div class="dashboard-container">
   <div class="dashboard-middle-container">
     <div class="dashboard-middle-container-top">
@@ -52,8 +56,9 @@
   </div>
   <div class="dashboard-sidebar-right">
     <h2>Popular Right now</h2>
-    <canvas id="popular-piechart"></canvas>
+    <canvas id="myPieChart"></canvas>
     <h2>Popular Right now</h2>
+    <canvas id="myLineChart"></canvas>
   </div>
 </div>
 <script src="./scripts/dashboard-script.js"></script>
