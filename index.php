@@ -43,7 +43,7 @@ include './layout/head.php';
         <!-- cart and user icon container -->
         <span>
         <span id="user-cart-holder">
-            <i class="fa-solid fa-cart-shopping fa-beat hero-cart" onclick="openCart()"></i>
+            <i class="fa-solid fa-cart-shopping fa-beat hero-cart" id ="cart" onclick="openCart()"></i>
           
             <img src="./assets/userImage/<?php echo $_SESSION['imageUrl']?>" alt="Profile Picture"
             class="hero-profile" id="hero-profile-button" onclick="openProfile()">
@@ -166,32 +166,45 @@ $(document).ready(function() {
     var obj = JSON.parse(data);
     // Access the elements of the object
     var length = Object.keys(obj).length;
+    alert ("success");    
     for(i = 0 ; i < length ; i++){
-        $("#items").append( `<div class="item-row" >
-     
-     <p><img src="./assets/burger.jpg" alt="burger"></p>
-     <p id="product-name">${obj[i].foodName}</p>
-     <p>${obj[i].price}</p>
-     <p>X</p> 
+      $("#items").append( `<div class="item-row" >
     
-     <p>${obj[i].quantity}</p>
-     <p> = </p>
-     <p> 200</p>
-     <!-- delete item from the cart -->
-     <form action = "cartManager.php" method="POST">
-     <button name = "remove-item"><i class="fa-solid fa-circle-xmark fa-xl" style="color: #000000;" onclick="clearItem(${i})"></i></button>
-     <input type="hidden" name = "foodName" value ="${obj[i].foodName}"/>
-     <form>
-     
-   </div> 
+    <p><img src="./assets/itemimage/${obj[i].imageurl}" alt="product image"></p>
+    <p id="product-name">${obj[i].foodName}</p>
+    <p>${obj[i].price}</p>
+    <p>X</p> 
+    
+    <p>${obj[i].quantity}</p>
+    <p> = </p>
+    <p> 200</p>
+    <!-- delete item from the cart -->
+    <form action = "cartManager.php" method="POST">
+    <button name = "remove-item"><i class="fa-solid fa-circle-xmark fa-xl" style="color: #000000;" onclick="clearItem(${i})"></i></button>
+    <input type="hidden" name = "foodName" value ="${obj[i].foodName}"/>
+    <form>
+    
+    </div> 
+    
+    `);
+  }
    
-   `);
     }
 
-  }
-    });
   });
+  
+    });  
+  });
+  
+
+
+
+  $(document).ready(function(){
+  $("#cart").click(function(){
+    });
 });
+
+
 </script>
 <?php
 include './layout/foot.php';
