@@ -4,10 +4,11 @@ session_start();
 
 // Check if the session variable is set
 if (!isset($_SESSION['fullName'])) {
-
+    
     header("location:login.php");
     exit();
 }
+
 
 include './layout/head.php';
 
@@ -76,12 +77,13 @@ include './layout/head.php';
                         to shopping</button>
                         <p>Grand Total</p>
                         <p>=</p>
-                        <p id = "gTotal">000</p>
+                        <p id = "gTotal"></p>
                     <button class="checkout" onclick="checkout()">CHECKOUT</button>
                 </div>
 
 
                 <!-- emd of cart-menu-left -->
+
 
                 <!-- cart menu right side -->
 
@@ -141,71 +143,40 @@ include './layout/head.php';
 
 <script src="./scripts/index.js"></script>
 <script src="./scripts/cart.js"></script>
+<script src="./scripts/cart-manager.js"></script>
 <script src="./scripts/jquery.js"> </script>
 <script>
-// jquery 
 $(document).ready(function() {
-  $('.productfrm').submit(function(event) {
-    // Prevent the form from submitting normally
-    event.preventDefault();
 
-    // Get the form data
-    var formData = $(this).serialize();
+$('.productfrm').on('submit',function(event) {
+  // Prevent the form from submitting normally
+  event.preventDefault();
 
-    // Send the data via AJAX
-    $.ajax({
-      type: 'POST',
-      url: 'cartManager.php',
-      data: formData,
+  // Get the form data
+  var formData = $(this).serialize();
+ 
+  // Send the data via AJAX
+  $.ajax({
+    type: 'POST',
+    url: './phpactions/cartManager.php',
+    data: formData,
 
-    //   success: function(response) {
-   
-    //         console.log(response['foodName']);
-    //   }
-    success: function(data) {
-    var obj = JSON.parse(data);
-    // Access the elements of the object
-    var length = Object.keys(obj).length;
-    alert ("success");    
-    for(i = 0 ; i < length ; i++){
-      $("#items").append( `<div class="item-row" >
-    
-    <p><img src="./assets/itemimage/${obj[i].imageurl}" alt="product image"></p>
-    <p id="product-name">${obj[i].foodName}</p>
-    <p>${obj[i].price}</p>
-    <p>X</p> 
-    
-    <p>${obj[i].quantity}</p>
-    <p> = </p>
-    <p> 200</p>
-    <!-- delete item from the cart -->
-    <form action = "cartManager.php" method="POST">
-    <button name = "remove-item"><i class="fa-solid fa-circle-xmark fa-xl" style="color: #000000;" onclick="clearItem(${i})"></i></button>
-    <input type="hidden" name = "foodName" value ="${obj[i].foodName}"/>
-    <form>
-    
-    </div> 
-    
-    `);
+  //   success: function(response) {
+ 
+  //         console.log(response['foodName']);
+  //   }
+  success: function(response) {
+   alert(response);
+  
+ 
   }
-   
-    }
 
-  });
-  
-    });  
-  });
-  
-
-
-
-  $(document).ready(function(){
-  $("#cart").click(function(){
-    });
 });
 
-
+  }); 
+});
 </script>
+
 <?php
 include './layout/foot.php';
 ?>
