@@ -1,16 +1,20 @@
 <?php
 session_start();
 
-
-// echo "wow";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+    
+
     if (isset($_POST['add-to-cart'])) {
+    
+
+       
 
         if (isset($_SESSION['cart'])) {
 
             $count = count($_SESSION['cart']);
             $_SESSION['cart'][$count] = array('foodName' => $_POST['foodName'], 'price' => $_POST['price'], 'imageurl' => $_POST['imageUrl'], 'quantity' => $_POST['productQty']);
+          
 
 
         } else {
@@ -18,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    if (isset($_POST['remove-item'])) {
+    if (isset($_POST['remove-item'])) {  
         foreach ($_SESSION['cart'] as $key => $value) {
             if ($value['foodName'] == $_POST['foodName']) {
                 unset($_SESSION['cart'][$key]);
@@ -36,17 +40,10 @@ foreach ($_SESSION['cart'] as $key => $value) {
     $gtotal += $total;
 
 
-    }
-
-  
-         
-
-          
-
-          
+    }     
     $details = array(
         "value1" => $_SESSION['cart'],
-        "value2" => $gtotal,
+        "value2" => $gtotal,     
        
       );
 
