@@ -3,13 +3,10 @@
 $('#cart').click(function(){
   displayItem();
 })
-// $('.remove-item').click(function(){
-//   alert("are you sure");
-// })
 
 
 
-function displayItem() {
+function displayItem() {  
 
   $.ajax({
     url: './phpactions/cartManager.php',
@@ -31,8 +28,8 @@ function displayItem() {
              <p> = </p>
              <p>${total} </p>
              <!-- delete item from the cart -->
-             <form class ="cartItemsFrm"  action = "./phpactions/cartManager.php" method="POST">
-             <button  class="remove-item"><i class="fa-solid fa-circle-xmark fa-xl" style="color: #000000;" ></i></button>
+             <form class ="item-remove-frm"  >
+             <button type="submit"  class="remove-item" name="remove-item"><i class="fa-solid fa-circle-xmark fa-xl" style="color: #000000;" ></i></button>
                <input type="hidden" name = "remove-item"/>               
                <input type="hidden" name = "foodName" value ="${response['value1'][i]['foodName']}"/>
              </form>
@@ -43,13 +40,14 @@ function displayItem() {
       
      }
 
+
             $('#gTotal').html(`${response.value2}`);
+          
+         
+
      
     }}
     )};
-
-    
-    
 
 
 

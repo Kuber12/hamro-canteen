@@ -1,7 +1,7 @@
 const now = new Date();
 const hour = now.getHours();
 
-if (hour > 0) {
+// if (hour) {
   //hour >=6 && hour<12
   var food;
 
@@ -49,12 +49,12 @@ if (hour > 0) {
       },
     });
   }
-} else {
-  document.getElementById(
-    "menu-display"
-  ).innerHTML = `<div class = "closed"> <img src ="./assets/closed.png" alt="Canteen Closed"/>
-      <div>`;
-}
+// } else {
+  // document.getElementById(
+  //   "menu-display"
+  // ).innerHTML = `<div class = "closed"> <img src ="./assets/closed.png" alt="Canteen Closed"/>
+  //     <div>`;
+// }
 
 function clearItem(itemId, Total) {
   document.getElementById(`${itemId}`).remove();

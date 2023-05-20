@@ -1,5 +1,6 @@
 <?php
-$day = date("D"); 
+$day = "Fri";
+// $day = date("D"); 
 $today = 'avlbl' . $day; 
 
  include("./connection.php");

@@ -102,6 +102,19 @@ form {
   align-items: center;
 
 }
+#noOfItems{
+  position: relative;
+  top: -7px;
+  right: -60px;
+  background-color: orange;
+  height: 16px;
+  width: 15px;
+  border-radius: 250px;
+  padding: 2px;
+  text-align: center;
+  z-index: 5;
+}
+
 
 .hero-cart {
   font-weight: 1000;

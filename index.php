@@ -44,6 +44,10 @@ include './layout/head.php';
         <!-- cart and user icon container -->
         <span>
         <span id="user-cart-holder">
+            <span id = "noOfItems">
+       
+
+            </span>
             <i class="fa-solid fa-cart-shopping fa-beat hero-cart" id ="cart" onclick="openCart()"></i>
           
             <img src="./assets/userImage/<?php echo $_SESSION['imageUrl']?>" alt="Profile Picture"
@@ -145,6 +149,7 @@ include './layout/head.php';
 <script src="./scripts/cart.js"></script>
 <script src="./scripts/cart-manager.js"></script>
 <script src="./scripts/jquery.js"> </script>
+<script src="./scripts/remove-item-from-cart.js"> </script>
 <script>
 $(document).ready(function() {
 
@@ -161,19 +166,14 @@ $('.productfrm').on('submit',function(event) {
     url: './phpactions/cartManager.php',
     data: formData,
 
-  //   success: function(response) {
- 
-  //         console.log(response['foodName']);
-  //   }
+
   success: function(response) {
-   alert(response);
+
   
- 
-  }
+}});
 
-});
 
-  }); 
+}); 
 });
 </script>
 
