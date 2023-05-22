@@ -2,52 +2,64 @@
     include './layout/head.php';
 ?>
 <!--css -->
-<link rel="stylesheet" href="./styles/login.css">
-<!-- login page container -->
-<div class="login-container middle-centered">
-    <!-- login form  -->
-        <form class="login-form middle-centered-div" action="./phpactions/authentication.php" method = "POST">
-            <img src="./assets/logo-yellow.png">
-            <!-- username div -->
-            <div class="username-div">
-                <i class="fa-solid fa-user"></i>
-                <input type="text" name="username" id="username" placeholder="username" required>
-            </div>
-            <!-- password div -->
-            <div class="password-div">
-                <i class="fa-solid fa-lock"></i>
-                <input type="password" name="password" id="myPassword" placeholder="password" maxlength ="12" required>
+<link rel="stylesheet" href="./styles/register.css">
+<div class="register-page">
+    <span></span>
+    <img src="./assets/logo-yellow.png" alt="Hamro Canteen Logo">
+<span></span>
+
     
-                <div id = "show-password" style="display:inline"><i class="fa-solid fa-eye-slash"></i></div> 
-                <div id = "hide-password" style="display:none"><i class="fa-solid fa-eye"></i></div> 
-            
-            
-            </div>
-            <!-- submit button  -->
-            <input type="submit"  value="LOG IN" class="login-btn">
-               
-            <a href="#" id="forget-password">Forget Password</a>.
-        </form>
-        <div class="alert-incorrect" id="alert-incorrect">
-            <p style="color:red;"><i class="fa-solid fa-triangle-exclamation"></i>Error</p>
-            <p style="margin-left:30px;">incorrect username or password </p>
-                     
-        </div>
+
+
+<!-- login page container -->
+<div class = "frm-container"> 
+
+<fieldset>
+    <legend>Registration Form</legend>
+
+  <form action="./phpactions/serverSideValidation.php"  onsubmit="return validateForm()" name="registrationForm" method="post">
+  <div class = "frm-element">
+    <input type="text" id="first_name" name="first_name" placeholder = "First Name" required>
+
+    <input type="text" id="last_name" name="last_name" placeholder="Last Name" required>
+    
+    <input type="text" id="middle_name" name="middle_name" placeholder="Middle Name" required>
+
+    <input type="text" id="username" name="username" placeholder="User Name" required>
+
+    <select id="gender" name="gender" required>
+      <option value="">Gender</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="other">Other</option>
+    </select>
+
+    
+    <input type="text" id="contact" name="contact" placeholder="Phone" required>
+
+   
+    <input type="email" id="email" name="email" placeholder="Email" required>
+
+    <input type="text" id="address" name="address" placeholder="Address" required></input>
+
+    <input type="password" id="password" name="password" placeholder="Password" required>
+ 
+    <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" required>
+    <input type="submit"  value="Register">
+    <!-- <input type="submit" value="Login"> -->
+    </div>
+    <a href="login.php" class="redirect-to-login" >already have an account? Login</a>
+  </form>
+
+ 
+  </fieldset>
+</div>
+<span></span>
 </div>
 
-<script src="./scripts/login.js"></script>
-<script>
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const msg = urlParams.get('msg');
-    if (msg=="incorrect") {
-       var div  = document.getElementById("alert-incorrect");
-       div.style.display = "block";
-       setTimeout(function(){
-       div.style.display = "none";
-       }, 2000);
-    }
-</script>
+
+<script src="./scripts/client-side-validation.js"></script>
+
 <?php
     include './layout/foot.php';
 ?>
