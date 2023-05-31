@@ -1,21 +1,33 @@
 <?php
+session_start();
+
+
+// Check if the session variable is set
+if (!isset($_SESSION['fullName'])) {
+
+    header("location:login.php");
+    exit();
+}
+
 include './layout/head.php';
+
 ?>
- <nav>
 
-<div class="link_container">
-    <a href="index.php">Home</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
-    <a href="#">Blog</a>
-</div>
+<nav>
 
-<div class="search_bar">
-<form action="#" >
-    <input type="text" placeholder="Search.." name="search" />
-    <button type="submit" i><i class="fa fa-search"></i></button>
-</form>
-</div>
+    <div class="link_container">
+        <a href="index.php">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Blog</a>
+    </div>
+
+    <div class="search_bar">
+        <form action="#">
+            <input type="text" placeholder="Search.." name="search" />
+            <button type="submit" i><i class="fa fa-search"></i></button>
+        </form>
+    </div>
 
 
 
@@ -25,125 +37,57 @@ include './layout/head.php';
     <div class="hero-items">
         <!-- logo container -->
         <span>
-            <img src="./assets/logo-white.png " class="hero-logo">
+            <img src="./assets/logo-yellow.png " class="hero-logo">
         </span>
 
         <!-- cart and user icon container -->
         <span>
-            <i class="fa-solid fa-cart-shopping fa-beat hero-cart" id="hero-cart-button"></i>
-            <i class="fa-solid fa-user hero-profile" id="hero-profile-button"></i>
+            <i class="fa-solid fa-cart-shopping fa-beat hero-cart" onclick="openCart()"></i>
+            <i class="fa-solid fa-user hero-profile" id="hero-profile-button" onclick="openProfile()"></i>
             <!-- cart menu starts here -->
             <div class="cart-menu" id="cart-menu">
-
-                <!-- left part of cart menu -->
-                <div class="cart-menu-left">
-                    <!-- cart header -->
+                <!-- cart header -->
+                <div>
                     <div class="cart-header">
                         <h2><i class="fa-sharp fa-solid fa-cart-shopping" style="margin-right:10px;"></i>My Cart</h2>
+                        <span><i class="fa-solid fa-circle-xmark fa-2xl" style="color: #000000;"
+                                onclick="closePopup()"></i></span>
                     </div>
+                    <!-- <div class="item-header">                 
+                        <span class="column1">Discription</span>
+                        <span class = "column">Price</span>
+                        <span class ="column"></span>
+                        <span class = "column">Quantity</span>
+                        <span class = "column"></span>
+                        <span class = "column">total</span>
+                        <span class = "column">Remove</span>
+                    </div> -->
+                </div>               <!-- cart item container -->
 
-                    <!-- cart item container -->
+                <div class="items" id="items">
 
-                    <div class="items">
-                        <!-- item -row -->
-                        <div class="item-row">
-                            <input type="checkbox" checked />
-                            <img src="./assets/burger.jpg" alt="burger">
-                            <p>MOMO</p>
-                            <p>Rs. 120</p>
-                            <p>X</p>
-                            <!-- quantity specifier -->
-                            <span class="qty">
-                                <i class="fa-solid fa-square-minus fa-lg" style="color: #000000; margin-left:3px;"></i>
-                                <input type="number" value="1">
-                                <i class="fa-solid fa-square-plus fa-lg"></i>
-                            </span>
-                            <!-- delete item from the cart -->
-                            <i class="fa-solid fa-circle-xmark fa-xl" style="color: #000000;"></i>
-                        </div>
 
-                        <div class="item-row">
-                            <input type="checkbox" checked />
-                            <img src="./assets/burger.jpg" alt="burger">
-                            <p>Chana Anda</p>
-                            <p>Rs. 120</p>
-                            <p>X</p>
-                            <span class="qty">
-                                <i class="fa-solid fa-square-minus fa-lg" style="color: #000000; margin-left:3px;"></i>
-                                <input type="number" value="1">
-                                <i class="fa-solid fa-square-plus fa-lg"></i>
-                            </span>
-                            <i class="fa-solid fa-circle-xmark fa-xl" style="color: #000000;"></i>
-                        </div>
+                    <!-- item -row -->
 
-                        <div class="item-row">
-                            <input type="checkbox" checked />
-                            <img src="./assets/burger.jpg" alt="burger">
-                            <p>MOMO</p>
-                            <p>Rs. 120</p>
-                            <p>X</p>
-                            <span class="qty">
-                                <i class="fa-solid fa-square-minus fa-lg" style="color: #000000; margin-left:3px;"></i>
-                                <input type="number" value="1">
-                                <i class="fa-solid fa-square-plus fa-lg"></i>
-                            </span>
-                            <i class="fa-solid fa-circle-xmark fa-xl" style="color: #000000;"></i>
-                        </div>
-                        <div class="item-row">
-                            <input type="checkbox" checked />
-                            <img src="./assets/burger.jpg" alt="burger">
-                            <p>MOMO</p>
-                            <p>Rs. 120</p>
-                            <p>X</p>
-                            <span class="qty">
-                                <i class="fa-solid fa-square-minus fa-lg" style="color: #000000; margin-left:3px;"></i>
-                                <input type="number" value="1">
-                                <i class="fa-solid fa-square-plus fa-lg"></i>
-                            </span>
-                            <i class="fa-solid fa-circle-xmark fa-xl" style="color: #000000;"></i>
-                        </div>
-                        <div class="item-row">
-                            <input type="checkbox" checked />
-                            <img src="./assets/burger.jpg" alt="burger">
-                            <p>MOMO</p>
-                            <p>Rs. 120</p>
-                            <p>X</p>
-                            <span class="qty">
-                                <i class="fa-solid fa-square-minus fa-lg" style="color: #000000; margin-left:3px;"></i>
-                                <input type="number" value="1">
-                                <i class="fa-solid fa-square-plus fa-lg"></i>
-                            </span>
-                            <i class="fa-solid fa-circle-xmark fa-xl" style="color: #000000;"></i>
-                        </div>
-
-                    </div>
-                    <!-- end of  items div-->
-
-                    <button id="back-to-shopping"><i class="fa-solid fa-arrow-left " style="margin-right:5px;"></i> back
-                        to shopping</button>
 
                 </div>
+                <!-- end of  items div-->
+
+                <div class="btn">
+                    <button id="back-to-shopping" onclick="closePopup()"><i class="fa-solid fa-arrow-left "
+                            style="margin-right:5px;"></i> back
+                        to shopping</button>
+                        <p>Grand Total</p>
+                        <p>=</p>
+                        <p id = "gTotal">000</p>
+                    <button class="checkout" onclick="checkout()">CHECKOUT</button>
+                </div>
+
+
                 <!-- emd of cart-menu-left -->
 
                 <!-- cart menu right side -->
-                <div class="cart-menu-right">
-                    <span><i class="fa-solid fa-circle-xmark fa-2xl" style="color: #000000;" id="close"></i></span>
-                    <h2>Summary</h2>
-                    <div class="summary">
-                        <p> <span> 1. </span> <span> MOMO </span> <span> X 2 </span> <span> = 240 </span></p>
-                        <p> <span> 1. </span> <span> MOMO </span> <span> X 2 </span> <span> = 240 </span></p>
-                        <p> <span> 1. </span> <span> MOMO </span> <span> X 2 </span> <span> = 240 </span></p>
-                        <p> <span> 1. </span> <span> MOMO </span> <span> X 2 </span> <span> = 240 </span></p>
-                        <p> <span> 1. </span> <span> MOMO </span> <span> X 2 </span> <span> = 240 </span></p>
-                        <p> <span> 1. </span> <span> Chana Anda </span> <span> X 2 </span> <span> = 240 </span></p>
-                        <p> <span> 1. </span> <span> MOMO </span> <span> X 2 </span> <span> = 240 </span></p>
-                        <p> <span> 1. </span> <span> MOMO </span> <span> X 2 </span> <span> = 240 </span></p>
-                        <p><span style="margin-left:20px;">TOTAL </span> <span> = 720 </span></p>
-                    </div>
-                    <!-- end of summary -->
-                    <button class="checkout" id="checkout">CHECKOUT</button>
-                </div>
-                <!-- end of cart-menu-right -->
+
             </div>
             <!-- end of cart menu -->
 
@@ -151,15 +95,16 @@ include './layout/head.php';
 
             <div class="profile-menu" id="profile-menu">
                 <div class="profile-info-container">
-                    <img src="./assets/avatar.jpg" alt="Profile Picture">
-                    <p>Ram Prasad Subedi
+                    <img src="./assets/user image/<?php echo $_SESSION['imageUrl']?>" alt="Profile Picture">
+                    <p>
+                        <?php echo $_SESSION['fullName'] ?>
                     <p>
 
                 </div>
-                <a href="#"><i class="fa-solid fa-circle-user"></i> My Profile </a>
-                <a href="#"><i class="fa-solid fa-cart-shopping"></i> My cart </a>
-                <a href="#"><i class="fa-solid fa-circle-question"></i> Help </a>
-                <a href="#"> <i class="fa-solid fa-arrow-right-from-bracket"></i>Sign Out </a>
+                <a href="#"><i class="fa-solid fa-circle-user"></i> My Profile <div class="arrow-right"></div></a>
+                <a href="#"><i class="fa-solid fa-cart-shopping"></i> My cart <div class="arrow-right"></div></a>
+                <a href="#"><i class="fa-solid fa-circle-question"></i> Help <div class="arrow-right"></div> </a>
+                <a href="logout.php"> <i class="fa-solid fa-arrow-right-from-bracket"></i>Sign Out <div></div></a>
 
             </div>
             <!-- end of profile menu -->
@@ -179,36 +124,25 @@ include './layout/head.php';
 
 <div id="menu">
     <h3>Today's Menu</h3>
+
 </div>
 
 <!-- available item /product -->
 
-<div class="menu-display" id="menu-display">
+<div class="menu-display" id="menu-display" onload="displayProduct()">
 
     <!-- menu menu-display continue ends in foot.php -->
 
-    <script>
-        let menuDisplay = document.getElementById("menu-display");
-        let id = ["C01","C02","C03","C04"]
-        for(let i in id){
-            menuDisplay.innerHTML += `
-            <div class="product">
-                    <img src="./assets/item.png" alt="Product Image" class="product-image">
-                    <span class="item-name">Momo</span>
-                    <span class="price">RS. 120</span>
-                    <div class="quantity">
-                        <span>Quantity: <i class="fa-solid fa-square-minus fa-lg" style="color: #000000; margin-left:3px;"></i>
-                            <input type="number" value="1">
-                            <i class="fa-solid fa-square-plus fa-lg" ></i>
-                        </span>
+
+    <!-- product details appears here -->
 
 
-                    </div>
 
-                    <img class="order-btn btn${i}" src="./assets/addtocart.png" alt="Add To Cart">
-                    </div>`
-        }
-    </script>
-    <?php
-    include './layout/foot.php';
-    ?>
+</div>
+
+
+<script src="./scripts/index.js"></script>
+<script src="./scripts/cart.js"></script>
+<?php
+include './layout/foot.php';
+?>
