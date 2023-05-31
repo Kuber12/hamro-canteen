@@ -61,14 +61,12 @@ function clearItem(itemId, Total) {
   Grandtotal = Grandtotal - Total;
   document.getElementById("gTotal").innerHTML = Grandtotal;
 }
-function checkout() {
-  alert("checkout");
-}
+
 function submitForm(event) {
   event.preventDefault();
-  // Your code to process the form data goes here
+
 }
-// increase and decrease the quantity of the item
+
 
 function change(productId, buttonId) {
   let minusBtn = document.querySelector(`.minus-btn${productId}`);
