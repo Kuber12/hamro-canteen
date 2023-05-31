@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 body{
-  background-color: orange;
+  background-color: var(--primary-color);
 }
 .dashboard-container{
   margin-left: 80px;
@@ -15,7 +15,7 @@ body{
   top: 0;
   left: 0;
   bottom: 0;
-  background-color: white;
+  background-color: var(--secondary-color);
   color: black;
   width: 80px;
   transition: width 0.3s ease;
