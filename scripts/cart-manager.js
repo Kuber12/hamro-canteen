@@ -1,4 +1,16 @@
- 
+$(document).on("load", noOfItems());
+
+function noOfItems(){
+
+  $.ajax({
+    url: './phpactions/cartManager.php',
+    method: 'POST',  
+    dataType: 'json', // Expect JSON data in response
+    success: function(response) {
+  $('#noOfItems').html(`${response.value1.length}`);
+}});
+  }
+
 
 $('#cart').click(function(){
   displayItem();
@@ -28,7 +40,7 @@ function displayItem() {
              <p> = </p>
              <p>${total} </p>
              <!-- delete item from the cart -->
-             <form class ="item-remove-frm"  >
+             <form class ="item-remove-frm" action="./phpactions/cartManager.php" method ="POST">
              <button type="submit"  class="remove-item" name="remove-item"><i class="fa-solid fa-circle-xmark fa-xl" style="color: #000000;" ></i></button>
                <input type="hidden" name = "remove-item"/>               
                <input type="hidden" name = "foodName" value ="${response['value1'][i]['foodName']}"/>
@@ -40,14 +52,17 @@ function displayItem() {
       
      }
 
-
-            $('#gTotal').html(`${response.value2}`);
-          
-         
-
-     
+            $('#gTotal').html(`${response.value2}`);           
+             
     }}
     )};
+     
+    
+// $('.remove').click(function(){
+//   displayItem();
+// })
+
+  
 
 
 
