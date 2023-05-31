@@ -34,7 +34,7 @@
             $sql = "update items set itemName = '$itemName', itemPrice = '$itemPrice', itemImg = '$itemImage', avlblSun = '$avlSun', avlblMon = '$avlMon', avlblTue = '$avlTue', avlblWed = '$avlWed', avlblThurs = '$avlThu', avlblFri = '$avlFri' where itemID = '$itemID'";
             if (mysqli_query($conn, $sql)) {
                 echo "Record updated successfully.";
-                // header("location:../menuitem.php");
+                header("location:../menuitem.php");
             } else {
                 echo "Error updating record: " . mysqli_error($conn);
             }
@@ -43,7 +43,7 @@
         
             if ($result = mysqli_query($conn, $sql)) {
                 echo "success";
-                // header("location:../menuitem.php");
+                header("location:../menuitem.php");
             }else{
                 echo "fail";
             }
