@@ -1,114 +1,162 @@
-.menu-content{
-    margin-left: 20px;    
+.leftpad20{
+    padding-left: 20px;
 }
 table{
     width: 100%;
 }
-th{
-    padding: 20px 5px;
-    text-align: left;
-    font-weight: 500;
-    color: #fff;
-    text-transform: uppercase;
-}
-td{
-    padding: 15px;
-    text-align: left;
-    vertical-align:middle;
-    color: #fff;
-    border-bottom: solid 1px black;
-}
-.dashboard-items-td{
+.menu-content{
     text-align: center;
-    height: 50px;
-    padding: 0px;
-}
-.dashboard-items-img{
-    height: 100%;
-    width: auto;
 }
 .action-button{
-    margin-top: 20px;
-    width: 150px;
-    height: 40px;
+    background: yellow;
+    padding: 15px 60px;
     border-radius: 30px;
+    color: black;
+    transition: cubic-bezier(1, 0, 0, 1);
+    transition-duration: 0.5s;
 }
-/* popup css */
-#popupContainer {
+.action-button:hover{
+    background-color: rgba(255, 255, 0, 0.849);
+    transform: scale(1.1);
+}
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+.dashboard-items-img{
+    width: 50px;
+    height: 50px;
+}
+
+@keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* Apply the animation to the checkbox when it's checked */
+input[type="checkbox"]:checked {
+    animation: pop 0.3s ease-in-out;
+}
+/* popup */
+#popup-container {
     display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    background-color: white;
+    border: 1px solid black;
+    padding: 10px;
+  }
+  #popup-blocker {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 9999;
+    z-index: 9998;
+  }
+
+#image-upload-container > input[type="file"]{
+    display: none;
+} 
+
+  /* image upload */
+#image-upload-container {
+  border: 2px dashed #ccc;
+  text-align: center;   
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #eee;
+  width: 100%;
+height: min-content;     
 }
 #image-input{
     display: none;
 }
-#popupContent {
-    min-width: 300px;
-    max-width: fit-content;
-    margin: 100px auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
+#preview {
+  margin-top: 20px;
+  max-width: 250px;
+  max-height: max-content;
+}
+label,input{
+    width: 100%;
+    box-sizing: border-box;
 }
 
-#closePopupBtn {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
+#edit-form-contents{
+    display: flex;
+}
+#edit-form-contents > .left{
+    flex: 1;
+    margin-right: 10px;
+}
+#edit-form-contents > .right{
+    width: auto;
+}
+#form-days > .day{
+    display: inline-flex;
+    width: auto;
+    border-radius: 20px;
+    background-color: red;
+    color: white;
+    margin: 5px;
     padding: 10px 20px;
     cursor: pointer;
-    margin-top: 10px;
-    border-radius: 5px;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition-duration: .3s;
 }
-
-/* add item form grid */
-.add-item-image{grid-area: add-item-image;}
-.add-item-id{grid-area: add-item-id;}
-.add-item-name{grid-area: add-item-name;}
-.add-item-price{grid-area: add-item-price;}
-.add-item-days{grid-area: add-item-days;}
-.add-item-submit{grid-area: add-item-submit;}
-
-
-#popupContent > form{
-    display: grid;
-    grid-template-areas:
-    'add-item-id add-item-id add-item-image '
-    'add-item-name add-item-name add-item-image '
-    'add-item-price add-item-price add-item-image '
-    'add-item-days add-item-days add-item-days '
-    'add-item-submit add-item-submit add-item-submit';
-    gap: 10px;
+#form-days > .day:hover{
+    scale: 1.05;
 }
-#fileUploadDiv {
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-    background-color: #f8f8f8;
-    border: 1px solid #ccc;
-    text-align: center;
-    width: 300px;
-    margin: 0 auto;
-
+.selected-day{
+    background-color: yellow !important;
+    color: black !important;
 }
-#popupContent > form > label,input{
-    
+#form-days > div > input{
+    margin-right: 10px;
+    border-radius: 20px;
 }
-
-.add-item-submit{
-    text-align: center;
+#form-days{
+    margin:5px 0px;
 }
-.add-item-submit > input{
-    width: 40%;
-}
-/* image preview */
-#imagePreview {
-    width: 100px;
-    height: auto;
-    margin-top: 10px;
+#add-edit{
+    background-color: orange;
+    border-radius: 10px;
+    color: white;       
+    border: none;
+    width: auto;
+    padding: 15px 40px;
+    border: none;
 }
