@@ -1,12 +1,38 @@
-<?php
-include("connection.php");
 
-$userName = $_POST['username'];
-$loginPassword = $_POST['password'];
+<?php
+session_start();
+
+$servername = "localhost";
+$dbusername = "root";
+$password ="";
+$dbname = "hamro_canteen";
+
+
+
+// how to connect php with database?
+
+
+try{
+// create connection
+$conn = new mysqli($servername, $dbusername, $password, $dbname);
+
+}
+catch(Exception){
+
+  echo "database connection error" ;
+  
+  
+  exit();
+}
+
+// authentication part
+
 
 try {
 
-$sql = "SELECT* FROM users WHERE username = '$userName' and password = '$loginPassword'";
+
+
+$sql = "SELECT * FROM users WHERE ablblsun = 1'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -17,11 +43,15 @@ if ($result->num_rows > 0) {
     $_SESSION['email'] = $row["email"];
     $_SESSION['phone'] = $row["phone"];
     $_SESSION['address'] = $row["address"];
-    header("Location:../index.php");
+
+    header("Location:index.php");
     exit();
 } else {
-  header("Location: ../login.php?msg=incorrect"); 
+
+  header("Location: login.php?msg=incorrect");  
   exit();
+
+  
 }
 }
 catch(Exception) {

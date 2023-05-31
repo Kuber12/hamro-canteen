@@ -1,0 +1,87 @@
+body{
+  font-family: Nunito Sans;
+}
+.container {
+  width:100vw;
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.5)),
+  url("../assets/pizza.jpeg");
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+
+#user-profile {
+    height :400px;
+    width: 500px;
+    background-color: white;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    padding: 0px 10px 10px 10px;
+}
+h2{
+   display: flex;
+   justify-content: center;
+}
+h3 {
+  text-align: left;
+  font-size: 24px;
+}
+h4 >span {
+  margin-right:20px;
+  
+}
+img {
+  height: 150px;
+  width: 150px;
+  border-radius: 150px;
+  position: relative;
+  float: right;
+  right: 10px;
+  border-width: 10px;
+  background: linear-gradient(to right, #df2828, #dfd914,#ff1313);
+  border: 5px solid transparent;
+  
+}
+#traingle{   
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100px;
+    height: 32px;
+    border-bottom: 40px solid red;
+    border-left: 75px solid transparent;
+    transform: rotate(-180deg);
+    margin-right: 20px;
+  }
+  #close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 30px;
+  }
+
+    #triangle2 {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 120px;
+      height: 0px;
+      border-bottom: 200px solid red;
+      border-right: 80px solid transparent;
+      transform: rotate(-90deg);
+      }
+
+      #info {
+        width: 300px;
+        height: 300px;    
+        position: absolute;
+        bottom: 10px;
+        left: 50px;
+     
+      }
+   

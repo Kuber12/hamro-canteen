@@ -13,10 +13,14 @@ function openCart() {
   blocker.style.display = "block";
   
 }
-
-function closePopup() {
-  profileMenu.style.display = "none";
+function closeCart() {
   cart.style.display = "none";
+  blocker.style.display = "none";
+
+}
+
+function closeProfile() {
+  profileMenu.style.display = "none";
   blocker.style.display = "none";
 }
 

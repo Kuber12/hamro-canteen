@@ -4,10 +4,11 @@ session_start();
 
 // Check if the session variable is set
 if (!isset($_SESSION['fullName'])) {
-
+    
     header("location:login.php");
     exit();
 }
+
 
 include './layout/head.php';
 
@@ -42,8 +43,17 @@ include './layout/head.php';
 
         <!-- cart and user icon container -->
         <span>
-            <i class="fa-solid fa-cart-shopping fa-beat hero-cart" onclick="openCart()"></i>
-            <i class="fa-solid fa-user hero-profile" id="hero-profile-button" onclick="openProfile()"></i>
+        <span id="user-cart-holder">
+            <span id = "noOfItems">
+       
+
+            </span>
+            <i class="fa-solid fa-cart-shopping fa-beat hero-cart" id ="cart" onclick="openCart()"></i>
+          
+            <img src="./assets/userImage/<?php echo $_SESSION['imageUrl']?>" alt="Profile Picture"
+            class="hero-profile" id="hero-profile-button" onclick="openProfile()">
+            </span>
+         
             <!-- cart menu starts here -->
             <div class="cart-menu" id="cart-menu">
                 <!-- cart header -->
@@ -51,17 +61,9 @@ include './layout/head.php';
                     <div class="cart-header">
                         <h2><i class="fa-sharp fa-solid fa-cart-shopping" style="margin-right:10px;"></i>My Cart</h2>
                         <span><i class="fa-solid fa-circle-xmark fa-2xl" style="color: #000000;"
-                                onclick="closePopup()"></i></span>
+                                onclick="closeCart()"></i></span>
                     </div>
-                    <!-- <div class="item-header">                 
-                        <span class="column1">Discription</span>
-                        <span class = "column">Price</span>
-                        <span class ="column"></span>
-                        <span class = "column">Quantity</span>
-                        <span class = "column"></span>
-                        <span class = "column">total</span>
-                        <span class = "column">Remove</span>
-                    </div> -->
+                
                 </div>               <!-- cart item container -->
 
                 <div class="items" id="items">
@@ -74,17 +76,17 @@ include './layout/head.php';
                 <!-- end of  items div-->
 
                 <div class="btn">
-                    <button id="back-to-shopping" onclick="closePopup()"><i class="fa-solid fa-arrow-left "
-                            style="margin-right:5px;"></i> back
-                        to shopping</button>
+                    <button id="back-to-shopping" onclick="closeCart()"><i class="fa-solid fa-arrow-left "
+                            style="margin-right:5px;"></i> back to shopping</button>
                         <p>Grand Total</p>
                         <p>=</p>
-                        <p id = "gTotal">000</p>
+                        <p id = "gTotal"></p>
                     <button class="checkout" onclick="checkout()">CHECKOUT</button>
                 </div>
 
 
                 <!-- emd of cart-menu-left -->
+
 
                 <!-- cart menu right side -->
 
@@ -95,15 +97,16 @@ include './layout/head.php';
 
             <div class="profile-menu" id="profile-menu">
                 <div class="profile-info-container">
-                    <img src="./assets/user image/<?php echo $_SESSION['imageUrl']?>" alt="Profile Picture">
+                    <img src="./assets/userImage/<?php echo $_SESSION['imageUrl']?>" alt="Profile Picture">
                     <p>
                         <?php echo $_SESSION['fullName'] ?>
+                   
                     <p>
 
                 </div>
-                <a href="#"><i class="fa-solid fa-circle-user"></i> My Profile <div class="arrow-right"></div></a>
-                <a href="#"><i class="fa-solid fa-cart-shopping"></i> My cart <div class="arrow-right"></div></a>
-                <a href="#"><i class="fa-solid fa-circle-question"></i> Help <div class="arrow-right"></div> </a>
+                <a href="profile.php"><i class="fa-solid fa-circle-user"></i> My Profile <div class="arrow-right"></div></a>
+                <a onclick ="closeProfile();openCart();"><i class="fa-solid fa-cart-shopping"></i> My cart <div class="arrow-right"></div></a>
+                <a href="help.php"><i class="fa-solid fa-circle-question"></i> Help <div class="arrow-right"></div> </a>
                 <a href="logout.php"> <i class="fa-solid fa-arrow-right-from-bracket"></i>Sign Out <div></div></a>
 
             </div>
@@ -143,6 +146,38 @@ include './layout/head.php';
 
 <script src="./scripts/index.js"></script>
 <script src="./scripts/cart.js"></script>
+<script src="./scripts/cart-manager.js"></script>
+<script src="./scripts/jquery.js"> </script>
+<script src="./scripts/remove-item-from-cart.js"> </script>
+<script>
+$(document).ready(function() {
+
+$('.productfrm').on('submit',function(event) {
+  // Prevent the form from submitting normally
+  event.preventDefault();
+
+  // Get the form data
+  var formData = $(this).serialize();
+ 
+  // Send the data via AJAX
+  $.ajax({
+    type: 'POST',
+    url: './phpactions/cartManager.php',
+    data: formData,
+    dataType:'json',
+
+
+  success: function(response) {
+    alert(response.length);
+  
+}});
+
+
+}); 
+});
+</script>
+
 <?php
 include './layout/foot.php';
 ?>
+ 
