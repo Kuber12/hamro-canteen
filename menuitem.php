@@ -29,7 +29,7 @@
     </div>
 </div>
 <div id="popup-container">
-  <form id="menu-form" action="edititem.php" method="post">
+  <form id="menu-form" action="./phpactions/addOrEditItem.php" method="post" enctype="multipart/form-data">
     <div id="edit-form-contents">
         <div class="left">
             <label for="itemID">Item ID</label>
@@ -56,8 +56,7 @@
                 </p>
                 <div id="preview"></div>
             </div>
-            <input id="image-input" style="display:none" type="file" accept="image/*" name="itemImage">
-
+            <input id="image-input" type="file" accept="image/*" name="itemImage">
         </div>
     </div>
     <input id="add-edit" type="submit" value="Add/Edit">

@@ -97,6 +97,51 @@ $(document).ready(function() {
 
   }
 
+  imageInput.on('change', function(event) {
+    var file = event.target.files[0];
+  
+    if (file) {
+      var reader = new FileReader();
+  
+      reader.onload = function(e) {
+        var img = $('<img>').attr('src', e.target.result);
+  
+        img.on('load', function() {
+          var canvas = $('<canvas>')[0];
+          var ctx = canvas.getContext('2d');
+          var maxSize = 200; // Set your desired maximum size here
+  
+          var width = img.width();
+          var height = img.height();
+          
+          // Calculate the aspect ratio
+          var aspectRatio = width / height;
+  
+          // Set the canvas size
+          if (width > height) {
+            canvas.width = maxSize;
+            canvas.height = maxSize / aspectRatio;
+          } else {
+            canvas.width = maxSize * aspectRatio;
+            canvas.height = maxSize;
+          }
+  
+          // Draw the image on the canvas
+          ctx.drawImage(img[0], 0, 0, canvas.width, canvas.height);
+  
+          // Get the compressed image data
+          var compressedDataUrl = canvas.toDataURL('image/jpeg', 0.8); // Adjust the compression quality as needed
+  
+          // Use the compressed image data as needed (e.g., upload to server)
+          console.log('Compressed image data URL:', compressedDataUrl);
+        });
+      };
+  
+      reader.readAsDataURL(file);
+    }
+  });
+  
+
   // For Form checkbox ticks
   days = $('.day');
   daysInput = $('.day-input');
