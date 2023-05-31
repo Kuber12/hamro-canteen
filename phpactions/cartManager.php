@@ -31,6 +31,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             }
         }
+        header("location:../index.php");
+        echo "<script> openCart();</script>";
+
     }
     $gtotal = 0;
 $total = 0;

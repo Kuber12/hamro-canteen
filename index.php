@@ -9,7 +9,7 @@ if (!isset($_SESSION['fullName'])) {
     exit();
 }
 
-
+$day = date("l"); 
 include './layout/head.php';
 
 ?>
@@ -44,8 +44,7 @@ include './layout/head.php';
         <!-- cart and user icon container -->
         <span>
         <span id="user-cart-holder">
-            <span id = "noOfItems">
-       
+            <span id = "noOfItems">       
 
             </span>
             <i class="fa-solid fa-cart-shopping fa-beat hero-cart" id ="cart" onclick="openCart()"></i>
@@ -81,7 +80,7 @@ include './layout/head.php';
                         <p>Grand Total</p>
                         <p>=</p>
                         <p id = "gTotal"></p>
-                    <button class="checkout" onclick="checkout()">CHECKOUT</button>
+                    <a  href="checkout.php" class="checkout" onclick="alert('are you sure');" >CHECKOUT</a>
                 </div>
 
 
@@ -119,7 +118,7 @@ include './layout/head.php';
     <!-- marqueee tag  -->
     <div class="marquee">
         <marquee behavior="alternate" direction="left" width="100%">
-            <h2>Sunday's Treats</h2>
+            <h2><?php echo $day ?>'s Treats</h2>
         </marquee>
     </div>
 </div>
@@ -149,6 +148,7 @@ include './layout/head.php';
 <script src="./scripts/cart-manager.js"></script>
 <script src="./scripts/jquery.js"> </script>
 <script src="./scripts/remove-item-from-cart.js"> </script>
+<script src="./scripts/noOfItems.js"> </script>
 <script>
 $(document).ready(function() {
 
@@ -168,13 +168,15 @@ $('.productfrm').on('submit',function(event) {
 
 
   success: function(response) {
-    alert(response.length);
+   alert("Item added successfully");
+   $('#noOfItems').html(`${response.value1.length}`);
   
 }});
 
 
 }); 
 });
+
 </script>
 
 <?php

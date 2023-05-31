@@ -13,6 +13,7 @@ if ($result->num_rows > 0) {
     // storing the session name 
     $row = $result->fetch_assoc();
     $_SESSION['fullName'] = $row["fullName"];
+    $_SESSION['username'] = $row["username"];
     $_SESSION['imageUrl'] = $row["imageUrl"];
     $_SESSION['email'] = $row["email"];
     $_SESSION['phone'] = $row["phone"];
