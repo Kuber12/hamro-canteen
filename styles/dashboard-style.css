@@ -134,7 +134,7 @@ display: flex;
   justify-content: space-between;
 }
 .item-name-n-price > h5{
-  display: ;
+  /* display: ; */
 }
 #popular-piechart{
   margin: 30px 0px;
