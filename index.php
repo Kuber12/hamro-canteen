@@ -84,10 +84,7 @@ include './layout/head.php';
                 </div>
 
 
-                <!-- emd of cart-menu-left -->
-
-
-                <!-- cart menu right side -->
+        
 
             </div>
             <!-- end of cart menu -->
