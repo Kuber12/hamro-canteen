@@ -49,7 +49,7 @@ table{
 }
 .styled-table tbody tr.active-row {
     font-weight: bold;
-    color: #009879;
+    color: #9cdfd1;
 }
 .dashboard-items-img{
     width: 50px;
@@ -69,7 +69,7 @@ input[type="checkbox"]:checked {
 /* popup */
 #popup-container {
     display: none;
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -147,9 +147,11 @@ label,input{
 #form-days > div > input{
     margin-right: 10px;
     border-radius: 20px;
+    display:none;
 }
 #form-days{
     margin:5px 0px;
+    
 }
 #add-edit{
     background-color: orange;
