@@ -8,6 +8,19 @@ function noOfItems(){
     dataType: 'json', // Expect JSON data in response
     success: function(response) {
   $('#noOfItems').html(`${response.value1.length}`);
+  totalItem = response.value1.length;
+  if(totalItem==0|| totalItem==null|| totalItem==undefined || totalItem ==" "){
+ 
+    $('.noOfItems').css('display', 'none');
+
+
+   }
+   else{
+
+    $('.noOfItems').css('display', 'block');
+   }  
+ 
+ 
 }});
   }
 
@@ -53,7 +66,19 @@ function displayItem() {
      }
 
             $('#gTotal').html(`${response.value2}`);           
-             
+            var totalItem =response.value1.length;
+
+
+            if(totalItem==0|| totalItem==null|| totalItem==undefined || totalItem ==" "){
+             $('#checkout').prop('disabled', true);
+             $('.items').addClass('empty');
+
+            }
+            else{
+             $('#checkout').prop('disabled', false);
+             $('.items').removeClass('empty');
+     
+            }     
     }}
     )};
      

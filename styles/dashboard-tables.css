@@ -26,6 +26,8 @@ table{
     font-family: sans-serif;
     min-width: 400px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
 .menu-content{
     text-align: center;
 }
@@ -49,9 +51,6 @@ table{
     min-width: 400px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
-.styled-table thead tr {
-    background-color: #009879;
-    color: #ffffff;
 .styled-table thead tr {
     background-color: #009879;
     color: #ffffff;
@@ -100,8 +99,8 @@ table{
     0% { transform: scale(1); }
     50% { transform: scale(1.2); }
     100% { transform: scale(1); }
-    width: 50px;
-    height: 50px;
+    /* width: 50px;
+    height: 50px; */
 }
 
 @keyframes pop {
@@ -114,9 +113,7 @@ table{
 input[type="checkbox"]:checked {
     animation: pop 0.3s ease-in-out;
 
-/* Apply the animation to the checkbox when it's checked */
-input[type="checkbox"]:checked {
-    animation: pop 0.3s ease-in-out;
+
 }
 /* popup */
 #popup-container {

@@ -22,6 +22,7 @@ const hour = now.getHours();
          <img src="./assets/itemimage/${response[i]['itemImg']}" alt="Product Image" class="product-image">
          <span class="item-name">${response[i]['itemName']}</span>
          <span class="price">RS. ${response[i]['itemPrice']}</span>
+  
          <div class="quantity">
              <span>Quantity: <button type ="submit" class ="qty-change-btn minus-btn${i}" id="minus-btn" onclick="change(${i}, 0);submitForm(event);" disabled >
              <i class="fa-solid fa-square-minus fa-lg minus"></i></button>
@@ -35,7 +36,7 @@ const hour = now.getHours();
         <input type = "hidden" name = "imageUrl" value ="${response[i]['itemImg']}"/>
         <input type = "hidden" name = "foodName" value ="${response[i]["itemName"]}"/>
         <input type = "hidden" name = "price" value ="${response[i]["itemPrice"]}"/> 
-        <input type = "hidden" name = "productId" value ="${i}"> 
+        <input type = "hidden" name = "foodID" value ="${response[i]['itemID']}"/> 
         <input type = "hidden" name = "add-to-cart" value ="${i}" > 
       
         

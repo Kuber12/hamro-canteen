@@ -8,6 +8,10 @@
 body {
   background-color: lightgray;
 }
+button, i , img {
+  cursor: pointer;
+}
+
 nav {
   display: none;
   margin: 1px 0px 1px 0px;
@@ -33,10 +37,7 @@ nav a {
   font-size: 18px;
   padding: 3px 20px 3px;
 }
-a:hover {
-  background-color: gray;
-  height: 24px;
-}
+
 /* navbar search box */
 
 .search_bar {
@@ -108,7 +109,9 @@ form {
   align-items: center;
 
 }
-#noOfItems{
+
+.noOfItems{
+  display: none;
   position: relative;
   top: -7px;
   right: -60px;
@@ -119,6 +122,8 @@ form {
   padding: 2px;
   text-align: center;
   z-index: 5;
+  padding:3px;
+  /* color:white; */
 }
 
 
@@ -434,6 +439,15 @@ h3 {
 .items {
   overflow: auto;
   height: 250px;
+  
+
+}
+.empty{
+  background: url("../assets/empty.png");
+  background-size:contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
 }
 
 /* item row */
@@ -476,12 +490,9 @@ h3 {
   margin-right: 10px;
   border-radius: 5px;
   border: none;
-}.checkout{
-  text-decoration: none;
-  background:#ffff;
-  color:black;
-  margin-right:10px;
+
 }
+
 /* to create a blocker */
 .blocker {
   display: none;
