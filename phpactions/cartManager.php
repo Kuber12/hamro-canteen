@@ -13,12 +13,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (isset($_SESSION['cart'])) {
 
             $count = count($_SESSION['cart']);
-            $_SESSION['cart'][$count] = array('foodName' => $_POST['foodName'], 'price' => $_POST['price'], 'imageurl' => $_POST['imageUrl'], 'quantity' => $_POST['productQty']);
+            $_SESSION['cart'][$count] = array('foodID' => $_POST['foodID'],'foodName' => $_POST['foodName'], 'price' => $_POST['price'], 'imageurl' => $_POST['imageUrl'], 'quantity' => $_POST['productQty']);
           
 
 
         } else {
-            $_SESSION['cart'][0] = array('foodName' => $_POST['foodName'], 'price' => $_POST['price'], 'imageurl' => $_POST['imageUrl'], 'quantity' => $_POST['productQty']);
+            $_SESSION['cart'][0] = array('foodID'=>$_POST['foodID'],'foodName' => $_POST['foodName'], 'price' => $_POST['price'], 'imageurl' => $_POST['imageUrl'], 'quantity' => $_POST['productQty']);
         }
     }
 
@@ -26,13 +26,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         foreach ($_SESSION['cart'] as $key => $value) {
             if ($value['foodName'] == $_POST['foodName']) {
                 unset($_SESSION['cart'][$key]);
-                $_SESSION['cart'] = array_values($_SESSION['cart']);
-
+                $_SESSION['cart'] = array_values($_SESSION['cart']); 
 
             }
         }
         header("location:../index.php");
-        echo "<script> openCart();</script>";
+        // echo "<script> openCart();</script>";
 
     }
     $gtotal = 0;

@@ -44,7 +44,7 @@ include './layout/head.php';
         <!-- cart and user icon container -->
         <span>
         <span id="user-cart-holder">
-            <span id = "noOfItems">       
+            <span id = "noOfItems" class="noOfItems">       
 
             </span>
             <i class="fa-solid fa-cart-shopping fa-beat hero-cart" id ="cart" onclick="openCart()"></i>
@@ -65,7 +65,7 @@ include './layout/head.php';
                 
                 </div>               <!-- cart item container -->
 
-                <div class="items" id="items">
+                <div class="items empty" id="items">
 
 
                     <!-- item -row -->
@@ -80,7 +80,7 @@ include './layout/head.php';
                         <p>Grand Total</p>
                         <p>=</p>
                         <p id = "gTotal"></p>
-                    <a  href="checkout.php" class="checkout" onclick="alert('are you sure');" >CHECKOUT</a>
+                    <button id="checkout" onclick="window.location.href = 'checkout.php';" disabled> CHECKOUT</button>
                 </div>
 
 
@@ -145,7 +145,7 @@ include './layout/head.php';
 <script src="./scripts/cart-manager.js"></script>
 <script src="./scripts/jquery.js"> </script>
 <script src="./scripts/remove-item-from-cart.js"> </script>
-<script src="./scripts/noOfItems.js"> </script>
+
 <script>
 $(document).ready(function() {
 
@@ -167,6 +167,16 @@ $('.productfrm').on('submit',function(event) {
   success: function(response) {
    alert("Item added successfully");
    $('#noOfItems').html(`${response.value1.length}`);
+   totalItem = response.value1.length;
+  if(totalItem==0|| totalItem==null|| totalItem==undefined || totalItem ==" "){
+ 
+    $('.noOfItems').css('display', 'none');
+   }
+   else{
+
+    $('.noOfItems').css('display', 'block');
+   }  
+
   
 }});
 

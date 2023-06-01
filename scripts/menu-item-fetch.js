@@ -17,9 +17,9 @@ $(document).ready(function() {
                 <td>${item['itemPrice']}</td>`;
             for (const i of daysAvailable) {
                 if(i==1){
-                    markup+= `<td><input type="checkbox" checked DISABLED></td>`;
+                    markup+= `<td><img src="./assets/tick.png" alt="available" style="width:20px;"></td>`;
                 }else{
-                    markup+= `<td><input type="checkbox" DISABLED></td>`;
+                    markup+= `<td><img src="./assets/cross-mark.png" alt="not available" style="width:16px;"></td>`;
                 }
             }
             markup+=
