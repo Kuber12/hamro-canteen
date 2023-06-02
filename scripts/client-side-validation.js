@@ -1,15 +1,16 @@
 
 function validateForm() {
-  var firstName = document.getElementById("first_name").value;
-  var lastName = document.getElementById("last_name").value;
-  var middleName = document.getElementById("middle_name").value;
-  var username = document.getElementById("username").value;
-  var gender = document.getElementById("gender").value;
-  var contact = document.getElementById("contact").value;
-  var email = document.getElementById("email").value;
-  var address = document.getElementById("address").value;
-  var password = document.getElementById("password").value;
-  var confirm_password = document.getElementById("confirm_password").value;
+  // var firstName = document.getElementById("first_name").value;
+  // var lastName = document.getElementById("last_name").value;
+  // var middleName = document.getElementById("middle_name").value;
+  // var username = document.getElementById("username").value;
+  // var gender = document.getElementById("gender").value;
+  // var contact = document.getElementById("contact").value;
+  // var email = document.getElementById("email").value;
+  // var address = document.getElementById("address").value;
+  // var password = document.getElementById("password").value;
+  // var confirm_password = document.getElementById("confirm_password").value;
+  var file  = document.getElementById("myFile").value;
 
   if(firstName==""  ||lastName == ""||middleName == ""||username == ""||gender == "" ||contact == ""||email == ""
                     ||address == ""||password == ""||confirm_password == "") {
@@ -44,6 +45,12 @@ function validateForm() {
                                     alert("Password Should contain at least one special Character");
                                     return false;
                                   }
+                                 
+                                    if (file.match(/.(jpg|png|jpeg|gif)$/) == null) {
+                                      alert("File Type Should be jpg, png, jpeg, gif");
+                                      return false;
+                                      }
+                                     
 
                             return true;
                             }

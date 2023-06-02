@@ -17,9 +17,9 @@
 <fieldset>
     <legend>Registration Form</legend>
 
-  <form action="./phpactions/serverSideValidation.php"  onsubmit="return validateForm()" name="registrationForm" method="post">
+  <form action="./phpactions/serverSideValidation.php"   name="registrationForm" method="POST">
   <div class = "frm-element">
-    <input type="text" id="first_name" name="first_name" placeholder = "First Name" required>
+    <!-- <input type="text" id="first_name" name="first_name" placeholder = "First Name" required>
 
     <input type="text" id="last_name" name="last_name" placeholder="Last Name" required>
     
@@ -44,7 +44,9 @@
 
     <input type="password" id="password" name="password" placeholder="Password" required>
  
-    <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" required>
+    <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" required> -->
+
+    <input type="file" id="file" name="file" accept=".jpg, .png" required>
     <input type="submit"  value="Register">
     <!-- <input type="submit" value="Login"> -->
     </div>

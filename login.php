@@ -1,5 +1,6 @@
 <?php
     include './layout/head.php';
+  
 ?>
 <!--css -->
 <link rel="stylesheet" href="./styles/login.css">

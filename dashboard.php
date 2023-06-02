@@ -2,6 +2,11 @@
     include './layout/head.php';
     include './layout/admin-sidebar.php';
     include './layout/admin-sidebar.php';
+    if (!isset($_SESSION['fullName'])) {
+    
+      header("location:login.php");
+      exit();
+  }
 ?>
 <!-- chart js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
