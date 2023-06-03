@@ -2,16 +2,17 @@
 include("./phpactions/connection.php");
 $Date = date("Y-m-d");
 // session_start();
+$user = $_SESSION['fullname'];
 
 
 // Prepare the SQL statement
 $sql = "INSERT INTO orders( foodID, foodName, quantity,orderDate) VALUES (?, ?, ?,?)";
 
-// Create a prepared statement
+
 $stmt = mysqli_prepare($conn, $sql);
 
 foreach ($_SESSION['cart'] as $key => $value) {
-mysqli_stmt_bind_param($stmt, "siss", $value['foodID'], $value['foodName'], $value['quantity'], $Date);
+mysqli_stmt_bind_param($stmt, "siss", $value['foodID'], $value['foodName'], $value['quantity'], $Date,);
 
 
 // Execute the statement

@@ -1,57 +1,110 @@
+const form = document.getElementById('registration-form');
+ 
+// Get form elements
 
+const firstNameInput = document.getElementById('first_name');
+const lastNameInput = document.getElementById('last_name');
+const emailInput = document.getElementById('email');
+const phoneInput = document.getElementById('contact');
+const passwordInput = document.getElementById('password');
+const confirmPasswordInput = document.getElementById('confirm_password');
+const photoInput = document.getElementById('file');
+
+// Function to validate the form
 function validateForm() {
-  // var firstName = document.getElementById("first_name").value;
-  // var lastName = document.getElementById("last_name").value;
-  // var middleName = document.getElementById("middle_name").value;
-  // var username = document.getElementById("username").value;
-  // var gender = document.getElementById("gender").value;
-  // var contact = document.getElementById("contact").value;
-  // var email = document.getElementById("email").value;
-  // var address = document.getElementById("address").value;
-  // var password = document.getElementById("password").value;
-  // var confirm_password = document.getElementById("confirm_password").value;
-  var file  = document.getElementById("myFile").value;
+// Retrieve input values
+const firstName = firstNameInput.value.trim();
+const lastName = lastNameInput.value.trim();
+const email = emailInput.value.trim();
+const phone = phoneInput.value.trim();
+const password = passwordInput.value;
+const confirmPassword = confirmPasswordInput.value;
+const photo = photoInput.value;
 
-  if(firstName==""  ||lastName == ""||middleName == ""||username == ""||gender == "" ||contact == ""||email == ""
-                    ||address == ""||password == ""||confirm_password == "") {
-                    alert("Please fill all the fields");
+// Regular expressions for validation
+const nameRegex = /^[a-zA-Z]+$/;
+const emailRegex = /^\S+@\S+\.\S+$/;
+const phoneRegex = /^\d{10}$/;
 
-                      if (password != confirm_password) {
-                        alert("Password and Confirm Password does not match");
-                        return false;
-                        }
-                        if (password.length < 6) {
-                          alert("Password must be at least 6 characters");
-
-                          return false;
-                          }
-                          if (password.length > 20) {
-                            alert("Password must be less than 20 characters");
-                            return false;
-                            }
-                            if (password.match(/[a-z]/) == null) {
-                              alert("Password must contain at least one lowercase letter");
-                              return false;
-                              }
-                              if (password.match(/[A-Z]/) == null) {
-                                alert("Password must contain at least one uppercase letter");
-                                return false;
-                                }
-                                if (password.match(/[0-9]/) == null) {
-                                  alert("Password must contain at least one numeric digit");
-                                  return false;
-                                  }
-                                  if (password.match(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/) == null) {
-                                    alert("Password Should contain at least one special Character");
-                                    return false;
-                                  }
-                                 
-                                    if (file.match(/.(jpg|png|jpeg|gif)$/) == null) {
-                                      alert("File Type Should be jpg, png, jpeg, gif");
-                                      return false;
-                                      }
-                                     
-
-                            return true;
-                            }
+// Resetting previous validation errors
+const errorElements = document.getElementsByClassName('error');
+while (errorElements.length > 0) {
+  errorElements[0].parentNode.removeChild(errorElements[0]);
 }
+
+// Validating first name
+if (firstName === '') {
+  showError(firstNameInput, 'First name is required');
+  return false;
+} else if (!nameRegex.test(firstName)) {
+  showError(firstNameInput, 'First name should only contain letters');
+  return false;
+}
+
+// Validating last name
+if (lastName === '') {
+  showError(lastNameInput, 'Last name is required');
+  return false;
+} else if (!nameRegex.test(lastName)) {
+  showError(lastNameInput, 'Last name should only contain letters');
+  return false;
+}
+
+// Validating email
+if (email === '') {
+  showError(emailInput, 'Email is required');
+  return false;
+} else if (!emailRegex.test(email)) {
+  showError(emailInput, 'Invalid email format');
+  return false;
+}
+
+// Validating phone number
+if (phone === '') {
+  showError(phoneInput, 'Phone number is required');
+  return false;
+} else if (!phoneRegex.test(phone)) {
+  showError(phoneInput, 'Invalid phone number');
+  return false;
+}
+
+// Validating password
+if (password === '') {
+  showError(passwordInput, 'Password is required');
+  return false;
+}
+
+// Validating confirm password
+if (confirmPassword === '') {
+  showError(confirmPasswordInput, 'Confirm password is required');
+  return false;
+} else if (password !== confirmPassword) {
+  showError(confirmPasswordInput, 'Passwords do not match');
+  return false;
+}
+
+// Validating photo upload
+if (photo === '') {
+  showError(photoInput, 'Photo upload is required');
+  return false;
+}
+
+return true;
+}
+
+// Function to display an error message
+function showError(inputElement, errorMessage) {
+const errorElement = document.createElement('span');
+errorElement.className = 'error';
+errorElement.innerHTML = errorMessage;
+inputElement.parentNode.appendChild(errorElement);
+errorElement.style.color='red';
+}
+
+// Event listener for form submission
+form.addEventListener('submit', function (event) {
+if(! validateForm())
+  event.preventDefault();
+ 
+
+});
