@@ -19,35 +19,44 @@
 
   <form action="./phpactions/serverSideValidation.php"  id="registration-form" name="registrationForm" method="POST">
   <div class = "frm-element">
-    <input type="text" id="first_name" name="first_name" placeholder = "First Name" >
+    <label for="fname">First Name</label>
+    <input type="text" id="first_name" name="first_name" >
+    <label for="lname">Last Name</label>
 
-    <input type="text" id="last_name" name="last_name" placeholder="Last Name" >
+    <input type="text" id="last_name" name="last_name" >
+    <label for="mname">Middle Name</label>
     
-    <input type="text" id="middle_name" name="middle_name" placeholder="Middle Name" >
+    <input type="text" id="middle_name" name="middle_name"  >
+    <label for="username">User Name</label>
 
-    <input type="text" id="username" name="username" placeholder="User Name" >
+    <input type="text" id="username" name="username"  >
+    <label for="gender">Gender</label>
 
     <select id="gender" name="gender" >
-      <option value="">Gender</option>
+      <option value="">Select</option>
       <option value="male">Male</option>
       <option value="female">Female</option>
       <option value="other">Other</option>
     </select>
 
-    
-    <input type="text" id="contact" name="contact" placeholder="Phone" >
-
-    
+    <label for="contact"> Contact</label>
+    <input type="text" id="contact" name="contact">
+    <label for="email"> Email</label>  
    
-    <input type="email" id="email" name="email" placeholder="Email" >
+    <input type="email" id="email" name="email"  >
+    <label for="dob"> Date of Birth</label>
     
-    <input type="date" id ="dob" name = "dob" />
+    <input type="date" id ="dob" name = "dob" " />
+    <label for="address"> Address</label>
 
-    <input type="text" id="address" name="address" placeholder="Address" ></input>
+    <input type="text" id="address" name="address" >
+    <label for="password"> Password</label>
 
-    <input type="password" id="password" name="password" placeholder="Password" >
+    <input type="password" id="password" name="password"  >
+    <label for="confirm_password"> Confirm Password</label>
  
-    <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" >
+    <input type="password" id="confirm_password" name="confirm_password" >
+    <label for="photo"> Photo</label>
 
     <input type="file" id="photo" name="photo" accept=".jpg, .png" >
     <input type="submit"  value="Register">
