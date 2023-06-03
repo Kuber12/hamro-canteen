@@ -8,7 +8,7 @@ $(document).ready(function() {
         // Handle successful response
         fetchedResponse = response;
         response.forEach(item => {
-            var daysAvailable = [item['avlblSun'],item["avlblMon"],item["avlblTue"],item["avlblWed"],item["avlblThurs"],item["avlblFri"]];
+            var daysAvailable = [item['avlblSun'],item["avlblMon"],item["avlblTue"],item["avlblWed"],item["avlblThu"],item["avlblFri"]];
             let markup = `
             <tr>
                 <td>${item['itemID']}</td>

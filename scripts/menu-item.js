@@ -166,7 +166,7 @@ $(document).ready(function() {
           $('input[name="avlbl-mon"]').prop('checked',ele["avlblMon"]==1?true:false);
           $('input[name="avlbl-tue"]').prop('checked',ele["avlblTue"]==1?true:false);
           $('input[name="avlbl-wed"]').prop('checked',ele["avlblWed"]==1?true:false);
-          $('input[name="avlbl-thurs"]').prop('checked',ele["avlblThurs"]==1?true:false);
+          $('input[name="avlbl-thurs"]').prop('checked',ele["avlblThu"]==1?true:false);
           $('input[name="avlbl-fri"]').prop('checked',ele["avlblFri"]==1?true:false);
         }
       });

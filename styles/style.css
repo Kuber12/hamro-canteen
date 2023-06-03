@@ -1,3 +1,12 @@
 body{
     font-family: 'Nunito Sans', sans-serif;
 }
+:root {
+    /* --primary-color:#9376E0;
+    --secondary-color:#E893CF;
+    --tertiary-color:#F3BCC8; */
+    --primary-color:#FF6347;
+    --secondary-color:#00FF7F;
+    --accent-color:#FFFF00;
+    --alternate-color:#F6FFA6;
+  }
