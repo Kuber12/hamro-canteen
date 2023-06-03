@@ -19,6 +19,7 @@ body{
   color: black;
   width: 80px;
   transition: width 0.3s ease;
+  border-right: 2px black solid;
 }
 .sidebar:hover{
     display: block;
@@ -47,7 +48,7 @@ body{
 }
 
 .sidebar a:hover {
-  background-color: red;
+  background-color: var(--primary-color);
   color: white;
 }
 
@@ -81,8 +82,8 @@ body{
     background-color: transparent;
 }
 .dashboard-grid-item {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
+    background-color: white;
+    border-radius: 10px;
     margin: 0px 0px 20px 20px;
     padding: 20px;
     font-size: 30px;
@@ -107,10 +108,10 @@ body{
 }
 .hello-admin{
   flex: 3;
-  background-color: green;
+  background-color: var(--secondary-color);
 }
 .canteen-status{
-  background-color: red;
+  background-color: var(--secondary-color);
   flex: 2;
 }
 .canteen-status > p, .hello-admin > p{
@@ -138,5 +139,4 @@ display: flex;
 }
 #popular-piechart{
   margin: 30px 0px;
-  transform: scale(1.5);
 }

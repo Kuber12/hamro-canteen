@@ -31,7 +31,7 @@
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) == 1) {
             echo "updating";
-            $sql = "update items set itemName = '$itemName', itemPrice = '$itemPrice', itemImg = '$itemImage', avlblSun = '$avlSun', avlblMon = '$avlMon', avlblTue = '$avlTue', avlblWed = '$avlWed', avlblThurs = '$avlThu', avlblFri = '$avlFri' where itemID = '$itemID'";
+            $sql = "update items set itemName = '$itemName', itemPrice = '$itemPrice', itemImg = '$itemImage', avlblSun = '$avlSun', avlblMon = '$avlMon', avlblTue = '$avlTue', avlblWed = '$avlWed', avlblThu = '$avlThu', avlblFri = '$avlFri' where itemID = '$itemID'";
             if (mysqli_query($conn, $sql)) {
                 echo "Record updated successfully.";
                 header("location:../menuitem.php");
@@ -39,7 +39,7 @@
                 echo "Error updating record: " . mysqli_error($conn);
             }
         }else{
-            $sql = "insert into items(itemID,itemName,itemPrice,itemImg,avlblSun,avlblMon,avlblTue,avlblWed,avlblThurs,avlblFri) values('$itemID','$itemName','$itemPrice','$itemImage','$avlSun','$avlMon','$avlTue','$avlWed','$avlThu','$avlFri')";
+            $sql = "insert into items(itemID,itemName,itemPrice,itemImg,avlblSun,avlblMon,avlblTue,avlblWed,avlblThu,avlblFri) values('$itemID','$itemName','$itemPrice','$itemImage','$avlSun','$avlMon','$avlTue','$avlWed','$avlThu','$avlFri')";
         
             if ($result = mysqli_query($conn, $sql)) {
                 echo "success";

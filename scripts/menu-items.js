@@ -34,7 +34,7 @@ $(document).ready(function() {
                         <label for="tue">Tuesday</label>
                         <input type="checkbox" id="weekday-wed" class="weekday" name="days[]" value="avlblWed"/>
                         <label for="wed">Wednesday</label>
-                        <input type="checkbox" id="weekday-thu" class="weekday" name="days[]" value="avlblThurs"/>
+                        <input type="checkbox" id="weekday-thu" class="weekday" name="days[]" value="avlblThu"/>
                         <label for="thu">Thursday</label>
                         <input type="checkbox" id="weekday-fri" class="weekday" name="days[]" value="avlblFri"/>
                         <label for=fri">Friday</label>

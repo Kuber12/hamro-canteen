@@ -27,7 +27,7 @@ const hour = now.getHours();
              <span>Quantity: <button type ="submit" class ="qty-change-btn minus-btn${i}" id="minus-btn" onclick="change(${i}, 0);submitForm(event);" disabled >
              <i class="fa-solid fa-square-minus fa-lg minus"></i></button>
                  <input type="number" name = "productQty" value="1" class="productQty${i}" id="productQty${i}" readonly> 
-                 <button type ="submit" class ="qty-change-btn plus-btn${i}"  onclick="change(${i},1);submitForm(event);"><i class="fa-solid fa-square-plus fa-l" ></i></button>              
+                 <button type ="submit" class ="qty-change-btn plus-btn${i}"  onclick="change(${i},1);submitForm(event);"><i class="fa-solid fa-square-plus fa-lg" ></i></button>              
              </span>
         
         

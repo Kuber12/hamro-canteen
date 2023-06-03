@@ -8,7 +8,7 @@ table{
     text-align: center;
 }
 .action-button{
-    background: yellow;
+    background: var(--accent-color);
     padding: 15px 60px;
     border-radius: 30px;
     color: black;
@@ -16,7 +16,7 @@ table{
     transition-duration: 0.5s;
 }
 .action-button:hover{
-    background-color: rgba(255, 255, 0, 0.849);
+    background-color: var(--primary-color);
     transform: scale(1.1);
 }
 .styled-table {
@@ -32,7 +32,7 @@ table{
     text-align: center;
 }
 .action-button{
-    background: yellow;
+    background: var(--accent-color);
     padding: 15px 60px;
     border-radius: 30px;
     color: black;
@@ -52,7 +52,7 @@ table{
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 .styled-table thead tr {
-    background-color: #009879;
+    background-color: var(--primary-color);
     color: #ffffff;
     text-align: left;
 }
@@ -65,22 +65,7 @@ table{
 }
 
 .styled-table tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
-}
-
-.styled-table tbody tr:last-of-type {
-    border-bottom: 2px solid #009879;
-}
-.styled-table th,
-.styled-table td {
-    padding: 12px 15px;
-}
-.styled-table tbody tr {
-    border-bottom: 1px solid #dddddd;
-}
-
-.styled-table tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
+    background-color: var(--alternate-color);
 }
 
 .styled-table tbody tr:last-of-type {
@@ -150,6 +135,9 @@ input[type="checkbox"]:checked {
   background-color: #eee;
   width: 100%;
 height: min-content;     
+}
+.highlight{
+    background-color: black;
 }
 #image-input{
     display: none;

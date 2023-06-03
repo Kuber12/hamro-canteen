@@ -1,9 +1,3 @@
-:root {
-  --primary-color:#9376E0;
-  --secondary-color:#E893CF;
-  --tertiary-color:#F3BCC8;
-  --alternate-color:#F6FFA6;
-}
 /* navbar */
 body {
   background-color: lightgray;
