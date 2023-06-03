@@ -63,7 +63,7 @@
 </div>
 
 
-<!-- <script src="./scripts/client-side-validation.js"></script> -->
+<script src="./scripts/client-side-validation.js"></script>
 
 
 <?php

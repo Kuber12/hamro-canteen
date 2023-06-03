@@ -1,22 +1,31 @@
 const form = document.getElementById('registration-form');
- 
+
 // Get form elements
 
 const firstNameInput = document.getElementById('first_name');
 const lastNameInput = document.getElementById('last_name');
-const emailInput = document.getElementById('email');
+const usernameInput = document.getElementById('username');
+const genderInput = document.getElementById('gender');
 const phoneInput = document.getElementById('contact');
+const emailInput = document.getElementById('email');
+const dobInput = document.getElementById('dob');
+const addressInput = document.getElementById('address');
+
 const passwordInput = document.getElementById('password');
 const confirmPasswordInput = document.getElementById('confirm_password');
-const photoInput = document.getElementById('file');
+const photoInput = document.getElementById('photo');
 
 // Function to validate the form
 function validateForm() {
-// Retrieve input values
+
 const firstName = firstNameInput.value.trim();
 const lastName = lastNameInput.value.trim();
-const email = emailInput.value.trim();
+const username = usernameInput.value.trim();
+const gender = genderInput.value;
 const phone = phoneInput.value.trim();
+const email = emailInput.value.trim();
+const dob = dobInput.value;
+const address = addressInput.value.trim();
 const password = passwordInput.value;
 const confirmPassword = confirmPasswordInput.value;
 const photo = photoInput.value;
@@ -49,6 +58,25 @@ if (lastName === '') {
   showError(lastNameInput, 'Last name should only contain letters');
   return false;
 }
+//validating username
+if (usernameInput.value === '') {
+  showError(usernameInput, 'Username is required');
+  return false;
+  } 
+  //VALIDATING GENDER
+  if (gender === '') {
+    showError(genderInput, 'Gender is required');
+    return false;
+    }
+    if (phone === '') {
+      showError(phoneInput, 'Phone number is required');
+      return false;
+    } else if (!phoneRegex.test(phone)) {
+      showError(phoneInput, 'Invalid phone number');
+      return false;
+    }
+
+
 
 // Validating email
 if (email === '') {
@@ -58,15 +86,21 @@ if (email === '') {
   showError(emailInput, 'Invalid email format');
   return false;
 }
+//validating dob
+if (dob === '') {
+  showError(dobInput, 'Date of birth is required');
+  return false;
+  }
+  //validating address
 
-// Validating phone number
-if (phone === '') {
-  showError(phoneInput, 'Phone number is required');
-  return false;
-} else if (!phoneRegex.test(phone)) {
-  showError(phoneInput, 'Invalid phone number');
-  return false;
-}
+  if (address === '') {
+    showError(addressInput, 'Address is required');
+    return false;
+    }
+
+
+
+
 
 // Validating password
 if (password === '') {
@@ -78,7 +112,8 @@ if (password === '') {
 if (confirmPassword === '') {
   showError(confirmPasswordInput, 'Confirm password is required');
   return false;
-} else if (password !== confirmPassword) {
+  } 
+  if (password !== confirmPassword) {
   showError(confirmPasswordInput, 'Passwords do not match');
   return false;
 }
@@ -105,6 +140,6 @@ errorElement.style.color='red';
 form.addEventListener('submit', function (event) {
 if(! validateForm())
   event.preventDefault();
- 
+
 
 });
