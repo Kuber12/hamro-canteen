@@ -2,17 +2,19 @@
 include("./phpactions/connection.php");
 $Date = date("Y-m-d");
 // session_start();
-$user = $_SESSION['fullname'];
+$user = $_SESSION['fullName'];
+
+
 
 
 // Prepare the SQL statement
-$sql = "INSERT INTO orders( foodID, foodName, quantity,orderDate) VALUES (?, ?, ?,?)";
+$sql = "INSERT INTO orders( foodID, quantity,orderDate, fullName) VALUES (?, ?, ?, ?)";
 
 
 $stmt = mysqli_prepare($conn, $sql);
 
 foreach ($_SESSION['cart'] as $key => $value) {
-mysqli_stmt_bind_param($stmt, "siss", $value['foodID'], $value['foodName'], $value['quantity'], $Date,);
+mysqli_stmt_bind_param($stmt, "siss", $value['foodID'], $value['quantity'], $Date,$user);
 
 
 // Execute the statement
@@ -35,7 +37,7 @@ $total = 0;
 foreach ($_SESSION['cart'] as $key => $value) {
 
    echo "<tr><td>". $value['foodID']. "</td>" ."<td>". $value['foodName']."</td>". "<td>". $value['quantity'].  "<td>". $value['price']."</td></tr>";
-   $total = $total + $value['price'];
+   $total = $total + ($value['price']* $value['quantity']);
 
 
 }

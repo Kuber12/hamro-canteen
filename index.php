@@ -10,6 +10,15 @@ if (!isset($_SESSION['fullName'])) {
 }
 
 $day = date("l"); 
+// $day = "Friday";
+
+if (isset($_SESSION['today']) && $_SESSION['today'] !== $day) {
+    // Unset the cart session variable
+    unset($_SESSION['cart']);
+  }  
+  // Store the current date in the session
+  $_SESSION['today'] = $day;
+  
 include './layout/head.php';
 
 ?>

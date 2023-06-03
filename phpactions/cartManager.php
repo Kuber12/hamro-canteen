@@ -57,6 +57,3 @@ foreach ($_SESSION['cart'] as $key => $value) {
 
 
 
-
-
-// print_r($_SESSION['cart']);

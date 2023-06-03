@@ -107,24 +107,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    $password = $_POST['password'];
    $gender = $_POST['gender'];
    $img = $_POST['photo'];
-
-$dob = $_POST['dob'];
-
+   $dob = $_POST['dob'];
    $phone_number = $_POST['contact'];
    $address = $_POST['address'];
-  
+   $sqlquery = "SELECT * FROM users where username = '$user_name'"; 
+   if (mysqli_query($conn, $sqlquery)) {
+    echo "<br>username already taken<br>";
+    echo "<br><a href='../login.php' style='text-decoration:none; border: 1px solid black;padding:5px;
+    background-color:red; color:white;'>back to registration page</a><br>";
+  } else {
+    
 
 
    $sql = "INSERT INTO users(username, fullName, gender, password, email, phone, DOB , imageUrl, address) VALUES ('$user_name','$full_name','$gender','$password','$email',$phone_number,'$dob','$img', '$address')";
    //INSERT INTO `users`(`userID`, `username`, `fullName`, `gender`, `password`, `email`, `phone`, `DOB`, `imageUrl`, `address`)
    if (mysqli_query($conn, $sql)) {
     echo "New record created successfully";
+    echo "<br><a href='../login.php' style='text-decoration:none; border: 1px solid black;padding:5px;
+        background-color:red; color:white;'>back to home page</a><br>";
   } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
-  mysqli_close($conn);
 }
-  else {
+  mysqli_close($conn);
+}  else {
     foreach($formErrors as  $key => $value){
         echo $value . "<br>";
     }
