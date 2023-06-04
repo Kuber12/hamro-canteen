@@ -47,7 +47,7 @@ body{
 }
 
 .sidebar a:hover {
-  background-color: red;
+  background-color: #BD271B;
   color: white;
 }
 
@@ -75,23 +75,31 @@ body{
 
 /* grid container */
 .dashboard-grid-container {
-    display: grid;
-    align-items: center;
-    grid-template-columns: auto auto auto;
-    background-color: transparent;
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto auto auto;
+  background-color: transparent;
 }
 .dashboard-grid-item {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    margin: 0px 0px 20px 20px;
-    padding: 20px;
-    font-size: 30px;
-    text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin: 0px 0px 20px 20px;
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: grey 0px 0px 15px 1px;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition-duration: 0.5s;
+}
+.dashboard-grid-item:hover {
+  background-color: var(--tertiary-color);
+  color: white;
 }
 /* dashboard sidebar left side */
 .dashboard-sidebar-right{
+  padding-right: 20px;
+  color: var(--tertiary-color);
   flex: 1;
-  background-color: transparent;
 }
 /* dashboard-middle-container contains hello message and canteen status*/
 .dashboard-middle-container{
@@ -100,25 +108,26 @@ body{
 }
 .dashboard-middle-container-top{
   display: flex;
+  justify-content: space-between;
 }
 .hello-admin,.canteen-status{
   margin:20px 0px 0px 20px;
   padding: 0px 20px;
+  font-size: 20px;
+}
+.today-menu-heading{
+  color: var(--tertiary-color);
 }
 .hello-admin{
-  flex: 3;
-  background-color: green;
+  font-weight: 800;
 }
 .canteen-status{
-  background-color: red;
-  flex: 2;
-}
-.canteen-status > p, .hello-admin > p{
-  font-size: 18px;
+  background-color: var(--secondary-color);
+  border-radius: 50px;
 }
 .status-circle{
   color: yellow;
-  margin-right: 5px;
+  margin-right: 10px;
 }
 .today-menu-heading{
   display: flex;
@@ -132,11 +141,22 @@ body{
 .item-name-n-price{
 display: flex;
   justify-content: space-between;
+  font-size: 20px;
+  font-weight: 800;
 }
 .item-name-n-price > h5{
   /* display: ; */
 }
 #popular-piechart{
   margin: 30px 0px;
-  transform: scale(1.5);
 }
+#update-item-btn{
+  text-decoration: none;
+  border-radius: 20px;
+  padding: 10px;
+  color: var(--tertiary-color);
+  background-color: var(--secondary-color);
+} 
+#update-item-btn:hover{
+  background-color: transparent;
+} 
