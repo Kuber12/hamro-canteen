@@ -14,7 +14,7 @@ background-size: cover;
 #user-profile {
     height :400px;
     width: 500px;
-    background-color: white;
+    background-color: var(--primary-color);
     position: absolute;
     top:50%;
     left:50%;
@@ -53,7 +53,7 @@ img {
     top: 0;
     width: 100px;
     height: 32px;
-    border-bottom: 40px solid red;
+    border-bottom: 40px solid var(--tertiary-color);
     border-left: 75px solid transparent;
     transform: rotate(-180deg);
     margin-right: 20px;
@@ -71,7 +71,7 @@ img {
       bottom: 0;
       width: 120px;
       height: 0px;
-      border-bottom: 200px solid red;
+      border-bottom: 200px solid var(--tertiary-color);
       border-right: 80px solid transparent;
       transform: rotate(-90deg);
       }
