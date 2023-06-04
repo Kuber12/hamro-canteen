@@ -113,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    $result = mysqli_query($conn, $sqlquery);
    if (mysqli_num_rows($result) > 0) {
     echo "<br>username already taken<br>";
-    echo "<br><a href='../login.php' style='text-decoration:none; border: 1px solid black;padding:5px;
+    echo "<br><a href='../registerform.php' style='text-decoration:none; border: 1px solid black;padding:5px;
     background-color:red; color:white;'>back to registration page</a><br>";
   } else {
     if($_FILES['photo']['error'] == UPLOAD_ERR_OK) {
@@ -146,9 +146,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   
   $sql = "INSERT INTO users(username, fullName, gender, password, email, phone, DOB , imageUrl, address) VALUES ('$user_name','$full_name','$gender','$password','$email',$phone_number,'$dob','$userImage', '$address')";
   if (mysqli_query($conn, $sql)) {
-      echo "Record updated successfully.";
+      echo "Record updated successfully.<br>";
+      echo "<br><a href='../login.php' style='text-decoration:none; border: 1px solid black;padding:5px;
+      background-color:red; color:white;'>back to login Page</a><br>";
   } else {
       echo "Error updating record: " . mysqli_error($conn);
+      echo "<br><a href='../registerform.php' style='text-decoration:none; border: 1px solid black;padding:5px;
+      background-color:red; color:white;'>back to registration page</a><br>";
   }
 
 
