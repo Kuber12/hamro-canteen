@@ -122,9 +122,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    $sql = "INSERT INTO users(username, fullName, gender, password, email, phone, DOB , imageUrl, address) VALUES ('$user_name','$full_name','$gender','$password','$email',$phone_number,'$dob','$img', '$address')";
    //INSERT INTO `users`(`userID`, `username`, `fullName`, `gender`, `password`, `email`, `phone`, `DOB`, `imageUrl`, `address`)
    if (mysqli_query($conn, $sql)) {
-    echo "New record created successfully";
+    echo "Registration successful";
     echo "<br><a href='../login.php' style='text-decoration:none; border: 1px solid black;padding:5px;
-        background-color:red; color:white;'>back to home page</a><br>";
+    background-color:red; color:white;'>back to registration page</a><br>";
+  
   } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
@@ -135,6 +136,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo $value . "<br>";
     }
   }
+  echo "<br><a href='../login.php' style='text-decoration:none; border: 1px solid black;padding:5px;
+  background-color:red; color:white;'>Go to registration page</a><br>";
 }
   
 ?>
