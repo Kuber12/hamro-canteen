@@ -17,6 +17,7 @@
                     <th>Email</th>
                     <th>Phone</th>
                     <th>User Image</th>
+                    <th>Edit</th>
                 </tr>
             </table>
             <button class="action-button">Add User</button>

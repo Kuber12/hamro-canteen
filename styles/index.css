@@ -1,5 +1,13 @@
+:root {
+  --primary-color:#eaeaea;
+  --secondary-color:#F5C13F;
+  --tertiary-color:#BD271B;
+  --alternate-color:#F6FFA6;
+  --bright-green:#AAFF00;
+}
 /* navbar */
 body {
+  font-family: 'Nunito Sans', sans-serif;
   background-color: lightgray;
 }
 button, i , img {
@@ -17,7 +25,7 @@ nav {
 .link_container {
   float: left;
   display: flex;
-  border-bottom: 30px solid green;
+  border-bottom: 30px solid var(--secondary-color);
   border-left: 0px solid transparent;
   border-right: 30px solid transparent;
   height: 0;
@@ -198,12 +206,12 @@ h3 {
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background-color: red;
+  background-color: #BD271B;
 
 }
 #menu > h3 {
   display: block;
-  background-color: red;
+  background-color: #BD271B;
   color: white;
   width: 180px;
   height: 30px;
@@ -302,7 +310,7 @@ h3 {
   justify-content: center;
   align-items: center;
   width: 260px;
-  /* background-color: red; */
+  /* background-color: #BD271B; */
 }
 .add-to-cart-btn {
   display: flex;
@@ -315,7 +323,7 @@ h3 {
   height: 40px;
   width: 160px;
   font-weight: 600;
-  background: red;
+  background: #BD271B;
   cursor: pointer;
   font-size: 18px;
 }

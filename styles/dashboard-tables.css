@@ -38,9 +38,10 @@ table{
     color: black;
     transition: cubic-bezier(1, 0, 0, 1);
     transition-duration: 0.5s;
+    margin-bottom: 20px;
 }
 .action-button:hover{
-    background-color: rgba(255, 255, 0, 0.849);
+    background-color: var(--bright-green);
     transform: scale(1.1);
 }
 .styled-table {
@@ -51,6 +52,9 @@ table{
     min-width: 400px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
+.styled-table th{
+    background-color: var(--secondary-color);
+}
 .styled-table thead tr {
     background-color: var(--primary-color);
     color: #ffffff;
@@ -59,9 +63,11 @@ table{
 .styled-table th,
 .styled-table td {
     padding: 12px 15px;
+    border-bottom: 1px solid black;
 }
 .styled-table tbody tr {
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid white;
+    background-color: white;
 }
 
 .styled-table tbody tr:nth-of-type(even) {
@@ -166,20 +172,21 @@ label,input{
     display: inline-flex;
     width: auto;
     border-radius: 20px;
-    background-color: red;
-    color: white;
+    background-color: var(--alternate-color);
+    color: var(--tertiary-color);
     margin: 5px;
     padding: 10px 20px;
     cursor: pointer;
     transition: cubic-bezier(0.075, 0.82, 0.165, 1);
     transition-duration: .3s;
+    border: var(--tertiary-color) 1px solid;
 }
 #form-days > .day:hover{
     scale: 1.05;
 }
 .selected-day{
-    background-color: yellow !important;
-    color: black !important;
+    background-color: var(--secondary-color) !important;
+    color: white !important;
 }
 #form-days > div > input{
     margin-right: 10px;
@@ -191,11 +198,11 @@ label,input{
     
 }
 #add-edit{
-    background-color: orange;
+    background-color: var(--bright-green);
     border-radius: 10px;
-    color: white;       
+    color: var(--tertiary-color);       
     border: none;
     width: auto;
     padding: 15px 40px;
-    border: none;
+    border: 2px solid var(--tertiary-color);
 }
