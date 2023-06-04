@@ -28,7 +28,7 @@
             <input type="submit"  value="LOG IN" class="login-btn">
                
             <a href="forgetPassword.php" id="forget-password">Forget Password</a>
-            <a href="register.php" id="register-link">don't have account? Register</a>
+            <a href="registerform.php" id="register-link">don't have account? Register</a>
         </form>
         <div class="alert-incorrect" id="alert-incorrect">
             <p style="color:red;"><i class="fa-solid fa-triangle-exclamation"></i>Error</p>
