@@ -2,7 +2,7 @@
 include("connection.php");
 
 $userName = $_POST['username'];
-$loginPassword = $_POST['password'];
+$loginPassword = md5($_POST['password']);
 
 try {
 

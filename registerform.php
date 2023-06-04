@@ -17,7 +17,7 @@
 <fieldset>
     <legend>Registration Form</legend>
 
-  <form action="./phpactions/serverSideValidation.php"  id="registration-form" name="registrationForm" method="POST">
+  <form action="./phpactions/serverSideValidation.php"  id="registration-form" name="registrationForm" method="POST" enctype='multipart/form-data'>
   <div class = "frm-element">
     <label for="fname">First Name</label>
     <input type="text" id="first_name" name="first_name" >
