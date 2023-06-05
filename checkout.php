@@ -8,13 +8,13 @@ $user = $_SESSION['fullName'];
 
 
 // Prepare the SQL statement
-$sql = "INSERT INTO orders( foodID, foodName, quantity,orderDate, fullName) VALUES (?,?, ?, ?, ?)";
+$sql = "INSERT INTO orders( foodID,foodName,quantity,price,orderDate, fullName) VALUES (?,?,?, ?, ?, ?)";
 
 
 $stmt = mysqli_prepare($conn, $sql);
 
 foreach ($_SESSION['cart'] as $key => $value) {
-mysqli_stmt_bind_param($stmt, "ssiss", $value['foodID'], $value['foodName'], $value['quantity'], $Date,$user);
+mysqli_stmt_bind_param($stmt, "ssiiss", $value['foodID'],$value['foodName'], $value['quantity'], $value['price'] , $Date,$user);
 
 
 // Execute the statements
