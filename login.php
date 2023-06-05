@@ -35,10 +35,34 @@
             <p style="margin-left:30px;">incorrect username or password </p>
                      
         </div>
+        <div id="temp">
+            Welcome to Hamro Canteen
+        </div>
+        <style>
+            #temp{
+                color:white;
+                font-size:50px;
+                width:100vw;
+                height:100vh;
+                position: fixed;
+                background:black;
+                z-index: 2;
+                padding: 40vh 0;
+                text-align: center;
+                opacity: 1;
+                transition: transform 0.8s cubic-bezier(0.52, 0.16, 0.24, 0.93), opacity 0.8s ease;
+            }
+        </style>
 </div>
 
 <script src="./scripts/login.js"></script>
 <script>
+    let temp =  document.getElementById("temp");
+    temp.addEventListener("click",function(){
+        temp.style.transform = "translateY(-100%)";
+        temp.style.opacity = "0";
+    });
+
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const msg = urlParams.get('msg');
