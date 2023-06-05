@@ -36,22 +36,45 @@
                      
         </div>
         <div id="temp">
-            Welcome to Hamro Canteen
+            <div class="d-flex flex-column justify-content-center w-100 h-100">
+
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <h1 class="fw-light text-white m-0">Welcome to Hamro canteen</h1>
+            </div>
+            </div>
         </div>
         <style>
             #temp{
                 color:white;
-                font-size:50px;
-                width:100vw;
-                height:100vh;
+                font-size:40px;
                 position: fixed;
                 background:black;
+                padding:30vh 13vw;
+                width:100ww;  
                 z-index: 2;
-                padding: 40vh 0;
                 text-align: center;
                 opacity: 1;
                 transition: transform 0.8s cubic-bezier(0.52, 0.16, 0.24, 0.93), opacity 0.8s ease;
             }
+            #temp {
+                background: linear-gradient(-45deg, var(--alternate-color), var(--secondary-color), var(--bright-green));
+                background-size: 300% 300%;
+                animation: gradient 15s ease infinite;
+                height: 100vh;
+            }
+
+            @keyframes gradient {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+
         </style>
 </div>
 
