@@ -18,6 +18,7 @@ if ($result->num_rows > 0) {
     $_SESSION['email'] = $row["email"];
     $_SESSION['phone'] = $row["phone"];
     $_SESSION['address'] = $row["address"];
+    $_SESSION['dob'] = $row["DOB"];
     header("Location:../index.php");
     exit();
 } else {

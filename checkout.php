@@ -35,11 +35,9 @@ echo "<table border='1px'>";
 echo "<th> Food ID</th> <th> Food Name</th><th> quantity</th> <th> price</th>";
 $total = 0;
 foreach ($_SESSION['cart'] as $key => $value) {
-
+    
    echo "<tr><td>". $value['foodID']. "</td>" ."<td>". $value['foodName']."</td>". "<td>". $value['quantity'].  "<td>". $value['price']."</td></tr>";
    $total = $total + ($value['price']* $value['quantity']);
-
-
 }
 echo "</table>";
 echo "<p>Total Price : ".$total."</p>";
