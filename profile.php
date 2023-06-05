@@ -30,6 +30,9 @@ include './layout/head.php';
   <h4><span>Email: </span> <span> <?php echo $_SESSION['email'] ?></span></h4>
   <h4><span>phone: </span> <span> <?php echo $_SESSION['phone'] ?></span></h4>
   <h4><span>Address: </span> <span> <?php echo $_SESSION['address'] ?></span></h4>
+  <h4><span>Date of Birth: </span> <span> <?php echo $_SESSION['dob'] ?></span></h4>
+  
+
 
     
 </div>

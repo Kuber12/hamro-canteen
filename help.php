@@ -32,7 +32,7 @@ include './layout/head.php';
         <li>Select the items you want to order and add them to your cart.</li>
         <li>Click on the "Cart" icon in the top right corner of the page.</li>
         <li>Review your order and click on the "Checkout" button.</li>
-        <li>Fill out the order form with your information and click on the "Place Order" button.</li>
+        <!-- <li>Fill out the order form with your information and click on the "Place Order" button.</li> -->
       </ol>
     </section>
     <section>
