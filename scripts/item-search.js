@@ -1,13 +1,15 @@
 $(document).ready(function() {
-    // Make AJAX request
-    $.ajax({
-    url: './phpactions/menuItemsFetch.php', // URL of your PHP script
-    method: 'GET', // or 'POST' depending on your PHP script
-    dataType: 'json', // Expect JSON data in response
-    success: function(response) {
-        // Handle successful response
-        fetchedResponse = response;
-        response.forEach(item => {
+    $('#search').on('keyup', function() {
+      var query = $(this).val();
+  
+      $.ajax({
+        url: './phpactions/itemSearch.php',
+        method: 'GET',
+        data: { query: query },
+        success: function(response) {
+          var response = JSON.parse(response);
+          $('.styled-table tr:not(:first)').remove();
+          response.forEach(item => {
             var daysAvailable = [item['avlblSun'],item["avlblMon"],item["avlblTue"],item["avlblWed"],item["avlblThu"],item["avlblFri"]];
             let markup = `
             <tr>
@@ -27,12 +29,12 @@ $(document).ready(function() {
             </tr>`;
             
             $('table tbody').append(markup);
-        });
-
-    },
-    error: function(xhr, status, error) {
-        // Handle error response
-        console.error(error);
-    }
+          });
+        },
+        error: function(xhr, status, error) {
+          console.error(error);
+        }
+      });
     });
-});
+  });
+  

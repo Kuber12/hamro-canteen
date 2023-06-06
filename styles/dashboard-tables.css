@@ -4,41 +4,19 @@
 table{
     width: 100%;
 }
-.menu-content{
-    text-align: center;
-}
-.action-button{
-    background: var(--accent-color);
-    padding: 15px 60px;
-    border-radius: 30px;
-    color: black;
-    transition: cubic-bezier(1, 0, 0, 1);
-    transition-duration: 0.5s;
-}
-.action-button:hover{
-    background-color: var(--primary-color);
-    transform: scale(1.1);
-}
-.styled-table {
-    border-collapse: collapse;
-    margin: 25px 0;
-    font-size: 0.9em;
-    font-family: sans-serif;
-    min-width: 400px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-}
 
 .menu-content{
     text-align: center;
 }
 .action-button{
+    margin-left: 20px;
     background: var(--secondary-color);
-    padding: 15px 60px;
+    padding: 5px 15px;
     border-radius: 30px;
+    width: 150px;
     color: black;
     transition: cubic-bezier(1, 0, 0, 1);
     transition-duration: 0.5s;
-    margin-bottom: 20px;
 }
 .action-button:hover{
     background-color: var(--bright-green);
@@ -46,11 +24,11 @@ table{
 }
 .styled-table {
     border-collapse: collapse;
-    margin: 25px 0;
     font-size: 0.9em;
     font-family: sans-serif;
     min-width: 400px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    margin-bottom: 20px;
 }
 .styled-table th{
     background-color: var(--secondary-color);
