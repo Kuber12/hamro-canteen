@@ -1,8 +1,6 @@
-const now = new Date();
-const hour = now.getHours();
 
-// if (hour) {
-  //hour >=6 && hour<12
+
+
   var food;
 
   $(document).on("load", displayProduct());
@@ -50,12 +48,7 @@ const hour = now.getHours();
       },
     });
   }
-// } else {
-  // document.getElementById(
-  //   "menu-display"
-  // ).innerHTML = `<div class = "closed"> <img src ="./assets/closed.png" alt="Canteen Closed"/>
-  //     <div>`;
-// }
+
 
 function clearItem(itemId, Total) {
   document.getElementById(`${itemId}`).remove();

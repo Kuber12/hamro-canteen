@@ -153,7 +153,7 @@ include './layout/head.php';
 <script src="./scripts/cart.js"></script>
 <script src="./scripts/cart-manager.js"></script>
 <script src="./scripts/jquery.js"> </script>
-<script src="./scripts/remove-item-from-cart.js"> </script>
+
 
 <script>
 $(document).ready(function() {
@@ -174,7 +174,8 @@ $('.productfrm').on('submit',function(event) {
 
 
   success: function(response) {
-   alert("Item added successfully");
+//    alert("Item added successfully");
+    alert(response);
    $('#noOfItems').html(`${response.value1.length}`);
    totalItem = response.value1.length;
   if(totalItem==0|| totalItem==null|| totalItem==undefined || totalItem ==" "){

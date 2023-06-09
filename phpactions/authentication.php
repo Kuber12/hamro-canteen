@@ -4,6 +4,7 @@ include("connection.php");
 $userName = $_POST['username'];
 $loginPassword = md5($_POST['password']);
 
+
 try {
 
 $sql = "SELECT* FROM users WHERE username = '$userName' and password = '$loginPassword'";
@@ -12,6 +13,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // storing the session name 
     $row = $result->fetch_assoc();
+    $_SESSION['userID'] = $row['userID'];
     $_SESSION['fullName'] = $row["fullName"];
     $_SESSION['username'] = $row["username"];
     $_SESSION['imageUrl'] = $row["imageUrl"];
