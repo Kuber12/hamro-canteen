@@ -174,8 +174,7 @@ $('.productfrm').on('submit',function(event) {
 
 
   success: function(response) {
-//    alert("Item added successfully");
-    alert(response);
+   alert("Item added successfully");
    $('#noOfItems').html(`${response.value1.length}`);
    totalItem = response.value1.length;
   if(totalItem==0|| totalItem==null|| totalItem==undefined || totalItem ==" "){

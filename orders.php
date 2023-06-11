@@ -1,171 +1,218 @@
-<?php
-include("./phpactions/connection.php");
-
-// Check if the session variable is set
-if (!isset($_SESSION['fullName'])) {
-    
-    header("location:login.php");
-    exit();
-}
-
-$day = date("l"); 
-// $day = "Friday";
-
-if (isset($_SESSION['today']) && $_SESSION['today'] !== $day) {
-    // Unset the cart session variable
-    unset($_SESSION['cart']);
-  }  
-  // Store the current date in the session
-  $_SESSION['today'] = $day;
-  
-include './layout/head.php';
-
-?>
-
-<nav>
-
-    <div class="link_container">
-        <a href="index.php">Home</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-        <a href="#">Blog</a>
-    </div>
-
-    <div class="search_bar">
-        <form action="#">
-            <input type="text" placeholder="Search.." name="search" />
-            <button type="submit" i><i class="fa fa-search"></i></button>
-        </form>
-    </div>
-
-
-
-</nav>
-<div class="hero middle-centered">
-
-    <div class="hero-items">
-        <!-- logo container -->
-        <span>
-            <img src="./assets/logo-yellow.png " class="hero-logo">
-        </span>
-
-        <!-- cart and user icon container -->
-        <span>
-        <span id="user-cart-holder">
-            <span id = "noOfItems" class="noOfItems">       
-
-            </span>
-            <i class="fa-solid fa-cart-shopping fa-beat hero-cart" id ="cart" onclick="openCart()"></i>
-          
-            <img src="./assets/userImage/<?php echo $_SESSION['imageUrl']?>" alt="Profile Picture"
-            class="hero-profile" id="hero-profile-button" onclick="openProfile()">
-            </span>
-         
-            <!-- cart menu starts here -->
-            <div class="cart-menu" id="cart-menu">
-                <!-- cart header -->
-                <div>
-                    <div class="cart-header">
-                        <h2><i class="fa-sharp fa-solid fa-cart-shopping" style="margin-right:10px;"></i>My Cart</h2>
-                        <span><i class="fa-solid fa-circle-xmark fa-2xl" style="color: #000000;"
-                                onclick="closeCart()"></i></span>
-                    </div>
-                
-                </div>               <!-- cart item container -->
-
-                <div class="items empty" id="items">
-
-
-                    <!-- item -row -->
-
-
-                </div>
-                <!-- end of  items div-->
-
-                <div class="btn">
-                    <button id="back-to-shopping" onclick="closeCart()"><i class="fa-solid fa-arrow-left "
-                            style="margin-right:5px;"></i> back to shopping</button>
-                        <p>Grand Total</p>
-                        <p>=</p>
-                        <p id = "gTotal"></p>
-                    <button id="checkout" onclick="window.location.href = 'checkout.php';" disabled> CHECKOUT</button>
-                </div>
-
-
-        
-
-            </div>
-            <!-- end of cart menu -->
-
-            <!-- popup profile menu starts here -->
-
-            <div class="profile-menu" id="profile-menu">
-                <div class="profile-info-container">
-                    <img src="./assets/userImage/<?php echo $_SESSION['imageUrl']?>" alt="Profile Picture">
-                    <p>
-                        <?php echo $_SESSION['fullName'] ?>
-                   
-                    <p>
-
-                </div>
-                <a href="profile.php"><i class="fa-solid fa-circle-user"></i> My Profile <div class="arrow-right"></div></a>
-                <a href="orders.php"><i class="fa-solid fa-cart-shopping"></i> My Orders <div class="arrow-right"></div></a>
-                <a href="help.php"><i class="fa-solid fa-circle-question"></i> Help <div class="arrow-right"></div> </a>
-                <a href="logout.php"> <i class="fa-solid fa-arrow-right-from-bracket"></i>Sign Out <div></div></a>
-
-            </div>
-            <!-- end of profile menu -->
-        </span>
-        <!-- end of cart, user-icon, cart-menu, profile-menu -->
-    </div>
-
-    <h1 class="hero-heading middle-centered-div">Hamro Canteen</h1>
-    <!-- marqueee tag  -->
-    <div class="marquee">
-      
-            <h2>Order History</h2>
-        </marquee>
-    </div>
-</div>
 
 <?php
-include './layout/foot.php';
-?>
- 
-
-
-<div class="history">
-<?php
-
-
+session_start();
+include("./layout/head.php");
 $userName = $_SESSION['fullName'];
-
-$sql = "SELECT *From orders where fullName = '$userName'";
-$result = $conn->query($sql);
-
-echo "    <h1><a href='index.php'><i class='fa-solid fa-circle-arrow-left' style = 'margin-right:20px; color:black;'></i>Back to Home page</a></h1>
-<div class='order'><p>Your Order History ($userName)</p></div><div class = 'center'>";
-echo "<table border = '1px solid black'>";
-echo "<th> Order ID </th> <th> Food ID </th> <th> Food Name </th> <th> Quantity</th> <th> Price </th><th> Total </th><th> Order Date </th>  ";
-if ($result->num_rows > 0) {
-   while( $row = $result->fetch_assoc()){
-    echo "<tr>";
-       echo "<td>" .$row["orderID"]. "</td>";
-       echo "<td>" .$row["foodID"]. "</td>";
-       echo "<td>" .$row["foodName"]. "</td>";
-       echo "<td>" .$row["quantity"]. "</td>";
-       echo "<td>" .$row["price"]. "</td>";
-       echo "<td>" .$row["price"]*$row["quantity"]. "</td>";
-       echo "<td>" .$row["orderDate"]. "</td>";
-
-
-   }
-    exit();
-}
-echo "</table></div>";
-$conn->close();
 ?>
+
+<style>
+    body{
+        font-family: Nunito Sans;
+        width:98vw;
+        height: 100vh;
+        background: linear-gradient(rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.5)),
+        url("./assets/pizza.jpeg");
+        background-repeat: no-repeat;
+        background-size: cover;
+   
+    }
+    
+ 
+       
+
+    th, td {
+        width :180px;
+        text-align: left;
+        padding: 5px;
+        font-size:14px;
+        font-weight:600;      
+       
+    }
+    th{
+        background-color:#eaeaea;
+        top:0;
+        position: sticky;
+        height:24px;
+        font-size: 16px;
+       
+    }
+    tr{
+        margin-bottom:25px; 
+    }
+    a{
+        text-decoration:none;
+        color:white;
+        padding-left:5px;
+        padding-right:5px;
+       
+
+    }
+  
+    .home{      
+        text-align: left;
+        color:white;
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-left:63px;
+        margin-right:30px;
+        font-size: 30px;
+        font-weight: 600;
+
+    
+
+    }
+    .user{
+      
+        position:absolute;
+        top:13%;
+        font-size:18px;
+        font-weight:600;
+        text-align: left;
+        margin-left:70px;
+        color:white;
+        z-index:5;
+        margin-bottom: 40px;
+       
+
+       
+
+    }
+    .order-table{
+        top:20%;
+        position:absolute;        
+        width: 90vw;   
+        height: 78vh; 
+        background-color:white;       
+        overflow:scroll;
+        margin-left:5vw;
+        z-index:0;
+        
+     
+       
+    }
+    img{
+        margin-top: 20px;
+        width:80px;   
+      
+    }
+ 
+    .details{
+    
+        
+        gap :10px;
+        position:absolute;
+        height:300px;
+        width:300px;
+        border:1px solid #BD271B;
+        background-color: white;
+    }
+    .name{
+        border:1px solid #BD271B;
+    }
+    /* for receipt */
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    .receipt_container {
+      display: none;
+      max-width: 500px;
+      height: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      background-color:white;
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform: translate(-50%,-50%);
+      z-index:6;
+
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .info {
+      margin-bottom: 10px;
+      display: grid;
+      grid-template-columns: auto auto;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .receipt  th, .receipt td {
+      padding: 5px;
+      border-bottom: 1px solid #ccc;
+      text-align: center;
+    }
+    
+   .receipt th {
+      background-color: #f2f2f2;
+    }
+    
+    .footer {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      
+    }
+   .blockerr{
+    display:none;
+    width:100vw;
+    height: 100vh;
+    background-color:black;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:5;
+    opacity:0.8;
+   }
+
+</style>
+
+
+
+
+
+
+ 
+<span class='home'><a href='index.php' ><i class='fa-solid fa-circle-arrow-left' style = 'margin-right:5px;'></i> Home </a> Hamro Canteen<a href='index.php'><img src='./assets/logo-yellow.png' alt ="logo"></a></span>
+<div class='user'><p>Your Order History</p></div>
+
+<div class='order-table'>
+    
+    <table>
+<th> Order Date </th> <th> Order ID </th> <th> Amount </th> <th> Payment </th> <th> Status </th> <th style="background-color:white;"></th>
+
+</table>
 </div>
 
 
 
+</div>
+<div class="blockerr" onclick="closeReceipt()">
+
+</div>
+
+<div class="receipt_container">
+  
+
+</div>
+
+
+
+
+<script src="./scripts/jquery.js"> </script>
+<script src="./scripts/order-history-fetch.js">
+
+</script>
+<?php 
+include("./layout/foot.php");
+?>
