@@ -2,7 +2,8 @@
 include("connection.php");
 
 $userName = $_POST['username'];
-$loginPassword = $_POST['password'];
+$loginPassword = md5($_POST['password']);
+
 
 try {
 
@@ -12,12 +13,14 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // storing the session name 
     $row = $result->fetch_assoc();
+    $_SESSION['userID'] = $row['userID'];
     $_SESSION['fullName'] = $row["fullName"];
     $_SESSION['username'] = $row["username"];
     $_SESSION['imageUrl'] = $row["imageUrl"];
     $_SESSION['email'] = $row["email"];
     $_SESSION['phone'] = $row["phone"];
     $_SESSION['address'] = $row["address"];
+    $_SESSION['dob'] = $row["DOB"];
     header("Location:../index.php");
     exit();
 } else {

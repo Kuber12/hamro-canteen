@@ -8,13 +8,13 @@ $user = $_SESSION['fullName'];
 
 
 // Prepare the SQL statement
-$sql = "INSERT INTO orders( foodID, quantity,orderDate, fullName) VALUES (?, ?, ?, ?)";
+$sql = "INSERT INTO orders( foodID,foodName,quantity,price,orderDate, fullName) VALUES (?,?,?, ?, ?, ?)";
 
 
 $stmt = mysqli_prepare($conn, $sql);
 
 foreach ($_SESSION['cart'] as $key => $value) {
-mysqli_stmt_bind_param($stmt, "siss", $value['foodID'], $value['quantity'], $Date,$user);
+mysqli_stmt_bind_param($stmt, "ssiiss", $value['foodID'],$value['foodName'], $value['quantity'], $value['price'] , $Date,$user);
 
 
 // Execute the statement
@@ -35,11 +35,9 @@ echo "<table border='1px'>";
 echo "<th> Food ID</th> <th> Food Name</th><th> quantity</th> <th> price</th>";
 $total = 0;
 foreach ($_SESSION['cart'] as $key => $value) {
-
+    
    echo "<tr><td>". $value['foodID']. "</td>" ."<td>". $value['foodName']."</td>". "<td>". $value['quantity'].  "<td>". $value['price']."</td></tr>";
    $total = $total + ($value['price']* $value['quantity']);
-
-
 }
 echo "</table>";
 echo "<p>Total Price : ".$total."</p>";

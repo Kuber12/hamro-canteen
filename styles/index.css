@@ -1,6 +1,14 @@
+:root {
+  --primary-color:#eaeaea;
+  --secondary-color:#F5C13F;
+  --tertiary-color:#BD271B;
+  --alternate-color:#F6FFA6;
+  --bright-green:#AAFF00;
+}
 /* navbar */
 body {
-  background-color: lightgray;
+  font-family: 'Nunito Sans', sans-serif;
+  background-color: var(--primary-color);
 }
 button, i , img {
   cursor: pointer;
@@ -17,7 +25,7 @@ nav {
 .link_container {
   float: left;
   display: flex;
-  border-bottom: 30px solid green;
+  border-bottom: 30px solid var(--secondary-color);
   border-left: 0px solid transparent;
   border-right: 30px solid transparent;
   height: 0;
@@ -92,8 +100,8 @@ form {
   align-items: flex-start;
 }
 .hero-logo {
-  padding: 10px 0px 0px 3px;
-  width: 90px;
+  padding: 10px 0px 0px 10px;
+  width: 100px;
 }
 
 /* profile and cart */
@@ -109,13 +117,13 @@ form {
   position: relative;
   top: -7px;
   right: -60px;
-  background-color: orange;
+  background-color: var(--bright-green);
   height: 16px;
   width: 15px;
   border-radius: 250px;
   padding: 2px;
   text-align: center;
-  z-index: 5;
+  z-index: 1;
   padding:3px;
   /* color:white; */
 }
@@ -165,7 +173,7 @@ form {
 }
 /* hamro canteen Heading */
 .hero-heading {
-  color: rgb(255, 255, 255);
+  color: white;
   margin-left: 50%;
   font-size: 3em;
 }
@@ -176,7 +184,7 @@ form {
   top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: yellow;
+  color: var(--bright-green);
 }
 /* Menu (Product Display)*/
 h3 {
@@ -198,12 +206,12 @@ h3 {
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background-color: red;
+  background-color: var(--tertiary-color);
 
 }
 #menu > h3 {
   display: block;
-  background-color: red;
+  background-color: var(--tertiary-color);
   color: white;
   width: 180px;
   height: 30px;
@@ -217,12 +225,13 @@ h3 {
   border-radius: 10px;
   background-color: white;
   text-align: center;
-  border: 1px solid #ddd;
   display: flex;
   flex-direction: column;
   align-items: center;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition-duration: 0.25s;
 }
 .product-image {
   display: inline;
@@ -294,15 +303,36 @@ h3 {
   text-align: center;
 }
 .product:hover {
-  background-color: #fffbe6;
+  background-color: var(--tertiary-color);
+  color:white;
 }
+.product:hover input{
+  color: white;
+}
+.product:hover .add-to-cart-btn{
+  background-color: var(--secondary-color) !important;
+  color:var(--tertiary-color) !important;
+}
+.product:hover .add-to-cart-btn{
+  background-color: var(--secondary-color) !important;
+  color:var(--tertiary-color) !important;
+}
+.fa-square-minus,.fa-square-plus{
+}
+.qty-change-btn:disabled .fa-square-minus,.qty-change-btn:disabled .fa-square-plus{
+  color: var(--primary-color);
+  background-color:black;
+}
+/* .product:hover .qty-change-btn[disabled]{
+  background-color: var(--tertiary-color) !important;
+} */
 /* adjust order button */
 .btn-holder {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 260px;
-  /* background-color: red; */
+  /* background-color: var(--tertiary-color); */
 }
 .add-to-cart-btn {
   display: flex;
@@ -315,12 +345,12 @@ h3 {
   height: 40px;
   width: 160px;
   font-weight: 600;
-  background: red;
+  background: var(--tertiary-color);
   cursor: pointer;
   font-size: 18px;
 }
 .add-to-cart-btn:hover {
-  background-color: rgb(15, 169, 15);
+  background-color: var(--bright-green) !important;
   border: none;
 }
 
@@ -334,7 +364,7 @@ h3 {
   top: 55px;
   width: 280px;
   height: 300px;
-  background-color: rgb(255, 255, 255);
+  background-color: white;
   border-radius: 10px;
   padding: 20px;
 }
@@ -375,7 +405,7 @@ h3 {
   height: 30px;
   padding: 5px 15px 5px 5px;
 
-  background-color: lightgrey;
+  background-color: var(--primary-color);
 }
 
 .profile-menu i {
@@ -396,11 +426,11 @@ h3 {
   display: none;
   flex-direction: column;
   justify-content: space-between;
-  background-color: rgb(255 252 187);
+  background-color: var(--alternate-color);
   height: 400px;
   width: 700px;
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -476,7 +506,7 @@ h3 {
   height: 85px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 5px 5px -3px,
     rgba(0, 0, 0, 0.5) 0px -11px 3px -12px;
-  background-color: #ff1010;
+  background-color: var(--tertiary-color);
   color: white;
 }
 .btn > button {
@@ -495,8 +525,12 @@ h3 {
   height: 100vh;
   top: 0;
   background-color: black;
-  z-index: 1;
+  z-index: 2;
   opacity: 0.5;
+}
+.remove-item{
+  background-color: transparent;
+  border: none;
 }
 
 @media screen and (max-width: 1000px) {

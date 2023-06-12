@@ -24,7 +24,16 @@ include './layout/head.php';
     <section>
         <div id="help">
     <h3>How can we help you?</h3>
-    <input type="text" placeholder="Describe your issue"/>
+    <form id ="issueForm" >
+      <div class ="inputHolder">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" placeholder="Describe your issue" name ="customer_issue">
+      
+      </div>
+
+
+ 
+</form>
 </div>
       <h2>Placing an Order</h2>
       <p>To place an order on our website, follow these steps:</p>
@@ -32,7 +41,7 @@ include './layout/head.php';
         <li>Select the items you want to order and add them to your cart.</li>
         <li>Click on the "Cart" icon in the top right corner of the page.</li>
         <li>Review your order and click on the "Checkout" button.</li>
-        <li>Fill out the order form with your information and click on the "Place Order" button.</li>
+        <!-- <li>Fill out the order form with your information and click on the "Place Order" button.</li> -->
       </ol>
     </section>
     <section>
@@ -47,7 +56,27 @@ include './layout/head.php';
   <footer>
     <p>&copy; 2023 Canteen Website. All rights reserved.</p>
   </footer>
+  <script src="./scripts/jquery.js"></script>
   <script>
+    $(document).ready(function(){
+      $('#issueForm').on('submit', function(event){
+        
+      event.preventDefault();
+      var formdata = $('#issueForm').serialize();
+      $.ajax({
+        type:'GET',
+        url: './phpactions/helpProcess.php',
+        data:formdata,
+        success:function(response){
+          alert("your Issue added successfully");
+
+        }
+        
+
+      });
+    }
+    )}
+    );
   function navigateToPage() {
   window.location.href = "index.php";
 }
