@@ -17,7 +17,7 @@ foreach ($_SESSION['cart'] as $key => $value) {
 mysqli_stmt_bind_param($stmt, "ssiiss", $value['foodID'],$value['foodName'], $value['quantity'], $value['price'] , $Date,$user);
 
 
-// Execute the statement
+// Execute the statements
 if (mysqli_stmt_execute($stmt)) {    
     
 } else {

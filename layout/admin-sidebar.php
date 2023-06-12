@@ -20,13 +20,13 @@
       </a>
     </li>
     <li>
-      <a href="transactions.php">
+      <a href="#">
         <i class="fa fa-cog"></i>
         <span class="menu-name">Transactions</span>
       </a>
     </li>
     <li class="sign-out">
-      <a href="#">
+      <a href="./phpactions/logoutProcess.php">
         <i class="fa fa-sign-out"></i>
         <span class="menu-name">Sign out</span>
       </a>
