@@ -116,18 +116,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo "<br><a href='../registerform.php' style='text-decoration:none; border: 1px solid black;padding:5px;
     background-color:red; color:white;'>back to registration page</a><br>";
   } else {
-<<<<<<< HEAD
-    
-
-
-   $sql = "INSERT INTO users(username, fullName, gender, password, email, phone, DOB , imageUrl, address) VALUES ('$user_name','$full_name','$gender','$password','$email',$phone_number,'$dob','$img', '$address')";
-   //INSERT INTO `users`(`userID`, `username`, `fullName`, `gender`, `password`, `email`, `phone`, `DOB`, `imageUrl`, `address`)
-   if (mysqli_query($conn, $sql)) {
-    echo "Registration successful";
-    echo "<br><a href='../login.php' style='text-decoration:none; border: 1px solid black;padding:5px;
-    background-color:red; color:white;'>back to registration page</a><br>";
-  
-=======
     if($_FILES['photo']['error'] == UPLOAD_ERR_OK) {
       $filename = $_FILES['photo']['name'];
       $tempname = $_FILES['photo']['tmp_name'];
@@ -135,7 +123,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $filetype = $_FILES['photo']['type'];
       $file_extension = pathinfo($filename, PATHINFO_EXTENSION);
       // Process the file
->>>>>>> 3e4136f0975e7fd3abb90fc597583b448921e512
   } else {
       echo "Error uploading file.";
   }
