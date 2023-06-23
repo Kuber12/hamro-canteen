@@ -1,9 +1,12 @@
 <?php 
+if(isset($_POST['orderID'])) {
+    $orderID = $_POST['orderID'];
+
     include("./connection.php");
     $username = $_SESSION['userID'];
  
 
-    $sql = "select * from orders where userID = '$username' and orderID >115";
+    $sql = "select * from order_items where orderID = '$orderID'";
     $result = $conn->query($sql);
 
     if ($conn->connect_error) {
@@ -20,4 +23,4 @@
 
     // Return data as JSON
     echo json_encode($data);
- 
+}

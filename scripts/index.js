@@ -7,6 +7,7 @@
 
   function displayProduct() {
     var menuItems;
+
     $.ajax({
       url: "./phpactions/displayItemFetch.php", // URL of your PHP script
       method: "GET", // or 'POST' depending on your PHP script
@@ -60,6 +61,14 @@ function submitForm(event) {
   event.preventDefault();
 
 }
+function paymentOption(){
+  openOption();
+  document.getElementById('payment_option').innerHTML = `<h2> Choose Payment Options</h2>
+  <button onclick="cash();">Cash </button> <button onclick="alert('it will be activated after e-sewa integration')">E-Sewa</button> <button onclick="closeOptions();">Cancel</button> 
+  <i class="fa-solid fa-circle-xmark fa-xl" id="close" onclick="closeOptions();"></i>`;
+
+
+}
 
 
 function change(productId, buttonId) {
@@ -93,4 +102,7 @@ function change(productId, buttonId) {
     plusBtn.style.cursor = "pointer";
     minusBtn.style.cursor = "pointer";
   }
+}
+function  cash(){
+  window.location.href = "./checkout.php";
 }

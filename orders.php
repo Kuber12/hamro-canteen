@@ -174,6 +174,9 @@ $userName = $_SESSION['fullName'];
     z-index:5;
     opacity:0.8;
    }
+   #odate{
+    text-align:right;
+   }
 
 </style>
 
@@ -201,7 +204,9 @@ $userName = $_SESSION['fullName'];
 
 </div>
 
+
 <div class="receipt_container">
+
   
 
 </div>

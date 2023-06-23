@@ -1,46 +1,47 @@
 <?php
 include("./phpactions/connection.php");
 $Date = date("Y-m-d");
-// session_start();
-$user = $_SESSION['fullName'];
+$userID = $_SESSION['userID'];
+$orderID = 0;
+$gtotal = $_SESSION['gtotal'];
 
+$payment = "Cash";
+$status = "pending";
+$sql0 = "SELECT * FROM orders ORDER BY orderID DESC LIMIT 1";
+$result1 = $conn->query($sql0);
 
-
-
-// Prepare the SQL statement
-$sql = "INSERT INTO orders( foodID,foodName,quantity,price,orderDate, fullName) VALUES (?,?,?, ?, ?, ?)";
-
-
-$stmt = mysqli_prepare($conn, $sql);
-
-foreach ($_SESSION['cart'] as $key => $value) {
-mysqli_stmt_bind_param($stmt, "ssiiss", $value['foodID'],$value['foodName'], $value['quantity'], $value['price'] , $Date,$user);
-
-
-// Execute the statement
-if (mysqli_stmt_execute($stmt)) {    
-    
+if ($result1->num_rows > 0) {
+    $row = $result1->fetch_assoc();
+    $orderID = $row['orderID'];
+    $orderID += 1;
 } else {
-    echo "Failed to insert data:";
+    echo "error";
 }
-}
-echo "<p style='text-decoration:none; border: 1px solid black; margin-top:20px;
-background-color:green;width:300px; text-align:center;color:white;'>Order successful</p>";
 
-// Close the statement and database connection
-mysqli_stmt_close($stmt);
-mysqli_close($conn);
-echo "Your Order";
-echo "<table border='1px'>";
-echo "<th> Food ID</th> <th> Food Name</th><th> quantity</th> <th> price</th>";
-$total = 0;
-foreach ($_SESSION['cart'] as $key => $value) {
-    
-   echo "<tr><td>". $value['foodID']. "</td>" ."<td>". $value['foodName']."</td>". "<td>". $value['quantity'].  "<td>". $value['price']."</td></tr>";
-   $total = $total + ($value['price']* $value['quantity']);
+$sql1 = "INSERT INTO orders(orderID, userID, payment, status, orderDate, gtotal) VALUES ('$orderID', '$userID','$payment','$status','$Date', '$gtotal')";
+if (mysqli_query($conn, $sql1)) {
+    $cart = $_SESSION['cart'];
+
+    foreach ($cart as $item) {
+        $foodName = mysqli_real_escape_string($conn, $item['foodName']);
+        $qty = mysqli_real_escape_string($conn, $item['quantity']);
+        $price = mysqli_real_escape_string($conn, $item['price']);
+        $total = $qty * $price;
+        $sql = "INSERT INTO order_items(orderID, foodName, quantity, price, total) VALUES ('$orderID', '$foodName', '$qty', '$price', '$total')";
+
+        if (mysqli_query($conn, $sql)) {
+            echo "Data inserted successfully.";
+        } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
+    }
+} else {
+    echo "Error: " . $sql1 . "<br>" . mysqli_error($conn);
 }
-echo "</table>";
-echo "<p>Total Price : ".$total."</p>";
-echo "<br><a href='index.php' style='text-decoration:none; border: 1px solid black;padding:5px;
-background-color:red; color:white;'>back to home page</a>";
 unset($_SESSION['cart']);
+
+mysqli_close($conn);
+
+header('location:orders.php');
+
+?>

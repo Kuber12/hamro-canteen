@@ -1,17 +1,17 @@
     <?php
     session_start();        
-
+    unset($_SESSION['gtotal']);
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
         if (isset($_POST['add-to-cart'])) {
             if (isset($_SESSION['cart'])) {
                 $count = count($_SESSION['cart']);
-                $matchFound = false; // Flag variable to track if a match was found
+                $matchFound = false; 
                 foreach ($_SESSION['cart'] as $k => $val) {
                     if ($val['foodName'] == $_POST['foodName']) {
                         $_SESSION['cart'][$k]['quantity'] += $_POST['productQty'];
-                        $matchFound = true; // Set the flag to indicate a match was found
-                        break; // Exit the loop since a match was found
+                        $matchFound = true; 
+                        break; 
                     }
                 }
                 if (!$matchFound) {
@@ -36,7 +36,7 @@
 
         if (isset($_POST['remove-item'])) {  
             foreach ($_SESSION['cart'] as $key => $value) {
-                //  $remove = $_POST['foodName'];
+             
                 if ($value['foodName'] ==$_POST['foodName']) {
                     unset($_SESSION['cart'][$key]);
                     $_SESSION['cart'] = array_values($_SESSION['cart']);             
@@ -57,6 +57,8 @@
 
 
         }     
+
+        $_SESSION['gtotal'] = $gtotal;
         $details = array(
             "value1" => $_SESSION['cart'],
             "value2" => $gtotal,     
