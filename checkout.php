@@ -46,7 +46,7 @@ if (mysqli_query($conn, $sql1)) {
 
     unset($_SESSION['cart']);
     mysqli_close($conn);
-    header('Location: /path/to/orders.php');
+    header('Location:orders.php');
     exit();
 } else {
     echo "Error: " . $sql1 . "<br>" . mysqli_error($conn);

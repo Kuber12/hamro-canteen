@@ -1,4 +1,4 @@
-$(document).ready(function() {
+
   var food;
 
   displayProduct();
@@ -59,7 +59,7 @@ $(document).ready(function() {
     openOption();
     $("#payment_option").html(`
       <h2>Choose Payment Options</h2>
-      <button onclick="cash();">Cash</button>
+      <button onclick="window.location.href = './checkout.php';">Cash</button>
       <button onclick="alert('it will be activated after e-sewa integration')">E-Sewa</button>
       <button onclick="closeOptions();">Cancel</button>
       <i class="fa-solid fa-circle-xmark fa-xl" id="close" onclick="closeOptions();"></i>
@@ -90,7 +90,5 @@ $(document).ready(function() {
     }
   }
 
-  function cash() {
-    window.location.href = "./checkout.php";
-  }
-});
+
+
