@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-
 // Check if the session variable is set
 if (!isset($_SESSION['fullName'])) {
     

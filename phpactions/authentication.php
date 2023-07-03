@@ -6,7 +6,7 @@ $loginPassword = md5($_POST['password']);
 
 try {
 
-$sql = "SELECT* FROM users WHERE username = '$userName' and password = '$loginPassword'";
+$sql = "SELECT * FROM users WHERE username = '$userName' and password = '$loginPassword'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -19,9 +19,25 @@ if ($result->num_rows > 0) {
     $_SESSION['phone'] = $row["phone"];
     $_SESSION['address'] = $row["address"];
     $_SESSION['dob'] = $row["DOB"];
+    $_SESSION['usertype']="USER";
     header("Location:../index.php");
     exit();
-} else {
+}else if($result->num_rows > 0){
+  $sql = "SELECT * FROM admin WHERE username = '$userName' and password = '$loginPassword'";
+  $result = $conn->query($sql);
+
+  $row = $result->fetch_assoc();
+  $_SESSION['fullName'] = $row["fullName"];
+  $_SESSION['username'] = $row["username"];
+  $_SESSION['imageUrl'] = $row["imageUrl"];
+  $_SESSION['email'] = $row["email"];
+  $_SESSION['phone'] = $row["phone"];
+  $_SESSION['address'] = $row["address"];
+  $_SESSION['dob'] = $row["DOB"];
+  $_SESSION['usertype']="ADMIN";
+  header("Location:../index.php");
+
+}else {
   header("Location: ../login.php?msg=incorrect"); 
   exit();
 }

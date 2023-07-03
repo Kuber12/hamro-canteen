@@ -2,8 +2,7 @@
     include './layout/head.php';
     include './layout/admin-sidebar.php';
     session_start();
-    if (!isset($_SESSION['fullName'])) {
-    
+    if (!isset($_SESSION['usertype'])) {
       header("location:login.php");
       exit();
   }
