@@ -125,7 +125,7 @@ $userName = $_SESSION['fullName'];
     }
     
     .receipt_container {
-      display: block;
+      display: none;
     width: 500px;
       height: 500px;
       margin: 0 auto;
@@ -244,17 +244,7 @@ $userName = $_SESSION['fullName'];
             <span id="odate">Order Date: </span>
         </div>
         <table class="receipt">
-            <thead>
             
-                    <th>S.N</th>
-                    <th>Food Name</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-   
-            </thead>
-            <tbody id="fitems">
-
-      
 
 
 
@@ -269,6 +259,7 @@ $userName = $_SESSION['fullName'];
   
     <script src="./scripts/jquery.js"></script>
     <script src="./scripts/order-history-fetch.js"></script>
+
 
 
     
