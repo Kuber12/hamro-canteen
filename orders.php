@@ -80,7 +80,6 @@ $userName = $_SESSION['fullName'];
         text-align: left;
         margin-left:70px;
         color:white;
-        z-index:5;
         margin-bottom: 40px;
        
 
@@ -132,7 +131,7 @@ $userName = $_SESSION['fullName'];
       padding: 20px;
       border: 1px solid #ccc;
       background-color:white;
-      position:absolute;
+      position:fixed;
       top:50%;
       left:50%;
       transform: translate(-50%,-50%);
@@ -185,10 +184,10 @@ $userName = $_SESSION['fullName'];
     width:100vw;
     height: 100vh;
     background-color:black;
-    position:absolute;
+    position:fixed;
     top:0;
     left:0;
-    z-index:5;
+    z-index:3;
     opacity:0.8;
    }
    #odate{
@@ -244,12 +243,18 @@ $userName = $_SESSION['fullName'];
             <span id="odate">Order Date: </span>
         </div>
         <table class="receipt">
+          <thead>
             <tr>
                     <th>S.N</th>
                     <th>Food Name</th>
                     <th>Quantity</th>
                     <th>Price</th>
+                    <th>Total</th>
             </tr>
+            </thead>
+            <tbody>
+              
+            </tbody>
         </table>
 </div>
 

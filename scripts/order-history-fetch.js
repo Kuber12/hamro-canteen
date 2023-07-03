@@ -41,6 +41,7 @@ function displayBill(event, orderDate, orderID, gtotal, payment, status) {
       $("#odate").text(`Order Date: ${orderDate}`);
       $("#orderID").text(`Order ID: ${orderID}`);
       let tmp;
+    
       $(".receipt tbody").empty();
       for (let i = 0; i < response.length; i++) {
         const order = response[i];
@@ -69,10 +70,11 @@ function displayBill(event, orderDate, orderID, gtotal, payment, status) {
     }
   });
   $('.receipt_container').show();
-  $('#blockerr').show();
+  $('.blockerr').show();
 
+
+}
 function closeReceipt() {
   $('.receipt_container').hide();
-  $('#blockerr').hide();
-}
+  $('.blockerr').hide();
 }
