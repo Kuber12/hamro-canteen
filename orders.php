@@ -229,7 +229,7 @@ $userName = $_SESSION['fullName'];
     
  <table class="orders">
 <th> Order Date </th> <th> Order ID </th> <th> Amount </th> <th> Payment </th> <th> Status </th> <th>Details</th>
-
+</table>
 <div id="receipt_container" class="receipt_container">
         <span id="orderID">Order ID: ${orderID}</span>
         <i class="fa-solid fa-circle-xmark fa-xl" id="close_receipt" onclick="closeReceipt();"></i>
@@ -244,20 +244,13 @@ $userName = $_SESSION['fullName'];
             <span id="odate">Order Date: </span>
         </div>
         <table class="receipt">
-            <thead>
-            
+            <tr>
                     <th>S.N</th>
                     <th>Food Name</th>
                     <th>Quantity</th>
                     <th>Price</th>
-   
-            </thead>
-            <tbody id="fitems">
-
-      
-
-
-
+            </tr>
+        </table>
 </div>
 
 <div class="blockerr" onclick="closeReceipt()">
