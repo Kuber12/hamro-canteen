@@ -4,7 +4,7 @@ session_start();
 include("./layout/head.php");
 $userName = $_SESSION['fullName'];
 ?>
-
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <style>
     body{
         font-family: Nunito Sans;
@@ -14,31 +14,40 @@ $userName = $_SESSION['fullName'];
         url("./assets/pizza.jpeg");
         background-repeat: no-repeat;
         background-size: cover;
+        color:black;
    
+    } 
+    tr{
+      
+      box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     }
-    
  
        
 
     th, td {
         width :180px;
         text-align: left;
-        padding: 5px;
         font-size:14px;
-        font-weight:600;      
+        font-weight:600;  
+       padding-left:20px; 
+             
+      }
+    td{
+       height:60px;
+
        
     }
     th{
         background-color:#eaeaea;
         top:0;
         position: sticky;
-        height:24px;
+        height:50px;
         font-size: 16px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        
        
     }
-    tr{
-        margin-bottom:25px; 
-    }
+ 
     a{
         text-decoration:none;
         color:white;
@@ -132,8 +141,10 @@ $userName = $_SESSION['fullName'];
     }
     
     .header {
+      position: relative;
+      left:7%;
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 40px;
     }
     
     .info {
@@ -156,11 +167,17 @@ $userName = $_SESSION['fullName'];
    .receipt th {
       background-color: #f2f2f2;
     }
+    .receipt th, #fitems td{
+      height:20px;
+    }
     
-    .footer {
-      margin-top: 20px;
+    #footer {
+      position: absolute;
+      bottom: 20px;
+      margin-top:25px;
+      width:90%;
       display: flex;
-      justify-content: space-between;
+      justify-content: space-between; 
       
     }
    .blockerr{
@@ -177,8 +194,27 @@ $userName = $_SESSION['fullName'];
    #odate{
     text-align:right;
    }
+   .view_btn{
+    background: none;
+    border:none;
+    color:orange;
+   }
+#header_img{
+  position: fixed;
+  left:23%;
+  top:7%;
+}
+#close_receipt{
+  position:absolute;
+  top:12px;
+  right:0;
+}
+.download-button{
+  color:black;
+}
 
 </style>
+
 
 
 
@@ -191,33 +227,43 @@ $userName = $_SESSION['fullName'];
 
 <div class='order-table'>
     
-    <table>
-<th> Order Date </th> <th> Order ID </th> <th> Amount </th> <th> Payment </th> <th> Status </th> <th style="background-color:white;"></th>
+ <table class="orders">
+<th> Order Date </th> <th> Order ID </th> <th> Amount </th> <th> Payment </th> <th> Status </th> <th>Details</th>
 
-</table>
+
+
+
+
 </div>
 
-
-
-</div>
 <div class="blockerr" onclick="closeReceipt()">
 
 </div>
 
 
-<div class="receipt_container">
 
   
-
-</div>
-
-
+    <script src="./scripts/jquery.js"></script>
+    <script src="./scripts/order-history-fetch.js"></script>
 
 
-<script src="./scripts/jquery.js"> </script>
-<script src="./scripts/order-history-fetch.js">
+    <script>
+        let div = document.getElementById('receipt_container');
+        let btn = document.getElementById('downloadBtn');
+        btn.addEventListener("click", function(){
+          var opt ={
+            margin : 1,
+            filename: 'file.pdf',
+            image: {type:'jpeg', qulaity:0.98},
+            html2canvas: { scale:2 },
+            jsPDF: { unit:'in', format:'letter', orientation:'portrait'},
+            };
+        // }
+        html2pdf().from(div).set(opt).save();
+    });
+    </script>
 
-</script>
+
 <?php 
 include("./layout/foot.php");
 ?>

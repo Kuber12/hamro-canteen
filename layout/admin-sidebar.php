@@ -26,7 +26,7 @@
       </a>
     </li>
     <li class="sign-out">
-      <a href="#">
+      <a href="./logout.php">
         <i class="fa fa-sign-out"></i>
         <span class="menu-name">Sign out</span>
       </a>

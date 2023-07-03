@@ -1,35 +1,28 @@
-let password = document.getElementById("myPassword");
+$(document).ready(function() {
+  let password = $("#myPassword");
+  let hidePassword = $("#hide-password");
+  let showPassword = $("#show-password");
 
-let hidePassword = document.getElementById("hide-password");
+  showPassword.on("click", show);
+  hidePassword.on("click", hide);
 
-let showPassword = document.getElementById("show-password");
-
-showPassword.addEventListener("click", show);
-hidePassword.addEventListener("click", hide);
-
-
-
-function show() {
-    
-  password.type = "text";
-  showPassword.style.display = "none";
-  hidePassword.style.display = "inline";
-  
-
-  }
-  function hide(){
-    password.type = "password";
-    showPassword.style.display = "inline";
-    hidePassword.style.display = "none";
+  function show() {
+    password.attr("type", "text");
+    showPassword.hide();
+    hidePassword.show();
   }
 
-  // validation 
+  function hide() {
+    password.attr("type", "password");
+    showPassword.show();
+    hidePassword.hide();
+  }
+
+  // validation
   function showMsg(x) {
     console.log("value " + x);
   }
 
- 
-
-  
-  
-  
+  // Example usage of showMsg function
+  showMsg(password.val());
+});

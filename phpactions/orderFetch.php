@@ -1,23 +1,22 @@
-<?php 
-    include("./connection.php");
-    $username = $_SESSION['userID'];
- 
+<?php
+include("./connection.php");
+$userID = $_SESSION['userID'];
 
-    $sql = "select * from orders where userID = '$username' and orderID >115";
-    $result = $conn->query($sql);
+$sql = "SELECT * FROM orders WHERE userID = '$userID' AND orderID > 115";
+$result = $conn->query($sql);
 
-    if ($conn->connect_error) {
-        die('Connection failed: ' . $conn->connect_error);
-    }
-    
-    $data = array();
-    while ($row = $result->fetch_assoc()) {
-        $data[] = $row;
-    }
+if ($conn->connect_error) {
+    die('Connection failed: ' . $conn->connect_error);
+}
 
-    // Close database connection
-    $conn->close();
+$data = array();
+while ($row = $result->fetch_assoc()) {
+    $data[] = $row;
+}
 
-    // Return data as JSON
-    echo json_encode($data);
- 
+// Close database connection
+$conn->close();
+
+// Return data as JSON
+echo json_encode($data);
+?>
