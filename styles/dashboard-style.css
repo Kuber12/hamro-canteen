@@ -116,9 +116,6 @@ body{
   padding: 0px 20px;
   font-size: 20px;
 }
-.today-menu-heading{
-  color: var(--tertiary-color);
-}
 .hello-admin{
   font-weight: 800;
 }
@@ -130,11 +127,20 @@ body{
   color: yellow;
   margin-right: 10px;
 }
-.today-menu-heading{
+.dashboard-heading{
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin: 0px 0px 0px 20px;
+  margin: 10px 0px 10px 20px;
+  color: var(--tertiary-color);
+}
+.dashboard-heading-text{
+  display: inline-block !important;
+}
+.dashboard-heading-right{
+  display: flex;
+  flex-direction: row;
 }
 .dashboard-item-image{
   width: 100%;

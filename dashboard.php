@@ -2,6 +2,12 @@
     include './layout/head.php';
     include './layout/admin-sidebar.php';
     require './phpactions/adminVerification.php';
+    session_start();
+    if (!isset($_SESSION['fullName'])) {
+    
+      header("location:login.php");
+      exit();
+  }
 ?>
 <!-- chart js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -18,8 +24,8 @@
         </p>
       </div>
     </div>
-    <div class="today-menu-heading">
-      <h2 class="todays-menu-text">Today's Menu</h2>
+    <div class="dashboard-heading">
+      <h2 class="dashboard-heading-text">Today's Menu</h2>
       <button id="update-item-btn" onclick="location.href = './menuitem.php'">Update Menu</button>
     </div>
     <div class="dashboard-grid-container"> 

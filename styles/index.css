@@ -240,7 +240,7 @@ h3 {
   border-radius: 150px;
   position: relative;
   border-width: 10px;
-  background: linear-gradient(to right, #df2828, #dfd914,#ff1313);
+  /* background: linear-gradient(to right, #df2828, #dfd914,#ff1313); */
   border: 2px solid transparent;
 }
 
@@ -538,22 +538,51 @@ h3 {
   z-index:5;
   width:350px;
   background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
   text-align:center;
   padding:20px;
-  border:3px solid rgb(56, 56, 253);
 }
 #payment_option > button {
   width:100px;
 }
 #close{
   position:absolute;
-  right:-5px;
-  top:5px;
+  left:10px;
+  top:10px;
+
+}
+#option_container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+#cod{
+  display: inline;
+  width:110px;
+
+}
+#e-sewa{
+  margin-left:50px;
+  display: inline;
+  width:120px;
+ 
+
+}
+#cancel{
+  margin-top:25px;
+  background-color:var(--tertiary-color);
+  border-radius: 10xp;
+  border: none;
+  padding:10px;
+  color:white;
+  text-align:center; 
+  border-radius:5px;
+
+}
 
 @media screen and (max-width: 1000px) {
   .menu-display {

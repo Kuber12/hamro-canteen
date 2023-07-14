@@ -183,7 +183,6 @@ $('.productfrm').on('submit',function(event) {
     $('.noOfItems').css('display', 'none');
    }
    else{
-
     $('.noOfItems').css('display', 'block');
    }  
 
