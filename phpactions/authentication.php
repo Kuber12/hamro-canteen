@@ -5,46 +5,44 @@ $userName = $_POST['username'];
 $loginPassword = md5($_POST['password']);
 
 try {
-
-$sql = "SELECT * FROM users WHERE username = '$userName' and password = '$loginPassword'";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // storing the session name 
-    $row = $result->fetch_assoc();
-    $_SESSION['fullName'] = $row["fullName"];
-    $_SESSION['username'] = $row["username"];
-    $_SESSION['imageUrl'] = $row["imageUrl"];
-    $_SESSION['email'] = $row["email"];
-    $_SESSION['phone'] = $row["phone"];
-    $_SESSION['address'] = $row["address"];
-    $_SESSION['dob'] = $row["DOB"];
-    $_SESSION['usertype']="USER";
-    header("Location:../index.php");
-    exit();
-}else if($result->num_rows > 0){
-  $sql = "SELECT * FROM admin WHERE username = '$userName' and password = '$loginPassword'";
-  $result = $conn->query($sql);
-
-  $row = $result->fetch_assoc();
-  $_SESSION['fullName'] = $row["fullName"];
-  $_SESSION['username'] = $row["username"];
-  $_SESSION['imageUrl'] = $row["imageUrl"];
-  $_SESSION['email'] = $row["email"];
-  $_SESSION['phone'] = $row["phone"];
-  $_SESSION['address'] = $row["address"];
-  $_SESSION['dob'] = $row["DOB"];
-  $_SESSION['usertype']="ADMIN";
-  header("Location:../index.php");
-
-}else {
-  header("Location: ../login.php?msg=incorrect"); 
-  exit();
+    $stmt = $conn->prepare("SELECT * FROM admin WHERE adminName = ? AND password = ?");
+    $stmt->bind_param("ss", $userName, $loginPassword);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if ($result->num_rows == 1) {
+        $row = $result->fetch_assoc();
+        $_SESSION['adminName'] = $row['adminName'];
+        $_SESSION['usertype'] = "admin";
+        header("Location: ../dashboard.php");
+        exit();
+    }
+    if ($result->num_rows == 0) {
+        $stmt = $conn->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
+        $stmt->bind_param("ss", $userName, $loginPassword);
+        $stmt->execute();
+        $result = $stmt->get_result();
+    }
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $_SESSION['userID'] = $row['userID'];
+        $_SESSION['fullName'] = $row["fullName"];
+        $_SESSION['username'] = $row["username"];
+        $_SESSION['imageUrl'] = $row["imageUrl"];
+        $_SESSION['email'] = $row["email"];
+        $_SESSION['phone'] = $row["phone"];
+        $_SESSION['address'] = $row["address"];
+        $_SESSION['dob'] = $row["DOB"];
+        header("Location: ../index.php");
+        exit();
+    } else {
+        header("Location: ../login.php?msg=incorrect");
+        exit();
+    }
+} catch (PDOException $e) {
+    echo "Database error: " . $e->getMessage();
+} catch (Exception $e) {
+    echo "Error: " . $e->getMessage();
 }
-}
-catch(Exception) {
 
-  echo "Something is missing in database or table or sql syntax please check sqlQuery and database";
-}
 $conn->close();
 ?>

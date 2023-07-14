@@ -1,11 +1,7 @@
 <?php
     include './layout/head.php';
     include './layout/admin-sidebar.php';
-    session_start();
-    if (!isset($_SESSION['usertype'])) {
-      header("location:login.php");
-      exit();
-  }
+    require './phpactions/adminVerification.php';
 ?>
 <!-- chart js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -31,17 +27,17 @@
     </div> 
   </div>
   <div class="dashboard-sidebar-right">
-    <h2>Today's Special</h2>
-
+    <h2>Popular Right Now</h2>
     <!-- Temporary code -->
-    <div class="pie">
+    <!-- <div class="pie">
       <span class="message">We are still working on it</span>
+    </div> -->
+    <canvas id="my-pie-chart"></canvas>
+    <h2>Sales Overview</h2>
+    <div style="height:300px">
+      <canvas id="my-line-chart" "></canvas>
     </div>
-    <!-- <canvas id="popular-piechart"></canvas> -->
-    <h2>Popular Right now</h2>
-    <div class="pie">
-      <span class="message">We are still working on it</span>
-    </div>
+    
   </div>
     <style>
       .pie {

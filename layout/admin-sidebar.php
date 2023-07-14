@@ -20,7 +20,13 @@
       </a>
     </li>
     <li>
-      <a href="#">
+      <a href="transactions.php">
+        <i class="fa fa-dollar"></i>
+        <span class="menu-name">Transactions</span>
+      </a>
+    </li>
+    <li>
+      <a href="settings.php">
         <i class="fa fa-cog"></i>
         <span class="menu-name">Transactions</span>
       </a>

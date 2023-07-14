@@ -1,6 +1,7 @@
 <?php
     include './layout/head.php';
     include './layout/admin-sidebar.php';
+    require './phpactions/adminVerification.php';
 ?>
 <link rel="stylesheet" href="./styles/dashboard-tables.css">
 <div class="dashboard-container leftpad20">

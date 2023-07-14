@@ -23,5 +23,5 @@
 </head>
 
 <body>
-    <div class="blocker" id="blocker" onclick="closeCart(); closeProfile();" ></div>
+    <div class="blocker" id="blocker" onclick="closePopup();" ></div>
     <div class="container">
