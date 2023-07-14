@@ -16,7 +16,7 @@ $(document).ready(function() {
                 <td>${item['fullName']}</td>;
                 <td>${item['email']}</td>
                 <td>${item['phone']}</td>
-                <td class="dashboard-items-td"><img class="dashboard-items-img" src= "assets/userImage/${item['imageUrl']}"</td>`;
+                <td class="dashboard-items-td"><img class="dashboard-items-img" src= "assets/userimage/${item['imageUrl']}"</td>`;
             markup+=
                 `<td><button value=${item['itemID']} class="item-edit-btn">Edit</button></td>
             </tr>`;
