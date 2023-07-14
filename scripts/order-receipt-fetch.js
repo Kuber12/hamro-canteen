@@ -26,7 +26,7 @@ $(document).ready(function() {
       console.log("AJAX error:", error);
     }
   });
-// });
+});
 
 function displayBill(event, orderDate, orderID, gtotal, payment, status) {
   $.ajax({
@@ -73,4 +73,4 @@ function closeReceipt() {
   $('.receipt_container').hide();
   $('#blockerr').hide();
 }
-}
+

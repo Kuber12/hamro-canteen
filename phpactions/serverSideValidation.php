@@ -172,6 +172,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo $value . "<br>";
     }
   }
+  echo "<br><a href='../login.php' style='text-decoration:none; border: 1px solid black;padding:5px;
+  background-color:red; color:white;'>Go to registration page</a><br>";
 }
   
 ?>

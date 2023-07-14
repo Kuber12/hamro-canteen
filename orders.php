@@ -95,6 +95,7 @@ $userName = $_SESSION['fullName'];
         overflow:scroll;
         margin-left:5vw;
         z-index:0;
+  
         
      
        
@@ -136,9 +137,11 @@ $userName = $_SESSION['fullName'];
       left:50%;
       transform: translate(-50%,-50%);
       z-index:6;
-
+      
     }
-    
+    tbody{
+     overflow:scroll;
+    }
     .header {
       position: relative;
       left:7%;
@@ -166,8 +169,8 @@ $userName = $_SESSION['fullName'];
    .receipt th {
       background-color: #f2f2f2;
     }
-    .receipt th, #fitems td{
-      height:20px;
+    .receipt th, .receipt td{
+      height:10px;
     }
     
     #footer {
