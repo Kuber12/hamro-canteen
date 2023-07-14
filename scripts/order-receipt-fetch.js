@@ -1,4 +1,4 @@
-// $(document).ready(function() {
+$(document).ready(function() {
   $.ajax({
     url: "./phpactions/orderFetch.php",
     type: "POST",
@@ -37,27 +37,23 @@ function displayBill(event, orderDate, orderID, gtotal, payment, status) {
     },
     dataType: "json", // Add this line to parse the response as JSON
     success: function(response) {
-      console.log(response);
       $("#odate").text(`Order Date: ${orderDate}`);
       $("#orderID").text(`Order ID: ${orderID}`);
-      let tmp;
-    
-      $(".receipt tbody").empty();
+           $(".receipt").append(``);
       for (let i = 0; i < response.length; i++) {
         const order = response[i];
-        tmp += `
+        $("#fitems").append(`
+        
           <tr>
-            <td>${i+1}</td>
-            <td>${order["foodName"]}</td>
-            <td>${order["quantity"]}</td>
-            <td>${order["price"]}</td>
-            <td>${order["quantity"] * order["price"]}</td>
+            <td>${i + 1}</td>
+            <td>${order.foodName}</td>
+            <td>${order.quantity}</td>
+            <td>${order.price}</td>
+            <td>${order.total}</td>
           </tr>
-        `
+        `);
       }
-      $(".receipt tbody").append(tmp);
-      $("#receipt_container #footer").remove();
-      $("#receipt_container").append(`
+      $("#fitems").append(`</tbody></table>
         <div id="footer">
           <span>Payment: ${payment}</span>
           <span>Status: ${status}</span>
@@ -70,11 +66,11 @@ function displayBill(event, orderDate, orderID, gtotal, payment, status) {
     }
   });
   $('.receipt_container').show();
-  $('.blockerr').show();
-
-
+  $('#blockerr').show();
 }
+
 function closeReceipt() {
   $('.receipt_container').hide();
-  $('.blockerr').hide();
+  $('#blockerr').hide();
+}
 }

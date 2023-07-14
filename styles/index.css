@@ -532,6 +532,28 @@ h3 {
   background-color: transparent;
   border: none;
 }
+#payment_option{
+  display: none;
+  position: fixed;
+  z-index:5;
+  width:350px;
+  background-color: white;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  text-align:center;
+  padding:20px;
+  border:3px solid rgb(56, 56, 253);
+}
+#payment_option > button {
+  width:100px;
+}
+#close{
+  position:absolute;
+  right:-5px;
+  top:5px;
+}
+
 
 @media screen and (max-width: 1000px) {
   .menu-display {

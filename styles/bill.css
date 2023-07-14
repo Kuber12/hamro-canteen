@@ -1,0 +1,90 @@
+
+.receipt_container {
+display: block;
+max-width: 500px;
+height: 500px;
+margin: 0 auto;
+padding: 20px;
+border: 1px solid #ccc;
+/* background-color:white; */
+position:absolute;
+top:50%;
+left:50%;
+transform: translate(-50%,-50%);
+z-index:6;
+
+}
+
+.header {
+position: relative;
+left:7%;
+text-align: center;
+margin-bottom: 40px;
+}
+
+.info {
+margin-bottom: 10px;
+display: grid;
+grid-template-columns: auto auto;
+}
+
+table {
+width: 100%;
+border-collapse: collapse;
+}
+
+.receipt  th, .receipt td {
+padding: 5px;
+border-bottom: 1px solid #ccc;
+text-align: center;
+}
+
+.receipt th {
+background-color: #f2f2f2;
+}
+.receipt th, #fitems td{
+height:20px;
+}
+
+#footer {
+position: absolute;
+bottom: 20px;
+margin-top:25px;
+width:90%;
+display: flex;
+justify-content: space-between; 
+
+}
+.blockerr{
+display:none;
+width:100vw;
+height: 100vh;
+background-color:black;
+position:absolute;
+top:0;
+left:0;
+z-index:5;
+opacity:0.8;
+}
+#odate{
+text-align:right;
+}
+.view_btn{
+background: none;
+border:none;
+color:orange;
+}
+#header_img{
+position: fixed;
+left:23%;
+top:7%;
+}
+#close_receipt{
+position:absolute;
+top:12px;
+right:0;
+}
+.download-button{
+color:black;
+}
+

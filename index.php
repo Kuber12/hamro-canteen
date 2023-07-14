@@ -69,7 +69,7 @@ include './layout/head.php';
                     <div class="cart-header">
                         <h2><i class="fa-sharp fa-solid fa-cart-shopping" style="margin-right:10px;"></i>My Cart</h2>
                         <span><i class="fa-solid fa-circle-xmark fa-2xl" style="color: #000000;"
-                                onclick="closeCart()"></i></span>
+                                onclick="closePopup()"></i></span>
                     </div>
                 
                 </div>               <!-- cart item container -->
@@ -89,13 +89,14 @@ include './layout/head.php';
                         <p>Grand Total</p>
                         <p>=</p>
                         <p id = "gTotal"></p>
-                    <button id="checkout" onclick="window.location.href = 'checkout.php';" disabled> CHECKOUT</button>
+                    <button id="checkout" onclick="paymentOption()" disabled> CHECKOUT</button>
                 </div>
-
-
+              
         
 
             </div>
+            <div id ="payment_option"></div>
+
             <!-- end of cart menu -->
 
             <!-- popup profile menu starts here -->
@@ -174,7 +175,7 @@ $('.productfrm').on('submit',function(event) {
 
 
   success: function(response) {
-   alert("Item added successfully");
+   alert("item added successfully");
    $('#noOfItems').html(`${response.value1.length}`);
    totalItem = response.value1.length;
   if(totalItem==0|| totalItem==null|| totalItem==undefined || totalItem ==" "){

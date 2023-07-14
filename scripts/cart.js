@@ -1,37 +1,39 @@
-// popup
-let cart = document.getElementById("cart-menu");
-let blocker = document.getElementById("blocker");
-let profileMenu = document.getElementById("profile-menu");
-
-
-
+// Popup
+const $cart = $("#cart-menu");
+const $blocker = $("#blocker");
+const $profileMenu = $("#profile-menu");
+const $paymentOptions = $("#payment_option");
 
 // Function to open the popup
 function openCart() {
-
-  cart.style.display = "flex";
-  blocker.style.display = "block";
-  
-}
-function closeCart() {
-  cart.style.display = "none";
-  blocker.style.display = "none";
-
+  $cart.css("display", "flex");
+  openBlocker();
 }
 
-function closeProfile() {
-  profileMenu.style.display = "none";
-  blocker.style.display = "none";
+function closePopup() {
+  $cart.hide();
+  $profileMenu.hide();
+  $paymentOptions.hide();
+  $blocker.hide();
 }
 
-//profile-menu open
+function openBlocker() {
+  $blocker.show();
+}
 
+// Profile menu open
 function openProfile() {
-  blocker.style.display = "block";
-  profileMenu.style.display = "block";
+  openBlocker();
+  $profileMenu.show();
 }
 
+function openOption() {
+  $paymentOptions.show();
+  $cart.hide();
+  openBlocker();
+}
 
-
-
-
+function closeOptions() {
+  $paymentOptions.hide();
+  openCart();
+}
