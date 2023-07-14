@@ -2,12 +2,6 @@
     include './layout/head.php';
     include './layout/admin-sidebar.php';
     require './phpactions/adminVerification.php';
-    session_start();
-    if (!isset($_SESSION['fullName'])) {
-    
-      header("location:login.php");
-      exit();
-  }
 ?>
 <!-- chart js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
