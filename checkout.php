@@ -8,22 +8,16 @@ $gtotal = $_SESSION['gtotal'];
 $payment = "Cash";
 $status = "pending";
 
+$sql0 = "SELECT * FROM orders ORDER BY orderID DESC LIMIT 1";
+$result1 = $conn->query($sql0);
 
-
-
-// Prepare the SQL statement
-$sql = "INSERT INTO orders( foodID,foodName,quantity,price,orderDate, fullName) VALUES (?,?,?, ?, ?, ?)";
-
-
-$stmt = mysqli_prepare($conn, $sql);
-
-foreach ($_SESSION['cart'] as $key => $value) {
-mysqli_stmt_bind_param($stmt, "ssiiss", $value['foodID'],$value['foodName'], $value['quantity'], $value['price'] , $Date,$user);
-
-
-// Execute the statement
-if (mysqli_stmt_execute($stmt)) {    
-    
+if ($result1) {
+    if ($result1->num_rows > 0) {
+        $row = $result1->fetch_assoc();
+        $orderID = $row['orderID'] + 1;
+    } else {
+        $orderID = 1;
+    }
 } else {
     echo "Error: " . $sql0 . "<br>" . $conn->error;
     exit();
