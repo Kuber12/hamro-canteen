@@ -2,7 +2,9 @@
 include("connection.php");
 
 $userName = $_POST['username'];
-$loginPassword = md5($_POST['password']);
+$password = $_POST['password'];
+// $loginPassword = password_hash($password, PASSWORD_DEFAULT);
+$loginPassword = md5($password);
 
 try {
     $stmt = $conn->prepare("SELECT * FROM admin WHERE adminName = ? AND password = ?");
