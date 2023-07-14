@@ -1,8 +1,10 @@
 <?php
 include("./connection.php");
-$userID = $_SESSION['userID'];
 
-$sql = "SELECT * FROM orders WHERE userID = '$userID' AND orderID > 115 ORDER BY orderDate desc";
+$sql = "
+    SELECT foodName, SUM(quantity) AS total_quantity
+    FROM order_items
+    GROUP BY foodName;";
 $result = $conn->query($sql);
 
 if ($conn->connect_error) {

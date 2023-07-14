@@ -1,5 +1,14 @@
 <?php
 include './layout/head.php';
+session_start();
+if (isset($_SESSION['adminName'])) {
+  header("location:dashboard.php");
+  exit();
+}
+if (isset($_SESSION['fullName'])) {
+  header("location:index.php");
+  exit();
+}
 ?>
 
 <!-- CSS -->

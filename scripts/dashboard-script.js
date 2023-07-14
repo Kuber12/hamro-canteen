@@ -1,3 +1,4 @@
+let piechartfetcheddata;
 //to load items to dashboard page
 $(document).ready(function() {
     // Make AJAX request
@@ -19,60 +20,74 @@ $(document).ready(function() {
     });
   });
 window.onload = function() {
-    // for pie chart 
-    var piedata = {
-        labels: ["Label 1", "Label 2", "Label 3"],
-        datasets: [{
-            data: [30, 20, 50],
-            backgroundColor: ["#ff6384", "#36a2eb", "#ffce56"]
-        }]
-    }; 
-    var ctx = document.getElementById("myPieChart").getContext("2d");
-    var myPieChart = new Chart(ctx, {
-    type: 'pie',
-    data: piedata,
-    options: {
-        
+  $.ajax({
+    url: './phpactions/getPieChartData.php', // URL of your PHP script
+    method: 'GET', // or 'POST' depending on your PHP script
+    dataType: 'json', // Expect JSON data in response
+    success: function(response) {
+      piechartfetcheddata = response;
+      // for pie chart 
+        var piedata = {
+          labels: piechartfetcheddata.map(item => item.foodName),
+          datasets: [{
+              data: piechartfetcheddata.map(item => item.total_quantity),
+              backgroundColor:generateRandomColors(piechartfetcheddata.length)
+          }]
+      }; 
+      var ctx = document.getElementById("my-pie-chart").getContext("2d");
+      var myPieChart = new Chart(ctx, {
+      type: 'pie',
+      data: piedata,
+      options: {
+          
+      }
+      });
+    },
+    error: function(xhr, status, error) {
+        // Handle error response
+        console.error(error);
     }
-    });
+    });  
+  
 
     // for line chart
-    const DATA_COUNT = 7;
-    const NUMBER_CFG = {count: DATA_COUNT, min: -100, max: 100};
+    var ctx2 = document.getElementById("my-line-chart").getContext("2d");
+    const ch = new Chart(ctx2, {
+      type: 'line',
+      data: {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+        datasets: [{
+          label: 'Data',
+          data: [10, 20, 15, 25, 30, 20],
+          borderColor: 'blue',
+          fill: false
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false
+      }
+    });
+    
+    
+}
 
-    const labels = Utils.months({count: 7});
-    const linechartdata = {
-    labels: labels,
-    datasets: [
-        {
-        label: 'Dataset 1',
-        data: Utils.numbers(NUMBER_CFG),
-        borderColor: Utils.CHART_COLORS.red,
-        backgroundColor: Utils.transparentize(Utils.CHART_COLORS.red, 0.5),
-        },
-        {
-        label: 'Dataset 2',
-        data: Utils.numbers(NUMBER_CFG),
-        borderColor: Utils.CHART_COLORS.blue,
-        backgroundColor: Utils.transparentize(Utils.CHART_COLORS.blue, 0.5),
-        }
-    ]
-    };
-    var ctx = document.getElementById("myLineChart").getContext("2d");
-    var myLineChart = new Chart(ctx,{
-        type: 'line',
-        data: linechartdata,
-        options: {
-          responsive: true,
-          plugins: {
-            legend: {
-              position: 'top',
-            },
-            title: {
-              display: true,
-              text: 'Chart.js Line Chart'
-            }
-          }
-        },
-      });
+// Function to generate a random color
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+// Function to generate a list of random colors
+function generateRandomColors(numColors) {
+  var colors = [];
+  for (var i = 0; i < numColors; i++) {
+    var randomColor = getRandomColor();
+    colors.push(randomColor);
+  }
+  return colors;
 }

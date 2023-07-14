@@ -5,11 +5,23 @@ $userName = $_POST['username'];
 $loginPassword = md5($_POST['password']);
 
 try {
-    $stmt = $conn->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
+    $stmt = $conn->prepare("SELECT * FROM admin WHERE adminName = ? AND password = ?");
     $stmt->bind_param("ss", $userName, $loginPassword);
     $stmt->execute();
     $result = $stmt->get_result();
-
+    if ($result->num_rows == 1) {
+        $row = $result->fetch_assoc();
+        $_SESSION['adminName'] = $row['adminName'];
+        $_SESSION['usertype'] = "admin";
+        header("Location: ../dashboard.php");
+        exit();
+    }
+    if ($result->num_rows == 0) {
+        $stmt = $conn->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
+        $stmt->bind_param("ss", $userName, $loginPassword);
+        $stmt->execute();
+        $result = $stmt->get_result();
+    }
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         $_SESSION['userID'] = $row['userID'];
