@@ -123,18 +123,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $firstName = sanitizeInput($firstName);
     $middleName = sanitizeInput($middleName);
     $lastName = sanitizeInput($lastName);
+    $userName = sanitizeInput($username);
     $password = sanitizeInput($password);
     $gender = sanitizeInput($gender);
     $address = sanitizeInput($address);
     $contact = sanitizeInput($contact);
     $email = sanitizeInput($email);
     $dob = sanitizeInput($dob);
+    $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
 
     include("connection.php");
 
 
-    $sqlquery = "SELECT * FROM users where username = '$username'";
+    $sqlquery = "SELECT * FROM users where username = '$userName'";
     $result = mysqli_query($conn, $sqlquery);
     if (mysqli_num_rows($result) > 0) {
       echo "<br>username already taken<br>";
@@ -148,30 +150,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $filesize = $_FILES['photo']['size'];
         $filetype = $_FILES['photo']['type'];
         $file_extension = pathinfo($filename, PATHINFO_EXTENSION);
-        // Process the file
+
       } else {
         echo "Error uploading file.";
       }
 
       // $userID = $_REQUEST["userID"];
       $full_name = $_POST['first_name'] . " " . $_POST['middle_name'] . " " . $_POST['last_name'];
-      $user_name = $_POST['username'];
-      $email = $_POST['email'];
-      // $passwordHash = password_hash($password, PASSWORD_DEFAULT);
-      $passwordHash = md5($password);
-      $gender = $_POST['gender'];
-      $dob = $_POST['dob'];
-      $phone_number = $_POST['contact'];
-      $address = $_POST['address'];
-      $sql = "SELECT * FROM users where username = '$user_name'";
+      $sql = "SELECT * FROM users where username = '$userName'";
 
       $result = mysqli_query($conn, $sql);
-      $userImage = $user_name . "." . $file_extension;
+      $userImage = $userName . "." . $file_extension;
 
       $tar_dir = "../assets/userimage/" . $userImage;
       move_uploaded_file($tempname, $tar_dir);
 
-      $sql = "INSERT INTO users(username, fullName, gender, password, email, phone, DOB , imageUrl, address) VALUES ('$user_name','$full_name','$gender','$passwordHash','$email',$phone_number,'$dob','$userImage', '$address')";
+      $sql = "INSERT INTO users(username, fullName, gender, password, email, phone, DOB , imageUrl, address) VALUES ('$userName','$full_name','$gender','$passwordHash','$email',$contact,'$dob','$userImage', '$address')";
       if (mysqli_query($conn, $sql)) {
         echo "Record updated successfully.<br>";
         echo "<br><a href='../login.php' style='text-decoration:none; border: 1px solid black;padding:5px;

@@ -48,12 +48,7 @@ if (isset($_SESSION['fullName'])) {
 
 <script src="./scripts/login.js"></script>
 <script>
-    let temp =  document.getElementById("temp");
-    temp.addEventListener("click",function(){
-        temp.style.transform = "translateY(-100%)";
-        temp.style.opacity = "0";
-    });
-
+   
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const msg = urlParams.get('msg');
