@@ -103,8 +103,10 @@ $("#registration-form").submit(function(event) {
     success: function(response) {
       if (response === false) {
         showError($('#email'), 'Email already taken');
+      }else {
+        $("#registration-form")[0].submit(); // Submit the form
       }
-    
+      console.log(response);
   }
   });
  

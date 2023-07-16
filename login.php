@@ -60,12 +60,14 @@ if (isset($_SESSION['fullName'])) {
 
             success:function(response){
                 if(response===false){
-                       var div  = document.getElementById("alert-incorrect");
-                        div.style.display = "block";
-                        setTimeout(function(){
-                        div.style.display = "none";
-                        }, 1500);
+                    var div  = document.getElementById("alert-incorrect");
+                    div.style.display = "block";
+                    setTimeout(function(){
+                    div.style.display = "none";
+                    }, 1500);
 
+                }else{
+                    $('.login-form')[0].submit();
                 };
             }
         })

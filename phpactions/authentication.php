@@ -29,9 +29,10 @@ $password = $_POST['password'];
                 $_SESSION['phone'] = $row["phone"];
                 $_SESSION['address'] = $row["address"];
                 $_SESSION['dob'] = $row["DOB"];
-                header("Location: ../index.php");
-                exit();
+                // header("Location: ../index.php");
+                // exit();
             } 
+            echo "true";
         }
         else{
             echo "false";
