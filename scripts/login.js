@@ -18,11 +18,5 @@ $(document).ready(function() {
     hidePassword.hide();
   }
 
-  // validation
-  function showMsg(x) {
-    console.log("value " + x);
-  }
 
-  // Example usage of showMsg function
-  showMsg(password.val());
 });

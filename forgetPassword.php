@@ -5,8 +5,9 @@ session_start();
 <style>
     body{
         background-color: white;
+        font-family: 'Nunito Sans', sans-serif;
     }
-    #forgetPassword{
+    .forgetPassword{
         position: absolute;
         height:300px;  
         top: 50%;
@@ -19,85 +20,168 @@ session_start();
     #countdown{
         text-align:center;
     }
-    #title{
+    .title{
         text-align: center;
     }
-    #send, #password, #Cpassword, #reset{
-        display :none;
+
+    #otpform, #resetform{
+        display:none;
     }
 </style>
 
-<div  id = 'forgetPassword'>
-<h2 id='title'>Forget Password?</h2>
+<div  class = 'forgetPassword'>
 
-<h3 id ='countdown'></h3>
-<form id= 'forgetPass' >
+<form id= 'emailform' >
+<h2 class='title'>Forget Password?</h2>
 <label for='email' id ='emaillbl'>Enter your email address:</label>
 <input type='email' id ='email' name = 'email'><br>
-<button type ='submit' name = 'submit' id ='submit' onclick ='startCountdown(event)'>Submit</button>
-<button type ='submit' name = 'send' id ='send'  onclick='submitForm(event)'>Send</button>
-<input type="password" id = 'password' name = 'password'>
-<input type="password" id = 'Cpassword' name = 'Cpassword'>
-<button type ='submit' name = 'submit' id ='reset' >Reset</button>
+<input type='hidden'  name = 'submit'>
+<button type="submit" id ='submit'>Submit</button>
+</form> 
+
+<form id='otpform'>
+<h2 class='title'>Please type OPT sent in your Email</h2>
+<h3 id ='countdown'></h3>
+<input type='number' id ='otp' name= 'otp'><br>
+<input type='hidden' name= 'send'>
+<button type="submit"  id='send' >Send</button>
 </form>
+
+<form id='resetform' >
+<h2 class='title'>Enter Your New Password</h2>
+<label for="password">Password</label><br>
+<input type="password" id = 'password' name = 'password'><br>
+<label for="password">Confirm-Password</label><br>
+<input type="password" id = 'cPassword' name = 'cPassword'><br>
+<input type="hidden" name='reset'>
+<button type ='submit'  id ='reset' >Reset</button><br>
+</form>
+
 </div>
+<script src="./scripts/jquery.js"> </script>
+<!-- <script src="./scripts/client-side-validation.js"> </script> -->
 <script>
-        var countdownInterval; // Global variable to store the interval
-        
-        function startCountdown(event) {
-            event.preventDefault();
+ $('#emailform').on('submit', function(event) {
+    var countdownInterval; // Global variable to store the interval
 
-            $.ajax({
-                url:'./phpactions/forgotpasswordProcess.php',
-                method: 'POST',
-                dataType: 'json',
-                success:function(response){
-                    if (response=='1'){
-                    email = document.getElementById('email').value;
-                    document.getElementById('title').innerHTML = 'Please Enter OTP Sent in your mail';
-                      document.getElementById('emaillbl').innerHTML = '';
-                     document.getElementById('submit').style.display = 'none';
-                     document.getElementById('send').style.display = 'block';
-                    document.getElementById('email').type = 'number';
+    event.preventDefault(); // Prevent default form submission behavior
+    var formData = $(this).serialize();
 
-            clearInterval(countdownInterval); // Clear previous interval
-            
-            var count = 59; // Set the initial countdown value
-            
-            countdownInterval = setInterval(function() {
-                document.getElementById("countdown").textContent = count + " seconds remaining";
-                count--;
-                
-                if (count < 0) {
-                    clearInterval(countdownInterval);
-                    document.getElementById("countdown").textContent = "Countdown complete!";
-                }
-            }, 1000);
-        }
-        else{
-            alert('email does not exits');
-        }
-                }
-            })
+    $.ajax({
+        url: './phpactions/forgetPasswordProcess.php',
+        type: 'POST',
+        data: formData,
+        dataType: 'json',
+        success: function(response) {
          
+            if (response == true) {
+                email = document.getElementById('email').value;
+                
+                clearInterval(countdownInterval); // Clear previous interval
+                document.getElementById('otpform').style.display=  "block";
+                document.getElementById('emailform').style.display=  "none";
+                
+                var count = 59; // Set the initial countdown value
+
+                countdownInterval = setInterval(function() {
+                    document.getElementById("countdown").textContent = count + " seconds remaining";
+                    count--;
+
+                    if (count < 0) {
+                        clearInterval(countdownInterval);
+                        document.getElementById("countdown").textContent = "Time Over!";
+                    }
+                }, 1000);
+            } else {
+                alert('Email does not exist');
+            }
         }
-        function submitForm(event){
+    });
+});
+
+
+ $('#otpform').on('submit', function(event){
             event.preventDefault();
+            formData = $(this).serialize();
             $.ajax({
-                url:'./phpactions/forgotpasswordProcess.php',
-                method: 'POST',
+                url: './phpactions/forgetPasswordProcess.php',
+                type: 'POST',
+                data: formData,
                 dataType: 'json',
                 success:function(response){
-                        document.getElementById('password').style.display = 'block';
-                        document.getElementById('reset').style.display = 'block';
-                        document.getElementById('email').style.display = 'none';
-                        document.getElementById('submit').style.display = 'none';
-                        document.getElementById('done').style.display = 'none';
+                    if(response===true){
+                        document.getElementById('otpform').style.display=  "none";
+                         document.getElementById('resetform').style.display=  "block";
+                        
+                    }
+                    else if(response===0){
+                        alert('timeout');
+                    }else{
+                        alert('incorrect OTP');
+                    }
+                       
                 }
-                });
+                });            
+        });
 
-            
-        }
+ $('#resetform').on('submit', function(event){
+           
+            event.preventDefault();
+            var passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,12}$/;
+
+            var passwordI = document.getElementById('password');
+            var confirmPasswordI = document.getElementById('cPassword');
+
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('cPassword').value;
+
+            if (!passwordPattern.test(password)) {
+            showError(confirmPasswordI,'Please use at least one uppercase letter,<br>symbol and number');
+                return false;
+              }
+ 
+ 
+                // Validate password and confirm password match
+                 if (password !== confirmPassword) {
+                showError(confirmPasswordI,"Confirm Password doesn't Match");
+                return false;
+  
+  }
+            function showError(inputElement, errorMessage) {
+           let errorElement = inputElement.parentNode.querySelector('.error');
+
+         if (!errorElement) {
+            errorElement = document.createElement('span');
+            errorElement.className = 'error';
+            inputElement.parentNode.appendChild(errorElement);
+    }
+
+            errorElement.innerHTML = errorMessage;
+            errorElement.style.color = 'red';
+            errorElement.style.fontSize = '14px';
+}
+
+
+            formData = $(this).serialize();
+            $.ajax({
+                url: './phpactions/forgetPasswordProcess.php',
+                type: 'POST',
+                data: formData,
+                dataType: 'json',
+                success:function(response){
+                    if(response===true){
+                       alert('Password Updated successfully');
+                       window.location='login.php';                      
+                        
+                    }else if(response===false){
+                        alert('password update failed');                 
+                       
+                    }else if(response === 0){
+                        alert("please Enter a valid password");
+                    }
+              }    
+              });            
+        });
     </script>
 <?php    
     include './layout/foot.php';

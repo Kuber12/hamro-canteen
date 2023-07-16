@@ -15,12 +15,12 @@ if (isset($_SESSION['fullName'])) {
 <!-- login page container -->
 <div class="login-container middle-centered">
     <!-- login form  -->
-        <form class="login-form middle-centered-div" action="./phpactions/authentication.php" method = "POST">
+        <form class="login-form middle-centered-div" >
             <img src="./assets/logo-yellow.png">
-            <!-- username div -->
-            <div class="username-div">
+    
+            <div class="email-div">
                 <i class="fa-solid fa-user"></i>
-                <input type="text" name="username" id="username" placeholder="username" required>
+                <input type="email" name="email" id="email" placeholder="E-mail" required>
             </div>
             <!-- password div -->
             <div class="password-div">
@@ -40,7 +40,7 @@ if (isset($_SESSION['fullName'])) {
         </form>
         <div class="alert-incorrect" id="alert-incorrect">
             <p style="color:red;"><i class="fa-solid fa-triangle-exclamation"></i>Error</p>
-            <p style="margin-left:30px;">incorrect username or password </p>
+            <p style="margin-left:30px;">incorrect Email or password </p>
                      
         </div>
        
@@ -48,17 +48,29 @@ if (isset($_SESSION['fullName'])) {
 
 <script src="./scripts/login.js"></script>
 <script>
+    $('.login-form').on('submit',function(event){
+        event.preventDefault();
+        var formData = $(this).serialize();
+
+        $.ajax({
+            url : "./phpactions/authentication.php",
+            type : 'POST',
+            data : formData,
+            dataType: 'json',
+
+            success:function(response){
+                if(response===false){
+                       var div  = document.getElementById("alert-incorrect");
+                        div.style.display = "block";
+                        setTimeout(function(){
+                        div.style.display = "none";
+                        }, 1500);
+
+                };
+            }
+        })
+    })
    
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const msg = urlParams.get('msg');
-    if (msg=="incorrect") {
-       var div  = document.getElementById("alert-incorrect");
-       div.style.display = "block";
-       setTimeout(function(){
-       div.style.display = "none";
-       }, 2000);
-    }
 </script>
 <?php
     include './layout/foot.php';

@@ -4,7 +4,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $firstName = $_POST["first_name"];
   $middleName = $_POST["middle_name"];
   $lastName = $_POST["last_name"];
-  $username = $_POST["username"];
   $password = $_POST["password"];
   $confirmPassword = $_POST["confirm_password"];
   $gender = $_POST["gender"];
@@ -45,12 +44,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $errors[] = "Last Name is invalid. It should contain only characters from A-Z and a-z and have a maximum length of 20 characters.";
     
   }
-  if (empty($username)) {
-    $errors[] = "username required";     
-  } elseif (!preg_match("/^[\w\s.,'-]{1,20}$/", $username)) {
-    $errors[] = "Username is invalid. It should only contain 50 character of a letters, numbers, spaces, and hyphens (-).";
-  }
-
   // Validate gender
   $allowedGenders = ["male", "female", "others"];
   if (empty($gender)) {
@@ -123,7 +116,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $firstName = sanitizeInput($firstName);
     $middleName = sanitizeInput($middleName);
     $lastName = sanitizeInput($lastName);
-    $userName = sanitizeInput($username);
     $password = sanitizeInput($password);
     $gender = sanitizeInput($gender);
     $address = sanitizeInput($address);
@@ -136,12 +128,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     include("connection.php");
 
 
-    $sqlquery = "SELECT * FROM users where username = '$userName'";
+    $sqlquery = "SELECT * FROM users where email = '$email'";
     $result = mysqli_query($conn, $sqlquery);
-    if (mysqli_num_rows($result) > 0) {
-      echo "<br>username already taken<br>";
-      echo "<br><a href='../registerform.php' style='text-decoration:none; border: 1px solid black;padding:5px;
-    background-color:red; color:white;'>back to registration page</a><br>";
+    if (mysqli_num_rows($result) > 0) {     
+      
+      header("Location: ../registerform.php?msg=0");
 
     } else {
       if ($_FILES['photo']['error'] == UPLOAD_ERR_OK) {
@@ -155,17 +146,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         echo "Error uploading file.";
       }
 
-      // $userID = $_REQUEST["userID"];
-      $full_name = $_POST['first_name'] . " " . $_POST['middle_name'] . " " . $_POST['last_name'];
-      $sql = "SELECT * FROM users where username = '$userName'";
+     
+      $full_name = $firstName . " " . $middleName . " " . $lastName;
+      $sql = "SELECT * FROM users where email = 'email'";
 
       $result = mysqli_query($conn, $sql);
-      $userImage = $userName . "." . $file_extension;
+      $userImage = $firstName . "." . $file_extension;
 
       $tar_dir = "../assets/userimage/" . $userImage;
       move_uploaded_file($tempname, $tar_dir);
 
-      $sql = "INSERT INTO users(username, fullName, gender, password, email, phone, DOB , imageUrl, address) VALUES ('$userName','$full_name','$gender','$passwordHash','$email',$contact,'$dob','$userImage', '$address')";
+      $sql = "INSERT INTO users(fullName, gender, password, email, phone, DOB , imageUrl, address) VALUES ('$full_name','$gender','$passwordHash','$email',$contact,'$dob','$userImage', '$address')";
       if (mysqli_query($conn, $sql)) {
         echo "Record updated successfully.<br>";
         echo "<br><a href='../login.php' style='text-decoration:none; border: 1px solid black;padding:5px;

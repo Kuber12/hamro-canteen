@@ -1,12 +1,11 @@
 <?php
 include("connection.php");
 
-$userName = $_POST['username'];
+$email = $_POST['email'];
 $password = $_POST['password'];
 
 
-try {
-    $sqlquery = "SELECT * FROM admin WHERE adminName = '$userName'";
+    $sqlquery = "SELECT * FROM admin WHERE email = '$email'";
     $result = mysqli_query($conn, $sqlquery);
     
     if (mysqli_num_rows($result) > 0) {
@@ -18,14 +17,13 @@ try {
             exit();
         }
     }elseif (mysqli_num_rows($result) == 0) {
-        $sql = "SELECT * FROM users WHERE username = '$userName'";
+        $sql = "SELECT * FROM users WHERE email = '$email'";
         $resultU = mysqli_query($conn, $sql);        
         if (mysqli_num_rows($resultU) > 0) {
             $row = mysqli_fetch_assoc($resultU);
             if (password_verify($password, $row['password'])) {
                 $_SESSION['userID'] = $row['userID'];
                 $_SESSION['fullName'] = $row["fullName"];
-                $_SESSION['username'] = $row["username"];
                 $_SESSION['imageUrl'] = $row["imageUrl"];
                 $_SESSION['email'] = $row["email"];
                 $_SESSION['phone'] = $row["phone"];
@@ -35,14 +33,13 @@ try {
                 exit();
             } 
         }
+        else{
+            echo "false";
+        }
     }
-        header("Location: ../login.php?msg=incorrect");
-        exit();
-    
+        exit();   
 
-} catch (Exception $e) {
-    echo "Error: " . $e;
-}
 
-mysqli_close($conn);
+
+        mysqli_close($conn);
 ?>
