@@ -66,9 +66,10 @@ if (isset($_SESSION['fullName'])) {
                     div.style.display = "none";
                     }, 1500);
 
-                }else{
-                    $('.login-form')[0].submit();
-                };
+                }
+                else{
+                    window.location='index.php' ;
+                }
             }
         })
     })

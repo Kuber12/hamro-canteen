@@ -13,10 +13,11 @@ $password = $_POST['password'];
         if (password_verify($password, $row['password'])) {
             $_SESSION['adminName'] = $row['adminName'];
             $_SESSION['usertype'] = "admin";
-            header("Location: ../dashboard.php");
-            exit();
+            echo "true";
+        }else{
+            echo "false";
         }
-    }elseif (mysqli_num_rows($result) == 0) {
+    }else{
         $sql = "SELECT * FROM users WHERE email = '$email'";
         $resultU = mysqli_query($conn, $sql);        
         if (mysqli_num_rows($resultU) > 0) {
@@ -29,16 +30,17 @@ $password = $_POST['password'];
                 $_SESSION['phone'] = $row["phone"];
                 $_SESSION['address'] = $row["address"];
                 $_SESSION['dob'] = $row["DOB"];
-                // header("Location: ../index.php");
-                // exit();
-            } 
-            echo "true";
-        }
-        else{
+               echo  "true";
+            } else{
+                echo "false";
+            }
+        
+        }else{
             echo "false";
         }
+        
     }
-        exit();   
+     
 
 
 
