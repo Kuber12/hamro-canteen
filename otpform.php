@@ -46,7 +46,7 @@ include './layout/head.php';
 
 <script src="./scripts/jquery.js"></script>
 <script src="./scripts/forgetPass.js"></script>
-
+<script>countdown()</script>
 <?php    
 include './layout/foot.php';
 ?>

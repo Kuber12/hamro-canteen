@@ -1,12 +1,23 @@
  // for Reset Form
  function countdown() {
-    var seconds = 59;
+    const urlParams = new URLSearchParams(window.location.search);
+    let expireDate = new Date(urlParams.get('expiretime'));
+    let difference = expireDate.getTime() - new Date().getTime();
+
+// Calculate the minutes and seconds
+let minutes = Math.floor(difference / (1000 * 60));
+let seconds = Math.floor((difference / 1000) % 60);
+    // var seconds = 59;
     var timer = setInterval(function() {
-     $('#countdown').text(seconds);
+     $('#countdown').text(minutes + " : " + seconds);
       seconds--;
-      if (seconds < 0) {
-        clearInterval(timer);
-        console.log("Countdown complete!");
+      if(minutes == 0 && seconds == 0 ){
+        console.log("count down complete");
+        return false;
+      }
+      if(seconds < 0 ){
+        minutes--;
+        seconds = 59;
       }
     }, 1000);
   }
@@ -30,7 +41,10 @@ $('#emailform').on('submit', function(event) {
 
       if (response === true) {
         countdown();
-        window.location= "otpform.php";
+        const date = new Date();
+        date.setMinutes(date.getMinutes() + 5);
+        console.log(date);
+        window.location= `otpform.php?expiretime=${date}`;
         $('#submit').prop('disabled', false);
 
       } else if (response === false) {
