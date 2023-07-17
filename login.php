@@ -59,16 +59,17 @@ if (isset($_SESSION['fullName'])) {
             dataType: 'json',
 
             success:function(response){
-                if(response===false){
+                if(response===true){
+                    window.location='index.php' ;
+            
+
+                }
+                else{
                     var div  = document.getElementById("alert-incorrect");
                     div.style.display = "block";
                     setTimeout(function(){
                     div.style.display = "none";
                     }, 1500);
-
-                }
-                else{
-                    window.location='index.php' ;
                 }
             }
         })
