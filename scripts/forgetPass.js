@@ -2,7 +2,10 @@
  function countdown() {
     const urlParams = new URLSearchParams(window.location.search);
     let expireDate = new Date(urlParams.get('expiretime'));
-    let difference = expireDate.getTime() - new Date().getTime();
+    expireDate.setUTCHours(5);
+expireDate.setUTCMinutes(45);
+const currentDate = new Date();
+const difference = expireDate.getTime() - currentDate.getTime();
 
 // Calculate the minutes and seconds
 let minutes = Math.floor(difference / (1000 * 60));
