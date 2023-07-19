@@ -11,9 +11,10 @@ table{
 .action-button{
     margin-left: 20px;
     background: var(--secondary-color);
-    padding: 5px 15px;
+    /* padding: 5px 15px; */
     border-radius: 30px;
     width: 150px;
+    height: 40px;
     color: black;
     transition: cubic-bezier(1, 0, 0, 1);
     transition-duration: 0.5s;
@@ -118,7 +119,7 @@ input[type="checkbox"]:checked {
   cursor: pointer;
   background-color: #eee;
   width: 100%;
-height: min-content;     
+  height: min-content;     
 }
 .highlight{
     background-color: black;
@@ -127,7 +128,6 @@ height: min-content;
     display: none;
 }
 #preview {
-  margin-top: 20px;
   max-width: 250px;
   max-height: max-content;
 }
@@ -196,5 +196,10 @@ label,input{
     opacity:0.8;
 }
 #sort-by{
+    width: 60px;
+    height: 40px;
+    margin-right: 20px;
+}
+#order-by{
     margin-right: 20px;
 }

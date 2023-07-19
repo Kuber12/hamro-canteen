@@ -10,17 +10,17 @@
         <div class="dashboard-heading">
             <h2 class="dashboard-heading-text">Transations</h2>
             <div class="dashboard-heading-right">
-                <select name="sort-by" id="sort-by">
-                    <option value="default">Choose One</option>
-                    <option value="name">Name</option>
-                    <option value="total">Total</option>
-                    <option value="date">Date</option>
-                    <option value="cash">Cash</option>
-                    <option value="pending">Pending</option>
-                    <option value="completed">completed</option>
+                <button id="sort-by" class="action-button">
+                    <i class="fa-solid fa-sort"></i>
+                </button>
+                <select name="order-by" id="order-by">
+                    <option value="users.fullName">Name</option>
+                    <option value="orders.gtotal">Total</option>
+                    <option value="orders.orderDate">Date</option>
+                    <option value="orders.status">Status</option>
+                    <option value="orders.payment">Payment</option>
                 </select>
                 <input type="text" name="user-search" id="search">
-                <button class="action-button">Add User</button>
             </div>
         </div>
         <div class="menu-content">
