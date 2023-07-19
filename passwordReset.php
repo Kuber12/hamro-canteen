@@ -8,12 +8,14 @@ if(!isset($_SESSION['validOTP'])) {
 ?>
 <style>
     body{
-        background-color: white;
         font-family: 'Nunito Sans', sans-serif;
+        background: linear-gradient(rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.5)),
+        url("./assets/login-background.png");
+        background-repeat:no-repeat;
+        background-size:cover;
     }
     .forgetPassword{
-        position: absolute;
-        height:300px;  
+        position: absolute;  
         top: 50%;
         left: 50%;      
         transform: translate(-50%,-50%);
@@ -25,6 +27,21 @@ if(!isset($_SESSION['validOTP'])) {
     .title{
         text-align: center;
     }
+    input{
+        margin-top:5px;
+        display: block;
+   
+    }
+    input[type="submit"]{
+           padding: 5.5px;
+        border:none;
+        background-color: #BD271B;
+        color:white;
+    
+    }
+    .error{
+        font-size: 16px;
+    }
 
 
 </style>
@@ -34,12 +51,12 @@ if(!isset($_SESSION['validOTP'])) {
 
 <form id='resetform' >
 <h2 class='title'>Enter Your New Password</h2>
-<label for="password">Password</label><br>
-<input type="password" id = 'password' name = 'password'><br>
-<label for="password">Confirm-Password</label><br>
-<input type="password" id = 'cPassword' name = 'cPassword'><br>
+<label for="password">Password</label>
+<input type="password" id = 'password' name = 'password' required>
+<label for="password">Confirm-Password</label>
+<input type="password" id = 'cPassword' name = 'cPassword' required>
 <input type="hidden" name='reset'>
-<button type ='submit'  id ='reset' >Reset</button><br>
+<input type ='submit'  id ='reset' value='Reset'>
 </form>
 <div id="Errormsg"></div>
 </div>

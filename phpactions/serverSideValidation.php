@@ -145,13 +145,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       } else {
         echo "Error uploading file.";
       }
-
+      $parts = explode(".", $email);
+      $username = $parts[0];
+      
      
-      $full_name = $firstName . " " . $middleName . " " . $lastName;
+      $name = $firstName . " " . $middleName . " " . $lastName;
+      $full_name =  strtoupper($name);
       $sql = "SELECT * FROM users where email = 'email'";
 
       $result = mysqli_query($conn, $sql);
-      $userImage = $firstName . "." . $file_extension;
+      $userImage = $username. "." . $file_extension;
 
       $tar_dir = "../assets/userimage/" . $userImage;
       move_uploaded_file($tempname, $tar_dir);

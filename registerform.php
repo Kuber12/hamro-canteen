@@ -65,6 +65,7 @@
     <input type="hidden" name = 'submit-btn'>
     <input type="submit"  value="Register">
     </div>
+    <div class="errorMsg"></div>
     <a href="login.php" class="redirect-to-login" >already have an account? Login</a>
   </form>
 

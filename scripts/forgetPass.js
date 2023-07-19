@@ -1,29 +1,44 @@
  // for Reset Form
  function countdown() {
-    const urlParams = new URLSearchParams(window.location.search);
-    let expireDate = new Date(urlParams.get('expiretime'));
-    expireDate.setUTCHours(5);
-expireDate.setUTCMinutes(45);
-const currentDate = new Date();
-const difference = expireDate.getTime() - currentDate.getTime();
-
-// Calculate the minutes and seconds
-let minutes = Math.floor(difference / (1000 * 60));
-let seconds = Math.floor((difference / 1000) % 60);
-    // var seconds = 59;
-    var timer = setInterval(function() {
-     $('#countdown').text(minutes + " : " + seconds);
-      seconds--;
-      if(minutes == 0 && seconds == 0 ){
-        console.log("count down complete");
-        return false;
-      }
-      if(seconds < 0 ){
-        minutes--;
-        seconds = 59;
-      }
-    }, 1000);
-  }
+  const urlParams = new URLSearchParams(window.location.search);
+  const expireTimeParam = urlParams.get('expiretime');
+  const expireDate = new Date(decodeURIComponent(expireTimeParam));
+  const currentTime = new Date().getTime();
+  const difference = expireDate.getTime() - currentTime;
+  if(difference < 0){
+    alert("Time over");
+    window.location = 'forgetPassword.php';
+  }else{
+  let minutes = Math.floor(difference / (1000 * 60));
+  let seconds = Math.floor((difference / 1000) % 60);
+  
+  var timer = setInterval(function() {
+      $('#countdown').text("Timer : " + minutes + " : " + seconds);
+    seconds--;
+    
+    if (seconds < 0) {
+      minutes--;
+      seconds = 59;
+    }
+    
+    if (minutes === 0 && seconds === 0) {
+      $('#countdown').text("Timer : " + minutes + " : " + seconds);
+     var result;
+      setTimeout(function() {
+       let result = confirm("Time Over! Do you want to resend");
+        if (result) {
+          window.location='forgetPassword.php';
+        }
+        else{
+         window.location = 'login.php';
+        }
+      }, 1000);
+      
+      clearInterval(timer); // Stop the timer
+    }
+  }, 1000);
+}
+ }  
   
 
 
@@ -33,7 +48,7 @@ $('#emailform').on('submit', function(event) {
   var formData = $(this).serialize();
  $('#submit').prop('disabled', true);
   // Show loading message
-  $('#Errormsg').text("Loading.....");
+  $('#Errormsg').text("Sending email please wait.....");
 
   $.ajax({
     url: './phpmailer/send.php',
@@ -45,9 +60,10 @@ $('#emailform').on('submit', function(event) {
       if (response === true) {
         countdown();
         const date = new Date();
-        date.setMinutes(date.getMinutes() + 5);
+        date.setMinutes(date.getMinutes() + 2);
         console.log(date);
-        window.location= `otpform.php?expiretime=${date}`;
+        const formattedDate = encodeURIComponent(date.toISOString());
+        window.location = `otpform.php?expiretime=${formattedDate}`;
         $('#submit').prop('disabled', false);
 
       } else if (response === false) {
@@ -69,7 +85,16 @@ $('#emailform').on('submit', function(event) {
     
   });
 });
+//
 
+// Function to enforce a maximum length of 6 digits
+function enforceMaxLength() {
+  var input = document.getElementById("otp");
+  if (input.value.length > 6) {
+    input.value = input.value.slice(0, 6);
+  }
+}
+//to submit oTP
 
 $('#otpform').on('submit', function(event) {
   event.preventDefault();
@@ -86,7 +111,7 @@ $('#otpform').on('submit', function(event) {
       } else if (response === 0) {
         $('#Errormsg').text("Time out");
       } else {
-        $('#Errormsg').text("Incorrect OTP!" );
+        alert("Incorrect OTP");
       }
     }
   });
@@ -126,7 +151,8 @@ $('#resetform').on('submit', function(event) {
     errorElement.html(errorMessage)
       .css({
         color: 'red',
-        fontSize: '14px'
+        fontSize: '16px',
+      
       });
   }
 

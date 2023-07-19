@@ -117,13 +117,8 @@ $("#registration-form").submit(function(event) {
 
 
 function showError(inputElement, errorMessage) {
-  let errorElement = inputElement.parent().find('.error');
+  
+  $('.errorMsg').text(errorMessage);
 
-  if (!errorElement.length) {
-    errorElement = $('<span class="error"></span>');
-    inputElement.parent().append(errorElement);
-  }
-
-  errorElement.text(errorMessage);
-  errorElement.css({ color: 'red', fontSize: '12px' });
 }
+

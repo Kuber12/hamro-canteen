@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       if(isset($_POST['send'])){
          $userOtp = $_POST['otp'];
         $current_time = time();
-        $expiration_time = $_SESSION['start_time'] + 59;
+        $expiration_time = $_SESSION['start_time'] + (2*60);
         
         if ($current_time >= $expiration_time) {
             echo '0'; // indicates session expired 

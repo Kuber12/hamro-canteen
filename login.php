@@ -20,7 +20,7 @@ if (isset($_SESSION['fullName'])) {
     
             <div class="email-div">
                 <i class="fa-solid fa-user"></i>
-                <input type="email" name="email" id="email" placeholder="E-mail" required>
+                <input type="email" name="email" id="email" placeholder="E-mail" maxLength = "30" required>
             </div>
             <!-- password div -->
             <div class="password-div">
