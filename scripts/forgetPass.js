@@ -170,6 +170,9 @@ $('#resetform').on('submit', function(event) {
         alert('Password update failed');
       } else if (response === 0) {
         alert('Please enter a valid password');
+      }else if (response === 1) {
+        alert('Session Expired');
+        window.location = 'login.php';
       }
     }
   });

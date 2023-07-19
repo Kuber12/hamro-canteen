@@ -1,10 +1,24 @@
 <?php
     include './layout/head.php';
     session_start();
-    if (isset($_SESSION['fullName'])) {
-      header("location:index.php");
+    if (!isset($_SESSION['fullName'])) {
+      header("location:login.php");
       exit();
     }
+    $oldname = explode(' ', $_SESSION['fullName']);
+    $firstname = $oldname[0];
+    $middlename = $oldname[1];
+    $lastname = $oldname[0];
+    $address = $_SESSION['address'];
+    $contact = $_SESSION['phone'];
+    $DOB = $_SESSION['dob'];
+    $email = $_SESSION['email'];
+    $gender =  $_SESSION['gender']; 
+    $img =  $_SESSION['imageUrl'];
+ 
+
+    
+    
 ?>
 <!--css -->
 <link rel="stylesheet" href="./styles/register.css">
@@ -20,21 +34,21 @@
 <div class = "frm-container"> 
 
 <fieldset>
-    <legend>Registration Form</legend>
+    <legend>Update Form</legend>
 
-  <form action="./phpactions/serverSideValidation.php" method="POST" id="registration-form" name="registrationForm" enctype='multipart/form-data' ">
+  <form action='./phpactions/serverSideValidation.php' method = 'POST' id="registration-form" name="registrationForm" enctype='multipart/form-data' ">
   <div class = "frm-element">
     <label for="fname">First Name</label>
-    <input type="text" id="first_name" name="first_name"  >
+    <input type="text" id="first_name" name="first_name" value="<?php echo $firstname ?>" >
 
     <label for="mname">Middle Name</label>    
-    <input type="text" id="middle_name" name="middle_name"  >
+    <input type="text" id="middle_name" name="middle_name" value="<?php echo $middlename ?>"  >
 
     <label for="lname">Last Name</label>
-    <input type="text" id="last_name" name="last_name" >
+    <input type="text" id="last_name" name="last_name"  value="<?php echo $lastname ?>">
 
     <label for="gender">Gender</label>
-    <select id="gender" name="gender" >
+    <select id="gender" name="gender"  >
       <option value="">Select</option>
       <option value="male">Male</option>
       <option value="female">Female</option>
@@ -42,16 +56,16 @@
     </select>
 
     <label for="dob"> Date of Birth</label>    
-    <input type="date" id ="dob" name = "dob"/>
+    <input type="date" id ="dob" name = "dob"/ value="<?php echo $DOB ?>">
 
     <label for="contact"> Contact</label>
-    <input type="text" id="contact" name="contact">
+    <input type="text" id="contact" name="contact" value="<?php echo $contact ?>">
 
     <label for="email"> Email</label>   
-    <input type="email" id="email" name="email" >  
+    <input type="email" id="email" name="email" value="<?php echo $email ?>" >  
 
     <label for="address"> Address</label>
-    <input type="text" id="address" name="address" >
+    <input type="text" id="address" name="address" value="<?php echo $address ?>">
 
     <label for="password"> Password</label>
     <input type="password" id="password" name="password"  >
@@ -60,13 +74,13 @@
     <input type="password" id="confirm_password" name="confirm_password" >
     
     <label for="photo"> Photo</label>
-    <input type="file" id="user_image" name="photo" accept=".jpg, .png" >
+    <input type="file" id="user_image" name="photo" accept=".jpg, .png">
     <span></span>
-    <input type="hidden" name = 'register' id="register" value="1">
-    <input type="submit"  value="Register">
+    <input type="hidden" name = 'update'>
+    <input type="submit"  value="Update">
     </div>
     <div class="errorMsg"></div>
-    <a href="login.php" class="redirect-to-login" >already have an account? Login</a>
+  
   </form>
 
  
@@ -77,9 +91,6 @@
 
 
 <script src="./scripts/client-side-validation.js"></script>
-<script src="./scripts/jquery.js"></script>
-
-
 
 
 <?php

@@ -2,7 +2,7 @@
 include("./connection.php");
 $userID = $_SESSION['userID'];
 
-$sql = "SELECT * FROM orders WHERE userID = '$userID' AND orderID > 115 ORDER BY orderDate desc";
+$sql = "SELECT * FROM orders WHERE userID = '$userID' ORDER BY orderID desc";
 $result = $conn->query($sql);
 
 if ($conn->connect_error) {

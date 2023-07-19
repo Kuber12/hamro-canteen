@@ -1,4 +1,5 @@
 <?php
+    include("connection.php");
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
   // Retrieve form input values
   $firstName = $_POST["first_name"];
@@ -108,9 +109,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
   }
   if (!empty($errors)) {
-    foreach ($errors as $key => $value) {
-      echo $value . "<br>";
-    }
+    // foreach ($errors as $key => $value) {
+    //   echo $value . "<br>";
+    // }
+    echo "0";
+    exit();
   }
   if (empty($errors)) {
     $firstName = sanitizeInput($firstName);
@@ -123,59 +126,73 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = sanitizeInput($email);
     $dob = sanitizeInput($dob);
     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+  }
+  // common for register and update
+  if ($_FILES['photo']['error'] == UPLOAD_ERR_OK) {
+    $filename = $_FILES['photo']['name'];
+    $tempname = $_FILES['photo']['tmp_name'];
+    $filesize = $_FILES['photo']['size'];
+    $filetype = $_FILES['photo']['type'];
+    $file_extension = pathinfo($filename, PATHINFO_EXTENSION);
+
+  } else {
+    echo "Error uploading file.";
+  }
+  $parts = explode(".", $email);
+  $username = $parts[0];
+  
+ 
+  $name = $firstName . " " . $middleName . " " . $lastName;
+  $full_name =  strtoupper($name);
+  
+  $userImage = $username. "." . $file_extension;
+
+  $tar_dir = "../assets/userimage/" . $userImage;
+  //
 
 
-    include("connection.php");
+  if(isset($_POST['register'])){
+    //insert data into database table 'users'
 
-
-    $sqlquery = "SELECT * FROM users where email = '$email'";
-    $result = mysqli_query($conn, $sqlquery);
-    if (mysqli_num_rows($result) > 0) {     
-      
-      header("Location: ../registerform.php?msg=0");
-
-    } else {
-      if ($_FILES['photo']['error'] == UPLOAD_ERR_OK) {
-        $filename = $_FILES['photo']['name'];
-        $tempname = $_FILES['photo']['tmp_name'];
-        $filesize = $_FILES['photo']['size'];
-        $filetype = $_FILES['photo']['type'];
-        $file_extension = pathinfo($filename, PATHINFO_EXTENSION);
-
-      } else {
-        echo "Error uploading file.";
-      }
-      $parts = explode(".", $email);
-      $username = $parts[0];
-      
-     
-      $name = $firstName . " " . $middleName . " " . $lastName;
-      $full_name =  strtoupper($name);
-      $sql = "SELECT * FROM users where email = 'email'";
-
-      $result = mysqli_query($conn, $sql);
-      $userImage = $username. "." . $file_extension;
-
-      $tar_dir = "../assets/userimage/" . $userImage;
+   
       move_uploaded_file($tempname, $tar_dir);
 
       $sql = "INSERT INTO users(fullName, gender, password, email, phone, DOB , imageUrl, address) VALUES ('$full_name','$gender','$passwordHash','$email',$contact,'$dob','$userImage', '$address')";
       if (mysqli_query($conn, $sql)) {
-        echo "Record updated successfully.<br>";
-        echo "<br><a href='../login.php' style='text-decoration:none; border: 1px solid black;padding:5px;
-      background-color:red; color:white;'>back to login Page</a><br>";
+        echo '<script>
+        alert("Registration Successful");
+        window.location:../login.php;
+        </script>';
       } else {
-        echo "Error updating record: " . mysqli_error($conn);
-        echo "<br><a href='../registerform.php' style='text-decoration:none; border: 1px solid black;padding:5px;
-      background-color:red; color:white;'>back to registration page</a><br>";
+        echo '<script>
+        alert("Registration failed");
+        window.location:../login.php;
+        </script>';
       }
 
 
+     } elseif(isset($_POST['update'])){
+        // update user details
+        $sessionemail = $_SESSION['email'];
+        move_uploaded_file($tempname, $tar_dir);
+        $sql = "UPDATE USERS SET fullName = '$full_name', gender = '$gender', 
+        DOB = '$dob', phone = '$contact', email = '$email', 
+        address = '$address', password = '$passwordHash', imageurl = '$userImage' 
+        WHERE email = '$sessionemail'";
+    
+        if (mysqli_query($conn, $sql)) {
+          echo '<script>
+          alert("Profile Updated Successfully");
+          window.location:../profile.php;
+          </script>';
+        } else {
+          echo '<script>
+          alert("Profile Update failed");
+          window.location:../profile.php;
+          </script>';
+        }
     }
-    mysqli_close($conn);
-  }
-  echo "<br><a href='../login.php' style='text-decoration:none; border: 1px solid black;padding:5px;
-  background-color:red; color:white;'>Go to registration page</a><br>";
+    
 }
-
+mysqli_close($conn);
 ?>

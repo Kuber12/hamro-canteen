@@ -1,6 +1,8 @@
 <?php
 include("connection.php");
 
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+
 $email = $_POST['email'];
 $password = $_POST['password'];
 
@@ -30,6 +32,7 @@ $password = $_POST['password'];
                 $_SESSION['phone'] = $row["phone"];
                 $_SESSION['address'] = $row["address"];
                 $_SESSION['dob'] = $row["DOB"];
+                $_SESSION['gender'] = $row["gender"];
                echo  "true";
             } else{
                 echo "false";
@@ -42,6 +45,7 @@ $password = $_POST['password'];
     }
      
 
+}
 
 
         mysqli_close($conn);

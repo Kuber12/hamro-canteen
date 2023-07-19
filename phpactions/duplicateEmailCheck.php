@@ -1,6 +1,6 @@
 <?php
 if($_SERVER["REQUEST_METHOD"] == "POST" ){
-    if(isset($_POST['submit-btn'])){
+
         $email = $_POST["email"];
         function sanitizeInput($input)
   {
@@ -19,11 +19,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST" ){
   $sqlquery = "SELECT * FROM users where email = '$email'";
   $result = mysqli_query($conn, $sqlquery);
   if (mysqli_num_rows($result) > 0) {     
-    echo "false";
+    echo "true";
 
   } else {
-    echo "true";
+    echo "false";
     }
 mysqli_close($conn);
-}
+
 }

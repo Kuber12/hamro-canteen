@@ -92,26 +92,16 @@ $("#registration-form").submit(function(event) {
     showError($('#user_image'), 'Please select a valid image file (JPG, JPEG, or PNG)');
     return false;
   }
-  var formdata = $('#registration-form').serialize(); 
-
-
-  $.ajax({
-    url: './phpactions/duplicateEmailCheck.php',
-    type: 'POST',
-    data: formdata,
-    dataType: 'json',
-    success: function(response) {
-      if (response === false) {
-        showError($('#email'), 'Email already taken');
-      }else {
-        $("#registration-form")[0].submit();
-        console.log(response); // Submit the form
-      }
-     
-  }
+  if($('#register').length){
+  duplicateCheck(function(isValid) {
+    if (isValid) {
+      $("#registration-form")[0].submit();
+    }
+  
   });
- 
- 
+}else{
+  $("#registration-form")[0].submit();
+}
 });
 
 
@@ -121,4 +111,25 @@ function showError(inputElement, errorMessage) {
   $('.errorMsg').text(errorMessage);
 
 }
+function duplicateCheck(callback) {
+  var email = $('#email').val();
+  $.ajax({
+    url: './phpactions/duplicateEmailCheck.php',
+    method: 'POST',
+    data: { email: email },
+    dataType: 'json',
+    success: function(response) {
+      if (response === true) {
+        $('.errorMsg').text('Email already taken');
+        callback(false);
+      } else if (response===false){
+        callback(true);
+      }
+    },
+    error: function() {
+      callback(false);
+    }
+  });
+}
+
 

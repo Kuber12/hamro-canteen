@@ -47,35 +47,7 @@ if (isset($_SESSION['fullName'])) {
 </div>
 
 <script src="./scripts/login.js"></script>
-<script>
-    $('.login-form').on('submit',function(event){
-        event.preventDefault();
-        var formData = $(this).serialize();
-
-        $.ajax({
-            url : "./phpactions/authentication.php",
-            type : 'POST',
-            data : formData,
-            dataType: 'json',
-
-            success:function(response){
-                if(response===true){
-                    window.location='index.php' ;
-            
-
-                }
-                else{
-                    var div  = document.getElementById("alert-incorrect");
-                    div.style.display = "block";
-                    setTimeout(function(){
-                    div.style.display = "none";
-                    }, 1500);
-                }
-            }
-        })
-    })
-   
-</script>
+<script src="./scripts/jquery.js"></script>
 <?php
     include './layout/foot.php';
 ?>
