@@ -75,6 +75,8 @@ $("#registration-form").submit(function(event) {
     showError($('#address'), 'Please enter a valid address');
     return false;
   }
+  if($('#register').length){
+    
 
   if (!passwordPattern.test(password)) {
     showError($('#confirm_password'), 'Please use at least one uppercase letter, symbol, and number');
@@ -92,7 +94,6 @@ $("#registration-form").submit(function(event) {
     showError($('#user_image'), 'Please select a valid image file (JPG, JPEG, or PNG)');
     return false;
   }
-  if($('#register').length){
   duplicateCheck(function(isValid) {
     if (isValid) {
       $("#registration-form")[0].submit();

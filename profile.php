@@ -20,7 +20,8 @@ include './layout/head.php';
         <img src="./assets/userImage/<?php echo $_SESSION['imageUrl']; ?>" alt="User Image">
         <div id="info">
             <p id ='name'><?php echo $_SESSION['fullName']; ?></p>
-            <button id ='update' onclick='editProfile()'>Edit Profile </button>
+            <button class ='update' onclick='editProfile()'>Edit Profile </button>
+            <button class ='update' onclick='changePassword()'>Change Password </button>
             <p><span>Email: </span><span><?php echo $_SESSION['email']; ?></span></p>
             <p><span>Phone: </span><span><?php echo $_SESSION['phone']; ?></span></p>
             <p><span>Address: </span><span><?php echo $_SESSION['address']; ?></span></p>
@@ -37,6 +38,15 @@ include './layout/head.php';
             <input  type="submit" id ='submit' value='Submit'>
             </form> 
             <div id = 'error'></div>
+    </div><div id="verify_pass">
+            <form id='changePassword'>
+            <h2 class='title'>First Verify its you.</h2>
+            <label for='email' >Enter your password</label><br>
+            <input type='hidden' name = 'email' value="<?php echo $_SESSION['email']; ?>" />
+            <input type='password'  name = 'password' maxlength="12" required>
+            <input  type="submit" value='Submit'>
+            </form> 
+            <div id = "ERRORMSG"></div>
     </div>
 </div>
 <script>
@@ -45,7 +55,14 @@ include './layout/head.php';
     }
     function editProfile(){
         $('#user-profile').hide();
-        $('#verify_user').show();
+        $('#verify_pass').hide();
+        $('#verify_user').show();   
+
+    }function changePassword(){
+        $('#user-profile').hide();
+        $('#verify_pass').show();
+        $('#verify_user').hide();   
+
     }
     $('#verify').on('submit', function(event){
         event.preventDefault();
@@ -59,9 +76,30 @@ include './layout/head.php';
 
             success:function(response){
                 if (response === true){
+                    // window.location = 'passwordReset.php';
                     window.location = 'updateProfile.php';
                 }else{
                     $('#error').text("Incorrect Password");
+                }
+            }
+        })
+    });
+    $('#changePassword').on('submit', function(event){
+        event.preventDefault();
+        var formData = $(this).serialize();
+
+        $.ajax({
+            url:'./phpactions/authentication.php',
+            method : 'POST',
+            data : formData,
+            dataType: 'json',
+
+            success:function(response){
+                if (response === true){
+                    window.location = 'passwordReset.php';
+                    // window.location = 'updateProfile.php';
+                }else{
+                    $('#ERRORMSG').text("Incorrect Password");
                 }
             }
         })

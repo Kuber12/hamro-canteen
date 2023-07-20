@@ -156,25 +156,24 @@ $('#resetform').on('submit', function(event) {
       });
   }
 
-  var formData = $(this).serialize();
-  $.ajax({
-    url: './phpactions/forgetPasswordProcess.php',
-    type: 'POST',
-    data: formData,
-    dataType: 'json',
-    success: function(response) {
-      if (response === true) {
-        alert('Password Updated successfully');
-        window.location = 'login.php';
-      } else if (response === false) {
-        alert('Password update failed');
-      } else if (response === 0) {
-        alert('Please enter a valid password');
-      }else if (response === 1) {
-        alert('Session Expired');
-        window.location = 'login.php';
-      }
-    }
-  });
+  // var formData = $(this).serialize();
+  // $.ajax({
+  //   url: './phpactions/forgetPasswordProcess.php',
+  //   type: 'POST',
+  //   data: formData,
+  //   dataType: 'json',
+  //   success: function(response) {
+  //     console.log(response);
+  //     if (response === true) {
+  //       alert('Password Updated successfully');
+  //       window.location.href = 'login.php';
+  //     } else if (response === false) {
+  //       alert('Password update failed');
+  //     } else if (response === 0) {
+  //       alert('Please enter a valid password');
+  //     }
+  //   }
+  // });
+  $('#resetform')[0].submit();
 });   
 

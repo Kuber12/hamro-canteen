@@ -8,7 +8,7 @@
     $oldname = explode(' ', $_SESSION['fullName']);
     $firstname = $oldname[0];
     $middlename = $oldname[1];
-    $lastname = $oldname[0];
+    $lastname = $oldname[2];
     $address = $_SESSION['address'];
     $contact = $_SESSION['phone'];
     $DOB = $_SESSION['dob'];
@@ -66,12 +66,6 @@
 
     <label for="address"> Address</label>
     <input type="text" id="address" name="address" value="<?php echo $address ?>">
-
-    <label for="password"> Password</label>
-    <input type="password" id="password" name="password"  >
-
-    <label for="confirm_password"> Confirm Password</label> 
-    <input type="password" id="confirm_password" name="confirm_password" >
     
     <label for="photo"> Photo</label>
     <input type="file" id="user_image" name="photo" accept=".jpg, .png">

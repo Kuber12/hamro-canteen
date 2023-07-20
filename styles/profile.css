@@ -88,7 +88,7 @@ img {
         left: 50px;
      
       }
-      #update{
+      .update{
         background-color: var(--tertiary-color);
         outline:none;
         border: none;
@@ -98,7 +98,7 @@ img {
         
       
       }
-      #verify_user{
+      #verify_user, #verify_pass{
         position: absolute;
         display: none;
         top: 50%;
@@ -132,7 +132,7 @@ input[type="password"]{
           font-size: 18px;
         
     }
-    #error{
+    #error, #ERRORMSG{
       color:red;
       font-weight: 600;
     }

@@ -85,20 +85,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   }
 
 
-  // Validate password and confirm password
-  if (empty($password)) {
-    $errors[] = "Password is required.";
-  }
-  if (empty($confirmPassword)) {
-      $errors[] = "Confirm Password is required.";        
-  }
-  if (!preg_match("/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,12}$/", $password)) {
-    $errors[] = "Password is invalid. It should contain at least one capital letter, one special character, one number, and have a length between 8 and 12 characters.";
-    
-  }elseif ($password !== $confirmPassword) {
-    $errors[] = "Password and Confirm Password do not match.";
-    
-  } 
   $allowedExtensions = ["jpg", "jpeg", "png"];
   $photoExtension = strtolower(pathinfo($photo, PATHINFO_EXTENSION));
   if ($_FILES['photo']['error'] !== UPLOAD_ERR_OK) {
@@ -108,14 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $errors[] = "Invalid photo format. Only JPG, JPEG, and PNG formats are allowed.";
     
   }
-  if (!empty($errors)) {
-    // foreach ($errors as $key => $value) {
-    //   echo $value . "<br>";
-    // }
-    echo "0";
-    exit();
-  }
-  if (empty($errors)) {
+ //sanitize the input vlaue
     $firstName = sanitizeInput($firstName);
     $middleName = sanitizeInput($middleName);
     $lastName = sanitizeInput($lastName);
@@ -126,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = sanitizeInput($email);
     $dob = sanitizeInput($dob);
     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
-  }
+  
   // common for register and update
   if ($_FILES['photo']['error'] == UPLOAD_ERR_OK) {
     $filename = $_FILES['photo']['name'];
@@ -150,23 +129,51 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $tar_dir = "../assets/userimage/" . $userImage;
   //
 
-
+  if (!empty($errors)) {
+    // foreach ($errors as $key => $value) {
+    //   echo $value . "<br>";
+    // }
+    echo 'Please Enter a valid details';
+    exit();
+  }
   if(isset($_POST['register'])){
-    //insert data into database table 'users'
-
+    
+  // Validate password and confirm password
+  if (empty($password)) {
+    $errors[] = "Password is required.";
+  }
+  if (empty($confirmPassword)) {
+      $errors[] = "Confirm Password is required.";        
+  }
+  if (!preg_match("/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,12}$/", $password)) {
+    $errors[] = "Password is invalid. It should contain at least one capital letter, one special character, one number, and have a length between 8 and 12 characters.";
+    
+  }elseif ($password !== $confirmPassword) {
+    $errors[] = "Password and Confirm Password do not match.";
+    
+  } 
+    
+  if (!empty($errors)) {
+    // foreach ($errors as $key => $value) {
+    //   echo $value . "<br>";
+    // }
+    echo 'Please Enter a valid details';
+    exit();
+  }
    
       move_uploaded_file($tempname, $tar_dir);
 
       $sql = "INSERT INTO users(fullName, gender, password, email, phone, DOB , imageUrl, address) VALUES ('$full_name','$gender','$passwordHash','$email',$contact,'$dob','$userImage', '$address')";
       if (mysqli_query($conn, $sql)) {
+        header('location:serverSideValidation.php');
         echo '<script>
         alert("Registration Successful");
-        window.location:../login.php;
+        window.location.href = "../login.php";
         </script>';
       } else {
         echo '<script>
         alert("Registration failed");
-        window.location:../login.php;
+        window.location.href = "../login.php";
         </script>';
       }
 
@@ -177,18 +184,26 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         move_uploaded_file($tempname, $tar_dir);
         $sql = "UPDATE USERS SET fullName = '$full_name', gender = '$gender', 
         DOB = '$dob', phone = '$contact', email = '$email', 
-        address = '$address', password = '$passwordHash', imageurl = '$userImage' 
+        address = '$address',  imageurl = '$userImage' 
         WHERE email = '$sessionemail'";
     
         if (mysqli_query($conn, $sql)) {
-          echo '<script>
-          alert("Profile Updated Successfully");
-          window.location:../profile.php;
-          </script>';
+          header('location:serverSideValidation.php');
+             $userID = $_SESSION['userID'];
+            session_unset();
+            $_SESSION['userID'] = $userID; 
+            $_SESSION['fullName'] = $full_name;
+            $_SESSION['imageUrl'] = $userImage;
+            $_SESSION['email'] = $email;
+            $_SESSION['phone'] = $contact;
+            $_SESSION['address'] = $address;
+            $_SESSION['dob'] = $dob;
+            $_SESSION['gender'] = $gender;
+            header('location: ../profile.php');
         } else {
           echo '<script>
           alert("Profile Update failed");
-          window.location:../profile.php;
+          window.location.href = "../profile.php";
           </script>';
         }
     }
