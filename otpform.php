@@ -1,9 +1,10 @@
 <?php
 session_start();
-if(!isset($_SESSION['email'])) {
+if(!isset($_SESSION['validEmail'])) {
     header("location: login.php");
     exit();
 }
+unset($_SESSION['validEmail']);
 include './layout/head.php';
 ?>
 

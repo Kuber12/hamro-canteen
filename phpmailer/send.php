@@ -20,6 +20,8 @@ if(isset($_POST['submit'])){
         $otpHash = password_hash($OTP, PASSWORD_DEFAULT);         
         $_SESSION["otp"]=$otpHash; 
         $_SESSION['email'] = $email;
+        $_SESSION['validEmail'] = "true";
+
        
         //Load Composer's autoloader
         require 'Exception.php';
