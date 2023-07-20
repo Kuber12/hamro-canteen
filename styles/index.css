@@ -209,7 +209,7 @@ h3 {
   width: 180px;
   height: 30px;
   margin: auto;
-  border-radius: 10px;
+  border-radius: 5px;
   margin: 20px auto;
   padding: 5px;
 }
@@ -419,7 +419,7 @@ h3 {
   display: none;
   flex-direction: column;
   justify-content: space-between;
-  background-color: var(--alternate-color);
+  background-color: var(--primary-color);
   height: 400px;
   width: 700px;
   position: fixed;

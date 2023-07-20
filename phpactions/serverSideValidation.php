@@ -165,16 +165,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
       $sql = "INSERT INTO users(fullName, gender, password, email, phone, DOB , imageUrl, address) VALUES ('$full_name','$gender','$passwordHash','$email',$contact,'$dob','$userImage', '$address')";
       if (mysqli_query($conn, $sql)) {
-        header('location:serverSideValidation.php');
-        echo '<script>
-        alert("Registration Successful");
-        window.location.href = "../login.php";
-        </script>';
+         echo "<script>";
+      echo "var result = confirm('Registration Successful');";
+      echo "if (result) {";
+      echo "    window.location = '../login.php'";
+      echo "} else {";
+      echo "    alert('You clicked Cancel!');";
+       echo "}";
+       echo "</script>";
       } else {
-        echo '<script>
-        alert("Registration failed");
-        window.location.href = "../login.php";
-        </script>';
+        echo "<script>";
+        echo "var result = confirm('registration failed');";
+        echo "if (result) {";
+        echo "    window.location = '../login.php'";
+        echo "} else {";
+        echo "    alert('You clicked Cancel!');";
+         echo "}";
+         echo "</script>";
+        
       }
 
 
@@ -188,7 +196,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         WHERE email = '$sessionemail'";
     
         if (mysqli_query($conn, $sql)) {
-          header('location:serverSideValidation.php');
+    
              $userID = $_SESSION['userID'];
             session_unset();
             $_SESSION['userID'] = $userID; 
@@ -199,12 +207,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $_SESSION['address'] = $address;
             $_SESSION['dob'] = $dob;
             $_SESSION['gender'] = $gender;
-            header('location: ../profile.php');
+
+            echo "<script>";
+            echo "var result = confirm('Profile Updated Successfully');";
+            echo "if (result) {";
+            echo "    window.location = '../profile.php'";
+            echo "} else {";
+            echo "    alert('You clicked Cancel!');";
+             echo "}";
+             echo "</script>";
         } else {
-          echo '<script>
-          alert("Profile Update failed");
-          window.location.href = "../profile.php";
-          </script>';
+          echo "<script>";
+            echo "var result = confirm('Failed to update profile');";
+            echo "if (result) {";
+            echo "    window.location = '../profile.php'";
+            echo "} else {";
+            echo "    alert('You clicked Cancel!');";
+             echo "}";
+             echo "</script>";
         }
     }
     

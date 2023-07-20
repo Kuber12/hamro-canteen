@@ -40,10 +40,25 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $sql = "UPDATE users SET password = '$passwordHash' where email = '$email'";
                          $result = mysqli_query($conn, $sql);
                          if($result){
-                         echo "Password Updated successfully";
-                         session_destroy();
+                            session_destroy();
+                            echo "<script>";
+                            echo "var result = confirm('Password Changed Successfully');";
+                            echo "if (result) {";
+                            echo "    window.location = '../login.php'";
+                            echo "} else {";
+                            echo "    alert('You clicked Cancel!');";
+                             echo "}";
+                             echo "</script>";
+                      
                       }else{ 
-                        echo "error while updating password";
+                        echo "<script>";
+                        echo "var result = confirm('Failed to change password');";
+                        echo "if (result) {";
+                        echo "    window.location = '../login.php'";
+                        echo "} else {";
+                        echo "    alert('You clicked Cancel!');";
+                         echo "}";
+                         echo "</script>";
             }
               } 
               unset( $_SESSION['validOTP']);

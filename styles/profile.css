@@ -50,23 +50,21 @@ img {
   border: 5px solid transparent;
   
 }
-#traingle{   
+#triangle{   
     content: "";
     position: absolute;
     left: 0;
     top: 0;
-    width: 100px;
+    width: 150px;
     height: 32px;
-    /* border-bottom: 40px solid var(--tertiary-color); */
-    border-bottom: 40px solid red;
+    border-bottom: 50px solid var(--tertiary-color);
     border-left: 75px solid transparent;
     transform: rotate(-180deg);
     margin-right: 20px;
   }
-  #close {
-    position: absolute;
-    top: 15px;
-    font-size: 30px;
+  #close {  
+    font-size: 30px; 
+    color:white;
   }
 
     #triangle2 {

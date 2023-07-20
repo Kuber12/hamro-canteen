@@ -83,7 +83,7 @@ include './layout/head.php';
                 <!-- end of  items div-->
 
                 <div class="btn">
-                    <button id="back-to-shopping" onclick="closeCart()"><i class="fa-solid fa-arrow-left "
+                    <button id="back-to-shopping" onclick="closePopup()"><i class="fa-solid fa-arrow-left "
                             style="margin-right:5px;"></i> back to shopping</button>
                         <p>Grand Total</p>
                         <p>=</p>

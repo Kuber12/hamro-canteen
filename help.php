@@ -13,17 +13,16 @@ include './layout/head.php';
 
 ?>
 <link rel="stylesheet" href="./styles/help.css">
-<style>
-  </style>
+<link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
   <header>
-    <h1><i class="fa-solid fa-circle-arrow-left" style = "margin-right:20px;" onclick="navigateToPage()"></i>Hamro Canteen Help Page</h1>
+    <h2><i class="fa-solid fa-circle-arrow-left" style = "margin-right:20px;" onclick="navigateToPage()"></i>Hamro Canteen Help Page</h2>
   </header>
   <main>
     <section>
         <div id="help">
-    <h3>How can we help you?</h3>
+    <h4>How can we help you?</h4>
     <form id ="issueForm" >
       <div class ="inputHolder">
       <i class="fa-solid fa-magnifying-glass"></i>
@@ -35,7 +34,7 @@ include './layout/head.php';
  
 </form>
 </div>
-      <h2>Placing an Order</h2>
+      <h3>Placing an Order</h3>
       <p>To place an order on our website, follow these steps:</p>
       <ol>
         <li>Select the items you want to order and add them to your cart.</li>
@@ -45,7 +44,7 @@ include './layout/head.php';
       </ol>
     </section>
     <section>
-      <h2>Contact Us</h2>
+      <h3>Contact Us</h3>
       <p>If you have any questions or issues, please contact our customer service team:</p>
       <ul>
         <li>Email: hamrocanteen@gmail.com</li>
