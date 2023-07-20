@@ -22,13 +22,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             
             
         }
-        unset($_SESSION['email']); 
+       
         }
 
         if(isset($_POST['reset'])){
             $password = $_POST['password'];
             $cPassword = $_POST['cPassword'];             
-             $_SESSION['email'] = "shivkumarghimire25@gmail.com";
        
             $condition = empty($password) || empty($cPassword) || 
             !preg_match("/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,12}$/", $password)|| 

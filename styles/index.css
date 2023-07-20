@@ -129,6 +129,7 @@ form {
 }
 .hero-profile {
   width:50px;
+  height: 50px;
   border-radius:50px;
   border-width: 10px;
   background: linear-gradient(to right, #df2828, #dfd914,#ff1313);

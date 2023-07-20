@@ -1,9 +1,9 @@
 <?php
 session_start();
-// if(!isset($_SESSION['validOTP'])) {
-//     header('location:login.php');
-//     exit();
-// }
+if(!isset($_SESSION['validOTP'])) {
+    header('location:login.php');
+    exit();
+}
     include './layout/head.php';
 ?>
 <style>

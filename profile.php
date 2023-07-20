@@ -1,12 +1,14 @@
 <?php
 session_start();
 
+
 // Check if the session variable is set
 if (!isset($_SESSION['fullName'])) {
     header("Location: login.php");
     exit();
+    
 }
-
+$_SESSION['validOTP']  = 'true';
 include './layout/head.php';
 ?>
 <link rel="stylesheet" href="./styles/profile.css">
