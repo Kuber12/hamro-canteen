@@ -75,9 +75,9 @@
 <span></span>
 </div>
 
-
-<script src="./scripts/client-side-validation.js"></script>
 <script src="./scripts/jquery.js"></script>
+<script src="./scripts/client-side-validation.js"></script>
+
 
 
 
