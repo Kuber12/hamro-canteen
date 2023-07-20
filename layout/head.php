@@ -14,9 +14,6 @@
     <link rel="stylesheet" href="./styles/normalize.css">
     <link rel="stylesheet" href="./styles/index.css">
     <link rel="stylesheet" href="./styles/style.css">
-    
-   
-    
     <!-- jquery link -->
     <script src="./scripts/jquery.js"></script>
     <!-- google fonts -->
