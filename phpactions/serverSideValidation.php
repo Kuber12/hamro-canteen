@@ -170,7 +170,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       echo "if (result) {";
       echo "    window.location = '../login.php'";
       echo "} else {";
-      echo "    alert('You clicked Cancel!');";
+      echo "    window.location = '../login.php'";
        echo "}";
        echo "</script>";
       } else {
@@ -179,7 +179,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         echo "if (result) {";
         echo "    window.location = '../login.php'";
         echo "} else {";
-        echo "    alert('You clicked Cancel!');";
+        echo "     window.location = '../login.php'";
          echo "}";
          echo "</script>";
         
@@ -213,7 +213,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             echo "if (result) {";
             echo "    window.location = '../profile.php'";
             echo "} else {";
-            echo "    alert('You clicked Cancel!');";
+            echo "    window.location = '../profile.php'";
              echo "}";
              echo "</script>";
         } else {
@@ -222,7 +222,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             echo "if (result) {";
             echo "    window.location = '../profile.php'";
             echo "} else {";
-            echo "    alert('You clicked Cancel!');";
+            echo "    window.location = '../profile.php'";
              echo "}";
              echo "</script>";
         }

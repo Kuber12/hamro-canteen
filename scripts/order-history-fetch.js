@@ -14,6 +14,7 @@
             <td>${item["payment"]}</td>
             <td>${item["status"]}</td>
             <td><button class='view_btn' type="submit" onclick="displayBill(event, '${item['orderDate']}', ${item["orderID"]}, ${item["gtotal"]}, '${item["payment"]}', '${item["status"]}')">View Receipt</button></td>
+            <td><button type = "submit" id = 'cancel_btn' onclick= cancel_order(${item["orderID"]}) >Cancel Order</button></td>
           </tr>`);
         }
         );
@@ -77,4 +78,27 @@ function displayBill(event, orderDate, orderID, gtotal, payment, status) {
 function closeReceipt() {
   $('.receipt_container').hide();
   $('.blockerr').hide();
+}
+function cancel_order(id){
+
+
+    $.ajax({
+      url:'./phpactions/orderStatus.php',
+      type:"POST",
+      data:{'id': id},
+      dataType :"json",
+
+
+      success:function(response){
+          if(response ===true){
+          alert('Order cancelled successfully');
+          location.reload();
+      }else{
+        alert('Error cancelling order!');
+      }
+    
+        },
+        error : function(){alert('Something went wrong')}
+
+    })
 }
