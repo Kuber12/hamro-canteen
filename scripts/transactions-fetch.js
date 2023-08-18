@@ -15,8 +15,8 @@ $(document).ready(function() {
                 <td>${item['fullName']}</td>;
                 <td>${item['phone']}</td>
                 <td>${item['payment']}</td>
-                <td>${item['status']}</td>
                 <td>${item['gtotal']}</td>
+                <td>${item['status']}</td>
                 <td><button class='view_btn' type="submit" onclick="displayBill(event, '${item['orderDate']}','${item['fullName']}', ${item["orderID"]}, ${item["gtotal"]}, '${item["payment"]}', '${item["status"]}')">View Receipt</button></td>
             </tr>`;
             
@@ -70,7 +70,7 @@ function displayBill(event, orderDate,fullName, orderID, gtotal, payment, status
           <div id="footer">
             <span>Payment: ${payment}</span>
             <span>Status: ${status}</span>
-            <button>Download Receipt</button>
+            <button id="downloadPDF" onclick="downloadAsPDF()">Download Receipt</button>
           </div>
         `);
       },
@@ -82,6 +82,22 @@ function displayBill(event, orderDate,fullName, orderID, gtotal, payment, status
     $('.blockerr').show();
   
   
+  }
+
+  function downloadAsPDF(){
+    const content = $("#receipt_container")[0];
+        
+    // Convert the content to an image using html2canvas
+    html2canvas(content).then(canvas => {
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF();
+      
+      // Add the image to the PDF
+      pdf.addImage(imgData, "PNG", 0, 0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getHeight());
+
+      // Download the PDF
+      pdf.save("converted.pdf");
+  });
   }
   function closeReceipt() {
     $('.receipt_container').hide();

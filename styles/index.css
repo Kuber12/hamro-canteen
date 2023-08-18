@@ -602,7 +602,9 @@ h3 {
 }
 @media screen and (max-width: 670px) {
   .hero-heading {
-    font-size: 2.25em;
+    font-size: 2em;
+    width: 300px;
+    text-align: center;
   }
   .menu-display {
     grid-template-columns: auto auto;
@@ -612,4 +614,18 @@ h3 {
   .menu-display {
     grid-template-columns: 80%;
   }
+  .product:hover {
+    property: none;
+  }
+  /* .product:hover input{
+    color: white;
+  }
+  .product:hover .add-to-cart-btn{
+    background-color: var(--secondary-color) !important;
+    color:var(--tertiary-color) !important;
+  }
+  .product:hover .add-to-cart-btn{
+    background-color: var(--secondary-color) !important;
+    color:var(--tertiary-color) !important;
+  } */
 }

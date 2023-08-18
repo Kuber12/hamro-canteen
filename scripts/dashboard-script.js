@@ -2,23 +2,23 @@ let piechartfetcheddata;
 //to load items to dashboard page
 $(document).ready(function() {
     // Make AJAX request
-    $.ajax({
-      url: './phpactions/menuItemsFetch.php', // URL of your PHP script
-      method: 'GET', // or 'POST' depending on your PHP script
-      dataType: 'json', // Expect JSON data in response
-      success: function(response) {
-        // Handle successful response
-        console.log(response);
+  $.ajax({
+    url: './phpactions/menuItemsFetch.php', // URL of your PHP script
+    method: 'GET', // or 'POST' depending on your PHP script
+    dataType: 'json', // Expect JSON data in response
+    success: function(response) {
+      // Handle successful response
+      console.log(response);
 
-        // Display fetched data in HTML element
-        $('#data-container').html(JSON.stringify(response));
-      },
-      error: function(xhr, status, error) {
-        // Handle error response
-        console.error(error);
-      }
-    });
+      // Display fetched data in HTML element
+      $('#data-container').html(JSON.stringify(response));
+    },
+    error: function(xhr, status, error) {
+      // Handle error response
+      console.error(error);
+    }
   });
+});
 window.onload = function() {
   $.ajax({
     url: './phpactions/getPieChartData.php', // URL of your PHP script
@@ -48,7 +48,6 @@ window.onload = function() {
         console.error(error);
     }
     });  
-  
 
     // for line chart
     var ctx2 = document.getElementById("my-line-chart").getContext("2d");

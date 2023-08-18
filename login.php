@@ -27,7 +27,7 @@ if (isset($_SESSION['fullName'])) {
                 <i class="fa-solid fa-lock"></i>
                 <input type="password" name="password" id="myPassword" placeholder="password" maxlength ="12" required>
                 <!-- value="FakePSW" this can be used to show  fake password -->
-                <div id = "show-password" style="display:inline"><i class="fa-solid fa-eye-slash"></i></div> 
+                <div id = "show-password" ><i class="fa-solid fa-eye-slash"></i></div> 
                 <div id = "hide-password" style="display:none"><i class="fa-solid fa-eye"></i></div> 
             
             

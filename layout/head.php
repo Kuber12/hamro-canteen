@@ -20,7 +20,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&display=swap" rel="stylesheet">
+
+    <!-- progressive web app -->
+    <link rel="manifest" href="manifest.json">
 </head>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/tt/hamro-canteen/service-worker.js')
+        .then(registration => {
+          console.log('Service Worker registered!', registration);
+        })
+        .catch(error => {
+          console.error('Error registering Service Worker:', error);
+        });
+    });
+  }
+</script>
 
 <body>
     <div class="blocker" id="blocker" onclick="closePopup();" ></div>

@@ -74,7 +74,10 @@
 
  }
  /* hide and show password */
- 
+ #hide-password,#show-password{
+   display:inline;
+ }
+
  .alert-incorrect{
   display: none;
   position: relative;
@@ -106,7 +109,10 @@
  }
  #register-link :hover {
   background-color: inherit;
-
-
- 
  }
+
+ @media screen and (max-width: 350px) {
+  .login-form{
+    width: 290px;
+  }
+}

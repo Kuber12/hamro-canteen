@@ -16,7 +16,7 @@ include './layout/head.php';
             <span id="triangle"></span>
             <h2>Profile <i class="fa-solid fa-rectangle-xmark" id="close" onclick="navigateToPage()"></i></h2>
         </div>
-        <img src="./assets/userImage/<?php echo $_SESSION['imageUrl']; ?>" alt="User Image">
+        <img id="profile-img" src="./assets/userImage/<?php echo $_SESSION['imageUrl']; ?>" alt="User Image">
         <div id="info">
             <h3><?php echo $_SESSION['fullName']; ?></h3>
             <h4>Student</h4>

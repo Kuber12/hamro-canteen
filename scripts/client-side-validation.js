@@ -98,10 +98,6 @@ if (dob === '') {
     return false;
     }
 
-
-
-
-
 // Validating password
 if (password === '') {
   showError(passwordInput, 'Password is required');

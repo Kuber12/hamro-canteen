@@ -34,7 +34,7 @@ h4 >span {
   margin-right:20px;
   
 }
-img {
+#profile-img {
   height: 150px;
   width: 150px;
   border-radius: 150px;
@@ -84,4 +84,8 @@ img {
         left: 50px;
      
       }
-   
+      @media screen and (max-width: 525px) {
+        #user-profile{
+          width: 90%;
+        }
+      }
