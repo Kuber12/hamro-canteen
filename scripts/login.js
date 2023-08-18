@@ -9,7 +9,7 @@ $(document).ready(function() {
   function show() {
     password.attr("type", "text");
     showPassword.hide();
-    hidePassword.show();
+    hidePassword.css("display", "inline");
   }
 
   function hide() {
@@ -18,11 +18,31 @@ $(document).ready(function() {
     hidePassword.hide();
   }
 
-  // validation
-  function showMsg(x) {
-    console.log("value " + x);
-  }
 
-  // Example usage of showMsg function
-  showMsg(password.val());
 });
+$('.login-form').on('submit',function(event){
+  event.preventDefault();
+  var formData = $(this).serialize();
+
+  $.ajax({
+      url : "./phpactions/authentication.php",
+      type : 'POST',
+      data : formData,
+      dataType: 'json',
+
+      success:function(response){
+          if(response===true){
+              window.location='index.php' ;
+      
+
+          }
+          else{
+              var div  = document.getElementById("alert-incorrect");
+              div.style.display = "block";
+              setTimeout(function(){
+              div.style.display = "none";
+              }, 1500);
+          }
+      }
+  })
+})

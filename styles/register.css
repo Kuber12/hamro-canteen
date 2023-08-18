@@ -50,3 +50,9 @@ align-items: center;
     background-color: inherit;
     margin: inherit;
 }
+.errorMsg{
+    font-size: 16px;
+    font-weight: 600;
+    color:red;
+   margin-left:15px;
+}

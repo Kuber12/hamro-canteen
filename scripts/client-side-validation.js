@@ -1,100 +1,78 @@
-const form = document.getElementById('registration-form');
+$("#registration-form").submit(function(event) {
+  event.preventDefault(); // Prevent form submission
 
-// Get form elements
+  // Validation patterns
+  var namePattern = /^[a-zA-Z]{1,20}$/;
+  var passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,12}$/;
+  var addressPattern = /^[\w\s.,'-]{1,50}$/;
+  var phonePattern = /^\d{10}$/;
+  var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  var imageExtensions = ['jpg', 'jpeg', 'png'];
 
-const firstNameInput = document.getElementById('first_name');
-const lastNameInput = document.getElementById('last_name');
-const usernameInput = document.getElementById('username');
-const genderInput = document.getElementById('gender');
-const phoneInput = document.getElementById('contact');
-const emailInput = document.getElementById('email');
-const dobInput = document.getElementById('dob');
-const addressInput = document.getElementById('address');
+  // Get form input values
+  var firstName = $('#first_name').val();
+  var middleName = $('#middle_name').val();
+  var lastName = $('#last_name').val();
+  var gender = $('#gender').val();
+  var password = $('#password').val();
+  var confirmPassword = $('#confirm_password').val();
+  var address = $('#address').val();
+  var contact = $('#contact').val();
+  var email = $('#email').val();
+  var photo = $('#user_image').val();
+  var dob = $('#dob').val();
 
-const passwordInput = document.getElementById('password');
-const confirmPasswordInput = document.getElementById('confirm_password');
-const photoInput = document.getElementById('photo');
-
-// Function to validate the form
-function validateForm() {
-
-const firstName = firstNameInput.value.trim();
-const lastName = lastNameInput.value.trim();
-const username = usernameInput.value.trim();
-const gender = genderInput.value;
-const phone = phoneInput.value.trim();
-const email = emailInput.value.trim();
-const dob = dobInput.value;
-const address = addressInput.value.trim();
-const password = passwordInput.value;
-const confirmPassword = confirmPasswordInput.value;
-const photo = photoInput.value;
-
-// Regular expressions for validation
-const nameRegex = /^[a-zA-Z]+$/;
-const emailRegex = /^\S+@\S+\.\S+$/;
-const phoneRegex = /^\d{10}$/;
-
-// Resetting previous validation errors
-const errorElements = document.getElementsByClassName('error');
-while (errorElements.length > 0) {
-  errorElements[0].parentNode.removeChild(errorElements[0]);
-}
-
-// Validating first name
-if (firstName === '') {
-  showError(firstNameInput, 'First name is required');
-  return false;
-} else if (!nameRegex.test(firstName)) {
-  showError(firstNameInput, 'First name should only contain letters');
-  return false;
-}
-
-// Validating last name
-if (lastName === '') {
-  showError(lastNameInput, 'Last name is required');
-  return false;
-} else if (!nameRegex.test(lastName)) {
-  showError(lastNameInput, 'Last name should only contain letters');
-  return false;
-}
-//validating username
-if (usernameInput.value === '') {
-  showError(usernameInput, 'Username is required');
-  return false;
-  } 
-  //VALIDATING GENDER
-  if (gender === '') {
-    showError(genderInput, 'Gender is required');
+  // Validate first name
+  if (!namePattern.test(firstName)) {
+    showError($('#first_name'), 'Please enter a valid First Name');
     return false;
-    }
-    if (phone === '') {
-      showError(phoneInput, 'Phone number is required');
-      return false;
-    } else if (!phoneRegex.test(phone)) {
-      showError(phoneInput, 'Invalid phone number');
-      return false;
-    }
-
-
-
-// Validating email
-if (email === '') {
-  showError(emailInput, 'Email is required');
-  return false;
-} else if (!emailRegex.test(email)) {
-  showError(emailInput, 'Invalid email format');
-  return false;
-}
-//validating dob
-if (dob === '') {
-  showError(dobInput, 'Date of birth is required');
-  return false;
   }
-  //validating address
 
-  if (address === '') {
-    showError(addressInput, 'Address is required');
+  // Validate middle name
+  if (!namePattern.test(middleName) && middleName.length > 0) {
+    showError($('#middle_name'), 'Please enter a valid Middle Name');
+    return false;
+  }
+
+  // Validate last name
+  if (!namePattern.test(lastName)) {
+    showError($('#last_name'), 'Please enter a valid Last Name');
+    return false;
+  }
+
+  if (gender === '') {
+    showError($('#gender'), 'Please select a Gender');
+    return false;
+  }
+
+  // Validate date of birth
+  if (dob === '') {
+    showError($('#dob'), 'Please enter a date of birth');
+    return false;
+  }
+  var currentDate = new Date();
+  var selectedDate = new Date(dob);
+  var age = currentDate.getFullYear() - selectedDate.getFullYear();
+
+  if (age < 10 || age > 130) {
+    showError($('#dob'), 'Please enter a valid date of birth (10-130 years)');
+    return false;
+  }
+
+  if (!phonePattern.test(contact)) {
+    showError($('#contact'), 'Please enter a valid phone number');
+    return false;
+  }
+
+  // Validate email
+  if (!emailPattern.test(email)) {
+    showError($('#email'), 'Please enter a valid email');
+    return false;
+  }
+
+  // Validate address length
+  if (!addressPattern.test(address)) {
+    showError($('#address'), 'Please enter a valid address');
     return false;
     }
 
@@ -104,38 +82,54 @@ if (password === '') {
   return false;
 }
 
-// Validating confirm password
-if (confirmPassword === '') {
-  showError(confirmPasswordInput, 'Confirm password is required');
-  return false;
-  } 
+  // Validate password and confirm password match
   if (password !== confirmPassword) {
-  showError(confirmPasswordInput, 'Passwords do not match');
-  return false;
+    showError($('#confirm_password'), "Confirm Password doesn't match");
+    return false;
+  }
+
+  var extension = photo.split('.').pop().toLowerCase();
+  if (!imageExtensions.includes(extension)) {
+    showError($('#user_image'), 'Please select a valid image file (JPG, JPEG, or PNG)');
+    return false;
+  }
+  duplicateCheck(function(isValid) {
+    if (isValid) {
+      $("#registration-form")[0].submit();
+    }
+  
+  });
+}else{
+  $("#registration-form")[0].submit();
 }
-
-// Validating photo upload
-if (photo === '') {
-  showError(photoInput, 'Photo upload is required');
-  return false;
-}
-
-return true;
-}
-
-// Function to display an error message
-function showError(inputElement, errorMessage) {
-const errorElement = document.createElement('span');
-errorElement.className = 'error';
-errorElement.innerHTML = errorMessage;
-inputElement.parentNode.appendChild(errorElement);
-errorElement.style.color='red';
-}
-
-// Event listener for form submission
-form.addEventListener('submit', function (event) {
-if(! validateForm())
-  event.preventDefault();
-
-
 });
+
+
+
+function showError(inputElement, errorMessage) {
+  
+  $('.errorMsg').text(errorMessage);
+
+}
+function duplicateCheck(callback) {
+  var email = $('#email').val();
+  $.ajax({
+    url: './phpactions/duplicateEmailCheck.php',
+    method: 'POST',
+    data: { email: email },
+    dataType: 'json',
+    success: function(response) {
+      if (response === true) {
+        $('.errorMsg').text('Email already taken');
+        callback(false);
+      } else if (response===false){
+        callback(true);
+      }
+    },
+    error: function() {
+      callback(false);
+    }
+  });
+}
+
+

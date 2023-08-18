@@ -1,52 +1,69 @@
-
-<div id="receipt_container" class="receipt_container" style="color:red; position:absolute">
-        <span id="orderID">Order ID: ${orderID}</span>
-        <i class="fa-solid fa-circle-xmark fa-xl" id="close_receipt" onclick="closeReceipt();"></i>
-        <div class="header">
-            <img id="header_img" src="./assets/logo.png" alt="logo">
-            <h2>Hamro Canteen</h2>
-            <h4><u>Order Receipt</u></h4>
-            
-        </div>
-        <div class="info">
-            <span id="cName">Name:<?php echo " " . $userName ?> </span>
-            <span id="odate">Order Date: </span>
-        </div>
-        <table class="receipt">
-            <thead>
-                <tr>
-                    <th>S.N</th>
-                    <th>Food Name</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Total</th>
-                </tr>
-            </thead>
-            <tbody id="fitems">
-
-            </tbody>
-        </table>
-    <button id='downloadBtn'>Download </button>
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Print</title>
+</head>
+<style>
+    #printable_div_id{
+        height:200px;
+        width:400px;
+        position : absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -50%); /* to center the div horizontally */
+        border: solid black 1px;
+        padding: 1em;
+        text-align:center;
+        font-size:large;
+        color: red;
     
-</body>
-<!-- <script src="./scripts/jquery.js"></script>
-    <script src="./scripts/order-history-fetch.js"></script> -->
+    }
+</style>
+<body>
+
+  <div style="width: 15%; background-color: #1f386a; margin:50px 0;">
+    <a href="https://www.buildwithphp.com/">
+      <img src="https://www.buildwithphp.com/front/images/logo.webp" width="100%">
+    </a>
+  </div>
+
+	<div id='printable_div_id'>
+        <table border=1px>
+           <tr>
+            <th>head</th>
+            <th>head</th>
+           </tr>
+           <tr>
+            <td>dslf</td>
+            <td>dslf</td>
+           </tr>
+        </table>
+		<h1>Printable Content</h1>
+		<p>This is a printable paragraph.</p>
+	</div>
+
+  <div>
+    <h1>Outside Printable Content</h1>
+    <p>This is not a printable paragraph.</p>
+  </div>
+
+	<button onClick="printdiv('printable_div_id');">PRINT</button>
+
+
+
 <script>
-       let div = document.getElementById('receipt_container');
-        let btn = document.getElementById('downloadBtn');
-        btn.addEventListener("click", function(){
-        // html2pdf().from(div);
-        var opt= {
-            margin : 0,
-            filename: 'file.pdf',
-            image: {type:'jpeg', quality:1},
-            html2canvas:{ scale:2 },
-            jsPDF: { unit:'in', format:'letter', orientation:'portrait'}
-            }
-        // }
-        html2pdf().from(div).set(opt).save();
-    });
-       
+function printdiv(elem) {
+  var header_str = '<html><head><title>' + document.title  + '</title></head><body>';
+  var footer_str = '</body></html>';
+  var new_str = document.getElementById(elem).innerHTML;
+  var old_str = document.body.innerHTML;
+  document.body.innerHTML = header_str + new_str + footer_str;
+  window.print();
+  document.body.innerHTML = old_str;
+  return false;
+}
 </script>
 
-</html>
+</body>
+</html> -->

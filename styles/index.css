@@ -1,18 +1,10 @@
-:root {
-  --primary-color:#eaeaea;
-  --secondary-color:#F5C13F;
-  --tertiary-color:#BD271B;
-  --alternate-color:#F6FFA6;
-  --bright-green:#AAFF00;
-}
+
 /* navbar */
 body {
   font-family: 'Nunito Sans', sans-serif;
   background-color: var(--primary-color);
 }
-button, i , img {
-  cursor: pointer;
-}
+
 
 nav {
   display: none;
@@ -137,6 +129,7 @@ form {
 }
 .hero-profile {
   width:50px;
+  height: 50px;
   border-radius:50px;
   border-width: 10px;
   background: linear-gradient(to right, #df2828, #dfd914,#ff1313);
@@ -380,7 +373,7 @@ h3 {
   margin-bottom: 20px;
 }
 .profile-info-container > p {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 900;
   padding: 3px;
   text-align: center;
@@ -400,7 +393,7 @@ h3 {
   margin-bottom: 10px;
   border-radius: 10px;
   color: black;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   height: 30px;
   padding: 5px 15px 5px 5px;
