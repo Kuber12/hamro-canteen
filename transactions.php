@@ -14,9 +14,9 @@
                     <i class="fa-solid fa-sort"></i>
                 </button>
                 <select name="order-by" id="order-by">
+                    <option value="orders.orderId">Date</option>
                     <option value="users.fullName">Name</option>
                     <option value="orders.gtotal">Total</option>
-                    <option value="orders.orderDate">Date</option>
                     <option value="orders.status">Status</option>
                     <option value="orders.payment">Payment</option>
                 </select>
@@ -31,8 +31,8 @@
                     <th>Full Name</th>
                     <th>Phone</th>
                     <th>Payment</th>
-                    <th>Status</th>
                     <th>Total</th>  
+                    <th>Status</th>
                     <th>View</th>
                 </tr>
             </table>
@@ -52,7 +52,7 @@
             <span id="cName">Name: </span>
             <span id="odate">Order Date: </span>
         </div>
-        <table class="receipt">
+        <table class="receipt" id="receipt">
           <thead>
             <tr>
                     <th>S.N</th>
@@ -66,12 +66,14 @@
               
             </tbody>
         </table>
+        <!-- <button id="downloadPDF">Download as PDF</button> -->
 </div>
+
 <div class="blockerr" onclick="closeReceipt()">
+
 <script src="./scripts/transactions-fetch.js"></script>
 <script src="./scripts/transactions-search.js"></script>
-
-<!-- <script src="./scripts/user-search.js"></script> -->
+<script src="./scripts/user-search.js"></script>
 <?php
     include './layout/foot.php';
 ?>

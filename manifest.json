@@ -1,0 +1,16 @@
+{
+  "name": "My Progressive Web App",
+  "short_name": "PWA App",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation" : "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#2196F3",
+  "icons": [
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6wA7cXReAM-TFvkr7a-sdTiFDE7imx_FDGDyj0gY&s.jpeg",
+      "type": "image/png",
+      "sizes": "122x121"
+    }
+  ]
+}

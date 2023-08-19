@@ -74,14 +74,13 @@ $("#registration-form").submit(function(event) {
   if (!addressPattern.test(address)) {
     showError($('#address'), 'Please enter a valid address');
     return false;
-  }
-  if($('#register').length){
-    
+    }
 
-  if (!passwordPattern.test(password)) {
-    showError($('#confirm_password'), 'Please use at least one uppercase letter, symbol, and number');
-    return false;
-  }
+// Validating password
+if (password === '') {
+  showError(passwordInput, 'Password is required');
+  return false;
+}
 
   // Validate password and confirm password match
   if (password !== confirmPassword) {

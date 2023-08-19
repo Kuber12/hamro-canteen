@@ -35,8 +35,8 @@ $(document).ready(function() {
                 <td>${item['fullName']}</td>;
                 <td>${item['phone']}</td>
                 <td>${item['payment']}</td>
-                <td>${item['status']}</td>
                 <td>${item['gtotal']}</td>
+                <td>${item['status']}</td>
                 <td><button class='view_btn' type="submit" onclick="displayBill(event, '${item['orderDate']}','${item['fullName']}', ${item["orderID"]}, ${item["gtotal"]}, '${item["payment"]}', '${item["status"]}')">View Receipt</button></td>
             </tr>`;
             
