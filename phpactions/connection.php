@@ -3,8 +3,8 @@
 session_start();
 
 $servername = "localhost";
-$dbusername = "root";
-$password ="";
+$dbusername = "admin";
+$password ="admin";
 $dbname = "hamro_canteen";
 
 try{

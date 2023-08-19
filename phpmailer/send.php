@@ -37,7 +37,7 @@ if(isset($_POST['submit'])){
             $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
             $mail->Username   = 'shivkumarghimire25@gmail.com';                     //SMTP username
             // $mail->Username   = 'kubershakya123@gmail.com';                     //SMTP username
-            $mail->Password   = 'uvophahlpjzlykjk';                               //SMTP password
+            $mail->Password   = 'lceszmpcmffcvgvn';                               //SMTP password
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
             $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
