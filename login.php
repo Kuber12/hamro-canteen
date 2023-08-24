@@ -46,6 +46,7 @@ if (isset($_SESSION['fullName'])) {
        
 </div>
 
+
 <script src="./scripts/login.js"></script>
 <script src="./scripts/jquery.js"></script>
 <?php

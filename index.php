@@ -174,7 +174,12 @@ $('.productfrm').on('submit',function(event) {
 
 
   success: function(response) {
-   alert("item added successfully");
+    Swal.fire(
+  'Done!',
+  'Item added successfully!',
+  'success'
+   )
+
    $('#noOfItems').html(`${response.value1.length}`);
    totalItem = response.value1.length;
   if(totalItem==0|| totalItem==null|| totalItem==undefined || totalItem ==" "){

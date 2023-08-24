@@ -83,24 +83,40 @@ function displayItem() {
             }     
     }}
     )};
-     
-function removeItem(event){
-  var formdata = $('.removeItem').serialize();
-  event.preventDefault();
-
-  $.ajax({
-    url: './phpactions/cartManager.php',
-    type: 'POST',
-    data : formdata,
-
-    success: function (response){
-    //  alert ("success");
-     displayItem();
-     noOfItems();
+    function removeItem(event) {
+      event.preventDefault();
+    
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) { // User clicked "Yes, delete it!"
+          var formdata = $('.removeItem').serialize();
+    
+          $.ajax({
+            url: './phpactions/cartManager.php',
+            type: 'POST',
+            data: formdata,
+            success: function (response) {
+              Swal.fire(
+                'Done!',
+                'Item Removed successfully!',
+                'success'
+              ).then(() => {
+                displayItem();
+                noOfItems();
+              });
+            }
+          });
+        }
+      });
     }
-
-  });
-}
+    
   
 
 

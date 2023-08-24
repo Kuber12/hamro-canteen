@@ -60,7 +60,7 @@
     $("#payment_option").html(`
       <h2>Payment Options</h2>
       <div id ='option_container'>
-      <img src='./assets/cod.png' id="cod" onclick="window.location.href = './checkout.php';">
+      <img src='./assets/cod.png' id="cod" onclick="placeorder()";>
       <img src="./assets/e-sewa.jpg" id = "e-sewa" onclick="alert('it will be activated after e-sewa integration')" alt ='e-sewa'>
       </div>
       <button id ='cancel' onclick="closeOptions();">Cancel</button>
@@ -93,5 +93,23 @@
     }
   }
 
+  function placeorder(){
+
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes! Place order'
+    }).then((result) => {
+      if (result.isConfirmed) { 
+         window.location.href = "./checkout.php";
+
+  
+  }
+    })
+  }
 
 

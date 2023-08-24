@@ -31,12 +31,21 @@ $('.login-form').on('submit',function(event){
       dataType: 'json',
 
       success:function(response){
-          if(response===true){
-              window.location='index.php' ;
-      
-
-          }
-          else{
+        if (response === true) {
+     
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Login Successful',
+            text: 'Welcome to your account.',
+            showConfirmButton: false,
+            timer: 1500,
+          }).then(() => {
+            window.location = "index.php";
+          });
+          
+        
+        }  else{
               var div  = document.getElementById("alert-incorrect");
               div.style.display = "block";
               setTimeout(function(){
