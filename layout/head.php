@@ -24,7 +24,11 @@
     <!-- progressive web app -->
     <link rel="manifest" href="manifest.json">
 </head>
+<script src="./node_modules/sweetalert2/dist/sweetalert2.all.min.js">
+import Swal from 'sweetalert2';
+</script>
 <script>
+       
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('/tt/hamro-canteen/service-worker.js')
@@ -39,5 +43,7 @@
 </script>
 
 <body>
+<div class="preloader"></div>
     <div class="blocker" id="blocker" onclick="closePopup();" ></div>
     <div class="container">
+   

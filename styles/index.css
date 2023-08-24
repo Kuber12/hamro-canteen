@@ -4,7 +4,15 @@ body {
   font-family: 'Nunito Sans', sans-serif;
   background-color: var(--primary-color);
 }
-
+.preloader{
+  background: url("../assets/updatess.gif");
+  background-size: cover;
+  position: absolute;
+  z-index: 999;
+  width: 100vw;
+  height: 100vh;
+  background-repeat: no-repeat;
+}
 
 nav {
   display: none;

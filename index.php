@@ -22,6 +22,7 @@ include './layout/head.php';
 
 ?>
 
+
 <nav>
 
     <div class="link_container">
@@ -155,7 +156,15 @@ include './layout/head.php';
 <script src="./scripts/jquery.js"> </script>
 
 
+
 <script>
+    window.addEventListener('load', function(){
+        $(".preloader").hide();
+    });
+</script>
+
+<script>
+
 $(document).ready(function() {
 
 $('.productfrm').on('submit',function(event) {
@@ -198,6 +207,7 @@ $('.productfrm').on('submit',function(event) {
 });
 
 </script>
+
 
 <?php
 include './layout/foot.php';
