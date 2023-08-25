@@ -97,11 +97,13 @@ if (password === '') {
     if (isValid) {
       $("#registration-form")[0].submit();
     }
+    else{
+      return false;
+    }    
+    
   
   });
-}else{
   $("#registration-form")[0].submit();
-}
 });
 
 

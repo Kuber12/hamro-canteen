@@ -1,5 +1,6 @@
 <?php
 include('connection.php');
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
       if(isset($_POST['send'])){
@@ -24,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
        
         }
-
+// this section handles updatepassword 
         if(isset($_POST['reset'])){
             $password = $_POST['password'];
             $cPassword = $_POST['cPassword'];             

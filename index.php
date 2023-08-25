@@ -157,11 +157,6 @@ include './layout/head.php';
 
 
 
-<script>
-    window.addEventListener('load', function(){
-        $(".preloader").hide();
-    });
-</script>
 
 <script>
 
