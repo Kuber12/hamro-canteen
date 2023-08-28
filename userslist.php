@@ -10,7 +10,7 @@
             <h2 class="dashboard-heading-text">Users</h2>
             <div class="dashboard-heading-right">
                 <input type="text" name="user-search" id="search">
-                <button class="action-button">Add User</button>
+                <!-- <button class="action-button">Add User</button> -->
             </div>
         </div>
         <div class="menu-content">

@@ -15,9 +15,9 @@ $(document).ready(function() {
   function hide() {
     password.attr("type", "password");
     showPassword.show();
+    showPassword.css("display", "inline");
     hidePassword.hide();
   }
-
 
 });
 $('.login-form').on('submit',function(event){

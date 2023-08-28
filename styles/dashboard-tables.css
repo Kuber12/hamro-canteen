@@ -1,10 +1,6 @@
-.leftpad20{
-    padding-left: 20px;
-}
 table{
     width: 100%;
 }
-
 .menu-content{
     text-align: center;
 }
@@ -64,7 +60,10 @@ table{
     width: 50px;
     height: 50px;
 }
-
+#drag-drop-text{
+    padding:0px 20px;
+    margin:40% 0px;
+}
 @keyframes pop {
     0% { transform: scale(1); }
     50% { transform: scale(1.2); }
@@ -202,4 +201,29 @@ label,input{
 }
 #order-by{
     margin-right: 20px;
+}
+@media screen and (max-width: 700px) {
+    .styled-table th, .styled-table td {
+        padding: 6px 10px;
+    }
+    table{
+        overflow: hidden;
+    }
+    #popup-container{
+        top: 0;
+        left: 0;
+        transform: none;
+        width: 100vw;
+        height: 100vh;
+    }
+    .right{
+        height: 100px;
+    }
+    #edit-form-contents{
+        flex-direction: column;
+    }
+    #drag-drop-text{
+        padding: 0;
+        margin: 0;
+    }
 }

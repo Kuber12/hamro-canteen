@@ -58,13 +58,20 @@ function displayBill(event, orderDate, orderID, gtotal, payment, status) {
       }
       $(".receipt tbody").append(tmp);
       $("#receipt_container #footer").remove();
+      // $("#receipt_container").append(`
+      //   <div id="footer">
+      //     <span>Payment: ${payment}</span>
+      //     <span>Status: ${status}</span>
+      //     <span>Total: RS. ${gtotal}</span>
+      //   </div>
+      // `);
       $("#receipt_container").append(`
-        <div id="footer">
-          <span>Payment: ${payment}</span>
-          <span>Status: ${status}</span>
-          <span>Total: RS. ${gtotal}</span>
-        </div>
-      `);
+          <div id="footer">
+            <span>Payment: ${payment}</span>
+            <span>Status: ${status}</span>
+            <button id="downloadPDF" onclick="downloadAsPDF()">Download Receipt</button>
+          </div>
+        `);
     },
     error: function(xhr, status, error) {
       console.log("AJAX error:", error);
@@ -101,4 +108,19 @@ function cancel_order(id){
         error : function(){alert('Something went wrong')}
 
     })
+}
+function downloadAsPDF(){
+  const content = $("#receipt_container")[0];
+      
+  // Convert the content to an image using html2canvas
+  html2canvas(content).then(canvas => {
+    const imgData = canvas.toDataURL("image/png");
+    const pdf = new jsPDF();
+    
+    // Add the image to the PDF
+    pdf.addImage(imgData, "PNG", 0, 0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getHeight());
+
+    // Download the PDF
+    pdf.save("converted.pdf");
+});
 }

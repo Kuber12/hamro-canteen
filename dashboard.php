@@ -10,7 +10,7 @@
   <div class="dashboard-middle-container">
     <div class="dashboard-middle-container-top">
       <div class="hello-admin">
-        <p>Hello {admin}</p>
+        <p>Hello <?php echo $_SESSION["adminName"]?>,</p>
       </div>
       <div class="canteen-status status-active">
         <p class="canteen-active-now-message">
@@ -27,15 +27,15 @@
     </div> 
   </div>
   <div class="dashboard-sidebar-right">
-    <h2>Popular Right Now</h2>
-    <!-- Temporary code -->
-    <!-- <div class="pie">
-      <span class="message">We are still working on it</span>
-    </div> -->
-    <canvas id="my-pie-chart"></canvas>
-    <h2>Sales Overview</h2>
-    <div style="height:300px">
-      <canvas id="my-line-chart" "></canvas>
+    <div>
+      <h2>Popular Right Now</h2>
+      <canvas id="my-pie-chart"></canvas>
+    </div>
+    <div>
+      <h2>Sales Overview</h2>
+      <div style="height:300px">
+        <canvas id="my-line-chart" "></canvas>
+      </div>
     </div>
     
   </div>

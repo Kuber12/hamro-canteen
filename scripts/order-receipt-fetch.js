@@ -1,3 +1,5 @@
+import { jsPDF } from "https://cdn.skypack.dev/jspdf@2.3.1";
+import html2canvas from "https://cdn.skypack.dev/html2canvas@1.0.0-rc.7";
 $(document).ready(function() {
   $.ajax({
     url: "./phpactions/orderFetch.php",
@@ -74,3 +76,18 @@ function closeReceipt() {
   $('#blockerr').hide();
 }
 
+function downloadAsPDF(){
+  const content = $("#receipt_container")[0];
+      
+  // Convert the content to an image using html2canvas
+  html2canvas(content).then(canvas => {
+    const imgData = canvas.toDataURL("image/png");
+    const pdf = new jsPDF();
+    
+    // Add the image to the PDF
+    pdf.addImage(imgData, "PNG", 0, 0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getHeight());
+
+    // Download the PDF
+    pdf.save("converted.pdf");
+});
+}
