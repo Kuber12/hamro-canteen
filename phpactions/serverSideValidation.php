@@ -208,23 +208,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $_SESSION['dob'] = $dob;
             $_SESSION['gender'] = $gender;
 
-            echo "<script>";
-            echo "var result = confirm('Profile Updated Successfully');";
-            echo "if (result) {";
-            echo "    window.location = '../profile.php'";
-            echo "} else {";
-            echo "    window.location = '../profile.php'";
-             echo "}";
-             echo "</script>";
+           echo "Profile updated";
         } else {
-          echo "<script>";
-            echo "var result = confirm('Failed to update profile');";
-            echo "if (result) {";
-            echo "    window.location = '../profile.php'";
-            echo "} else {";
-            echo "    window.location = '../profile.php'";
-             echo "}";
-             echo "</script>";
+          
+          header('Location: ../test.php');
+          exit;
         }
     }
     

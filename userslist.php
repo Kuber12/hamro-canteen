@@ -17,7 +17,6 @@
             <table class="styled-table" border="1" cellspacing="0">
                 <tr>
                     <th>S.no</th>
-                    <th>Username</th>
                     <th>Full Name</th>
                     <th>Email</th>
                     <th>Phone</th>

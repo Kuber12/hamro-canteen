@@ -23,7 +23,7 @@ if ($result1) {
     exit();
 }
 
-$sql1 = "INSERT INTO orders (orderID, userID, payment, status, orderDate, gtotal) VALUES ('$orderID', '$userID', '$payment', '$status', '$Date', '$gtotal')";
+$sql1 = "INSERT INTO orders (orderID, userID, payment, status, gtotal, orderedTime) VALUES ('$orderID', '$userID', '$payment', '$status', '$gtotal', NOW())";
 
 if (mysqli_query($conn, $sql1)) {
     $cart = $_SESSION['cart'];
@@ -46,7 +46,7 @@ if (mysqli_query($conn, $sql1)) {
 
     unset($_SESSION['cart']);
     mysqli_close($conn);
-    header('Location:orders.php');
+    header('Location: orders.php');
     exit();
 } else {
     echo "Error: " . $sql1 . "<br>" . mysqli_error($conn);

@@ -8,7 +8,7 @@ $(document).ready(function() {
         fetchedResponse = response;
         response.forEach((item) => {
           $(".orders").append(`<tr> 
-            <td>${item["orderDate"]}</td>
+            <td>${item["OrderedTime "]}</td>
             <td>${item["orderID"]}</td>
             <td>${item["gtotal"]}</td>
             <td>${item["payment"]}</td>

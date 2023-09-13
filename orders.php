@@ -214,6 +214,18 @@ $userName = $_SESSION['fullName'];
 .download-button{
   color:black;
 }
+#cancel_btn {
+  border:none;
+  background:none;
+  color:red;
+}
+#cancel-disabled{
+  border:none;
+  background:none;
+}
+#cancel-disabled:hover {
+  cursor: not-allowed;  
+}
 
 </style>
 

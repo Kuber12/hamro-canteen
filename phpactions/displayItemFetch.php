@@ -1,7 +1,7 @@
 <?php
 
-$day = date("D"); 
-// $day = "Fri";
+// $day = date("D"); 
+$day = "Sun";
 $today = 'avlbl' . $day; 
 
  include("./connection.php");
