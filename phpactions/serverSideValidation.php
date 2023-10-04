@@ -130,9 +130,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   //
 
   if (!empty($errors)) {
-    // foreach ($errors as $key => $value) {
-    //   echo $value . "<br>";
-    // }
+    
     echo 'Please Enter a valid details';
     exit();
   }

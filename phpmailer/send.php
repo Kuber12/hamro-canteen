@@ -21,8 +21,9 @@ if(isset($_POST['submit'])){
         $_SESSION["otp"]=$otpHash; 
         $_SESSION['email'] = $email;
         $_SESSION['validEmail'] = "true";
+        $sql = "UPDATE users SET OTP = '$otpHash' Where eamil = '$email'";
 
-       
+        if($conn->query($sql)===TRUE){               
         //Load Composer's autoloader
         require 'Exception.php';
         require 'PHPMailer.php';
@@ -66,5 +67,6 @@ if(isset($_POST['submit'])){
      
         
         }
+    };
         }  
 
