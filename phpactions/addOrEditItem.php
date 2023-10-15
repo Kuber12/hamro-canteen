@@ -9,7 +9,7 @@
             $file_extension = pathinfo($filename, PATHINFO_EXTENSION);
             // Process the file
         } else {
-            echo "Error uploading file.";
+            $imageUploaded = false;
         }
 
         $itemID = $_REQUEST["itemID"];
@@ -31,7 +31,11 @@
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) == 1) {
             echo "updating";
-            $sql = "update items set itemName = '$itemName', itemPrice = '$itemPrice', itemImg = '$itemImage', avlblSun = '$avlSun', avlblMon = '$avlMon', avlblTue = '$avlTue', avlblWed = '$avlWed', avlblThu = '$avlThu', avlblFri = '$avlFri' where itemID = '$itemID'";
+            if($imageUploaded === false){
+                $sql = "update items set itemName = '$itemName', itemPrice = '$itemPrice', avlblSun = '$avlSun', avlblMon = '$avlMon', avlblTue = '$avlTue', avlblWed = '$avlWed', avlblThu = '$avlThu', avlblFri = '$avlFri' where itemID = '$itemID'";
+            }else{
+                $sql = "update items set itemName = '$itemName', itemPrice = '$itemPrice', itemImg = '$itemImage', avlblSun = '$avlSun', avlblMon = '$avlMon', avlblTue = '$avlTue', avlblWed = '$avlWed', avlblThu = '$avlThu', avlblFri = '$avlFri' where itemID = '$itemID'";
+            }
             if (mysqli_query($conn, $sql)) {
                 echo "Record updated successfully.";
                 header("location:../menuitem.php");
