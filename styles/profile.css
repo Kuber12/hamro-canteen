@@ -9,11 +9,9 @@ body{
 background-repeat: no-repeat;
 background-size: cover;
 }
-
-
 #user-profile {
     height :400px;
-    width: 500px;
+    width: 600px;
     background-color: var(--primary-color);
     position: absolute;
     top:50%;
@@ -133,4 +131,39 @@ input[type="password"]{
     #error, #ERRORMSG{
       color:red;
       font-weight: 600;
+    }
+    @media screen and (max-width: 600px){
+      #user-profile{
+        width: 90%;
+      }
+    }
+    @media screen and (max-width: 475px) {
+      body {
+        background-color: lightgreen;
+      }
+      #user-profile{
+        width: 90%;
+        height: 90%;
+      }
+      #triangle{
+        width: 75px;
+        border-bottom: 50px solid var(--tertiary-color);
+      }
+      #triangle2{
+        display: none;
+      }
+      #profile-img{
+        float: none;
+        right: 0px;
+        text-align: center;
+      }
+      #name{
+        text-align: center;
+      }
+      .img-div{
+        text-align: center;
+      }
+      #info{
+        left: 30px;
+      }
     }

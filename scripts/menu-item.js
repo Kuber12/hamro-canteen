@@ -19,7 +19,6 @@ function displayPopUp(){
   if($('input[name="avlbl-wed"]').prop('checked')){$(days[3]).addClass("selected-day")}else{$(days[3]).removeClass("selected-day")};
   if($('input[name="avlbl-thurs"]').prop('checked')){$(days[4]).addClass("selected-day")}else{$(days[4]).removeClass("selected-day")};
   if($('input[name="avlbl-fri"]').prop('checked')){$(days[5]).addClass("selected-day")}else{$(days[5]).removeClass("selected-day")};
-
 }
 
 $(document).ready(function() {
@@ -38,96 +37,90 @@ $(document).ready(function() {
   });
 
   // Image upload
-const dropArea = $('#image-upload-container');
-const imageInput = $('#image-input');
-const preview = $('#preview');
-const dragToUpload = $('#drag-drop-text');
+  const dropArea = $('#image-upload-container');
+  const imageInput = $('#image-input');
+  const preview = $('#preview');
+  const dragToUpload = $('#drag-drop-text');
 
-// Prevent default drag behaviors
-dropArea.on('dragenter dragover dragleave drop', function(e) {
-  e.preventDefault();
-  e.stopPropagation();
-});
+  // Prevent default drag behaviors
+  dropArea.on('dragenter dragover dragleave drop', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+  });
 
-// Highlight drop area when dragging over it
-dropArea.on('dragenter dragover', function() {
-  dropArea.addClass('highlight');
-});
+  // Highlight drop area when dragging over it
+  dropArea.on('dragenter dragover', function() {
+    dropArea.addClass('highlight');
+  });
 
-dropArea.on('dragleave drop', function() {
-  dropArea.removeClass('highlight');
-});
+  dropArea.on('dragleave drop', function() {
+    dropArea.removeClass('highlight');
+  });
 
-// Handle dropped files
-dropArea.on('drop', function(e) {
-  const file = e.originalEvent.dataTransfer.files[0];
-  handleFile(file);
-});
-dropArea.on('click', function() {
-  imageInput.trigger('click');
-});
+  // Handle dropped files
+  dropArea.on('drop', function(e) {
+    const file = e.originalEvent.dataTransfer.files[0];
+    handleFile(file);
+  });
+  dropArea.on('click', function() {
+    imageInput.trigger('click');
+  });
 
-// Handle file input change
-imageInput.on('change', function(e) {
-  const file = e.target.files[0];
-  handleFile(file);
-  dragToUpload.hide();
-});
+  // Handle file input change
+  imageInput.on('change', function(e) {
+    const file = e.target.files[0];
+    handleFile(file);
+    dragToUpload.hide();
+  });
 
-function handleFile(file) {
-  if (!file.type.startsWith('image/')) {
-    alert('Only image files are allowed');
-    return;
-  }
+  function handleFile(file) {
+    if (!file.type.startsWith('image/')) {
+      alert('Only image files are allowed');
+      return;
+    }
 
-  const reader = new FileReader();
+    const reader = new FileReader();
 
-  reader.onload = function(event) {
-    const img = new Image();
+    reader.onload = function(event) {
+      const img = new Image();
 
-    img.onload = function() {
-      const canvas = document.createElement('canvas');
-      const ctx = canvas.getContext('2d');
-      const targetWidth = 300; // Adjust the desired width as needed
-      const targetHeight = 300; // Adjust the desired height as needed
+      img.onload = function() {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        const targetWidth = 300; // Adjust the desired width as needed
+        const targetHeight = 300; // Adjust the desired height as needed
 
-      canvas.width = targetWidth;
-      canvas.height = targetHeight;
+        canvas.width = targetWidth;
+        canvas.height = targetHeight;
 
-      ctx.drawImage(img, 0, 0, targetWidth, targetHeight);
+        ctx.drawImage(img, 0, 0, targetWidth, targetHeight);
 
-      canvas.toBlob(function(blob) {
-        const newFile = new File([blob], file.name, { type: file.type });
+        canvas.toBlob(function(blob) {
+          const newFile = new File([blob], file.name, { type: file.type });
 
-        const imgPreview = document.createElement('img');
-        imgPreview.src = URL.createObjectURL(newFile);
-        imgPreview.style.maxWidth = '100%';
-        imgPreview.style.maxHeight = '100%';
-        preview.innerHTML = '';
-        preview.append(imgPreview);
+          const imgPreview = document.createElement('img');
+          imgPreview.src = URL.createObjectURL(newFile);
+          imgPreview.style.maxWidth = '100%';
+          imgPreview.style.maxHeight = '100%';
+          preview.innerHTML = '';
+          preview.append(imgPreview);
 
-        // Replace the input file with the resized image file
-        const inputElement = document.getElementById('image-input');
-        const dataTransfer = new DataTransfer();
-        dataTransfer.items.add(newFile);
-        inputElement.files = dataTransfer.files;
+          // Replace the input file with the resized image file
+          const inputElement = document.getElementById('image-input');
+          const dataTransfer = new DataTransfer();
+          dataTransfer.items.add(newFile);
+          inputElement.files = dataTransfer.files;
 
-        // Use the resized image data as needed (e.g., upload to server)
-        console.log('Resized image:', newFile);
-      }, file.type, 0.8); // Adjust the compression quality as needed
+          // Use the resized image data as needed (e.g., upload to server)
+          console.log('Resized image:', newFile);
+        }, file.type, 0.8); // Adjust the compression quality as needed
+      };
+
+      img.src = event.target.result;
     };
 
-    img.src = event.target.result;
-  };
-
-  reader.readAsDataURL(file);
-}
-
-
-
-
-  
-
+    reader.readAsDataURL(file);
+  }
   // For Form checkbox ticks
   days = $('.day');
   daysInput = $('.day-input');
@@ -158,4 +151,12 @@ function handleFile(file) {
       });
     })
   });
+  displayPopUp();
+  $("#popup-container").hide();
+  $("#popup-blocker").hide();
 });
+$('.closepopup').on("click",function(){
+  $("#popup-container").hide();
+  $("#popup-blocker").hide();
+  
+})

@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="./styles/dashboard-style.css">
 <div class="sidebar">
   <ul>
     <li>
@@ -22,12 +21,6 @@
     <li>
       <a href="transactions.php">
         <i class="fa fa-dollar"></i>
-        <span class="menu-name">Transactions</span>
-      </a>
-    </li>
-    <li>
-      <a href="settings.php">
-        <i class="fa fa-cog"></i>
         <span class="menu-name">Transactions</span>
       </a>
     </li>

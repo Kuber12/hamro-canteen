@@ -18,8 +18,9 @@ include './layout/head.php';
             <span id="triangle"></span>
             <h2>Profile <i class="fa-solid fa-circle-arrow-left" id="close" onclick="navigateToPage()"></i></h2>
         </div>
-    
-        <img id = "profile-img" src="./assets/userImage/<?php echo $_SESSION['imageUrl']; ?>" alt="User Image">
+        <div class="img-div">
+            <img id = "profile-img" src="./assets/userImage/<?php echo $_SESSION['imageUrl']; ?>" alt="User Image">
+        </div>
         <div id="info">
             <p id ='name'><?php echo $_SESSION['fullName']; ?></p>
             <button class ='update' onclick='editProfile()'>Edit Profile </button>

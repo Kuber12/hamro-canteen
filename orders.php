@@ -4,7 +4,6 @@ session_start();
 include("./layout/head.php");
 $userName = $_SESSION['fullName'];
 ?>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <style>
     body{
         font-family: Nunito Sans;
@@ -95,13 +94,8 @@ $userName = $_SESSION['fullName'];
         overflow:scroll;
         margin-left:5vw;
         z-index:0;
-  
-        
-     
-       
     }
     img{
-        margin-top: 20px;
         width:80px;   
       
     }
@@ -143,10 +137,7 @@ $userName = $_SESSION['fullName'];
      overflow:scroll;
     }
     .header {
-      position: relative;
-      left:7%;
       text-align: center;
-      margin-bottom: 40px;
     }
     
     .info {
@@ -226,6 +217,20 @@ $userName = $_SESSION['fullName'];
 #cancel-disabled:hover {
   cursor: not-allowed;  
 }
+@media screen and (max-width: 700px) {
+  .home-text{
+    display:none;
+  }
+  .receipt_container{
+    width:90%;
+    height:90%;
+  }
+  .order-table{    
+        width: 100vw;   
+        margin-left:0;
+    }
+}
+
 
 </style>
 
@@ -236,21 +241,20 @@ $userName = $_SESSION['fullName'];
 
 
  
-<span class='home'><a href='index.php' ><i class='fa-solid fa-circle-arrow-left' style = 'margin-right:5px;'></i> Home </a> Hamro Canteen<a href='index.php'><img src='./assets/logo-yellow.png' alt ="logo"></a></span>
+<span class='home'><a href='index.php' ><i class='fa-solid fa-circle-arrow-left' style = 'margin-right:5px;'></i> <span class="home-text">Home</span> </a> Hamro Canteen<a href='index.php'><img src='./assets/logo-yellow.png' alt ="logo"></a></span>
 <div class='user'><p>Your Order History</p></div>
 
 <div class='order-table'>
     
  <table class="orders">
-<th> Order Date </th> <th> Order ID </th> <th> Amount </th> <th> Payment </th> <th> Status </th> <th>Details</th>
+<th> Order Date </th> <th> Order ID </th> <th> Amount </th> <th> Payment </th> <th> Status </th> <th>Details</th> <th>Cancel</th>
 </table>
 <div id="receipt_container" class="receipt_container">
         <span id="orderID">Order ID: ${orderID}</span>
         <i class="fa-solid fa-circle-xmark fa-xl" id="close_receipt" onclick="closeReceipt();"></i>
         <div class="header">
-            <img id="header_img" src="./assets/logo.png" alt="logo">
-            <h2>Hamro Canteen</h2>
-            <h4><u>Order Receipt</u></h4>
+            <img src="./assets/logo.png" alt="logo">
+            <u style="display:block;font-size:22px;margin-bottom:10px">Order Receipt</u>
             
         </div>
         <div class="info">
@@ -277,16 +281,10 @@ $userName = $_SESSION['fullName'];
 
 </div>
 
-
-
-  
     <script src="./scripts/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="./scripts/order-history-fetch.js"></script>
-
-
-
-    
-
 
 <?php 
 include("./layout/foot.php");

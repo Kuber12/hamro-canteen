@@ -1,3 +1,6 @@
+// import { jsPDF } from "https://cdn.skypack.dev/jspdf@2.3.1";
+// import { html2canvas } from "https://cdn.skypack.dev/html2canvas@1.0.0-rc.7";
+let curid;
 $(document).ready(function() {
     // Make AJAX request
     $.ajax({
@@ -45,7 +48,7 @@ function displayBill(event, orderDate,fullName, orderID, gtotal, payment, status
         $("#odate").text(`Order Date: ${orderDate}`);
         $("#orderID").text(`Order ID: ${orderID}`);
         let tmp;
-      
+        curid = orderID;
         $(".receipt tbody").empty();
         for (let i = 0; i < response.length; i++) {
           const order = response[i];
@@ -85,19 +88,36 @@ function displayBill(event, orderDate,fullName, orderID, gtotal, payment, status
   }
 
   function downloadAsPDF(){
+    
     const content = $("#receipt_container")[0];
         
     // Convert the content to an image using html2canvas
-    html2canvas(content).then(canvas => {
+    html2canvas(content, { scale: 2 }).then(canvas => {
       const imgData = canvas.toDataURL("image/png");
       const pdf = new jsPDF();
+  
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = pdf.internal.pageSize.getHeight();
       
+      // Calculate the aspect ratio of the captured image
+      const imgAspectRatio = canvas.width / canvas.height;
+  
+      // Calculate the dimensions of the image in the PDF while preserving aspect ratio
+      let imgWidth = pdfWidth;
+      let imgHeight = pdfWidth / imgAspectRatio;
+  
+      if (imgHeight > pdfHeight) {
+          imgHeight = pdfHeight;
+          imgWidth = pdfHeight * imgAspectRatio;
+      }
+  
       // Add the image to the PDF
-      pdf.addImage(imgData, "PNG", 0, 0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getHeight());
-
+      pdf.addImage(imgData, "PNG", (pdfWidth - imgWidth) / 2, (pdfHeight - imgHeight) / 2, imgWidth, imgHeight);
+  
       // Download the PDF
-      pdf.save("converted.pdf");
+      pdf.save(`Hamro_Canteen${curid}`);
   });
+  
   }
   function closeReceipt() {
     $('.receipt_container').hide();

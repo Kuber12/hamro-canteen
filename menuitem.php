@@ -3,7 +3,6 @@
     include './layout/admin-sidebar.php';
     require './phpactions/adminVerification.php';
 ?>
-<link rel="stylesheet" href="./styles/dashboard-tables.css">
 <div class="dashboard-container leftpad20">
     <div class="dashboard-middle-container">
         <div class="dashboard-heading">
@@ -20,12 +19,12 @@
                     <th>Image</th>
                     <th>Name</th>
                     <th>Price</th>
-                    <th>Sunday</th>
-                    <th>Monday</th>
-                    <th>Tuesday</th>
-                    <th>Wednesday</th>
-                    <th>Thursday</th>
-                    <th>Friday</th>
+                    <th>Sun</th>
+                    <th>Mon</th>
+                    <th>Tue</th>
+                    <th>Wed</th>
+                    <th>Thu</th>
+                    <th>Fri</th>
                     <th>Edit</th>
                 </tr>
             </table>
@@ -35,6 +34,8 @@
 </div>
 <div id="popup-container">
   <form id="menu-form" action="./phpactions/addOrEditItem.php" method="post" enctype="multipart/form-data">
+    <span style="font-size:1.2rem;font-weight:800">Add / Edit Items</span>
+    <i class="fa-solid fa-circle-xmark fa-2xl closepopup" style="color: #000000;position:absolute;right:10px;top:25px"></i>
     <div id="edit-form-contents">
         <div class="left">
             <label for="itemID">Item ID</label>
@@ -56,7 +57,7 @@
         <div class="right">
             <label for="itemImg">Item Image</label>
             <div id="image-upload-container">
-                <p id="drag-drop-text" style="padding:0px 20px;margin:40% 0px">
+                <p id="drag-drop-text">
                     Click or Drag and <br>Drop your image here
                 </p>
                 <div id="preview"></div>
@@ -68,8 +69,10 @@
   </form>
 </div>
 <script src="./scripts/menu-item-fetch.js"></script>
-<script src="./scripts/menu-item.js"></script>
 <script src="./scripts/item-search.js"></script>
+<script src="./scripts/menu-item.js"></script>
 <?php
     include './layout/foot.php';
 ?>
+
+<link rel="stylesheet" href="./styles/dashboard-tables.css">

@@ -43,7 +43,6 @@
         <span id="orderID">Order ID: </span>
         <i class="fa-solid fa-circle-xmark fa-xl" id="close_receipt" onclick="closeReceipt();"></i>
         <div class="header">
-            <img id="header_img" src="./assets/logo.png" alt="logo">
             <h2>Hamro Canteen</h2>
             <h4><u>Order Receipt</u></h4>
             
@@ -70,6 +69,8 @@
 </div>
 
 <div class="blockerr" onclick="closeReceipt()">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
 <script src="./scripts/transactions-fetch.js"></script>
 <script src="./scripts/transactions-search.js"></script>
