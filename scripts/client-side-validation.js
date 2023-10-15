@@ -76,11 +76,11 @@ $("#registration-form").submit(function(event) {
     return false;
     }
 
-// Validating password
-if (password === '') {
-  showError(passwordInput, 'Password is required');
-  return false;
-}
+  // Validating password
+  if (password === '') {
+    showError(passwordInput, 'Password is required');
+    return false;
+  }
 
   // Validate password and confirm password match
   if (password !== confirmPassword) {
@@ -99,10 +99,8 @@ if (password === '') {
     }
   
   });
-}else{
-  $("#registration-form")[0].submit();
 }
-});
+);
 
 
 
