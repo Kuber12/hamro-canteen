@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $photo = $_FILES["photo"]["name"];
   $dob = $_POST["dob"];
 
-  // Function to sanitize and block code execution
+  
   function sanitizeInput($input)
   {
     // Remove HTML and PHP tags

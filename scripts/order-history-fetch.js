@@ -10,12 +10,12 @@ $(document).ready(function() {
         response.forEach((item) => {
           // Start row
           $(".orders").append(`<tr> 
-            <td>${item["OrderedTime"]}</td>
+            <td>${item["orderedTime"]}</td>
             <td>${item["orderID"]}</td>
             <td>${item["gtotal"]}</td>
             <td>${item["payment"]}</td>
             <td>${item["status"]}</td>
-            <td><button class='view_btn' type="submit" onclick="displayBill(event, '${item['orderDate']}', ${item["orderID"]}, ${item["gtotal"]}, '${item["payment"]}', '${item["status"]}')">View Receipt</button></td>
+            <td><button class='view_btn' type="submit" onclick="displayBill(event, '${item['orderedTime']}', ${item["orderID"]}, ${item["gtotal"]}, '${item["payment"]}', '${item["status"]}')">View Receipt</button></td>
           `);
 
           if (item["status"] === "pending") {
