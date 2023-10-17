@@ -137,7 +137,7 @@ include './layout/head.php';
 </div>
 
 <!-- available item /product -->
-
+<div id= "closed"> <img src="./assets/closed.png" alt=""></div>
 <div class="menu-display" id="menu-display" onload="displayProduct()">
 
     <!-- menu menu-display continue ends in foot.php -->
@@ -161,6 +161,21 @@ include './layout/head.php';
 <script>
 
 $(document).ready(function() {
+
+
+    $('#closed').hide();
+    var currentTime = new Date();
+
+  var hours = currentTime.getHours()
+
+  if(hours > 12){
+      $('#menu-display').hide();
+      $('#closed').show();
+
+  }else{
+      $('#menu-display').show();
+      $('#closed').hide();
+  }
 
 $('.productfrm').on('submit',function(event) {
   // Prevent the form from submitting normally

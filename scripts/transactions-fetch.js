@@ -2,13 +2,13 @@
 // import { html2canvas } from "https://cdn.skypack.dev/html2canvas@1.0.0-rc.7";
 let curid;
 $(document).ready(function() {
-    // Make AJAX request
+   
     $.ajax({
-    url: './phpactions/transactionsFetch.php', // URL of your PHP script
-    method: 'GET', // or 'POST' depending on your PHP script
-    dataType: 'json', // Expect JSON data in response
+    url: './phpactions/transactionsFetch.php', 
+    method: 'GET', 
+    dataType: 'json',
     success: function(response) {
-        // Handle successful response
+        
         fetchedResponse = response;
         response.forEach(item => {
             let markup = `
@@ -25,11 +25,11 @@ $(document).ready(function() {
             
             $('.styled-table tbody').append(markup);
         });
-        // Display fetched data in HTML element
+      
 
     },
     error: function(xhr, status, error) {
-        // Handle error response
+       
         console.error(error);
     }
     });
@@ -41,7 +41,7 @@ function displayBill(event, orderDate,fullName, orderID, gtotal, payment, status
       data: {
         orderID: orderID,
       },
-      dataType: "json", // Add this line to parse the response as JSON
+      dataType: "json",
       success: function(response) {
         console.log(response);
         $("#cName").text(`Name: ${fullName}`);
@@ -91,7 +91,7 @@ function displayBill(event, orderDate,fullName, orderID, gtotal, payment, status
     
     const content = $("#receipt_container")[0];
         
-    // Convert the content to an image using html2canvas
+  
     html2canvas(content, { scale: 2 }).then(canvas => {
       const imgData = canvas.toDataURL("image/png");
       const pdf = new jsPDF();
@@ -99,10 +99,10 @@ function displayBill(event, orderDate,fullName, orderID, gtotal, payment, status
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = pdf.internal.pageSize.getHeight();
       
-      // Calculate the aspect ratio of the captured image
+ 
       const imgAspectRatio = canvas.width / canvas.height;
   
-      // Calculate the dimensions of the image in the PDF while preserving aspect ratio
+   
       let imgWidth = pdfWidth;
       let imgHeight = pdfWidth / imgAspectRatio;
   
@@ -111,10 +111,9 @@ function displayBill(event, orderDate,fullName, orderID, gtotal, payment, status
           imgWidth = pdfHeight * imgAspectRatio;
       }
   
-      // Add the image to the PDF
+
       pdf.addImage(imgData, "PNG", (pdfWidth - imgWidth) / 2, (pdfHeight - imgHeight) / 2, imgWidth, imgHeight);
-  
-      // Download the PDF
+
       pdf.save(`Hamro_Canteen${curid}`);
   });
   

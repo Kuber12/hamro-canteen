@@ -16,12 +16,13 @@ if(isset($_POST['submit'])){
   else{
     
         $_SESSION['start_time'] = time();
-        $OTP =mt_rand(100000, 999999);         
-        $otpHash = password_hash($OTP, PASSWORD_DEFAULT);         
-        $_SESSION["otp"]=$otpHash; 
+        $OTP =mt_rand(100000, 999999);   
+           
+        $currentDatetime = date("Y-m-d H:i:s");
+        
         $_SESSION['email'] = $email;
         $_SESSION['validEmail'] = "true";
-        $sql = "UPDATE users SET OTP = '$otpHash' Where eamil = '$email'";
+        $sql = "UPDATE users SET OTP = '$OTP' , TimeStamp = '$currentDatetime' Where email = '$email'";
 
         if($conn->query($sql)===TRUE){               
         //Load Composer's autoloader
@@ -40,7 +41,7 @@ if(isset($_POST['submit'])){
             $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
             $mail->Username   = 'shivkumarghimire25@gmail.com';                     //SMTP username
             // $mail->Username   = 'kubershakya123@gmail.com';                     //SMTP username
-            $mail->Password   = 'lceszmpcmffcvgvn';                               //SMTP password
+            $mail->Password   = 'vxfuhvqpgocomfxj';                               //SMTP password
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
             $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
@@ -67,6 +68,7 @@ if(isset($_POST['submit'])){
      
         
         }
+     
     };
         }  
 

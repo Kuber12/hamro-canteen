@@ -103,7 +103,7 @@ $("#registration-form").submit(function(event) {
     
   
   });
-  $("#registration-form")[0].submit();
+
 });
 
 

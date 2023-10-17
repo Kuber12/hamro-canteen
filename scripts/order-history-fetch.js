@@ -72,18 +72,12 @@ function displayBill(event, orderDate, orderID, gtotal, payment, status) {
       }
       $(".receipt tbody").append(tmp);
       $("#receipt_container #footer").remove();
-      // $("#receipt_container").append(`
-      //   <div id="footer">
-      //     <span>Payment: ${payment}</span>
-      //     <span>Status: ${status}</span>
-      //     <span>Total: RS. ${gtotal}</span>
-      //   </div>
-      // `);
+  
       $("#receipt_container").append(`
           <div id="footer">
             <span>Payment: ${payment}</span>
             <span>Status: ${status}</span>
-            <button id="downloadPDF" onclick="downloadAsPDF()">Download Receipt</button>
+            <button id="downloadPDF" onclick='downloadAsPDF()'>Download Receipt</button>
           </div>
         `);
     },
@@ -93,6 +87,9 @@ function displayBill(event, orderDate, orderID, gtotal, payment, status) {
   });
   $('.receipt_container').show();
   $('.blockerr').show();
+
+
+  
 }
 
 function closeReceipt() {
@@ -137,11 +134,16 @@ function cancel_order(id) {
 
     })
 }});
+}
 function downloadAsPDF(){
+
   const content = $("#receipt_container")[0];
+  document.getElementById("downloadPDF").style.display ="none";
+  document.getElementById("close_receipt").style.display ="none";
         
   // Convert the content to an image using html2canvas
   html2canvas(content, { scale: 2 }).then(canvas => {
+
     const imgData = canvas.toDataURL("image/png");
     const pdf = new jsPDF();
 
@@ -164,6 +166,6 @@ function downloadAsPDF(){
     pdf.addImage(imgData, "PNG", (pdfWidth - imgWidth) / 2, (pdfHeight - imgHeight) / 2, imgWidth, imgHeight);
 
     // Download the PDF
-    pdf.save(`Hamro_Canteen${curid}`);
+    pdf.save(`Order_receipt${curid}`);
 });
-}}
+}

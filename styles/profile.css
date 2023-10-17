@@ -68,8 +68,8 @@ p>span {
     #triangle2 {
       position: absolute;
       right: 0;
-      bottom: 0;
-      width: 120px;
+      bottom: 0px;
+      width: 200px;
       height: 0px;
       border-bottom: 200px solid var(--tertiary-color);
       border-right: 80px solid transparent;

@@ -86,11 +86,12 @@ include './layout/head.php';
 <div class='forgetPassword'>
     <form id='otpform'>
         <h3 class='title'>Please type OTP sent in your Email</h3>
-        <h4 id='countdown'></h4>
-        <input type='hidden' name='send'>
-        <div id='otpcontainer'>
-         <label for="OTP">OTP : </label>
+        <!-- <h4 id='countdown'></h4> -->
+      
+        <!-- <div id='otpcontainer'>
+         <label for="OTP">OTP : </label> -->
          <input type="number" id="otp" name="otp" placeholder="XXXXXX" oninput="enforceMaxLength()" required />
+        <input type='hidden' name='send'>
         <input type="submit" id='send' value="Send">
        
         </div>
@@ -101,7 +102,7 @@ include './layout/head.php';
 
 <script src="./scripts/jquery.js"></script>
 <script src="./scripts/forgetPass.js"></script>
-<script>countdown()</script>
+<!-- <script>countdown()</script> -->
 <?php    
 include './layout/foot.php';
 ?>

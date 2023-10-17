@@ -28,7 +28,7 @@
 <script src="./node_modules/sweetalert2/dist/sweetalert2.all.min.js">
 import Swal from 'sweetalert2';
 </script>
-<script>
+
        
 <body>
 <div class="preloader"></div>

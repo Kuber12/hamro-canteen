@@ -118,14 +118,11 @@ form {
   top: -7px;
   right: -60px;
   background-color: var(--bright-green);
-  height: 16px;
-  width: 15px;
+  height: 18px;
+  width: 18px;
   border-radius: 250px;
-  padding: 2px;
   text-align: center;
   z-index: 1;
-  padding:3px;
-  /* color:white; */
 }
 
 
@@ -201,21 +198,22 @@ h3 {
   justify-content: center;
   padding-bottom: 20px;
 }
-.closed {
+#closed {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background-color: var(--tertiary-color);
+  /* background-color: var(--tertiary-color); */
 
 }
+
 #menu > h3 {
   display: block;
   background-color: var(--tertiary-color);
   color: white;
   width: 180px;
-  height: 30px;
+  height: 40px;
   margin: auto;
   border-radius: 5px;
   margin: 20px auto;

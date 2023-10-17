@@ -1,45 +1,3 @@
- // for Reset Form
- function countdown() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const expireTimeParam = urlParams.get('expiretime');
-  const expireDate = new Date(decodeURIComponent(expireTimeParam));
-  const currentTime = new Date().getTime();
-  const difference = expireDate.getTime() - currentTime;
-  if(difference < 0){
-    alert("Time over");
-    window.location = 'forgetPassword.php';
-  }else{
-  let minutes = Math.floor(difference / (1000 * 60));
-  let seconds = Math.floor((difference / 1000) % 60);
-  
-  var timer = setInterval(function() {
-      $('#countdown').text("Timer : " + minutes + " : " + seconds);
-    seconds--;
-    
-    if (seconds < 0) {
-      minutes--;
-      seconds = 59;
-    }
-    
-    if (minutes === 0 && seconds === 0) {
-      $('#countdown').text("Timer : " + minutes + " : " + seconds);
-     var result;
-      setTimeout(function() {
-       let result = confirm("Time Over! Do you want to resend");
-        if (result) {
-          window.location='forgetPassword.php';
-        }
-        else{
-         window.location = 'login.php';
-        }
-      }, 1000);
-      
-      clearInterval(timer); // Stop the timer
-    }
-  }, 1000);
-}
- }  
-  
 
 
 $('#emailform').on('submit', function(event) {
@@ -58,12 +16,8 @@ $('#emailform').on('submit', function(event) {
     success: function(response) {
 
       if (response === true) {
-        countdown();
-        const date = new Date();
-        date.setMinutes(date.getMinutes() + 2);
-        console.log(date);
-        const formattedDate = encodeURIComponent(date.toISOString());
-        window.location = `otpform.php?expiretime=${formattedDate}`;
+      
+        window.location = 'otpform.php';
         $('#submit').prop('disabled', false);
 
       } else if (response === false) {
@@ -107,9 +61,9 @@ $('#otpform').on('submit', function(event) {
     dataType: 'json',
     success: function(response) {
       if (response === true) {
-            window.location = 'passwordReset.php';
+        window.location.href = 'passwordReset.php';
       } else if (response === 0) {
-        $('#Errormsg').text("Time out");
+       alert("timeout");
       } else {
         alert("Incorrect OTP");
       }
@@ -155,25 +109,7 @@ $('#resetform').on('submit', function(event) {
       
       });
   }
-
-  // var formData = $(this).serialize();
-  // $.ajax({
-  //   url: './phpactions/forgetPasswordProcess.php',
-  //   type: 'POST',
-  //   data: formData,
-  //   dataType: 'json',
-  //   success: function(response) {
-  //     console.log(response);
-  //     if (response === true) {
-  //       alert('Password Updated successfully');
-  //       window.location.href = 'login.php';
-  //     } else if (response === false) {
-  //       alert('Password update failed');
-  //     } else if (response === 0) {
-  //       alert('Please enter a valid password');
-  //     }
-  //   }
-  // });
+ 
   $('#resetform')[0].submit();
 });   
 
