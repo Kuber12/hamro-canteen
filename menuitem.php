@@ -3,6 +3,32 @@
     include './layout/admin-sidebar.php';
     require './phpactions/adminVerification.php';
 ?>
+<script>
+    function validateForm() {
+        var itemID = document.forms["myForm"]["itemID"].value;
+        var itemName = document.forms["myForm"]["itemName"].value;
+        var itemPrice = document.forms["myForm"]["itemPrice"].value;
+
+        // Validate Item ID (length 5)
+        if (itemID.length > 5) {
+            return false;
+        }
+
+        // Validate Item Name (length 20)
+        if (itemName.length > 20) {
+            return false;
+        }
+
+        // Validate Item Price (decimal with 6,2 format)
+        var pricePattern = /^\d+(\.\d{1,2})?$/;
+        if (!pricePattern.test(itemPrice)) {
+            alert("Item Price must be a decimal number with a maximum of 2 decimal places.");
+            return false;
+        }
+
+        return true; // The form is valid
+    }
+</script>
 <div class="dashboard-container leftpad20">
     <div class="dashboard-middle-container">
         <div class="dashboard-heading">
@@ -26,6 +52,8 @@
                     <th>Thu</th>
                     <th>Fri</th>
                     <th>Edit</th>
+                    <th>Delete</th>
+
                 </tr>
             </table>
             
@@ -33,17 +61,17 @@
     </div>
 </div>
 <div id="popup-container">
-  <form id="menu-form" action="./phpactions/addOrEditItem.php" method="post" enctype="multipart/form-data">
+  <form id="menu-form" action="./phpactions/addOrEditItem.php" method="post" enctype="multipart/form-data" onsubmit= "return validateForm()">
     <span style="font-size:1.2rem;font-weight:800">Add / Edit Items</span>
     <i class="fa-solid fa-circle-xmark fa-2xl closepopup" style="color: #000000;position:absolute;right:10px;top:25px"></i>
     <div id="edit-form-contents">
         <div class="left">
             <label for="itemID">Item ID</label>
-            <input type="text" name="itemID">
+            <input type="text" name="itemID" required maxlength="5">
             <label for="itemName">Item Name</label>
-            <input type="text" name="itemName">
+            <input type="text" name="itemName" required>
             <label for="itemPrce">Item Price</label>
-            <input type="number" name="itemPrice">
+            <input type="number" name="itemPrice" required>
             <div id="form-days">
                 <label for="availability">Availability</label><br>
                 <div class="day"><input type="checkbox" id="sunday" class="day-input" name="avlbl-sun">Sunday</div>
@@ -74,5 +102,4 @@
 <?php
     include './layout/foot.php';
 ?>
-
 <link rel="stylesheet" href="./styles/dashboard-tables.css">

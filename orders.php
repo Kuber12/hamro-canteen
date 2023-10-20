@@ -1,6 +1,12 @@
 
 <?php
 session_start();
+// Check if the session variable is set
+if (!isset($_SESSION['fullName'])) {
+  header("Location: login.php");
+  exit();
+  
+}
 include("./layout/head.php");
 $userName = $_SESSION['fullName'];
 ?>

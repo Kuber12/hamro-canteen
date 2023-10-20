@@ -50,23 +50,23 @@ window.onload = function() {
     });  
 
     // for line chart
-    var ctx2 = document.getElementById("my-line-chart").getContext("2d");
-    const ch = new Chart(ctx2, {
-      type: 'line',
-      data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-        datasets: [{
-          label: 'Data',
-          data: [10, 20, 15, 25, 30, 20],
-          borderColor: 'blue',
-          fill: false
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false
-      }
-    });
+//     var ctx2 = document.getElementById("my-line-chart").getContext("2d");
+//     const ch = new Chart(ctx2, {
+//       type: 'line',
+//       data: {
+//         labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+//         datasets: [{
+//           label: 'Data',
+//           data: [10, 20, 15, 25, 30, 20],
+//           borderColor: 'blue',
+//           fill: false
+//         }]
+//       },
+//       options: {
+//         responsive: true,
+//         maintainAspectRatio: false
+//       }
+//     });
     
     
 }
