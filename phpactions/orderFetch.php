@@ -3,7 +3,7 @@ include("./connection.php");
 $userID = $_SESSION['userID'];
 $interval = 1; // minutes
 
-$updatePlacedSql = "UPDATE orders SET status = 'order placed' WHERE status = 'pending' AND TIMESTAMPDIFF(MINUTE, OrderedTime, NOW()) >= $interval";
+$updatePlacedSql = "UPDATE orders SET status = 'Order Placed' WHERE status = 'pending' AND TIMESTAMPDIFF(MINUTE, OrderedTime, NOW()) >= $interval";
 
 if (mysqli_query($conn, $updatePlacedSql)) {
     $sql = "SELECT * FROM orders WHERE userID = '$userID' ORDER BY orderID desc";
@@ -18,7 +18,6 @@ while ($row = $result->fetch_assoc()) {
     $data[] = $row;
 }
 
-// Close database connection
 $conn->close();
 
 // Return data as JSON

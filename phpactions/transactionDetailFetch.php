@@ -1,7 +1,7 @@
 <?php 
     include("./connection.php");
 
-    $sql = "select * from order where";
+    $sql = "SELECT * FROM orders WHERE status = 'order placed'";
     $result = $conn->query($sql);
 
     if ($conn->connect_error) {

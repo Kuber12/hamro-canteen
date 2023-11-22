@@ -13,14 +13,17 @@ $(document).ready(function() {
         response.forEach(item => {
             let markup = `
             <tr>
-                <td>${item['orderDate']}</td>
+                <td>${item['orderedTime']}</td>
                 <td>${item['orderID']}</td>
                 <td>${item['fullName']}</td>;
                 <td>${item['phone']}</td>
                 <td>${item['payment']}</td>
                 <td>${item['gtotal']}</td>
                 <td>${item['status']}</td>
+                
+
                 <td><button class='view_btn' type="submit" onclick="displayBill(event, '${item['orderDate']}','${item['fullName']}', ${item["orderID"]}, ${item["gtotal"]}, '${item["payment"]}', '${item["status"]}')">View Receipt</button></td>
+                <td><a href="./updateStatus-adminside.php?orderid=${item['orderID']}">Change Status</a></td>
             </tr>`;
             
             $('.styled-table tbody').append(markup);

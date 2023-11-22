@@ -5,8 +5,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $firstName = $_POST["first_name"];
   $middleName = $_POST["middle_name"];
   $lastName = $_POST["last_name"];
-  $password = $_POST["password"];
-  $confirmPassword = $_POST["confirm_password"];
   $gender = $_POST["gender"];
   $address = $_POST["address"];
   $contact = $_POST["contact"];
@@ -135,7 +133,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     exit();
   }
   if(isset($_POST['register'])){
-    
+    $password = $_POST["password"];
+    $confirmPassword = $_POST["confirm_password"];
   // Validate password and confirm password
   if (empty($password)) {
     $errors[] = "Password is required.";
@@ -160,7 +159,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   }
    
       move_uploaded_file($tempname, $tar_dir);
-
+      $passwordHash = password_hash($password, PASSWORD_DEFAULT);
       $sql = "INSERT INTO users(fullName, gender, password, email, phone, DOB , imageUrl, address) VALUES ('$full_name','$gender','$passwordHash','$email',$contact,'$dob','$userImage', '$address')";
       if (mysqli_query($conn, $sql)) {
          echo "<script>";
@@ -188,7 +187,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // update user details
         $sessionemail = $_SESSION['email'];
         move_uploaded_file($tempname, $tar_dir);
-        $sql = "UPDATE USERS SET fullName = '$full_name', gender = '$gender', 
+        $sql = "UPDATE users SET fullName = '$full_name', gender = '$gender', 
         DOB = '$dob', phone = '$contact', email = '$email', 
         address = '$address',  imageurl = '$userImage' 
         WHERE email = '$sessionemail'";
