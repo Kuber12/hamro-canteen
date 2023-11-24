@@ -82,10 +82,11 @@ body{
 .dashboard-grid-container {
   display: grid;
   align-items: center;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   background-color: transparent;
 }
 .dashboard-grid-item {
+  width: auto;
   background-color: rgba(255, 255, 255, 0.8);
   margin: 0px 0px 20px 20px;
   padding: 20px;
@@ -147,7 +148,9 @@ body{
   flex-direction: row;
 }
 .dashboard-item-image{
-  width: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 .item-name-n-price{
 display: flex;

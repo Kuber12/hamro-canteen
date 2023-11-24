@@ -24,6 +24,7 @@ $(document).ready(function() {
             }
             markup+=
                 `<td><button value=${item['itemID']} class="item-edit-btn">Edit</button></td>
+                <td><button class="item-delete-btn" onclick="window.location.href = './phpactions/deleteItem.php?itemID=${item['itemID']}';">Delete</button></td>
             </tr>`;
             
             $('table tbody').append(markup);
