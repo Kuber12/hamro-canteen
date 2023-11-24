@@ -56,7 +56,7 @@
     </select>
 
     <label for="dob"> Date of Birth</label>    
-    <input type="date" id ="dob" name = "dob"/ value="<?php echo $DOB ?>">
+    <input type="date" id ="dob" name = "dob" value="<?php echo $DOB ?>">
 
     <label for="contact"> Contact</label>
     <input type="text" id="contact" name="contact" value="<?php echo $contact ?>">

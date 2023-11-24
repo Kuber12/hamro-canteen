@@ -34,9 +34,9 @@ if (isset($_SESSION['fullName'])) {
             </div>
             <!-- submit button  -->
             <input type="submit"  value="LOG IN" class="login-btn">
-               
+               <br>
             <a href="forgetPassword.php" id="forget-password">Forget Password</a>
-            <a href="registerform.php" id="register-link">don't have account? Register</a>
+
         </form>
         <div class="alert-incorrect" id="alert-incorrect">
             <p style="color:red;"><i class="fa-solid fa-triangle-exclamation"></i>Error</p>

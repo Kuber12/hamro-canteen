@@ -168,7 +168,7 @@ $(document).ready(function() {
 
   var hours = currentTime.getHours()
 
-  if(hours < 12){
+  if(hours > 12){
       $('#menu-display').hide();
       $('#closed').show();
 
