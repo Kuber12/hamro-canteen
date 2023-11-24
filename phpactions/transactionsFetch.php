@@ -1,20 +1,30 @@
-<?php 
-    include("./connection.php");
+<?php
+include("./connection.php");
 
-    $sql = "select username,fullName,phone,payment,status,orderID,orderDate,gtotal from orders inner join users on orders.userID = users.userID order by orderID desc;";
-    $result = $conn->query($sql);
+if ($conn->connect_error) {
+    die('Connection failed: ' . $conn->connect_error);
+}
 
-    if ($conn->connect_error) {
-        die('Connection failed: ' . $conn->connect_error);
-    }
-    
-    $data = array();
-    while ($row = $result->fetch_assoc()) {
-        $data[] = $row;
-    }
+$sql = "SELECT fullName, phone, payment, status, orderID, orderedTime, gtotal
+        FROM orders
+        INNER JOIN users ON orders.userID = users.userID
+        WHERE status = 'order placed' OR status = 'Delivered'
+        ORDER BY orderID DESC";
 
-    // Close database connection
-    $conn->close();
+$result = $conn->query($sql);
 
-    // Return data as JSON
-    echo json_encode($data);
+if (!$result) {
+    die('Query failed: ' . $conn->error);
+}
+
+$data = array();
+while ($row = $result->fetch_assoc()) {
+    $data[] = $row;
+}
+
+
+$conn->close();
+
+
+echo json_encode($data);
+?>
