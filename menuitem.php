@@ -67,7 +67,7 @@
     <div id="edit-form-contents">
         <div class="left">
             <label for="itemID">Item ID</label>
-            <input type="text" name="itemID" required maxlength="5">
+            <input type="hidden" name="itemID" required maxlength="5">
             <label for="itemName">Item Name</label>
             <input type="text" name="itemName" required>
             <label for="itemPrce">Item Price</label>
