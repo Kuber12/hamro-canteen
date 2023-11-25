@@ -24,6 +24,12 @@
         <span class="menu-name">Transactions</span>
       </a>
     </li>
+    <li>
+    <a href="./wallet/depositeForm.php">
+      <i class="fa-solid fa-wallet"></i>
+        <span class="menu-name">Load Wallet</span>
+      </a>
+    </li>
     <li class="sign-out">
       <a href="logout.php">
         <i class="fa fa-sign-out"></i>

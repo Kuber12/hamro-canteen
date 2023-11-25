@@ -102,15 +102,11 @@ function displayItem() {
             url: './phpactions/cartManager.php',
             type: 'POST',
             data: formdata,
-            success: function (response) {
-              Swal.fire(
-                'Done!',
-                'Item Removed successfully!',
-                'success'
-              ).then(() => {
+            success: function (response) {             
+                
                 displayItem();
                 noOfItems();
-              });
+              
             }
           });
         }

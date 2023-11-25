@@ -14,6 +14,7 @@ $password = $_POST['password'];
         if (password_verify($password, $row['password'])) {
             $_SESSION['adminName'] = $row['adminName'];
             $_SESSION['usertype'] = "admin";
+            $_SESSION['email'] = $email;
             echo "true";
         }else{
             echo "false";

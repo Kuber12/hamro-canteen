@@ -542,7 +542,7 @@ h3 {
   display: none;
   position: fixed;
   z-index:5;
-  width:350px;
+  width:550px;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   top:50%;
@@ -568,13 +568,14 @@ h3 {
 
 #cod{
   display: inline;
-  width:110px;
+  width:170px;
 
 }
-#e-sewa{
+#mero_wallet{
   margin-left:50px;
   display: inline;
-  width:120px;
+  width:230px;
+  
  
 
 }

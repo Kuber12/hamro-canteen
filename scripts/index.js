@@ -61,7 +61,7 @@
       <h2>Payment Options</h2>
       <div id ='option_container'>
       <img src='./assets/cod.png' id="cod" onclick="placeorder()";>
-      <img src="./assets/e-sewa.jpg" id = "e-sewa" onclick="alert('it will be activated after e-sewa integration')" alt ='e-sewa'>
+      <img src="./assets/meroWalletWhite.png" id = "mero_wallet" onclick='window.location.href = "./wallet/paymentForm.php"' alt ='mero wallet'>
       </div>
       <button id ='cancel' onclick="closeOptions();">Cancel</button>
       <i class="fa-solid fa-arrow-left" id="close" onclick="closeOptions();"></i>
