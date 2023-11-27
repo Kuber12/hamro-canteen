@@ -21,6 +21,7 @@
                     <th>Email</th>
                     <th>Phone</th>
                     <th>User Image</th>
+                    <th></th>
                 </tr>
             </table>
         </div>

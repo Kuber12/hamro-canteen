@@ -4,21 +4,10 @@ include("connection.php");
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = $_SESSION['userEmail'];
-    $phone = $_SESSION['userPhone'];
     $amount = $_SESSION['depositeAmount'];
 
-    // Check if email and phone exist in 'users' table
-    $userCheckStmt = $conn->prepare("SELECT email, phone FROM users WHERE email = ? AND phone = ?");
-    $userCheckStmt->bind_param("ss", $email, $phone);
-    $userCheckStmt->execute();
-    $userCheckStmt->store_result();
-
-    if ($userCheckStmt->num_rows > 0) {
-        // User exists, proceed to add money to the 'amount' column in 'wallet' table
-
-        // Update 'amount' for the user in the 'wallet' table
-        $walletUpdateStmt = $conn->prepare("UPDATE wallet SET amount = amount + ? WHERE email = ? AND phone = ?");
-        $walletUpdateStmt->bind_param("dss", $amount, $email, $phone);
+        $walletUpdateStmt = $conn->prepare("UPDATE users SET amount = amount + ? WHERE email = ?");
+        $walletUpdateStmt->bind_param("ds", $amount, $email);
         $walletUpdateResult = $walletUpdateStmt->execute();
 
         if (!$walletUpdateResult) {
@@ -34,10 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         $walletUpdateStmt->close();
         $conn->close();
-    } else {
-        // User does not exist
-        echo json_encode('User does not exist.');
-    }
+    
     
     // Unset the correct session variable
     unset($_SESSION['depositeAmount']);

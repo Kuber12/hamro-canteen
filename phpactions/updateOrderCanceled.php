@@ -1,7 +1,7 @@
 <?php
 include("connection.php");
 
-$interval = 15; // minutes
+$interval = 1; // minutes
 
 $updateCanceledSql = "UPDATE orders SET status = 'canceled' WHERE status = 'pending' AND TIMESTAMPDIFF(MINUTE, OrderedTime, NOW()) <= $interval";
 

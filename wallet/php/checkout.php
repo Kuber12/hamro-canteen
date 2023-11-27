@@ -8,7 +8,7 @@ $gtotal = $_SESSION['gtotal'];
 $payment = "Mero Wallet";
 $status = "paid";
 $email = $_SESSION['email'];
-$phone = $_SESSION['phone'];
+
 
 // Get the next orderID
 $sql0 = "SELECT MAX(orderID) as maxOrderID FROM orders";
@@ -23,9 +23,9 @@ if ($result1) {
 }
 
 // Check if there's enough balance in the wallet
-$sqlBalanceCheck = "SELECT amount FROM wallet WHERE email = ? AND phone = ?";
+$sqlBalanceCheck = "SELECT amount FROM users WHERE email = ?";
 $balanceCheckStmt = $conn->prepare($sqlBalanceCheck);
-$balanceCheckStmt->bind_param("ss", $email, $phone);
+$balanceCheckStmt->bind_param("s", $email);
 $balanceCheckStmt->execute();
 $balanceCheckStmt->bind_result($currentAmount);
 $balanceCheckStmt->fetch();
@@ -38,8 +38,8 @@ if ($currentAmount < $gtotal) {
 }
 
 // Update 'amount' for the user in the 'wallet' table
-$walletUpdateStmt = $conn->prepare("UPDATE wallet SET amount = amount - ? WHERE email = ? AND phone = ?");
-$walletUpdateStmt->bind_param("dss", $gtotal, $email, $phone);
+$walletUpdateStmt = $conn->prepare("UPDATE users SET amount = amount - ? WHERE email = ?");
+$walletUpdateStmt->bind_param("ds", $gtotal, $email);
 $walletUpdateResult = $walletUpdateStmt->execute();
 
 if (!$walletUpdateResult) {

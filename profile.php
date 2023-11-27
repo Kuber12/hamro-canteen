@@ -29,6 +29,7 @@ include './layout/head.php';
             <p><span>Phone: </span><span><?php echo $_SESSION['phone']; ?></span></p>
             <p><span>Address: </span><span><?php echo $_SESSION['address']; ?></span></p>
             <p><span>Date of Birth: </span><span><?php echo $_SESSION['dob']; ?></span></p>
+            <p><span><button class = "wallet" onclick = "toggleAmount('<?php echo $_SESSION['amount']; ?>')"><i class="fa-solid fa-wallet"></i> My Wallet </button></span><span class="actualAmount">XXXXXX</span></p>
         </div>
         <div id="triangle2"></div>
     </div>
@@ -107,6 +108,26 @@ include './layout/head.php';
             }
         })
     });
+
+    var amountVisible = false;
+
+            // Function to toggle the amount display
+            function toggleAmount(amount) {
+                if (amountVisible) {
+                    // If visible, hide the amount and show XXX
+                    $('.actualAmount').text('XXXXXX');
+                } else {
+                    // If hidden, show the actual amount
+                    // Replace this with your logic to get the actual amount
+                    
+                    $('.actualAmount').text("RS.  "  + amount);
+                }
+
+                // Toggle the state
+                amountVisible = !amountVisible;
+            }
+
+ 
 </script>
 <?php
 include './layout/foot.php';

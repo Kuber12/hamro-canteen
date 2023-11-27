@@ -52,11 +52,9 @@
 
      
 
-        <label for="email">Email Address:</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+        <label for="email">user:</label>
+        <input type="email" id="email" name="email"  value="<?php echo isset($_POST['user_email']) ? $_POST['user_email'] : ''; ?>" />
 
-        <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
 
         <label for="amount">Amount:</label>
         <input type="text" id="amount" name="amount" placeholder="Enter the amount to deposit" required>

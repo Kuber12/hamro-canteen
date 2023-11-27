@@ -132,6 +132,18 @@ input[type="password"]{
       color:red;
       font-weight: 600;
     }
+    .wallet{
+      border:none;
+      outline:none;
+        background-color: var(--tertiary-color);
+      color:white;
+      padding:7px;
+      border-radius: 5px;
+    }
+    .actualAmount{
+      font-size: 18px;
+      font-weight: 1200;
+    }
     @media screen and (max-width: 600px){
       #user-profile{
         width: 90%;

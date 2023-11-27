@@ -33,6 +33,7 @@ $password = $_POST['password'];
                 $_SESSION['address'] = $row["address"];
                 $_SESSION['dob'] = $row["DOB"];
                 $_SESSION['gender'] = $row["gender"];
+                $_SESSION['amount'] = $row["amount"];
                 echo  "true";
             } else{
                 echo "false";
