@@ -47,6 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
+    // Calculate the total
     $gtotal = 0;
     foreach ($_SESSION['cart'] as $key => $value) {
         $total = $value['price'] * $value['quantity'];
@@ -54,11 +55,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $_SESSION['gtotal'] = $gtotal;
-    $details = array(
-        "value1" => $_SESSION['cart'],
-        "value2" => $gtotal,
-    );
+    
+    if (isset($_POST['getCount'])) {
+        // If the client requests the count, only return the count
+        $count = isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0;
+        echo json_encode(["count" => $count]);
+        return;
+    }
 
-    echo json_encode($details);
+    // Prepare details array
+    if (isset($_SESSION['cart'])) {
+        $details = array(
+            "value1" => $_SESSION['cart'],
+            "value2" => $gtotal,
+        );
+    } 
+    
+    // Encode and return details
+    $json_encoded = json_encode($details);
+
+    if ($json_encoded === false) {
+        // Handle JSON encoding error
+        echo json_last_error_msg();
+    } else {
+        echo $json_encoded;
+    }
 }
 ?>

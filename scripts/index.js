@@ -112,4 +112,60 @@
     })
   }
 
+  
+$(document).ready(function() {
+
+
+  $('#closed').hide();
+  var currentTime = new Date();
+
+var hours = currentTime.getHours()
+
+if(hours > 20){
+    $('#menu-display').hide();
+    $('#closed').show();
+
+}else{
+    $('#menu-display').show();
+    $('#closed').hide();
+}
+
+$('.productfrm').on('submit',function(event) {
+// Prevent the form from submitting normally
+event.preventDefault();
+
+// Get the form data
+var formData = $(this).serialize();
+
+// Send the data via AJAX
+$.ajax({
+  type: 'POST',
+  url: './phpactions/cartManager.php',
+  data: formData,
+  dataType:'json',
+
+
+success: function(response) {
+  Swal.fire(
+'Done!',
+'Item added successfully!',
+'success'
+ )
+
+ $('#noOfItems').html(`${response.value1.length}`);
+ totalItem = response.value1.length;
+if(totalItem==0|| totalItem==null|| totalItem==undefined || totalItem ==" "){
+
+  $('.noOfItems').css('display', 'none');
+ }
+ else{
+  $('.noOfItems').css('display', 'block');
+ }  
+
+
+}});
+
+
+}); 
+});
 
