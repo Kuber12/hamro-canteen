@@ -1,0 +1,229 @@
+table{
+    width: 100%;
+}
+.menu-content{
+    text-align: center;
+}
+.action-button{
+    margin-left: 20px;
+    background: var(--secondary-color);
+    /* padding: 5px 15px; */
+    border-radius: 30px;
+    width: 150px;
+    height: 40px;
+    color: black;
+    transition: cubic-bezier(1, 0, 0, 1);
+    transition-duration: 0.5s;
+}
+.action-button:hover{
+    background-color: var(--bright-green);
+    transform: scale(1.1);
+}
+.styled-table {
+    border-collapse: collapse;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    margin-bottom: 20px;
+}
+.styled-table th{
+    background-color: var(--secondary-color);
+}
+.styled-table thead tr {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    text-align: left;
+}
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid black;
+}
+.styled-table tbody tr {
+    border-bottom: 1px solid white;
+    background-color: white;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: var(--alternate-color);
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #9cdfd1;
+}
+.dashboard-items-img{
+    width: 50px;
+    height: 50px;
+}
+#drag-drop-text{
+    padding:0px 20px;
+    margin:40% 0px;
+}
+@keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+    /* width: 50px;
+    height: 50px; */
+}
+
+@keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* Apply the animation to the checkbox when it's checked */
+input[type="checkbox"]:checked {
+    animation: pop 0.3s ease-in-out;
+
+
+}
+/* popup */
+#popup-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    background-color: white;
+    border: 1px solid black;
+    padding: 10px;
+  }
+  #popup-blocker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9998;
+  }
+
+#image-upload-container > input[type="file"]{
+    display: none;
+} 
+
+  /* image upload */
+#image-upload-container {
+  border: 2px dashed #ccc;
+  text-align: center;   
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #eee;
+  width: 100%;
+  height: min-content;     
+}
+.highlight{
+    background-color: black;
+}
+#image-input{
+    display: none;
+}
+#preview {
+  max-width: 250px;
+  max-height: max-content;
+}
+label,input{
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#edit-form-contents{
+    display: flex;
+}
+#edit-form-contents > .left{
+    flex: 1;
+    margin-right: 10px;
+}
+#edit-form-contents > .right{
+    width: auto;
+}
+#form-days > .day{
+    display: inline-flex;
+    width: auto;
+    border-radius: 20px;
+    background-color: var(--alternate-color);
+    color: var(--tertiary-color);
+    margin: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition-duration: .3s;
+    border: var(--tertiary-color) 1px solid;
+}
+#form-days > .day:hover{
+    scale: 1.05;
+}
+.selected-day{
+    background-color: var(--secondary-color) !important;
+    color: white !important;
+}
+#form-days > div > input{
+    margin-right: 10px;
+    border-radius: 20px;
+    display:none;
+}
+#form-days{
+    margin:5px 0px;
+    
+}
+#add-edit{
+    background-color: var(--bright-green);
+    border-radius: 10px;
+    color: var(--tertiary-color);       
+    border: none;
+    width: auto;
+    padding: 15px 40px;
+    border: 2px solid var(--tertiary-color);
+}
+.blockerr{
+    display:none;
+    width:100vw;
+    height: 100vh;
+    background-color:black;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:3;
+    opacity:0.8;
+}
+#sort-by{
+    width: 60px;
+    height: 40px;
+    margin-right: 20px;
+}
+#order-by{
+    margin-right: 20px;
+}
+@media screen and (max-width: 700px) {
+    .styled-table th, .styled-table td {
+        padding: 6px 10px;
+    }
+    table{
+        overflow: hidden;
+    }
+    #popup-container{
+        top: 0;
+        left: 0;
+        transform: none;
+        width: 100vw;
+        height: 100vh;
+    }
+    .right{
+        height: 100px;
+    }
+    #edit-form-contents{
+        flex-direction: column;
+    }
+    #drag-drop-text{
+        padding: 0;
+        margin: 0;
+    }
+}

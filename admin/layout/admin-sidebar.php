@@ -25,13 +25,9 @@
       </a>
     </li>
     <li>
-    <a href="./wallet/depositeForm.php">
-      <i class="fa-solid fa-wallet"></i>
-        <span class="menu-name">Load Wallet</span>
-      </a>
-    </li>
+      </li>
     <li class="sign-out">
-      <a href="logout.php">
+      <a href="../logout.php">
         <i class="fa fa-sign-out"></i>
         <span class="menu-name">Sign out</span>
       </a>

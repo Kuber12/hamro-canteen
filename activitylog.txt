@@ -1,0 +1,10 @@
+delet iteam fixed
+delete user fixed
+add item  fixed
+edit item has some issue like:
+                    - edit needs double click 
+                    - relaod paxi first choti edit garda edit form ma available day kahile select vayera aauxa
+                       kahile chai kunai pani select vako hudaina
+
+                       
+yo vanda agadi ko version chahiyo vane test1 ma xa htdocs vitra.

@@ -85,6 +85,6 @@ $orderStmt->close();
 $orderItemsStmt->close();
 unset($_SESSION['cart']);
 mysqli_close($conn);
-header('Location: ../../orders.php');
+header('Location: ../../orders/orders.php');
 exit();
 ?>

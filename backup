@@ -1,0 +1,92 @@
+
+// $(document).ready(function(){
+//   displayCart();
+  
+// });
+
+
+
+// $('#cart').click(function(){
+//   displayCart();
+// })
+
+
+
+
+// function displayCart(){
+//   $.post("./phpactions/viewCart.php", function(data,status){
+
+//     response = JSON.parse(data);
+   
+//     response.forEach(function (item) {
+    
+//       var total = item['price'] * item['quantity'];
+//       $("#items").append(`<div class="item-row">
+//            <p><img src="./assets/itemimage/${item['imageurl']}" alt="product image"></p>
+//            <p id="product-name">${item['foodName']}</p>
+//            <p>${item['price']}</p>
+//            <p>X</p> 
+//            <p>${item['quantity']}</p>
+//            <p> = </p>
+//            <p>${total}</p>
+//            <!-- delete item from the cart -->
+//            <form class="removeItem">
+//            <input type="hidden" name="remove-item" />
+           
+//            <button class="remove-item" onclick="removeItem('${item.foodName}')">
+//            <i class="fa-solid fa-circle-xmark fa-xl" style="color: #000000;"></i></button>             
+           
+//            </div>`);
+//     });
+
+//   })
+//   // if (i==0 || i ==null) {
+//   //   
+//   //  
+//   // } else {
+//   //   
+//   //   
+//   // }
+// }
+       
+    
+      
+
+
+
+
+
+
+
+//     function removeItem(foodName) {
+      
+    
+//       Swal.fire({
+//         title: 'Are you sure?',
+//         text: "You won't be able to revert this!",
+//         icon: 'warning',
+//         showCancelButton: true,
+//         confirmButtonColor: '#3085d6',
+//         cancelButtonColor: '#d33',
+//         confirmButtonText: 'Yes, delete it!'
+//       }).then((result) => {
+//         if (result.isConfirmed) { // User clicked "Yes, delete it!"
+
+//           alert("okay");
+//       //  $.post('./phpactions/removeItem.php', function(data, status){
+
+//       //   console.log(data, status);
+//       //   // if(status == "success"){
+//       //   //   Swal.fire({
+//       //   //     position: 'center',
+//       //   //     icon: 'success',
+//       //   //     title: 'Iteam Added successfully',
+//       //   //     text: 'Welcome to your cart.',
+//       //   //     showConfirmButton: false,
+//       //   //     timer: 1500,
+//       //   //   })
+//       //   // }
+//       //  })
+//         }
+//       });
+//     }

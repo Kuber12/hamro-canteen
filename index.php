@@ -9,13 +9,13 @@ if (!isset($_SESSION['fullName'])) {
 }
 
 $day = date("l"); 
-// $day = "Friday";
+
 
 if (isset($_SESSION['today']) && $_SESSION['today'] !== $day) {
-    // Unset the cart session variable
+
     unset($_SESSION['cart']);
   }  
-  // Store the current date in the session
+
   $_SESSION['today'] = $day;
   
 include './layout/head.php';
@@ -110,9 +110,9 @@ include './layout/head.php';
                     <p>
 
                 </div>
-                <a href="profile.php"><i class="fa-solid fa-circle-user"></i> My Profile <div class="arrow-right"></div></a>
-                <a href="orders.php"><i class="fa-solid fa-cart-shopping"></i> My Orders <div class="arrow-right"></div></a>
-                <a href="help.php"><i class="fa-solid fa-circle-question"></i> Help <div class="arrow-right"></div> </a>
+                <a href="./profile/profile.php"><i class="fa-solid fa-circle-user"></i> My Profile <div class="arrow-right"></div></a>
+                <a href="./orders/orders.php"><i class="fa-solid fa-cart-shopping"></i> My Orders <div class="arrow-right"></div></a>
+                <a href="./help/help.php"><i class="fa-solid fa-circle-question"></i> Help <div class="arrow-right"></div> </a>
                 <a href="logout.php"> <i class="fa-solid fa-arrow-right-from-bracket"></i>Sign Out <div></div></a>
 
             </div>
@@ -151,8 +151,8 @@ include './layout/head.php';
 
 <script src="./scripts/jquery.js"> </script>
 <script src="./scripts/index.js"></script>
-<script src="./scripts/cart.js"></script>
-<script src="./scripts/cart-manager.js"></script>
+<script src="./cart/cart.js"></script>
+<script src="./cart/cart-manager.js"></script>
 
 <?php
 include './layout/foot.php';
