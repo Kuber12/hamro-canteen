@@ -25,6 +25,12 @@
       </a>
     </li>
     <li>
+      <a href="todaysOrders.php">
+        <i class="fa fa-note-sticky"></i>
+        <span class="menu-name">Todays Orders</span>
+      </a>
+    </li>
+    <li>
       </li>
     <li class="sign-out">
       <a href="../logout.php">
