@@ -28,14 +28,8 @@
   </div>
   <div class="dashboard-sidebar-right">
     <div>
-      <h2>Popular Right Now</h2>
+      <h2 style="padding-left:20px">Popular Right Now</h2>
       <canvas id="my-pie-chart"></canvas>
-    </div>
-    <div>
-      <h2>Sales Overview</h2>
-      <div style="height:300px">
-        <canvas id="my-line-chart" "></canvas>
-      </div>
     </div>
     
   </div>

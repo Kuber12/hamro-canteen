@@ -2,7 +2,9 @@ table{
     width: 100%;
 }
 .menu-content{
+    width: 100%;
     text-align: center;
+    overflow: auto;
 }
 .action-button{
     margin-left: 20px;
@@ -26,6 +28,7 @@ table{
     min-width: 400px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     margin-bottom: 20px;
+    overflow: auto;
 }
 .styled-table th{
     background-color: var(--secondary-color);
@@ -205,9 +208,6 @@ label,input{
 @media screen and (max-width: 700px) {
     .styled-table th, .styled-table td {
         padding: 6px 10px;
-    }
-    table{
-        overflow: hidden;
     }
     #popup-container{
         top: 0;
