@@ -25,11 +25,11 @@ include 'head.php';
             <p id ='name'><?php echo $_SESSION['fullName']; ?></p>
             <button class ='update' onclick='editProfile()'>Edit Profile </button>
             <button class ='update' onclick='changePassword()'>Change Password </button>
-            <p><span>Email: </span><span><?php echo $_SESSION['email']; ?></span></p>
+            <p><span>Email: </span><span id = "walletUserEmail"><?php echo $_SESSION['email']; ?></span></p>
             <p><span>Phone: </span><span><?php echo $_SESSION['phone']; ?></span></p>
             <p><span>Address: </span><span><?php echo $_SESSION['address']; ?></span></p>
             <p><span>Date of Birth: </span><span><?php echo $_SESSION['dob']; ?></span></p>
-            <p><span><button class = "wallet" onclick = "toggleAmount('<?php echo $_SESSION['amount']; ?>')"><i class="fa-solid fa-wallet"></i> My Wallet </button></span><span class="actualAmount">XXXXXX</span></p>
+            <p><span><button class = "wallet" onclick = "toggleAmount()"><i class="fa-solid fa-wallet"></i> My Wallet </button></span><span class="actualAmount"></span></p>
         </div>
         <div id="triangle2"></div>
     </div>
@@ -54,82 +54,7 @@ include 'head.php';
     </div>
 </div>
 <script src="../scripts/jquery.js"> </script>
-<script>
-    function navigateToPage() {
-        window.location.href = "../index.php";
-    }
-    function editProfile(){
-        $('#user-profile').hide();
-        $('#verify_pass').hide();
-        $('#verify_user').show();   
-
-    }function changePassword(){
-        $('#user-profile').hide();
-        $('#verify_pass').show();
-        $('#verify_user').hide();   
-
-    }
-    $('#verify').on('submit', function(event){
-        event.preventDefault();
-        var formData = $(this).serialize();
-
-        $.ajax({
-            url:'../phpactions/authentication.php',
-            method : 'POST',
-            data : formData,
-            dataType: 'json',
-
-            success:function(response){
-                if (response === true){
-                    // window.location = 'passwordReset.php';
-                    window.location = '../profile/updateProfile.php';
-                }else{
-                    $('#error').text("Incorrect Password");
-                }
-            }
-        })
-    });
-    $('#changePassword').on('submit', function(event){
-        event.preventDefault();
-        var formData = $(this).serialize();
-
-        $.ajax({
-            url:'../phpactions/authentication.php',
-            method : 'POST',
-            data : formData,
-            dataType: 'json',
-
-            success:function(response){
-                if (response === true){
-                    window.location = '../forgetPassword/passwordReset.php';
-                    // window.location = 'updateProfile.php';
-                }else{
-                    $('#ERRORMSG').text("Incorrect Password");
-                }
-            }
-        })
-    });
-
-    var amountVisible = false;
-
-            // Function to toggle the amount display
-            function toggleAmount(amount) {
-                if (amountVisible) {
-                    // If visible, hide the amount and show XXX
-                    $('.actualAmount').text('XXXXXX');
-                } else {
-                    // If hidden, show the actual amount
-                    // Replace this with your logic to get the actual amount
-                    
-                    $('.actualAmount').text("RS.  "  + amount);
-                }
-
-                // Toggle the state
-                amountVisible = !amountVisible;
-            }
-
- 
-</script>
+<script src="profile.js"> </script>
 <?php
 include 'foot.php';
 ?>

@@ -10,7 +10,7 @@
   <div class="dashboard-middle-container">
     <div class="dashboard-middle-container-top">
       <div class="hello-admin">
-        <p>Hello <?php echo $_SESSION["adminName"]?>,</p>
+        <p>HELLO  <?php echo strtoupper($_SESSION["adminName"])  ?>,</p>
       </div>
       <div class="canteen-status status-active">
         <p class="canteen-active-now-message">

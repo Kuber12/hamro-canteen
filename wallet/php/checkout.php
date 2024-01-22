@@ -1,5 +1,5 @@
 <?php
-include("connection.php");
+require("connection.php");
 
 $Date = date("Y-m-d");
 $userID = $_SESSION['userID'];
@@ -7,7 +7,8 @@ $orderID = 0;
 $gtotal = $_SESSION['gtotal'];
 $payment = "Mero Wallet";
 $status = "paid";
-$email = $_SESSION['email'];
+$email = $_SESSION['email'
+];
 
 
 // Get the next orderID

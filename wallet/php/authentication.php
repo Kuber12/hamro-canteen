@@ -1,6 +1,7 @@
 <?php
 
-include("connection.php");
+require("connection.php");
+
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $password = $_POST['password'];
@@ -19,6 +20,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }else{
   echo json_encode("email not found");
 }
-mysqli_close($conn);
+mysqli_close($conn); 
 }
 ?>

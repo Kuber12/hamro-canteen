@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  // displayCart();
+  displayCart();
 });
 
 $('#cart').click(function(){
@@ -22,7 +22,7 @@ $('#cart').click(function(){
    productQty: qty, 
  },
   function(data,status){
-   console.log(data);
+  
   if(status == "success"){
    Swal.fire({
      position: 'center',
@@ -30,8 +30,9 @@ $('#cart').click(function(){
      title: 'Iteam Added successfully',
      text: 'Welcome to your cart.',
      showConfirmButton: false,
-     timer: 1500,
-   })
+     timer: 1000,
+   });
+   displayCart();
   }
   }
 
@@ -72,12 +73,16 @@ function displayCart(){
   $.post("./cart/viewCart.php", function(data, status){
    
     if(data){
+
+      var itemCount  =  0;
+      var grandTotal  =  0;
       $("#items").html(``);
       data = JSON.parse(data);
       
-       data.forEach(function (item,i ) {
+       data.forEach(function (item) {
    
          var total = item['price'] * item['quantity'];
+         grandTotal += total;
          $("#items").append(`
            <div class="item-row">
              <p><img src="./assets/itemimage/${item['imageurl']}" alt="product image"></p>
@@ -95,15 +100,31 @@ function displayCart(){
                </button>
             
            </div>`);
+
+           itemCount++;
          
        });
-       $('.items').removeClass('empty');
-       $('#checkout').prop('disabled', false);
-       
+       let Gtotal = grandTotal;
+       let noOfItems = itemCount;
+       if(noOfItems > 0 ){
+        $('.items').removeClass('empty');
+        $('#checkout').prop('disabled', false);
+        $('#noOfItems').show();
+        $('#noOfItems').html(noOfItems);
+        $('#gTotal').html(Gtotal);
+        
+        
+       }else{
+        $('#checkout').prop('disabled', true);
+        $('.items').addClass('empty');
+        $('#noOfItems').hide();
+        $('#gTotal').html("0.000");        
+       }
+     
+      
       
     }else{
-      $('#checkout').prop('disabled', true);
-      $('.items').addClass('empty');
+      console.log("error while getting the data from cart Manager:");
     }
   
   });

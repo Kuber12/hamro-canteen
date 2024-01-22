@@ -1,24 +1,14 @@
 <?php
-session_start();
-
-// Check if the session variable is set
-if (!isset($_SESSION['fullName'])) {
-    
-    header("location:login.php");
-    exit();
-}
-
+require('./phpactions/userVerification.php');
+require './layout/head.php';
 $day = date("l"); 
-
 
 if (isset($_SESSION['today']) && $_SESSION['today'] !== $day) {
 
     unset($_SESSION['cart']);
-  }  
+  } 
 
-  $_SESSION['today'] = $day;
-  
-include './layout/head.php';
+  $_SESSION['today'] = $day; 
 
 ?>
 
@@ -155,6 +145,6 @@ include './layout/head.php';
 <script src="./cart/cart-manager.js"></script>
 
 <?php
-include './layout/foot.php';
+require './layout/foot.php';
 ?>
  

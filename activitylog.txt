@@ -8,3 +8,5 @@ edit item has some issue like:
 
                        
 yo vanda agadi ko version chahiyo vane test1 ma xa htdocs vitra.
+
+no of iteams in cart fixed;

@@ -4,7 +4,7 @@
 $day = "Sun";
 $today = 'avlbl' . $day; 
 
- include("./connection.php");
+ require("./connection.php");
  
  $sql = "select itemID, itemName, itemPrice, itemImg from items where  $today = 1";
  $result = $conn->query($sql);

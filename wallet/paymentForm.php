@@ -1,4 +1,12 @@
-<?php session_start(); ?>
+<?php 
+require('./php/userVerification.php');
+if(!isset($_SESSION['cart'])){
+
+    header('location:../index.php');
+    exit();
+
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">

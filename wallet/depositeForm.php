@@ -1,3 +1,8 @@
+
+<?php 
+require('./php/adminVerification.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,7 +53,7 @@
 
     <h2>Deposit Money into Your Wallet</h2>
 
-    <form id="depositForm" action="./php/validation.php" method="post" onsubmit="return validateForm()">
+    <form id="depositForm" action="./php/passwordProtection.php" method="GET" >
 
      
 
@@ -60,7 +65,7 @@
         <input type="text" id="amount" name="amount" placeholder="Enter the amount to deposit" required>
       
 
-        <button type="submit" >Deposit</button>
+        <button type="submit"  value = 'Proceed'>Deposit</button>
     </form>
     
     <script src="./javaScript/validation.js"></script>

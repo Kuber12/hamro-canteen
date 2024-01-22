@@ -1,14 +1,6 @@
 <?php
-include './layout/head.php';
-session_start();
-if (isset($_SESSION['adminName'])) {
-  header("location:./admin/index.php");
-  exit();
-}
-if (isset($_SESSION['fullName'])) {
-  header("location:index.php");
-  exit();
-}
+require './layout/head.php';
+require('./phpactions/redirect.php');
 ?>
 <!--css -->
 <link rel="stylesheet" href="./styles/login.css">
@@ -50,5 +42,5 @@ if (isset($_SESSION['fullName'])) {
 <script src="./scripts/login.js"></script>
 <script src="./scripts/jquery.js"></script>
 <?php
-    include './layout/foot.php';
+    require './layout/foot.php';
 ?>

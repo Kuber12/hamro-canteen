@@ -1,0 +1,15 @@
+major issue==========================================================
+
+
+
+
+
+minor issue============================================================
+eakchoti cart session set vayesi khali huda session clear vako hudaina so url bata paymentForm.php
+ kholyo vane previous session ko gtotal aauxa
+
+
+
+
+ Possible Solutions:======================================
+phpactions haru directly access garna nadina post method chalaune tesma isset lagaune possible xa vane.
