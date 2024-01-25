@@ -8,7 +8,7 @@ if ($conn->connect_error) {
 $sql = "SELECT order_items.foodName, SUM(order_items.quantity) AS totalQuantity
     FROM orders
     JOIN order_items ON orders.orderID = order_items.orderID
-    WHERE DATE(orders.orderedDate) = CURRENT_DATE
+    WHERE DATE(orders.orderedTime) = CURRENT_DATE
     GROUP BY order_items.foodName;";
 
 $result = $conn->query($sql);

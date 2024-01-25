@@ -34,6 +34,7 @@
                     <th>Total</th>  
                     <th>Status</th>
                     <th>View</th>
+                    <th></th>
                 </tr>
             </table>
         </div>

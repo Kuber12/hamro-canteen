@@ -1,9 +1,7 @@
 <?php
 include("connection.php");
 
-$interval = 1; // minutes
-
-$updateCanceledSql = "UPDATE orders SET status = 'canceled' WHERE status = 'pending' AND TIMESTAMPDIFF(MINUTE, OrderedTime, NOW()) <= $interval";
+$updateCanceledSql = "UPDATE orders SET status = 'canceled' WHERE status = 'pending'";
 
 if (mysqli_query($conn, $updateCanceledSql)) {
    echo "true";
